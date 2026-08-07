@@ -1,0 +1,8 @@
+{
+  "name": "A2TrailsGitHub",
+  "description": "Professional construction of riding infrastructure - helping municipalities, developers, and holiday parks create vibrant, active outdoor spaces",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
