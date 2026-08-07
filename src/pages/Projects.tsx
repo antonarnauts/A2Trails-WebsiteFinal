@@ -25,7 +25,7 @@ export default function Projects() {
   };
 
   const translateService = (service: string) => {
-    if (service === "Consultancy & Engineering") return t('nav.consultancy');
+    if (service === "Consultancy & Engineering" || service === "Research & Feasibility") return t('nav.consultancy');
     if (service === "Design") return t('nav.design');
     if (service === "Construction") return t('nav.construction');
     return service;

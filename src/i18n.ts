@@ -15,11 +15,13 @@ i18n
         translation: {
           nav: {
             home: 'Home',
+            products: 'Products',
+            allProducts: 'All Construction Products',
             services: 'Services',
             projects: 'Projects',
             about: 'About',
             contact: 'Contact',
-            consultancy: 'Consultancy & Engineering',
+            consultancy: 'Research & Feasibility',
             design: 'Design',
             construction: 'Construction',
             maintenance: 'Maintenance',
@@ -90,8 +92,8 @@ i18n
           },
           about: {
             title: 'Passion Meets Precision',
-            p1: 'A2Trails was founded by riders, for everyone. Our team combines a deep passion for mountain biking, BMX, and skateboarding with professional construction expertise to design and build world-class riding facilities.',
-            p2: 'From pump tracks and trail centers to skill parks, every project is carefully tailored to your needs. We deliver spaces that prioritize flow, safety, durability, and sustainability built with the same attention to detail we expect as riders ourselves.',
+            p1: 'At A2Trails, we design and build cycling infrastructure that creates lasting community impact. As a complete end-to-end partner, we deliver customized pumptracks, skill parks, and trail networks tailored to the needs of municipalities, contractors, and holiday parks.',
+            p2: 'Combining specialist engineering with a passion for riding, we create safe, inclusive spaces where people of all ages and abilities can move, progress, and connect.',
             stats: {
               experience: 'Years Experience',
               projects: 'Projects Completed',
@@ -104,7 +106,7 @@ i18n
               },
               design: {
                 title: 'Adapted Design',
-                desc: 'We analyze terrain, rider needs, and environmental factors to create optimal designs that maximize flow, challenge, and sustainability.',
+                desc: 'We analyse terrain, user needs, and environmental factors to create optimal designs that maximise rider confidence, fun, and sustainability.',
               },
               quality: {
                 title: 'Quality Construction',
@@ -202,7 +204,7 @@ i18n
           },
           services: {
             consultancy: {
-              title: 'Consultancy & Engineering',
+              title: 'Research & Feasibility',
               subtitle: 'Strategic planning and technical expertise for sustainable bike infrastructure',
               feasibility: {
                 title: 'Feasibility & Impact Studies',
@@ -246,7 +248,7 @@ i18n
             },
             design: {
               title: 'Design',
-              subtitle: 'Creative and functional trail designs that MAXIMIZE FUN and rider experience',
+              subtitle: 'Creative and functional designs that maximise fun and are scaled to your specific project',
               micro: {
                 title: 'Micro Design',
                 desc: 'Designing specific tracks tailored to local demands and user groups.',
@@ -290,7 +292,7 @@ i18n
             },
             construction: {
               title: 'Construction',
-              subtitle: 'Professional trail building with a focus on durability, safety, and flow',
+              subtitle: 'Creating infrastructure with a focus on durability, safety, and flow',
               pumptracks: {
                 title: 'Pumptracks',
                 desc: 'Professional asphalt pumptracks built for durability and perfect flow.',
@@ -507,18 +509,20 @@ i18n
         translation: {
           nav: {
             home: 'Home',
+            products: 'Producten',
+            allProducts: 'Alle Bouwproducten',
             services: 'Diensten',
             projects: 'Projecten',
             about: 'Over ons',
             contact: 'Contact',
-            consultancy: 'Consultancy & Engineering',
+            consultancy: 'Research & Feasibility',
             design: 'Ontwerp',
             construction: 'Bouw',
             maintenance: 'Onderhoud',
             designBuild: 'Design and Build',
           },
           hero: {
-            title: 'Ontwerpen & Bouwen van<br />Rij-infrastructuur voor Blijvende Impact',
+            title: 'Ontwerpen & Bouwen van<br />Rij-infrastructuur met Blijvende Impact',
             subtitle: 'Professionele aanleg van fietsinfrastructuur - wij helpen gemeenten, projectontwikkelaars en vakantieparken levendige, actieve buitenruimtes te creëren',
             cta: 'Bekijk Onze Projecten',
             cta2: 'Neem Contact Op',
@@ -582,8 +586,8 @@ i18n
           },
           about: {
             title: 'Passie Ontmoet Precisie',
-            p1: 'A2Trails is opgericht door rijders, voor iedereen. Ons team combineert een diepe passie voor mountainbiken, BMX en skateboarden met professionele bouwexpertise om rijfaciliteiten van wereldklasse te ontwerpen en te bouwen.',
-            p2: 'Van pumptracks en trailcenters tot skillparks, elk project wordt zorgvuldig afgestemd op uw behoeften. Wij leveren ruimtes die prioriteit geven aan flow, veiligheid, duurzaamheid en houdbaarheid gebouwd met dezelfde aandacht voor detail die wij als rijders zelf verwachten.',
+            p1: 'Bij A2Trails ontwerpen en bouwen we fietsinfrastructuur die een blijvende impact heeft op de gemeenschap. Als complete end-to-end partner leveren we op maat gemaakte pumptracks, skillparks en trailnetwerken afgestemd op de behoeften van gemeenten, aannemers en vakantieparken.',
+            p2: 'Door specialistische engineering te combineren met een passie voor rijden, creëren we veilige, inclusieve ruimtes waar mensen van alle leeftijden en niveaus kunnen bewegen, vooruitgang boeken en verbinden.',
             stats: {
               experience: 'Jaar Ervaring',
               projects: 'Projecten Voltooid',
@@ -596,7 +600,7 @@ i18n
               },
               design: {
                 title: 'Aangepast Ontwerp',
-                desc: 'We analyseren het terrein, de behoeften van de rijder en omgevingsfactoren om optimale ontwerpen te creëren die flow, uitdaging en duurzaamheid maximaliseren.',
+                desc: 'We analyseren het terrein, de behoeften van de gebruiker en omgevingsfactoren om optimale ontwerpen te creëren die het zelfvertrouwen van de rijder, plezier en duurzaamheid maximaliseren.',
               },
               quality: {
                 title: 'Kwaliteitsbouw',
@@ -694,7 +698,7 @@ i18n
           },
           services: {
             consultancy: {
-              title: 'Consultancy & Engineering',
+              title: 'Research & Feasibility',
               subtitle: 'Advies op maat, haalbaarheidsstudies en locatie beoordelingen voor pump tracks, skill parks en recreatieve netwerken.',
               feasibility: {
                 title: 'Haalbaarheids- & Impactstudies',
@@ -997,11 +1001,13 @@ i18n
         translation: {
           nav: {
             home: 'Accueil',
+            products: 'Produits',
+            allProducts: 'Tous les Produits de Construction',
             services: 'Services',
             projects: 'Projets',
             about: 'À propos',
             contact: 'Contact',
-            consultancy: 'Conseil & Ingénierie',
+            consultancy: 'Recherche & Faisabilité',
             design: 'Conception',
             construction: 'Construction',
             maintenance: 'Entretien',
@@ -1072,8 +1078,8 @@ i18n
           },
           about: {
             title: 'La Passion Rencontre la Précision',
-            p1: 'A2Trails a été fondé par des riders, pour des riders. Notre équipe combine une profonde passion pour le VTT, le BMX et le skateboard avec une expertise professionnelle en construction pour concevoir et construire des installations de classe mondiale.',
-            p2: 'Des pump tracks et centres de pistes aux parcs de compétences, chaque projet est soigneusement adapté à vos besoins. Nous livrons des espaces qui privilégient le flow, la sécurité, la durabilité et la pérennité—construits avec le même souci du détail que nous attendons en tant que riders nous-mêmes.',
+            p1: 'Chez A2Trails, nous concevons et construisons des infrastructures cyclables qui créent un impact communautaire durable. En tant que partenaire de bout en bout complet, nous livrons des pump tracks, parcs de compétences et réseaux de sentiers personnalisés, adaptés aux besoins des municipalités, des entrepreneurs et des parcs de vacances.',
+            p2: 'En alliant une ingénierie spécialisée à une passion pour le ride, nous créons des espaces sûrs et inclusifs où les personnes de tous âges et de toutes capacités peuvent bouger, progresser et se connecter.',
             stats: {
               experience: 'Années d\'Expérience',
               projects: 'Projets Réalisés',
@@ -1086,7 +1092,7 @@ i18n
               },
               design: {
                 title: 'Conception Adaptée',
-                desc: 'Nous analysons le terrain, les besoins des riders et les facteurs environnementaux pour créer des conceptions optimales qui maximisent le flow, le défi et la durabilité.',
+                desc: 'Nous analysons le terrain, les besoins des utilisateurs et les facteurs environnementaux pour créer des conceptions optimales qui maximisent la confiance des riders, le plaisir et la durabilité.',
               },
               quality: {
                 title: 'Construction de Qualité',
@@ -1183,7 +1189,7 @@ i18n
           },
           services: {
             consultancy: {
-              title: 'Conseil & Ingénierie',
+              title: 'Recherche & Faisabilité',
               subtitle: 'Planification stratégique et expertise technique pour des infrastructures cyclables durables',
               feasibility: {
                 title: 'Études de Faisabilité & d\'Impact',

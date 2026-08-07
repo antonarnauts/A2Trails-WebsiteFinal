@@ -92,23 +92,6 @@ export default function Construction() {
             image="images/pumptracks.webp"
             features={t('services.construction.pumptracks.features', { returnObjects: true }) as string[]}
           />
-          
-          <ServiceSection 
-            id="mtb-trails"
-            title={t('services.construction.mtbTrails.title')}
-            description={t('services.construction.mtbTrails.desc')}
-            image="images/trails.webp"
-            imageRight={true}
-            features={t('services.construction.mtbTrails.features', { returnObjects: true }) as string[]}
-          />
-
-          <ServiceSection 
-            id="jump-tracks"
-            title={t('services.construction.jumpTracks.title')}
-            description={t('services.construction.jumpTracks.desc')}
-            image="images/jumptracks.webp"
-            features={t('services.construction.jumpTracks.features', { returnObjects: true }) as string[]}
-          />
 
           <ServiceSection 
             id="skill-tracks"
@@ -117,6 +100,23 @@ export default function Construction() {
             image="images/skills.webp"
             imageRight={true}
             features={t('services.construction.skillTracks.features', { returnObjects: true }) as string[]}
+          />
+          
+          <ServiceSection 
+            id="mtb-trails"
+            title={t('services.construction.mtbTrails.title')}
+            description={t('services.construction.mtbTrails.desc')}
+            image="images/trails.webp"
+            features={t('services.construction.mtbTrails.features', { returnObjects: true }) as string[]}
+          />
+
+          <ServiceSection 
+            id="jump-tracks"
+            title={t('services.construction.jumpTracks.title')}
+            description={t('services.construction.jumpTracks.desc')}
+            image="images/jumptracks.webp"
+            imageRight={true}
+            features={t('services.construction.jumpTracks.features', { returnObjects: true }) as string[]}
           />
 
           <ServiceSection 

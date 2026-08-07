@@ -25,9 +25,20 @@ const ScrollToTop = () => {
       window.scrollTo(0, 0);
     } else {
       const id = hash.replace('#', '');
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+      const scrollToElement = () => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          return true;
+        }
+        return false;
+      };
+
+      if (!scrollToElement()) {
+        const timer = setTimeout(() => {
+          scrollToElement();
+        }, 150);
+        return () => clearTimeout(timer);
       }
     }
   }, [pathname, hash]);
@@ -37,9 +48,19 @@ const ScrollToTop = () => {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const location = useLocation();
   const { t, i18n } = useTranslation();
+
+  const constructionProducts = [
+    { title: t('services.construction.pumptracks.title'), href: "/services/construction#pumptracks" },
+    { title: t('services.construction.skillTracks.title'), href: "/services/construction#skill-tracks" },
+    { title: t('services.construction.mtbTrails.title'), href: "/services/construction#mtb-trails" },
+    { title: t('services.construction.jumpTracks.title'), href: "/services/construction#jump-tracks" },
+    { title: t('services.construction.bmxTracks.title'), href: "/services/construction#bmx-tracks" },
+    { title: t('services.construction.eMotoTracks.title'), href: "/services/construction#e-moto-tracks" },
+  ];
 
   const services = [
     { title: t('nav.consultancy'), href: "/services/consultancy" },
@@ -52,7 +73,7 @@ const Navbar = () => {
     i18n.changeLanguage(lng);
   };
 
-const LanguageButtons = () => (
+  const LanguageButtons = () => (
     <div className="flex items-center space-x-2 ml-4">
       {['en', 'nl', 'fr'].map((lng) => (
         <button
@@ -89,13 +110,48 @@ const LanguageButtons = () => (
             <div className="ml-10 flex items-center space-x-8">
               <Link to="/" className={`${location.pathname === '/' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.home')}</Link>
               
+              {/* Products Dropdown */}
+              <div 
+                className="relative group"
+                onMouseEnter={() => setIsProductsOpen(true)}
+                onMouseLeave={() => setIsProductsOpen(false)}
+              >
+                <Link
+                  to="/services/construction"
+                  className={`flex items-center gap-1 ${location.pathname === '/services/construction' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}
+                >
+                  {t('nav.products')} <ChevronDown className={`h-4 w-4 transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} />
+                </Link>
+                <AnimatePresence>
+                  {isProductsOpen && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      className="absolute left-0 mt-0 w-64 bg-brand-card border border-white/10 rounded-xl shadow-2xl overflow-hidden py-2 z-50"
+                    >
+                      {constructionProducts.map((product) => (
+                        <Link
+                          key={product.href}
+                          to={product.href}
+                          onClick={() => setIsProductsOpen(false)}
+                          className="block px-6 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-brand-orange transition-all"
+                        >
+                          {product.title}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               {/* Services Dropdown */}
               <div 
                 className="relative group"
                 onMouseEnter={() => setIsServicesOpen(true)}
                 onMouseLeave={() => setIsServicesOpen(false)}
               >
-                <button className="flex items-center gap-1 text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">
+                <button className={`flex items-center gap-1 ${location.pathname.startsWith('/services') && location.pathname !== '/services/construction' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>
                   {t('nav.services')} <ChevronDown className={`h-4 w-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
                 </button>
                 <AnimatePresence>
@@ -104,13 +160,14 @@ const LanguageButtons = () => (
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
-                      className="absolute left-0 mt-0 w-64 bg-brand-card border border-white/10 rounded-xl shadow-2xl overflow-hidden"
+                      className="absolute left-0 mt-0 w-64 bg-brand-card border border-white/10 rounded-xl shadow-2xl overflow-hidden py-2 z-50"
                     >
                       {services.map((service) => (
                         <Link
                           key={service.href}
                           to={service.href}
-                          className="block px-6 py-4 text-sm text-gray-300 hover:bg-white/5 hover:text-brand-orange transition-all"
+                          onClick={() => setIsServicesOpen(false)}
+                          className="block px-6 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-brand-orange transition-all"
                         >
                           {service.title}
                         </Link>
@@ -147,24 +204,47 @@ const LanguageButtons = () => (
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden bg-brand-dark border-b border-white/5 overflow-hidden"
+            className="md:hidden bg-brand-dark border-b border-white/5 overflow-hidden max-h-[85vh] overflow-y-auto"
           >
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <div className="px-3 pt-2 pb-4 space-y-1">
               <Link to="/" onClick={() => setIsOpen(false)} className="text-brand-orange block px-3 py-2 text-base font-medium">{t('nav.home')}</Link>
-              <div className="px-3 py-2 text-gray-500 text-xs font-bold uppercase tracking-wider">{t('nav.services')}</div>
+              
+              {/* Mobile Products */}
+              <div className="px-3 pt-3 pb-1 text-gray-500 text-xs font-bold uppercase tracking-wider flex items-center justify-between">
+                <span>{t('nav.products')}</span>
+                <Link to="/services/construction" onClick={() => setIsOpen(false)} className="text-brand-orange text-xs normal-case hover:underline">
+                  {t('nav.construction')} →
+                </Link>
+              </div>
+              {constructionProducts.map((product) => (
+                <Link
+                  key={product.href}
+                  to={product.href}
+                  onClick={() => setIsOpen(false)}
+                  className="text-gray-300 hover:text-white block px-6 py-2 text-sm font-medium"
+                >
+                  {product.title}
+                </Link>
+              ))}
+
+              {/* Mobile Services */}
+              <div className="px-3 pt-4 pb-1 text-gray-500 text-xs font-bold uppercase tracking-wider">{t('nav.services')}</div>
               {services.map((service) => (
                 <Link
                   key={service.href}
                   to={service.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-gray-300 hover:text-white block px-6 py-2 text-base font-medium"
+                  className="text-gray-300 hover:text-white block px-6 py-2 text-sm font-medium"
                 >
                   {service.title}
                 </Link>
               ))}
-              <Link to="/projects" onClick={() => setIsOpen(false)} className={`${location.pathname === '/projects' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.projects')}</Link>
-              <Link to="/about" onClick={() => setIsOpen(false)} className={`${location.pathname === '/about' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.about')}</Link>
-              <Link to="/contact" onClick={() => setIsOpen(false)} className={`${location.pathname === '/contact' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.contact')}</Link>
+
+              <div className="pt-2 border-t border-white/5">
+                <Link to="/projects" onClick={() => setIsOpen(false)} className={`${location.pathname === '/projects' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.projects')}</Link>
+                <Link to="/about" onClick={() => setIsOpen(false)} className={`${location.pathname === '/about' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.about')}</Link>
+                <Link to="/contact" onClick={() => setIsOpen(false)} className={`${location.pathname === '/contact' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.contact')}</Link>
+              </div>
             </div>
           </motion.div>
         )}
@@ -175,6 +255,7 @@ const LanguageButtons = () => (
 
 const Hero = () => {
   const { t } = useTranslation();
+
   return (
     <section className="relative min-h-[600px] md:h-[75vh] flex items-center justify-center overflow-hidden pt-32 pb-16 md:pt-0 md:pb-0">
       {/* Hero Background */}
@@ -215,14 +296,14 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-30"
         >
-          <Link to="/projects" className="w-full sm:w-auto bg-brand-orange hover:bg-brand-orange/90 text-white px-8 py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all group">
-            {t('hero.cta')}
+          <Link to="/contact" className="w-full sm:w-auto bg-brand-orange hover:bg-brand-orange/90 text-white px-8 py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all group">
+            {t('hero.cta2')}
             <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Link>
-          <Link to="/contact" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-lg font-bold transition-all text-center">
-            {t('hero.cta2')}
+          <Link to="/projects" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all">
+            {t('hero.cta')}
           </Link>
         </motion.div>
       </div>
@@ -234,9 +315,9 @@ const ConstructionProducts = () => {
   const { t } = useTranslation();
   const products = [
     { title: t('services.construction.pumptracks.title'), href: "/services/construction#pumptracks", icon: <Waves className="h-6 w-6" /> },
+    { title: t('services.construction.skillTracks.title'), href: "/services/construction#skill-tracks", icon: <ClipboardList className="h-6 w-6" /> },
     { title: t('services.construction.mtbTrails.title'), href: "/services/construction#mtb-trails", icon: <Mountain className="h-6 w-6" /> },
     { title: t('services.construction.jumpTracks.title'), href: "/services/construction#jump-tracks", icon: <Target className="h-6 w-6" /> },
-    { title: t('services.construction.skillTracks.title'), href: "/services/construction#skill-tracks", icon: <ClipboardList className="h-6 w-6" /> },
     { title: t('services.construction.bmxTracks.title'), href: "/services/construction#bmx-tracks", icon: <Bike className="h-6 w-6" /> },
     { title: t('services.construction.eMotoTracks.title'), href: "/services/construction#e-moto-tracks", icon: <Zap className="h-6 w-6" /> },
   ];

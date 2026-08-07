@@ -12,7 +12,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-brussel",
     title: "Pump Park Brussels",
     location: "Brussels, BE",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2021"
   },
@@ -20,7 +20,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-rendeux",
     title: "Rendeux",
     location: "Luxembourg, BE",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2022"
   },
@@ -28,7 +28,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-middelkerke",
     title: "Middelkerke",
     location: "West Flanders, BE",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2022"
   },
@@ -36,7 +36,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-lokeren",
     title: "Lokeren",
     location: "East Flanders, BE",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2022"
   },
@@ -44,7 +44,7 @@ export const projectsData: Project[] = [
     id: "skill-park-deinze",
     title: "Deinze Paleastra",
     location: "East Flanders, BE",
-    services: ["Consultancy & Engineering", "Design", "Construction"],
+    services: ["Research & Feasibility", "Design", "Construction"],
     category: "Skill Park",
     year: "2025"
   },
@@ -52,7 +52,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-deinze",
     title: "Deinze Brielmeersen",
     location: "East Flanders, BE",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2025"
   },
@@ -60,7 +60,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-neuville",
     title: "Neuville-en-Ferrain",
     location: "Hauts-de-France, FR",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2024"
   },
@@ -68,7 +68,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-nouzonville",
     title: "Nouzonville",
     location: "Ardennes, FR",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2024"
   },
@@ -76,7 +76,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-rode",
     title: "Sint-Genesius-Rode",
     location: "Flemish Brabant, BE",
-    services: ["Consultancy & Engineering", "Design", "Construction"],
+    services: ["Research & Feasibility", "Design", "Construction"],
     category: "Pumptrack",
     year: "2025"
   },
@@ -84,7 +84,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-seneffe",
     title: "Seneffe",
     location: "Hainaut, BE",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2024"
   },
@@ -92,7 +92,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-oud-heverlee",
     title: "Pumptrack Zoete Waters",
     location: "Flemish Brabant, BE",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2024"
   },
@@ -100,7 +100,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-wilsele",
     title: "Wilsele",
     location: "Flemish Brabant, BE",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2023"
   },
@@ -108,7 +108,7 @@ export const projectsData: Project[] = [
     id: "dirt-jumps-wilsele",
     title: "Wilsele",
     location: "Flemish Brabant, BE",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Dirt Jumps",
     year: "2024"
   },
@@ -116,7 +116,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-herent",
     title: "Herent",
     location: "Flemish Brabant, BE",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2022"
   },
@@ -124,7 +124,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-schoten",
     title: "Schoten",
     location: "Antwerp, BE",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2022"
   },
@@ -132,7 +132,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-lommel",
     title: "Lommel",
     location: "Limburg, BE",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2023"
   },
@@ -140,7 +140,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-maasmechelen",
     title: "Maasmechelen",
     location: "Limburg, BE",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2023"
   },
@@ -148,7 +148,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-plombieres",
     title: "Plombieres",
     location: "Liège, BE",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2023"
   },
@@ -156,7 +156,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-fleron",
     title: "Fléron",
     location: "Liège, BE",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2022"
   },
@@ -164,7 +164,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-sprimont",
     title: "Sprimont",
     location: "Liège, BE",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2021"
   },
@@ -172,7 +172,7 @@ export const projectsData: Project[] = [
     id: "trail-center-baraque",
     title: "Baraque-de-Fraiture",
     location: "Luxembourg, BE",
-    services: ["Consultancy & Engineering", "Design"],
+    services: ["Research & Feasibility", "Design"],
     category: "Trail Center",
     year: "2026"
   },
@@ -180,7 +180,7 @@ export const projectsData: Project[] = [
     id: "pumptrack-puurs",
     title: "Puurs",
     location: "Antwerp, BE",
-    services: ["Consultancy & Engineering", "Construction"],
+    services: ["Research & Feasibility", "Construction"],
     category: "Pumptrack",
     year: "2025"
   },
@@ -188,7 +188,7 @@ export const projectsData: Project[] = [
     id: "skill-park-puurs",
     title: "Puurs",
     location: "Antwerp, BE",
-    services: ["Consultancy & Engineering", "Design"],
+    services: ["Research & Feasibility", "Design"],
     category: "Skill Park",
     year: "2024"
   }
