@@ -113,8 +113,8 @@ i18n
                 desc: 'Using professional-grade equipment and proven techniques, we build facilities that stand the test of time and heavy use.',
               },
               pricing: {
-                title: 'Competitive Pricing',
-                desc: 'We offer high-quality construction at competitive rates because we are an independent firm with no franchise fees.',
+                title: 'Lasting Impact',
+                desc: "Perfectly blended in it's surroundings our tracks inspire confidence and create safer everyday cyclists",
               },
             },
             team: {
@@ -607,8 +607,8 @@ i18n
                 desc: 'Met behulp van professionele apparatuur en bewezen technieken bouwen we faciliteiten die de tand des tijds en intensief gebruik doorstaan.',
               },
               pricing: {
-                title: 'Scherpe Prijzen',
-                desc: 'Wij bieden hoogwaardige constructie tegen scherpe tarieven omdat wij een onafhankelijk bedrijf zijn zonder franchisekosten.',
+                title: 'Blijvende Impact',
+                desc: 'Perfect ingepast in de omgeving inspireren onze tracks zelfvertrouwen en creëren ze veiligere alledaagse fietsers.',
               },
             },
             team: {
@@ -1099,8 +1099,8 @@ i18n
                 desc: 'En utilisant un équipement de qualité professionnelle et des techniques éprouvées, nous construisons des installations qui résistent à l\'épreuve du temps et à une utilisation intensive.',
               },
               pricing: {
-                title: 'Prix Compétitifs',
-                desc: 'Nous proposons une construction de haute qualité à des tarifs compétitifs car nous sommes une entreprise indépendante sans frais de franchise.',
+                title: 'Impact Durable',
+                desc: 'Parfaitement intégrées dans leur environnement, nos pistes inspirent confiance et créent des cyclistes du quotidien plus sûrs.',
               },
             },
             team: {
