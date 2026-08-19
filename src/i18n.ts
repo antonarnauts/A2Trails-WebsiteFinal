@@ -93,7 +93,7 @@ i18n
           about: {
             title: 'Passion Meets Precision',
             p1: 'At A2Trails, we design and build cycling infrastructure that creates lasting community impact. As a complete end-to-end partner, we deliver customized pumptracks, skill parks, and trail networks tailored to the needs of municipalities, contractors, and holiday parks.',
-            p2: 'Combining specialist engineering with a passion for riding, we create safe, inclusive spaces where people of all ages and abilities can move, progress, and connect.',
+            p2: 'Combining landscape architecture with a passion for riding, we create safe, inclusive spaces where people of all ages and abilities can move, progress, and connect.',
             stats: {
               experience: 'Years Experience',
               projects: 'Projects Completed',
@@ -587,7 +587,7 @@ i18n
           about: {
             title: 'Passie Ontmoet Precisie',
             p1: 'Bij A2Trails ontwerpen en bouwen we fietsinfrastructuur die een blijvende impact heeft op de gemeenschap. Als complete end-to-end partner leveren we op maat gemaakte pumptracks, skillparks en trailnetwerken afgestemd op de behoeften van gemeenten, aannemers en vakantieparken.',
-            p2: 'Door specialistische engineering te combineren met een passie voor rijden, creëren we veilige, inclusieve ruimtes waar mensen van alle leeftijden en niveaus kunnen bewegen, vooruitgang boeken en verbinden.',
+            p2: 'Door landschapsarchitectuur te combineren met een passie voor rijden, creëren we veilige, inclusieve ruimtes waar mensen van alle leeftijden en niveaus kunnen bewegen, vooruitgang boeken en verbinden.',
             stats: {
               experience: 'Jaar Ervaring',
               projects: 'Projecten Voltooid',
@@ -1079,7 +1079,7 @@ i18n
           about: {
             title: 'La Passion Rencontre la Précision',
             p1: 'Chez A2Trails, nous concevons et construisons des infrastructures cyclables qui créent un impact communautaire durable. En tant que partenaire de bout en bout complet, nous livrons des pump tracks, parcs de compétences et réseaux de sentiers personnalisés, adaptés aux besoins des municipalités, des entrepreneurs et des parcs de vacances.',
-            p2: 'En alliant une ingénierie spécialisée à une passion pour le ride, nous créons des espaces sûrs et inclusifs où les personnes de tous âges et de toutes capacités peuvent bouger, progresser et se connecter.',
+            p2: 'En alliant l\'architecture paysagère à une passion pour le ride, nous créons des espaces sûrs et inclusifs où les personnes de tous âges et de toutes capacités peuvent bouger, progresser et se connecter.',
             stats: {
               experience: 'Années d\'Expérience',
               projects: 'Projets Réalisés',
