@@ -168,6 +168,7 @@ export default function Contact() {
                           defaultValue=""
                         >
                           <option value="" disabled>{t('contact.form.projectTypePlaceholder')}</option>
+                          <option value="info">{t('contact.form.projectTypeInfo')}</option>
                           <option value="consultancy">{t('nav.consultancy')}</option>
                           <option value="design">{t('nav.design')}</option>
                           <option value="construction">{t('nav.construction')}</option>
