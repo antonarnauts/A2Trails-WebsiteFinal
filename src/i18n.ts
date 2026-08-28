@@ -173,7 +173,7 @@ i18n
           },
           contact: {
             title: 'Get In Touch',
-            subtitle: 'Want to discuss your options? Fill out the form below or reach out directly.',
+            subtitle: 'Have an idea, a question or simply want to know more? Let’s talk.',
             info: 'Contact Information',
             phone: 'Phone',
             email: 'Email',
@@ -668,7 +668,7 @@ i18n
           },
           contact: {
             title: 'Neem Contact Op',
-            subtitle: 'Wilt u uw opties bespreken? Vul het onderstaande formulier in of neem direct contact op.',
+            subtitle: 'Heeft u een idee, een vraag of wilt u gewoon meer weten? Laten we praten.',
             info: 'Contactinformatie',
             phone: 'Telefoon',
             email: 'E-mail',
@@ -1161,7 +1161,7 @@ i18n
           },
           contact: {
             title: 'Contactez-nous',
-            subtitle: 'Vous souhaitez discuter de vos options ? Remplissez le formulaire ci-dessous ou contactez-nous directement.',
+            subtitle: 'Vous avez une idée, une question ou souhaitez simplement en savoir plus ? Discutons-en.',
             info: 'Informations de Contact',
             phone: 'Téléphone',
             email: 'E-mail',
