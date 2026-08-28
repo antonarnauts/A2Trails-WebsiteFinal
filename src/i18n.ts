@@ -668,7 +668,7 @@ i18n
           },
           contact: {
             title: 'Neem Contact Op',
-            subtitle: 'Heeft u een idee, een vraag of wilt u gewoon meer weten? Laten we praten.',
+            subtitle: 'Heeft u een idee, een vraag of wilt u gewoon meer weten?',
             info: 'Contactinformatie',
             phone: 'Telefoon',
             email: 'E-mail',
