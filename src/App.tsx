@@ -1,11 +1,12 @@
 import { motion, AnimatePresence } from "motion/react";
 import { Mountain, Waves, Target, ArrowRight, Menu, X, ClipboardList, DraftingCompass, HardHat, ChevronDown, Linkedin, Instagram, Mail, Phone, FileText, Zap, Bike, ShieldCheck, Wrench, Settings, Landmark, Tent, Ruler } from "lucide-react";
 import { useState, useEffect } from "react";
-import { HashRouter, Routes, Route, Link, useLocation } from "react-router-dom";
+import { HashRouter, Routes, Route, Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
 import SEO from "./components/SEO";
 import InsightsCarousel from "./components/InsightsCarousel";
 import { getAssetPath } from './lib/utils';
+import { getLanguageFromPath, getLocalizedPath, stripLanguagePrefix, isSupportedLanguage, SupportedLanguage } from './lib/i18nRouting';
 
 // Pages
 import Consultancy from "./pages/Consultancy";
@@ -48,12 +49,34 @@ const ScrollToTop = () => {
   return null;
 };
 
+const LanguageRouteSync = () => {
+  const { pathname, search } = useLocation();
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    const langFromPath = getLanguageFromPath(pathname);
+    const searchParams = new URLSearchParams(search);
+    const langFromQuery = searchParams.get('lang');
+
+    const targetLang = langFromPath || (isSupportedLanguage(langFromQuery) ? langFromQuery : null);
+
+    if (targetLang && i18n.language !== targetLang) {
+      i18n.changeLanguage(targetLang);
+    }
+  }, [pathname, search, i18n]);
+
+  return null;
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
+
+  const currentCleanPath = stripLanguagePrefix(location.pathname);
 
   const constructionProducts = [
     { title: t('services.construction.pumptracks.title'), href: "/services/construction#pumptracks" },
@@ -73,6 +96,8 @@ const Navbar = () => {
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
+    const newPath = getLocalizedPath(currentCleanPath, lng) + location.search + location.hash;
+    navigate(newPath);
   };
 
   const LanguageButtons = () => (
@@ -81,11 +106,12 @@ const Navbar = () => {
         <button
           key={lng}
           onClick={() => changeLanguage(lng)}
-          className={`px-2 py-1 text-xs font-bold rounded transition-colors ${
+          className={`px-2 py-1 text-xs font-bold rounded transition-colors cursor-pointer ${
             i18n.language === lng 
               ? 'bg-brand-orange text-white' 
               : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10'
           }`}
+          aria-label={`Switch to ${lng.toUpperCase()}`}
         >
           {lng.toUpperCase()}
         </button>
@@ -98,7 +124,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="flex items-center">
+            <Link to={getLocalizedPath('/', i18n.language)} className="flex items-center">
               <img 
                 src={getAssetPath('images/logo.webp')} 
                 alt="A2Trails - Sustainable Mountain Bike Trail Building Logo" 
@@ -110,7 +136,7 @@ const Navbar = () => {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center">
             <div className="ml-10 flex items-center space-x-8">
-              <Link to="/" className={`${location.pathname === '/' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.home')}</Link>
+              <Link to={getLocalizedPath('/', i18n.language)} className={`${currentCleanPath === '/' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.home')}</Link>
               
               {/* Products Dropdown */}
               <div 
@@ -119,8 +145,8 @@ const Navbar = () => {
                 onMouseLeave={() => setIsProductsOpen(false)}
               >
                 <Link
-                  to="/services/construction"
-                  className={`flex items-center gap-1 ${location.pathname === '/services/construction' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}
+                  to={getLocalizedPath('/services/construction', i18n.language)}
+                  className={`flex items-center gap-1 ${currentCleanPath === '/services/construction' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}
                 >
                   {t('nav.products')} <ChevronDown className={`h-4 w-4 transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} />
                 </Link>
@@ -135,7 +161,7 @@ const Navbar = () => {
                       {constructionProducts.map((product) => (
                         <Link
                           key={product.href}
-                          to={product.href}
+                          to={getLocalizedPath(product.href, i18n.language)}
                           onClick={() => setIsProductsOpen(false)}
                           className="block px-6 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-brand-orange transition-all"
                         >
@@ -153,7 +179,7 @@ const Navbar = () => {
                 onMouseEnter={() => setIsServicesOpen(true)}
                 onMouseLeave={() => setIsServicesOpen(false)}
               >
-                <button className={`flex items-center gap-1 ${location.pathname.startsWith('/services') && location.pathname !== '/services/construction' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>
+                <button className={`flex items-center gap-1 ${currentCleanPath.startsWith('/services') && currentCleanPath !== '/services/construction' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>
                   {t('nav.services')} <ChevronDown className={`h-4 w-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
                 </button>
                 <AnimatePresence>
@@ -167,7 +193,7 @@ const Navbar = () => {
                       {services.map((service) => (
                         <Link
                           key={service.href}
-                          to={service.href}
+                          to={getLocalizedPath(service.href, i18n.language)}
                           onClick={() => setIsServicesOpen(false)}
                           className="block px-6 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-brand-orange transition-all"
                         >
@@ -179,10 +205,10 @@ const Navbar = () => {
                 </AnimatePresence>
               </div>
 
-              <Link to="/projects" className={`${location.pathname === '/projects' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.projects')}</Link>
-              <Link to="/insights" className={`${location.pathname === '/insights' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.insights')}</Link>
-              <Link to="/about" className={`${location.pathname === '/about' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.about')}</Link>
-              <Link to="/contact" className={`${location.pathname === '/contact' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.contact')}</Link>
+              <Link to={getLocalizedPath('/projects', i18n.language)} className={`${currentCleanPath === '/projects' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.projects')}</Link>
+              <Link to={getLocalizedPath('/insights', i18n.language)} className={`${currentCleanPath === '/insights' || currentCleanPath.startsWith('/insights/') ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.insights')}</Link>
+              <Link to={getLocalizedPath('/about', i18n.language)} className={`${currentCleanPath === '/about' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.about')}</Link>
+              <Link to={getLocalizedPath('/contact', i18n.language)} className={`${currentCleanPath === '/contact' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.contact')}</Link>
             </div>
             <LanguageButtons />
           </div>
@@ -210,19 +236,19 @@ const Navbar = () => {
             className="md:hidden bg-brand-dark border-b border-white/5 overflow-hidden max-h-[85vh] overflow-y-auto"
           >
             <div className="px-3 pt-2 pb-4 space-y-1">
-              <Link to="/" onClick={() => setIsOpen(false)} className="text-brand-orange block px-3 py-2 text-base font-medium">{t('nav.home')}</Link>
+              <Link to={getLocalizedPath('/', i18n.language)} onClick={() => setIsOpen(false)} className={`${currentCleanPath === '/' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.home')}</Link>
               
               {/* Mobile Products */}
               <div className="px-3 pt-3 pb-1 text-gray-500 text-xs font-bold uppercase tracking-wider flex items-center justify-between">
                 <span>{t('nav.products')}</span>
-                <Link to="/services/construction" onClick={() => setIsOpen(false)} className="text-brand-orange text-xs normal-case hover:underline">
+                <Link to={getLocalizedPath('/services/construction', i18n.language)} onClick={() => setIsOpen(false)} className="text-brand-orange text-xs normal-case hover:underline">
                   {t('nav.construction')} →
                 </Link>
               </div>
               {constructionProducts.map((product) => (
                 <Link
                   key={product.href}
-                  to={product.href}
+                  to={getLocalizedPath(product.href, i18n.language)}
                   onClick={() => setIsOpen(false)}
                   className="text-gray-300 hover:text-white block px-6 py-2 text-sm font-medium"
                 >
@@ -235,7 +261,7 @@ const Navbar = () => {
               {services.map((service) => (
                 <Link
                   key={service.href}
-                  to={service.href}
+                  to={getLocalizedPath(service.href, i18n.language)}
                   onClick={() => setIsOpen(false)}
                   className="text-gray-300 hover:text-white block px-6 py-2 text-sm font-medium"
                 >
@@ -244,10 +270,10 @@ const Navbar = () => {
               ))}
 
               <div className="pt-2 border-t border-white/5">
-                <Link to="/projects" onClick={() => setIsOpen(false)} className={`${location.pathname === '/projects' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.projects')}</Link>
-                <Link to="/insights" onClick={() => setIsOpen(false)} className={`${location.pathname === '/insights' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.insights')}</Link>
-                <Link to="/about" onClick={() => setIsOpen(false)} className={`${location.pathname === '/about' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.about')}</Link>
-                <Link to="/contact" onClick={() => setIsOpen(false)} className={`${location.pathname === '/contact' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.contact')}</Link>
+                <Link to={getLocalizedPath('/projects', i18n.language)} onClick={() => setIsOpen(false)} className={`${currentCleanPath === '/projects' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.projects')}</Link>
+                <Link to={getLocalizedPath('/insights', i18n.language)} onClick={() => setIsOpen(false)} className={`${currentCleanPath === '/insights' || currentCleanPath.startsWith('/insights/') ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.insights')}</Link>
+                <Link to={getLocalizedPath('/about', i18n.language)} onClick={() => setIsOpen(false)} className={`${currentCleanPath === '/about' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.about')}</Link>
+                <Link to={getLocalizedPath('/contact', i18n.language)} onClick={() => setIsOpen(false)} className={`${currentCleanPath === '/contact' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.contact')}</Link>
               </div>
             </div>
           </motion.div>
@@ -258,7 +284,7 @@ const Navbar = () => {
 };
 
 const Hero = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <section className="relative flex items-center justify-center overflow-hidden pt-28 pb-8 sm:pt-32 sm:pb-10 md:pt-36 md:pb-10">
@@ -302,11 +328,11 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 relative z-30"
         >
-          <Link to="/contact" className="w-full sm:w-auto bg-brand-orange hover:bg-brand-orange/90 text-white px-6 py-3 rounded-lg font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition-all group">
+          <Link to={getLocalizedPath('/contact', i18n.language)} className="w-full sm:w-auto bg-brand-orange hover:bg-brand-orange/90 text-white px-6 py-3 rounded-lg font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition-all group">
             {t('hero.cta2')}
             <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
           </Link>
-          <Link to="/projects" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-lg font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition-all">
+          <Link to={getLocalizedPath('/projects', i18n.language)} className="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-lg font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition-all">
             {t('hero.cta')}
           </Link>
         </motion.div>
@@ -316,7 +342,7 @@ const Hero = () => {
 };
 
 const ConstructionProducts = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const products = [
     { title: t('services.construction.pumptracks.title'), href: "/services/construction#pumptracks", icon: <Waves className="h-6 w-6" /> },
     { title: t('services.construction.skillTracks.title'), href: "/services/construction#skill-tracks", icon: <ClipboardList className="h-6 w-6" /> },
@@ -339,7 +365,7 @@ const ConstructionProducts = () => {
               transition={{ delay: index * 0.1 }}
             >
               <Link 
-                to={product.href}
+                to={getLocalizedPath(product.href, i18n.language)}
                 className="flex flex-col items-center justify-center p-4 sm:p-5 bg-brand-card rounded-xl border border-white/5 hover:border-brand-orange/50 hover:bg-brand-orange/5 transition-all group text-center h-full"
               >
                 <div className="mb-2.5 text-brand-orange group-hover:scale-110 transition-transform">
@@ -440,7 +466,7 @@ const AudienceGateway = () => {
 };
 
 const Expertise = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const services = [
     {
       title: t('nav.consultancy'),
@@ -501,7 +527,7 @@ const Expertise = () => {
               transition={{ delay: index * 0.2 }}
               className="bg-brand-card rounded-2xl border border-white/5 hover:border-brand-orange/30 transition-all group overflow-hidden flex flex-col"
             >
-              <Link to={service.href} className="flex flex-col justify-between p-10 h-full">
+              <Link to={getLocalizedPath(service.href, i18n.language)} className="flex flex-col justify-between p-10 h-full">
                 <div>
                   <div className="mb-6">{service.icon}</div>
                   <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
@@ -523,7 +549,7 @@ const Expertise = () => {
 };
 
 const CTA = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   return (
     <section id="contact" className="py-24 bg-brand-orange">
       <div className="max-w-4xl mx-auto px-4 text-center">
@@ -545,7 +571,7 @@ const CTA = () => {
           {t('cta.subtitle')}
         </motion.p>
         <Link 
-          to="/contact"
+          to={getLocalizedPath('/contact', i18n.language)}
           className="bg-white text-brand-orange hover:bg-gray-100 px-10 py-5 rounded-lg font-bold text-lg flex items-center justify-center gap-2 mx-auto transition-all group inline-flex"
         >
           {t('cta.button')}
@@ -557,7 +583,7 @@ const CTA = () => {
 };
 
 const Footer = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   return (
     <footer className="bg-brand-dark py-20 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -579,21 +605,21 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-bold mb-6">{t('footer.quickLinks')}</h4>
             <ul className="space-y-4">
-              <li><Link to="/#services" className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.services')}</Link></li>
-              <li><Link to="/projects" className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.projects')}</Link></li>
-              <li><Link to="/insights" className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.insights')}</Link></li>
-              <li><Link to="/about" className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.about')}</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.contact')}</Link></li>
+              <li><Link to={getLocalizedPath('/#services', i18n.language)} className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.services')}</Link></li>
+              <li><Link to={getLocalizedPath('/projects', i18n.language)} className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.projects')}</Link></li>
+              <li><Link to={getLocalizedPath('/insights', i18n.language)} className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.insights')}</Link></li>
+              <li><Link to={getLocalizedPath('/about', i18n.language)} className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.about')}</Link></li>
+              <li><Link to={getLocalizedPath('/contact', i18n.language)} className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.contact')}</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-white font-bold mb-6">{t('footer.services')}</h4>
             <ul className="space-y-4">
-              <li><Link to="/services/consultancy" className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.consultancy')}</Link></li>
-              <li><Link to="/services/design" className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.design')}</Link></li>
-              <li><Link to="/services/construction" className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.construction')}</Link></li>
-              <li><Link to="/services/maintenance" className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.maintenance')}</Link></li>
+              <li><Link to={getLocalizedPath('/services/consultancy', i18n.language)} className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.consultancy')}</Link></li>
+              <li><Link to={getLocalizedPath('/services/design', i18n.language)} className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.design')}</Link></li>
+              <li><Link to={getLocalizedPath('/services/construction', i18n.language)} className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.construction')}</Link></li>
+              <li><Link to={getLocalizedPath('/services/maintenance', i18n.language)} className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.maintenance')}</Link></li>
             </ul>
           </div>
 
@@ -614,10 +640,10 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-bold mb-6">{t('footer.followUs')}</h4>
             <div className="flex gap-4">
-              <a href="https://www.linkedin.com/company/a2trails/" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-orange hover:text-white transition-all">
+              <a href="https://www.linkedin.com/company/a2trails/" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-orange hover:text-white transition-all" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="https://www.instagram.com/a2.trails?igsh=MXIybXRuMzlwaXV4cA==" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-orange hover:text-white transition-all">
+              <a href="https://www.instagram.com/a2.trails?igsh=MXIybXRuMzlwaXV4cA==" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-orange hover:text-white transition-all" aria-label="Instagram">
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
@@ -629,8 +655,8 @@ const Footer = () => {
             © {new Date().getFullYear()} A2Trails. {t('footer.rights')}
           </div>
           <div className="flex gap-8 text-gray-500 text-sm">
-            <Link to="/privacy" className="hover:text-white transition-colors">{t('footer.privacy')}</Link>
-            <Link to="/terms" className="hover:text-white transition-colors">{t('footer.terms')}</Link>
+            <Link to={getLocalizedPath('/privacy', i18n.language)} className="hover:text-white transition-colors">{t('footer.privacy')}</Link>
+            <Link to={getLocalizedPath('/terms', i18n.language)} className="hover:text-white transition-colors">{t('footer.terms')}</Link>
           </div>
         </div>
       </div>
@@ -657,10 +683,26 @@ export default function App() {
   return (
     <HashRouter>
       <ScrollToTop />
+      <LanguageRouteSync />
       <div className="min-h-screen bg-brand-dark">
         <Navbar />
         <main>
           <Routes>
+            {/* Language-prefixed routes (e.g. /nl/..., /fr/..., /en/...) */}
+            <Route path="/:lang" element={<HomePage />} />
+            <Route path="/:lang/services/consultancy" element={<Consultancy />} />
+            <Route path="/:lang/services/design" element={<Design />} />
+            <Route path="/:lang/services/construction" element={<Construction />} />
+            <Route path="/:lang/services/maintenance" element={<Maintenance />} />
+            <Route path="/:lang/projects" element={<Projects />} />
+            <Route path="/:lang/insights" element={<Insights />} />
+            <Route path="/:lang/insights/:articleId" element={<Insights />} />
+            <Route path="/:lang/about" element={<About />} />
+            <Route path="/:lang/contact" element={<Contact />} />
+            <Route path="/:lang/privacy" element={<PrivacyPolicy />} />
+            <Route path="/:lang/terms" element={<TermsOfService />} />
+
+            {/* Standard fallback routes without prefix */}
             <Route path="/" element={<HomePage />} />
             <Route path="/services/consultancy" element={<Consultancy />} />
             <Route path="/services/design" element={<Design />} />
@@ -668,6 +710,7 @@ export default function App() {
             <Route path="/services/maintenance" element={<Maintenance />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/insights" element={<Insights />} />
+            <Route path="/insights/:articleId" element={<Insights />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />

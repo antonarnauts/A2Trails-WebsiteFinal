@@ -4,9 +4,10 @@ import { useTranslation } from "react-i18next";
 import { Clock, ArrowRight } from "lucide-react";
 import { insightsData } from "../data/insights";
 import { getAssetPath } from "../lib/utils";
+import { getLocalizedPath } from "../lib/i18nRouting";
 
 export default function InsightsCarousel() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <section 
@@ -23,7 +24,7 @@ export default function InsightsCarousel() {
             return (
               <Link
                 key={article.id}
-                to={`/insights?article=${article.id}`}
+                to={getLocalizedPath(`/insights/${article.slug || article.id}`, i18n.language)}
                 className="group flex flex-col sm:flex-row items-stretch bg-brand-card/70 hover:bg-brand-card rounded-2xl border border-white/10 hover:border-brand-orange/40 transition-all duration-300 p-4 sm:p-5 gap-4 sm:gap-5 shadow-lg hover:shadow-brand-orange/5"
               >
                 {/* Thumbnail Image */}

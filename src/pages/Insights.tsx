@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { 
   X, 
   Clock, 
@@ -14,8 +14,9 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import SEO from "../components/SEO";
-import { insightsData, InsightArticle } from "../data/insights";
+import { insightsData, findArticle, InsightArticle } from "../data/insights";
 import { getAssetPath } from "../lib/utils";
+import { getLocalizedPath, getShareUrl } from "../lib/i18nRouting";
 
 function jumpToReference(refNumber: string) {
   const el = document.getElementById(`ref-${refNumber}`);
@@ -116,24 +117,48 @@ function renderFormattedText(text: string) {
 }
 
 export default function Insights() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const location = useLocation();
+  const navigate = useNavigate();
+  const params = useParams<{ articleId?: string; lang?: string }>();
   const [selectedArticle, setSelectedArticle] = useState<InsightArticle | null>(null);
   const [copied, setCopied] = useState(false);
 
+  // Sync selected article with URL params (/insights/:articleId or ?article=...)
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const articleParam = params.get('article');
-    if (articleParam) {
-      const match = insightsData.find(a => a.id === articleParam || a.slug === articleParam);
+    const searchParams = new URLSearchParams(location.search);
+    const queryParam = searchParams.get('article');
+    const targetSlug = params.articleId || queryParam;
+    
+    if (targetSlug) {
+      const match = findArticle(targetSlug);
       if (match) {
         setSelectedArticle(match);
+      } else {
+        setSelectedArticle(null);
       }
+    } else {
+      setSelectedArticle(null);
     }
-  }, [location.search]);
+  }, [params.articleId, location.search]);
+
+  const openArticle = (article: InsightArticle) => {
+    setSelectedArticle(article);
+    const targetPath = getLocalizedPath(`/insights/${article.slug || article.id}`, i18n.language);
+    navigate(targetPath);
+  };
+
+  const closeArticle = () => {
+    setSelectedArticle(null);
+    const targetPath = getLocalizedPath('/insights', i18n.language);
+    navigate(targetPath);
+  };
 
   const handleShare = (articleId: string) => {
-    const url = `${window.location.origin}${window.location.pathname}#/insights?article=${articleId}`;
+    const article = findArticle(articleId);
+    const slug = article ? (article.slug || article.id) : articleId;
+    const url = getShareUrl(`/insights/${slug}`, i18n.language);
+    
     if (navigator.clipboard) {
       navigator.clipboard.writeText(url);
       setCopied(true);
@@ -141,12 +166,24 @@ export default function Insights() {
     }
   };
 
+  const currentSeoTitle = selectedArticle
+    ? `${t(`insights.articles.${selectedArticle.id}.title`)} | A2Trails Insights`
+    : t('nav.insights');
+
+  const currentSeoDesc = selectedArticle
+    ? t(`insights.articles.${selectedArticle.id}.excerpt`)
+    : t('insights.subtitle');
+
+  const currentCanonical = selectedArticle
+    ? getShareUrl(`/insights/${selectedArticle.slug || selectedArticle.id}`, i18n.language)
+    : getShareUrl('/insights', i18n.language);
+
   return (
     <div className="pt-32 bg-brand-dark min-h-screen">
       <SEO 
-        title={t('nav.insights')}
-        description={t('insights.subtitle')}
-        canonical="https://a2trails.com/insights"
+        title={currentSeoTitle}
+        description={currentSeoDesc}
+        canonical={currentCanonical}
       />
 
       {/* Hero Header */}
@@ -188,11 +225,11 @@ export default function Insights() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: idx * 0.1 }}
-                    onClick={() => setSelectedArticle(article)}
+                    onClick={() => openArticle(article)}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
-                        setSelectedArticle(article);
+                        openArticle(article);
                       }
                     }}
                     role="button"
@@ -255,7 +292,7 @@ export default function Insights() {
                 </h3>
               </div>
               <Link
-                to="/contact"
+                to={getLocalizedPath('/contact', i18n.language)}
                 className="whitespace-nowrap bg-brand-orange hover:bg-brand-orange-hover text-white px-8 py-3.5 rounded-xl font-bold text-sm flex items-center gap-2 transition-all shadow-lg shadow-brand-orange/20"
               >
                 {t('insights.cta.button')}
@@ -289,8 +326,8 @@ export default function Insights() {
                 
                 {/* Close Button */}
                 <button
-                  onClick={() => setSelectedArticle(null)}
-                  className="absolute top-4 right-4 bg-brand-dark/80 hover:bg-brand-orange text-white p-2.5 rounded-full backdrop-blur-md border border-white/10 transition-colors z-10"
+                  onClick={closeArticle}
+                  className="absolute top-4 right-4 bg-brand-dark/80 hover:bg-brand-orange text-white p-2.5 rounded-full backdrop-blur-md border border-white/10 transition-colors z-10 cursor-pointer"
                   aria-label="Close article"
                 >
                   <X className="h-5 w-5" />
@@ -459,14 +496,14 @@ export default function Insights() {
                 <div className="pt-6 border-t border-gray-200 flex items-center justify-end gap-3">
                   <button
                     onClick={() => handleShare(selectedArticle.id)}
-                    className="px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl text-xs font-semibold flex items-center gap-2 transition-colors border border-gray-300"
+                    className="px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl text-xs font-semibold flex items-center gap-2 transition-colors border border-gray-300 cursor-pointer"
                   >
                     {copied ? <Check className="h-4 w-4 text-green-600" /> : <Share2 className="h-4 w-4" />}
-                    {copied ? "Copied!" : t('insights.share')}
+                    {copied ? "Copied Link!" : t('insights.share')}
                   </button>
                   <button
-                    onClick={() => setSelectedArticle(null)}
-                    className="px-5 py-2.5 bg-brand-orange hover:bg-brand-orange-hover text-white rounded-xl text-xs font-bold flex items-center gap-2 transition-all shadow-md shadow-brand-orange/20"
+                    onClick={closeArticle}
+                    className="px-5 py-2.5 bg-brand-orange hover:bg-brand-orange-hover text-white rounded-xl text-xs font-bold flex items-center gap-2 transition-all shadow-md shadow-brand-orange/20 cursor-pointer"
                   >
                     <ArrowLeft className="h-4 w-4" />
                     {t('insights.backToInsights')}
