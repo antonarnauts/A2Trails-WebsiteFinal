@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { HashRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
 import SEO from "./components/SEO";
+import InsightsCarousel from "./components/InsightsCarousel";
 import { getAssetPath } from './lib/utils';
 
 // Pages
@@ -260,7 +261,7 @@ const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="relative min-h-[600px] md:h-[75vh] flex items-center justify-center overflow-hidden pt-32 pb-16 md:pt-0 md:pb-0">
+    <section className="relative flex items-center justify-center overflow-hidden pt-28 pb-8 sm:pt-32 sm:pb-10 md:pt-36 md:pb-10">
       {/* Hero Background */}
       <div className="absolute inset-0 z-0">
         <img
@@ -278,34 +279,34 @@ const Hero = () => {
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
         <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-7xl font-bold text-white mb-6 leading-tight"
+          transition={{ duration: 0.6 }}
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 md:mb-4 leading-tight tracking-tight"
         >
           <Trans i18nKey="hero.title" components={{ br: <br /> }} />
         </motion.h1>
         
         <motion.p 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto"
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="text-sm sm:text-base md:text-lg text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed"
         >
           {t('hero.subtitle')}
         </motion.p>
 
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-30"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 relative z-30"
         >
-          <Link to="/contact" className="w-full sm:w-auto bg-brand-orange hover:bg-brand-orange/90 text-white px-8 py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all group">
+          <Link to="/contact" className="w-full sm:w-auto bg-brand-orange hover:bg-brand-orange/90 text-white px-6 py-3 rounded-lg font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition-all group">
             {t('hero.cta2')}
-            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
           </Link>
-          <Link to="/projects" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all">
+          <Link to="/projects" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-lg font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition-all">
             {t('hero.cta')}
           </Link>
         </motion.div>
@@ -326,9 +327,9 @@ const ConstructionProducts = () => {
   ];
 
   return (
-    <section className="bg-brand-dark/50 py-12 border-b border-white/5 relative z-20">
+    <section className="bg-brand-dark/50 py-8 sm:py-10 border-b border-white/5 relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
           {products.map((product, index) => (
             <motion.div
               key={index}
@@ -339,12 +340,12 @@ const ConstructionProducts = () => {
             >
               <Link 
                 to={product.href}
-                className="flex flex-col items-center justify-center p-6 bg-brand-card rounded-xl border border-white/5 hover:border-brand-orange/50 hover:bg-brand-orange/5 transition-all group text-center h-full"
+                className="flex flex-col items-center justify-center p-4 sm:p-5 bg-brand-card rounded-xl border border-white/5 hover:border-brand-orange/50 hover:bg-brand-orange/5 transition-all group text-center h-full"
               >
-                <div className="mb-3 text-brand-orange group-hover:scale-110 transition-transform">
+                <div className="mb-2.5 text-brand-orange group-hover:scale-110 transition-transform">
                   {product.icon}
                 </div>
-                <span className="text-base font-bold text-gray-300 group-hover:text-white transition-colors">
+                <span className="text-sm sm:text-base font-bold text-gray-300 group-hover:text-white transition-colors">
                   {product.title}
                 </span>
               </Link>
@@ -645,6 +646,7 @@ const HomePage = () => (
     />
     <Hero />
     <ConstructionProducts />
+    <InsightsCarousel />
     <AudienceGateway />
     <Expertise />
     <CTA />

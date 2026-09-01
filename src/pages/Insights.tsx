@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { 
   X, 
   Clock, 
@@ -117,8 +117,20 @@ function renderFormattedText(text: string) {
 
 export default function Insights() {
   const { t } = useTranslation();
+  const location = useLocation();
   const [selectedArticle, setSelectedArticle] = useState<InsightArticle | null>(null);
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const articleParam = params.get('article');
+    if (articleParam) {
+      const match = insightsData.find(a => a.id === articleParam || a.slug === articleParam);
+      if (match) {
+        setSelectedArticle(match);
+      }
+    }
+  }, [location.search]);
 
   const handleShare = (articleId: string) => {
     const url = `${window.location.origin}${window.location.pathname}#/insights?article=${articleId}`;

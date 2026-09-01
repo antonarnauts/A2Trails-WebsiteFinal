@@ -34,6 +34,15 @@ i18n
             cta: 'View Our Projects',
             cta2: 'Get In Touch',
           },
+          homeInsights: {
+            badge: 'Industry Insights & Research',
+            title: 'Featured Knowledge & Practical Guides',
+            subtitle: 'Explore our latest articles on how specialized biking infrastructure creates lasting value for municipalities and construction projects.',
+            viewAll: 'View All Insights',
+            readArticle: 'Read Full Article',
+            articleBadge: 'Industry Insights',
+            slideOf: 'Article {{current}} of {{total}}',
+          },
           sectors: {
             title: 'Solutions Tailored to Your Sector',
             subtitle: 'Specialized design, consultancy, and construction expertise engineered for your unique project requirements.',
@@ -691,6 +700,15 @@ References
             cta: 'Bekijk Onze Projecten',
             cta2: 'Neem Contact Op',
           },
+          homeInsights: {
+            badge: 'Inzichten & Onderzoek',
+            title: 'Uitgelichte Kennis & Praktijkgidsen',
+            subtitle: 'Ontdek onze nieuwste artikelen over hoe gespecialiseerde fietsinfrastructuur blijvende waarde creëert voor gemeenten en projectontwikkelingen.',
+            viewAll: 'Bekijk Alle Inzichten',
+            readArticle: 'Lees Volledig Artikel',
+            articleBadge: 'Industry Insights',
+            slideOf: 'Artikel {{current}} van {{total}}',
+          },
           sectors: {
             title: 'Oplossingen Afgestemd op Uw Sector',
             subtitle: 'Gespecialiseerd ontwerp, advies en bouwexpertise afgestemd op de specifieke vereisten van uw project.',
@@ -1344,6 +1362,15 @@ Referenties
             subtitle: 'Construction professionnelle d\'infrastructures cyclables - nous aidons les municipalités, les promoteurs et les villages de vacances à créer des espaces extérieurs dynamiques et actifs',
             cta: 'Voir Nos Projets',
             cta2: 'Contactez-nous',
+          },
+          homeInsights: {
+            badge: 'Analyses & Recherches',
+            title: 'Articles à la Une & Guides Pratiques',
+            subtitle: 'Découvrez nos dernières publications sur la manière dont les infrastructures cyclables spécialisées créent une valeur durable pour les collectivités et les projets d\'aménagement.',
+            viewAll: 'Voir Tous Les Articles',
+            readArticle: 'Lire l\'Article Complet',
+            articleBadge: 'Industry Insights',
+            slideOf: 'Article {{current}} sur {{total}}',
           },
           sectors: {
             title: 'Des Solutions Adaptées à Votre Secteur',
