@@ -21,7 +21,7 @@ export const insightsData: InsightArticle[] = [
       "article2",
       "article-2"
     ],
-    readTime: "4 min",
+    readTime: "5",
     date: "September 2026",
     image: "/images/article2.webp",
     imagePosition: "object-left",
@@ -38,7 +38,7 @@ export const insightsData: InsightArticle[] = [
       "article1",
       "article-1"
     ],
-    readTime: "4 min",
+    readTime: "2",
     date: "September 2026",
     image: "/images/article1.webp",
     imagePosition: "object-center",
