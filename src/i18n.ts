@@ -286,7 +286,7 @@ Planning a biking infrastructure project? [Let's talk](/contact)
 
 References
 [1] Federal Government of Belgium. (2026, May 22). Be Cyclist 2.0: Federal action plan for cycling 2026–2029. News.belgium. https://news.belgium.be/nl/be-cyclist-20-federaal-actieplan-voor-de-fiets-2026-2029
-[2] Federal Public Service Mobility and Transport. (2026, March 5). Federal survey on home-to-work travel 2024–2025: Twice as many cyclists in 20 years. News.belgium. https://news.belgium.be/nl/be-cyclist-20-federaal-actieplan-voor-de-fiets-2026-2029
+[2] Federal Public Service Mobility and Transport. (2026, May 22). Federal survey on home-to-work travel 2024–2025: Twice as many cyclists in 20 years. News.belgium. https://mobilit.belgium.be/nl/news/nieuw-actieplan-be-cyclist-20
 [3] Oja, P., Titze, S., Bauman, A., de Geus, B., Krenn, P., Reger-Nash, B., & Kohlberger, T. (2011). Health benefits of cycling: A systematic review. Scandinavian Journal of Medicine & Science in Sports, 21(4), 496–509. https://doi.org/10.1111/j.1600-0838.2011.01299.x
 [4] Nordengen, S., Andersen, L. B., Solbraa, A. K., & Riiser, A. (2019). Cycling is associated with a lower incidence of cardiovascular diseases and death: Part 1 -Systematic review of cohort studies with meta-analysis. British Journal of Sports Medicine, 53(14), 870–878. https://doi.org/10.1136/bjsports-2018-099099
 [5] Howard, K. A., Griffin, S. F., Rolke, L. J., et al. (2025). Exploration of individual and context features of a bicycle skills program for riding injury prevention knowledge and self-efficacy among children. Journal of Transport & Health, 43, 102050. https://doi.org/10.1016/j.jth.2025.102050
@@ -952,7 +952,7 @@ Een fietsinfrastructuurproject plannen? [Laten we praten](/contact)
 
 Referenties
 [1] Federale Regering van België. (2026, 22 mei). Be Cyclist 2.0: Federaal actieplan voor de fiets 2026–2029. News.belgium. https://news.belgium.be/nl/be-cyclist-20-federaal-actieplan-voor-de-fiets-2026-2029
-[2] Federale Overheidsdienst Mobiliteit en Vervoer. (2026, 5 maart). Federale diagnostiek woon-werkverkeer 2024–2025: Dubbel zoveel fietsers in 20 jaar. News.belgium. https://news.belgium.be/nl/be-cyclist-20-federaal-actieplan-voor-de-fiets-2026-2029
+[2] Federale Overheidsdienst Mobiliteit en Vervoer. (2026, 22 mei). Federale diagnostiek woon-werkverkeer 2024–2025: Dubbel zoveel fietsers in 20 jaar. News.belgium. https://mobilit.belgium.be/nl/news/nieuw-actieplan-be-cyclist-20
 [3] Oja, P., Titze, S., Bauman, A., de Geus, B., Krenn, P., Reger-Nash, B., & Kohlberger, T. (2011). Health benefits of cycling: A systematic review. Scandinavian Journal of Medicine & Science in Sports, 21(4), 496–509. https://doi.org/10.1111/j.1600-0838.2011.01299.x
 [4] Nordengen, S., Andersen, L. B., Solbraa, A. K., & Riiser, A. (2019). Cycling is associated with a lower incidence of cardiovascular diseases and death: Part 1 -Systematic review of cohort studies with meta-analysis. British Journal of Sports Medicine, 53(14), 870–878. https://doi.org/10.1136/bjsports-2018-099099
 [5] Howard, K. A., Griffin, S. F., Rolke, L. J., et al. (2025). Exploration of individual and context features of a bicycle skills program for riding injury prevention knowledge and self-efficacy among children. Journal of Transport & Health, 43, 102050. https://doi.org/10.1016/j.jth.2025.102050
@@ -1615,7 +1615,7 @@ Vous planifiez un projet d'infrastructure cyclable ? [Échangeons ensemble](/con
 
 Références
 [1] Gouvernement Fédéral de Belgique. (2026, 22 mai). Be Cyclist 2.0 : Plan d'action fédéral pour le vélo 2026–2029. News.belgium. https://news.belgium.be/nl/be-cyclist-20-federaal-actieplan-voor-de-fiets-2026-2029
-[2] SPF Mobilité et Transports. (2026, 5 mars). Diagnostic fédéral des déplacements domicile-travail 2024–2025 : Deux fois plus de cyclistes en 20 ans. News.belgium. https://news.belgium.be/nl/be-cyclist-20-federaal-actieplan-voor-de-fiets-2026-2029
+[2] SPF Mobilité et Transports. (2026, 22 mai). Diagnostic fédéral des déplacements domicile-travail 2024–2025 : Deux fois plus de cyclistes en 20 ans. News.belgium. https://mobilit.belgium.be/nl/news/nieuw-actieplan-be-cyclist-20
 [3] Oja, P., Titze, S., Bauman, A., de Geus, B., Krenn, P., Reger-Nash, B., & Kohlberger, T. (2011). Health benefits of cycling: A systematic review. Scandinavian Journal of Medicine & Science in Sports, 21(4), 496–509. https://doi.org/10.1111/j.1600-0838.2011.01299.x
 [4] Nordengen, S., Andersen, L. B., Solbraa, A. K., & Riiser, A. (2019). Cycling is associated with a lower incidence of cardiovascular diseases and death: Part 1 -Systematic review of cohort studies with meta-analysis. British Journal of Sports Medicine, 53(14), 870–878. https://doi.org/10.1136/bjsports-2018-099099
 [5] Howard, K. A., Griffin, S. F., Rolke, L. J., et al. (2025). Exploration of individual and context features of a bicycle skills program for riding injury prevention knowledge and self-efficacy among children. Journal of Transport & Health, 43, 102050. https://doi.org/10.1016/j.jth.2025.102050

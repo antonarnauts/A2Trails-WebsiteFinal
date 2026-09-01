@@ -16,7 +16,7 @@ export default function InsightsCarousel() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-          {insightsData.map((article, idx) => {
+          {insightsData.map((article) => {
             const title = t(`insights.articles.${article.id}.title`);
             const excerpt = t(`insights.articles.${article.id}.excerpt`);
 
@@ -31,15 +31,10 @@ export default function InsightsCarousel() {
                   <img
                     src={getAssetPath(article.image)}
                     alt={title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className={`w-full h-full object-cover ${article.imagePosition || 'object-center'} group-hover:scale-105 transition-transform duration-500`}
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
-                  
-                  {/* Badge */}
-                  <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-brand-dark/90 backdrop-blur-md border border-white/10 text-[10px] font-bold text-brand-orange">
-                    {t('homeInsights.articleBadge')}
-                  </div>
                 </div>
 
                 {/* Content */}
