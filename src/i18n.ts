@@ -19,6 +19,7 @@ i18n
             allProducts: 'All Construction Products',
             services: 'Services',
             projects: 'Projects',
+            insights: 'Insights',
             about: 'About',
             contact: 'Contact',
             consultancy: 'Research & Feasibility',
@@ -169,6 +170,167 @@ i18n
               skillPark: 'Skill Park',
               trailCenter: 'Trail Center',
               dirtJumps: 'Dirt Jumps',
+            },
+          },
+          insights: {
+            title: 'Industry Insights',
+            subtitle: 'Thoughts, projects and inspiration from the world of biking infrastructure.',
+            directory: 'Articles & Knowledge Base',
+            browse: 'Explore research, case studies, and engineering deep-dives from our trail builders and landscape architects.',
+            search: 'Search articles, topics or tags...',
+            filter: 'Category:',
+            all: 'All Categories',
+            readTime: 'min read',
+            readArticle: 'Read Article',
+            backToInsights: 'Back to Insights',
+            share: 'Share',
+            keyTakeaways: 'Key Takeaways',
+            noResults: 'No articles found matching your criteria.',
+            clearFilters: 'Clear filters',
+            categories: {
+              engineering: 'Design & Engineering',
+              landscape: 'Landscape Architecture',
+              construction: 'Construction & Environment',
+              safety: 'Safety & Norms',
+              maintenance: 'Maintenance & Lifecycle',
+              planning: 'Planning & Feasibility',
+            },
+            cta: {
+              title: 'Have a project that includes biking infrastructure?',
+              button: "Let's Talk",
+            },
+            articles: {
+              'biking-infrastructure-partnerships': {
+                title: 'Building Better Projects Through Biking Infrastructure Partnerships',
+                meta: 'Written by A2Trails · Published September 2026 · Construction specialist partnership',
+                excerpt: 'Modern developments are increasingly complex, blending housing, public spaces, and recreation. Meeting these demands often requires bringing specialized expertise into your project team.',
+                content: `Modern developments are increasingly complex, blending housing, public spaces, and recreation. Meeting these demands often requires bringing specialized expertise into your project team.
+
+Biking infrastructure—such as [pump tracks](/services/construction#pumptracks), [skills parks](/services/construction#skill-tracks), and trails—is one area where specialist knowledge makes a measurable difference. Partnering with a specialist complements your company's core capabilities, helping integrate these features smoothly into the wider project.
+
+Three key benefits of partnering with a biking infrastructure specialist:
+
+1. Improves Project Quality
+• A successful biking facility depends on how well layout, flow, shape, materials, drainage, and safety work together.
+• Bringing specialist expertise into the project early aligns biking infrastructure with the wider design, boosting the overall appeal and performance of the project.
+• Outsourcing keeps your focus on the overall project development.
+
+2. Reduces Project Risk
+• Early assessment of site conditions, drainage, materials, and safety requirements gives your team a clear understanding of scope and costs upfront.
+• Tight coordination between designers, your construction team, and specialists ensures financial predictability, fewer surprises, and smoother execution.
+
+3. Enhances Construction Capabilities
+• Offer clients complete, specialized biking solutions through a single project team without the overhead of developing in-house expertise.
+• Win more bids for recreational projects while keeping overall project execution firmly under control.
+
+Great partnerships are about bringing the right expertise in at the right time.
+
+At A2Trails, we work alongside construction companies from design through execution. Have a project that includes biking infrastructure? [Let's talk](/contact).`,
+                takeaways: [
+                  'Specialist expertise aligns layout, flow, shape, drainage, and safety for higher project appeal.',
+                  'Early technical assessment of site conditions reduces project risk and guarantees cost predictability.',
+                  'Enables construction teams to win and deliver complete recreational biking solutions without in-house overhead.',
+                ],
+              },
+              'biking-infrastructure-municipalities': {
+                title: '5 Ways Biking Infrastructure Can Benefit Municipalities',
+                meta: 'Written by A2Trails · Published September 2026 · Municipal Biking Infrastructure',
+                excerpt: 'Belgium is entering an important decade for biking, aiming for 22% of all trips and 10% of kilometres travelled by bicycle by 2040 under the Be Cyclist 2.0 action plan.',
+                content: `Belgium is entering an important decade for biking.
+
+In May 2026, the federal government approved **Be Cyclist 2.0**, its biking action plan for 2026-2029. The strategy aims to make biking more attractive, accessible, safe and healthy. Looking further ahead, Belgium aims to reach **22% of all trips by bicycle and 10% of kilometres travelled by bicycle by 2040**. [1][2]
+
+For municipalities, this raises a broader question: **how can biking infrastructure help more people cycle while also creating value for the wider community?**
+
+Cycle paths and safe streets are essential. But people also need spaces where they can learn, practise and enjoy biking. [Pump tracks](/services/construction#pumptracks), [skills parks](/services/construction#skill-tracks) and other biking facilities can complement the wider network while creating additional value for the community.
+
+1. Biking infrastructure contributes to healthier communities
+Biking combines physical activity, recreation and everyday transportation, making it a practical way for municipalities to encourage healthier lifestyles and more movement as part of daily life. A bicycle ride to school, a trip to a local destination or an afternoon spent riding can all turn movement into a regular part of daily life. Research consistently shows that biking can improve physical fitness, particularly among young people, and can contribute to better cardiovascular health. [3] Studies involving more than one million people have also found that regular biking is associated with a lower risk of cardiovascular disease and death. [4]
+
+For municipalities, this means biking infrastructure can contribute to **public-health objectives as well as mobility objectives**. A pump track or skills park adds another opportunity for physical activity - a dedicated area where children, families and recreational riders can be active outdoors, close to home and at their own level.
+
+2. Biking skills build confidence
+Feeling confident on a bicycle matters. Braking, balancing, controlling speed, cornering and navigating obstacles are skills that develop with practice. A dedicated biking facility gives people a safe environment to develop these skills.
+
+Research involving 2,260 children found that bicycle safety and skills training improved both their knowledge and their confidence in their biking abilities. [5] Longer-term research has also found that young people who received cycle training were more likely to cycle to school and reported certain safer biking behaviours. [6]
+
+Giving people a place to learn, practise and progress can help make biking feel more natural and enjoyable - and encourage them to keep riding.
+
+3. Biking facilities create community destinations
+A pump track or skills park can be much more than a place to ride. With the right design, it can bring together children, teenagers, families, recreational riders, clubs and schools, creating a space where people are active and spend time together. This makes biking infrastructure part of **placemaking - creating destinations where people want to spend time, be active and connect**.
+
+Research into new biking infrastructure in Sydney found positive effects on social connection among residents, alongside potential increases in biking participation. [7] This suggests that biking infrastructure can contribute not only to getting people moving, but also to creating spaces where people spend time, meet others and enjoy their community.
+
+4. Pump tracks are part of a wider biking system
+Safe streets and connected biking routes make everyday biking possible. Schools and community programmes can help people learn and build confidence, while facilities such as pump tracks and skills parks provide areas to practise and stay active. Research supports this combined approach: studies have found that improvements to biking infrastructure together with broader community-level programmes can contribute to increased biking. [8][9]
+
+For a municipality, this could mean connecting a biking facility to existing bike routes, working with local schools or clubs on biking activities, or combining infrastructure improvements with education and community events. A pump track or skills park then becomes one part of a broader biking environment, rather than a standalone project.
+
+5. One facility supports several community priorities
+Municipal investments often need to serve more than one purpose. A well-designed biking facility can support **active mobility, health, recreation, youth engagement and tourism** at the same time. It can give children and families an opportunity to be active, provide schools and clubs a setting for biking activities, and add a new recreational destination to a neighbourhood. When a facility is attractive enough to draw visitors from neighbouring towns or further afield, it can also contribute to the wider appeal of the municipality and local tourism.
+
+A facility that offers different levels of challenge can welcome beginners while still giving more experienced riders room to progress. It can be useful on an ordinary afternoon, but also become a place for coaching, community activities or events.
+
+At A2Trails, we believe that starts with understanding the community and the people who will use the space. The right solution should balance rider experience, technical excellence, community needs and long-term value - creating infrastructure that works not only as a facility, but as part of the place around it. [Learn more about our Research & Feasibility and Design & Engineering services](/services/consultancy)
+
+Planning a biking infrastructure project? [Let's talk](/contact)
+
+References
+[1] Federal Government of Belgium. (2026, May 22). Be Cyclist 2.0: Federal action plan for cycling 2026–2029. News.belgium. https://news.belgium.be/nl/be-cyclist-20-federaal-actieplan-voor-de-fiets-2026-2029
+[2] Federal Public Service Mobility and Transport. (2026, March 5). Federal survey on home-to-work travel 2024–2025: Twice as many cyclists in 20 years. News.belgium. https://news.belgium.be/nl/be-cyclist-20-federaal-actieplan-voor-de-fiets-2026-2029
+[3] Oja, P., Titze, S., Bauman, A., de Geus, B., Krenn, P., Reger-Nash, B., & Kohlberger, T. (2011). Health benefits of cycling: A systematic review. Scandinavian Journal of Medicine & Science in Sports, 21(4), 496–509. https://doi.org/10.1111/j.1600-0838.2011.01299.x
+[4] Nordengen, S., Andersen, L. B., Solbraa, A. K., & Riiser, A. (2019). Cycling is associated with a lower incidence of cardiovascular diseases and death: Part 1 -Systematic review of cohort studies with meta-analysis. British Journal of Sports Medicine, 53(14), 870–878. https://doi.org/10.1136/bjsports-2018-099099
+[5] Howard, K. A., Griffin, S. F., Rolke, L. J., et al. (2025). Exploration of individual and context features of a bicycle skills program for riding injury prevention knowledge and self-efficacy among children. Journal of Transport & Health, 43, 102050. https://doi.org/10.1016/j.jth.2025.102050
+[6] Teyhan, A., Cornish, R., Boyd, A., Sissons Joshi, M., & Macleod, J. (2016). The impact of cycle proficiency training on cycle-related behaviours and accidents in adolescence: Findings from ALSPAC, a UK longitudinal cohort. BMC Public Health, 16, 469. https://doi.org/10.1186/s12889-016-3138-2
+[7] Mertens, L., Compernolle, S., Deforche, B., et al. (2017). Longitudinal evaluation of travel and health outcomes in relation to new bicycle infrastructure, Sydney, Australia. Journal of Transport & Health, 6, 386–395. https://doi.org/10.1016/j.jth.2017.07.002
+[8] Yang, L., Sahlqvist, S., McMinn, A., Griffin, S. J., & Ogilvie, D. (2010). Interventions to promote cycling: Systematic review. BMJ, 341, c5293. https://doi.org/10.1136/bmj.c5293
+[9] Roaf, E., Larrington-Spencer, H., & Lawlor, E. R. (2024). Interventions to increase active travel: A systematic review. Journal of Transport & Health, 38, 101860. https://doi.org/10.1016/j.jth.2024.101860`,
+                takeaways: [
+                  'Biking infrastructure connects public-health objectives with municipal mobility goals.',
+                  'Dedicated riding spaces like pumptracks and skills parks encourage active daily movement for all generations.',
+                  'Biking facilities serve as placemaking destinations and support broader multi-purpose community priorities.',
+                ],
+              },
+              'sustainable-trail-drainage': {
+                title: 'Sustainable Trail Drainage: Preventing Erosion in Natural Surface Networks',
+                excerpt: 'Proven techniques in grade reversals, rolling dips, and sustainable soil stabilization to keep mountain bike and gravel trails weatherproof year-round.',
+                content: 'Water is the primary adversary of natural surface trail systems. Implementing proactive hydrological controls such as outsloped tread, grade reversals every 10 to 15 meters, and localized French drains ensures trails remain rideable in wet European climates while protecting topsoil.',
+                takeaways: [
+                  'Grade reversals shed water before it gains enough velocity to cause rilling.',
+                  'Outsloped treads distribute sheet flow naturally across downhill vegetation.',
+                  'Mineral soil stabilization reduces rutting without introducing synthetic microplastics.',
+                ],
+              },
+              'european-safety-standards-din-en-14974': {
+                title: 'Safety Standards in Public Riding Infrastructure: DIN EN 14974 & EN 1176 Decoded',
+                excerpt: 'A comprehensive overview of European safety norms for municipal sports parks, fall zones, barrier clearances, and risk mitigation strategies.',
+                content: 'Navigating public liability and municipal compliance requires strict adherence to DIN EN 14974 (Skateparks & Pumptracks) and DIN EN 1176 (Playground Equipment). Understanding impact zones, sightlines, and safe surface transitions gives project managers confidence from tender to certification.',
+                takeaways: [
+                  'Impact areas must maintain minimum clearances of 2.0 meters from rigid obstacles.',
+                  'Berm apexes require specified fall-zone transitions to adjacent turf or safety surfacing.',
+                  'Clear signage detailing skill levels and direction of travel is mandatory for public liability compliance.',
+                ],
+              },
+              'lifecycle-cost-maintenance-strategy': {
+                title: 'Lifecycle Economics & Maintenance: Why Proactive Care Multiplies Trail ROI',
+                excerpt: 'Comparing lifecycle costs of asphalt, gravel, and natural surface tracks. Best practices for crack sealing, vegetation management, and municipal handover.',
+                content: 'While asphalt pumptracks have higher upfront construction costs compared to dirt jump parks, their 15-to-20 year durability and minimal maintenance produce far superior return on municipal investment. We outline the annual maintenance schedule that protects assets from premature degradation.',
+                takeaways: [
+                  'Bitumen emulsion seal-coating at year 5 and 10 restores surface flexibility and prevents oxidation.',
+                  'Regular edge trimming prevents root intrusion from compromising the perimeter asphalt.',
+                  'Digital maintenance logbooks streamline municipal warranty compliance.',
+                ],
+              },
+              'community-driven-track-planning': {
+                title: 'Community Engagement in Public Track Planning: From User Surveys to Opening Day',
+                excerpt: 'How early stakeholder workshops with local youth, cycling clubs, and municipal planners ensure maximum park utilization and community ownership.',
+                content: 'The most successful pump tracks and trail centers are co-created with the riders who will use them. Involving youth councils, local schools, and cycling associations during the feasibility phase generates local pride, reduces vandalism, and ensures riders of all skill tiers are accommodated.',
+                takeaways: [
+                  'Pre-design workshops align expectations across skateboarders, BMX riders, rollerbladers, and adaptive athletes.',
+                  'Transparent public surveys simplify political approval processes and grant funding applications.',
+                  'Community test-ride sessions prior to official opening build excitement and positive civic connection.',
+                ],
+              },
             },
           },
           contact: {
@@ -514,6 +676,7 @@ i18n
             allProducts: 'Alle Bouwproducten',
             services: 'Diensten',
             projects: 'Projecten',
+            insights: 'Insights',
             about: 'Over ons',
             contact: 'Contact',
             consultancy: 'Research & Feasibility',
@@ -666,6 +829,167 @@ i18n
               dirtJumps: 'Dirt Jumps',
             },
           },
+          insights: {
+            title: 'Inzichten & Technische Kennis',
+            subtitle: 'Gedachten, projecten en inspiratie uit de wereld van fietsinfrastructuur.',
+            directory: 'Kennisbank & Inzichten',
+            browse: 'Ontdek onderzoek, casestudies en technische analyses van onze trailbouwers en landschapsarchitecten.',
+            search: 'Zoek artikelen, onderwerpen of tags...',
+            filter: 'Categorie:',
+            all: 'Alle Categorieën',
+            readTime: 'min leestijd',
+            readArticle: 'Lees Artikel',
+            backToInsights: 'Terug naar Inzichten',
+            share: 'Delen',
+            keyTakeaways: 'Belangrijkste Inzichten',
+            noResults: 'Geen artikelen gevonden die aan uw criteria voldoen.',
+            clearFilters: 'Wis filters',
+            categories: {
+              engineering: 'Ontwerp & Engineering',
+              landscape: 'Landschapsarchitectuur',
+              construction: 'Bouw & Milieu',
+              safety: 'Veiligheid & Normen',
+              maintenance: 'Onderhoud & Levensduur',
+              planning: 'Planning & Haalbaarheid',
+            },
+            cta: {
+              title: 'Heeft u een project met fietsinfrastructuur?',
+              button: 'Laten We Praten',
+            },
+            articles: {
+              'biking-infrastructure-partnerships': {
+                title: 'Betere Projecten Bouwen Door Partnerschappen in Fietsinfrastructuur',
+                meta: 'Geschreven door A2Trails · Gepubliceerd september 2026 · Samenwerking met bouwspecialisten',
+                excerpt: 'Moderne projectontwikkelingen worden steeds complexer en combineren wonen, openbare ruimte en recreatie. Om aan deze eisen te voldoen is vaak gespecialiseerde expertise binnen het projectteam nodig.',
+                content: `Moderne projectontwikkelingen worden steeds complexer en combineren wonen, openbare ruimte en recreatie. Om aan deze eisen te voldoen is vaak gespecialiseerde expertise binnen het projectteam nodig.
+
+Fietsinfrastructuur — zoals [pumptracks](/services/construction#pumptracks), [skillparks](/services/construction#skill-tracks) en trails — is een domein waar specialistische kennis een meetbaar verschil maakt. Samenwerken met een specialist vult de kerncompetenties van uw bedrijf aan en zorgt voor een soepele integratie van deze faciliteiten in het grotere geheel.
+
+Drie belangrijke voordelen van samenwerken met een specialist in fietsinfrastructuur:
+
+1. Verbetert de projectkwaliteit
+• Een succesvolle fietsfaciliteit hangt af van hoe goed lay-out, flow, vormgeving, materialen, afwatering en veiligheid samenkomen.
+• Door vroegtijdig specialistische expertise in te schakelen, wordt de fietsinfrastructuur afgestemd op het bredere ontwerp, wat de aantrekkingskracht en prestaties van het totale project verhoogt.
+• Uitbesteding zorgt ervoor dat uw focus blijft liggen op de algehele projectontwikkeling.
+
+2. Verlaagt het projectrisico
+• Een vroege beoordeling van terreinomstandigheden, drainage, materialen en veiligheidseisen geeft uw team vooraf direct inzicht in de scope en kosten.
+• Nauwe afstemming tussen ontwerpers, uw bouwteam en specialisten zorgt voor financiële voorspelbaarheid, minder verrassingen en een soepelere uitvoering.
+
+3. Versterkt de bouwcapaciteiten
+• Bied klanten complete, gespecialiseerde fietsoplossingen aan via één enkel projectteam, zonder de overhead van het intern opbouwen van specialistische expertise.
+• Win meer aanbestedingen voor recreatieve projecten terwijl de algehele projectuitvoering stevig onder controle blijft.
+
+Goede partnerschappen draaien om het inbrengen van de juiste expertise op het juiste moment.
+
+Bij A2Trails werken we samen met bouwbedrijven van ontwerp tot en met realisatie. Heeft u een project met fietsinfrastructuur? [Laten we praten](/contact).`,
+                takeaways: [
+                  'Specialistische expertise stemt lay-out, flow, vormgeving, drainage en veiligheid optimaal op elkaar af.',
+                  'Vroegtijdige inbreng over terrein en afwatering verlaagt projectrisico\'s en waarborgt kostenvoorspelbaarheid.',
+                  'Stelt bouwbedrijven in staat complete recreatieve fietsoplossingen aan te bieden zonder interne overhead.',
+                ],
+              },
+              'biking-infrastructure-municipalities': {
+                title: '5 Manieren Waarop Fietsinfrastructuur Gemeenten Ten Goede Komt',
+                meta: 'Geschreven door A2Trails · Gepubliceerd september 2026 · Gemeentelijke Fietsinfrastructuur',
+                excerpt: 'België gaat een belangrijk decennium voor de fiets tegemoet, met als doel 22% van alle verplaatsingen en 10% van alle kilometers per fiets te realiseren tegen 2040 binnen Be Cyclist 2.0.',
+                content: `België gaat een belangrijk decennium voor de fiets tegemoet.
+
+In mei 2026 keurde de federale regering **Be Cyclist 2.0** goed, haar fietsactieplan voor 2026-2029. De strategie heeft tot doel fietsen aantrekkelijker, toegankelijker, veiliger en gezonder te maken. Vooruitkijkend wil België tegen 2040 **22% van alle verplaatsingen per fiets en 10% van de afgelegde kilometers per fiets** realiseren. [1][2]
+
+Voor gemeenten roept dit een bredere vraag op: **hoe kan fietsinfrastructuur meer mensen aan het fietsen krijgen en tegelijkertijd waarde creëren voor de bredere gemeenschap?**
+
+Fietspaden en veilige straten zijn essentieel. Maar mensen hebben ook plekken nodig waar ze kunnen leren, oefenen en genieten van fietsen. [Pumptracks](/services/construction#pumptracks), [skillparks](/services/construction#skill-tracks) en andere fietsfaciliteiten kunnen het bredere netwerk aanvullen en extra waarde creëren voor de gemeenschap.
+
+1. Fietsinfrastructuur draagt bij aan gezondere gemeenschappen
+Fietsen combineert fysieke activiteit, recreatie en dagelijks vervoer, waardoor het voor gemeenten een praktische manier is om gezondere levensstijlen en meer beweging in het dagelijks leven te stimuleren. Een fietstocht naar school, een rit naar een lokale bestemming of een namiddag rijden kunnen beweging tot een vast onderdeel van het dagelijks leven maken. Onderzoek toont consequent aan dat fietsen de fysieke conditie verbetert, vooral bij jongeren, en kan bijdragen aan een betere cardiovasculaire gezondheid. [3] Studies met meer dan een miljoen mensen hebben tevens aangetoond dat regelmatig fietsen gepaard gaat met een lager risico op hart- en vaatziekten en vroegtijdig overlijden. [4]
+
+Voor gemeenten betekent dit dat fietsinfrastructuur kan bijdragen aan **volksgezondheidsdoelstellingen én mobiliteitsdoelstellingen**. Een pumptrack of skillpark biedt een extra kans op lichaamsbeweging - een toegewijde plek waar kinderen, gezinnen en recreatieve fietsers buiten actief kunnen zijn, dicht bij huis en op hun eigen niveau.
+
+2. Fietsvaardigheden bouwen zelfvertrouwen op
+Zelfvertrouwen op de fiets is van groot belang. Remmen, balanceren, snelheid beheersen, bochten nemen en obstakels overwinnen zijn vaardigheden die groeien door oefening. Een toegewijde fietsfaciliteit biedt mensen een veilige omgeving om deze vaardigheden te ontwikkelen.
+
+Onderzoek onder 2.260 kinderen toonde aan dat fietsveiligheids- en vaardigheidstrainingen zowel hun kennis als hun zelfvertrouwen in hun fietsvaardigheden verbeterden. [5] Langetermijnonderzoek wees daarnaast uit dat jongeren die fietstraining kregen vaker met de fiets naar school gingen en veiliger fietsgedrag vertoonden. [6]
+
+Door mensen een plek te bieden om te leren, te oefenen en vooruitgang te boeken, voelt fietsen natuurlijker en plezieriger aan — en blijven ze fietsen.
+
+3. Fietsfaciliteiten creëren gemeenschappelijke ontmoetingsplekken
+Een pumptrack of skillpark is veel meer dan alleen een plek om te rijden. Met het juiste ontwerp brengt het kinderen, tieners, gezinnen, recreatieve fietsers, clubs en scholen samen in een ruimte waar mensen actief zijn en tijd doorbrengen. Zo wordt fietsinfrastructuur een essentieel onderdeel van **placemaking — het creëren van bestemmingen waar mensen graag vertoeven, bewegen en verbinden**.
+
+Onderzoek naar nieuwe fietsinfrastructuur in Sydney toonde positieve effecten aan op de sociale cohesie tussen bewoners, naast een toename in fietsdeelname. [7] Dit toont aan dat fietsinfrastructuur niet alleen mensen in beweging brengt, maar ook plekken creëert waar mensen elkaar ontmoeten en genieten van hun leefomgeving.
+
+4. Pumptracks maken deel uit van een breder fietssysteem
+Veilige straten en verbonden fietsroutes maken dagelijks fietsen mogelijk. Scholen en gemeenschapsprogramma's helpen mensen te leren en zelfvertrouwen op te bouwen, terwijl faciliteiten zoals pumptracks en skillparks ruimte bieden om actief te blijven. Onderzoek ondersteunt deze gecombineerde aanpak: studies tonen aan dat infrastructurele verbeteringen samen met bredere gemeenschapsprogramma's leiden tot meer fietsgebruik. [8][9]
+
+Voor een gemeente kan dit betekenen dat een fietsfaciliteit wordt verbonden met bestaande fietsroutes, dat wordt samengewerkt met lokale scholen of clubs, of dat infrastructuur wordt gecombineerd met educatie en evenementen. Een pumptrack of skillpark wordt zo een integraal onderdeel van een brede fietsomgeving, in plaats van een op zichzelf staand project.
+
+5. Eén faciliteit ondersteunt meerdere gemeentelijke prioriteiten
+Gemeentelijke investeringen moeten vaak meerdere doelen tegelijk dienen. Een doordacht ontworpen fietsfaciliteit kan gelijktijdig **actieve mobiliteit, gezondheid, recreatie, jeugdbetrokkenheid en toerisme** ondersteunen. Het biedt kinderen en gezinnen een laagdrempelige beweegkans, geeft scholen en verenigingen een geschikte locatie voor activiteiten en voegt een aantrekkelijke bestemming toe aan de wijk. Wanneer een baan aantrekkelijk genoeg is om bezoekers uit omliggende gemeenten of verder weg aan te trekken, versterkt dit de uitstraling en het lokale toerisme.
+
+Een faciliteit met verschillende moeilijkheidsgraden verwelkomt beginners en biedt tegelijkertijd ervaren rijders ruimte om te groeien. Het is bruikbaar op een doordeweekse namiddag, maar kan evengoed fungeren als locatie voor clinics, evenementen of buurtactiviteiten.
+
+Bij A2Trails geloven we dat succes begint met inzicht in de gemeenschap en de eindgebruikers. De juiste oplossing brengt rijervaring, technische uitmuntendheid, maatschappelijke behoeften en langetermijnwaarde in balans — infrastructuur die niet alleen functioneert als baan, maar als verrijking van de omgeving. [Ontdek onze Onderzoek & Haalbaarheid en Ontwerp & Engineering diensten](/services/consultancy)
+
+Een fietsinfrastructuurproject plannen? [Laten we praten](/contact)
+
+Referenties
+[1] Federale Regering van België. (2026, 22 mei). Be Cyclist 2.0: Federaal actieplan voor de fiets 2026–2029. News.belgium. https://news.belgium.be/nl/be-cyclist-20-federaal-actieplan-voor-de-fiets-2026-2029
+[2] Federale Overheidsdienst Mobiliteit en Vervoer. (2026, 5 maart). Federale diagnostiek woon-werkverkeer 2024–2025: Dubbel zoveel fietsers in 20 jaar. News.belgium. https://news.belgium.be/nl/be-cyclist-20-federaal-actieplan-voor-de-fiets-2026-2029
+[3] Oja, P., Titze, S., Bauman, A., de Geus, B., Krenn, P., Reger-Nash, B., & Kohlberger, T. (2011). Health benefits of cycling: A systematic review. Scandinavian Journal of Medicine & Science in Sports, 21(4), 496–509. https://doi.org/10.1111/j.1600-0838.2011.01299.x
+[4] Nordengen, S., Andersen, L. B., Solbraa, A. K., & Riiser, A. (2019). Cycling is associated with a lower incidence of cardiovascular diseases and death: Part 1 -Systematic review of cohort studies with meta-analysis. British Journal of Sports Medicine, 53(14), 870–878. https://doi.org/10.1136/bjsports-2018-099099
+[5] Howard, K. A., Griffin, S. F., Rolke, L. J., et al. (2025). Exploration of individual and context features of a bicycle skills program for riding injury prevention knowledge and self-efficacy among children. Journal of Transport & Health, 43, 102050. https://doi.org/10.1016/j.jth.2025.102050
+[6] Teyhan, A., Cornish, R., Boyd, A., Sissons Joshi, M., & Macleod, J. (2016). The impact of cycle proficiency training on cycle-related behaviours and accidents in adolescence: Findings from ALSPAC, a UK longitudinal cohort. BMC Public Health, 16, 469. https://doi.org/10.1186/s12889-016-3138-2
+[7] Mertens, L., Compernolle, S., Deforche, B., et al. (2017). Longitudinal evaluation of travel and health outcomes in relation to new bicycle infrastructure, Sydney, Australia. Journal of Transport & Health, 6, 386–395. https://doi.org/10.1016/j.jth.2017.07.002
+[8] Yang, L., Sahlqvist, S., McMinn, A., Griffin, S. J., & Ogilvie, D. (2010). Interventions to promote cycling: Systematic review. BMJ, 341, c5293. https://doi.org/10.1136/bmj.c5293
+[9] Roaf, E., Larrington-Spencer, H., & Lawlor, E. R. (2024). Interventions to increase active travel: A systematic review. Journal of Transport & Health, 38, 101860. https://doi.org/10.1016/j.jth.2024.101860`,
+                takeaways: [
+                  'Fietsinfrastructuur verbindt volksgezondheidsdoelstellingen met gemeentelijke mobiliteitsdoelen.',
+                  'Toegewijde faciliteiten zoals pumptracks en skillparks stimuleren dagelijkse beweging voor alle generaties.',
+                  'Fietsfaciliteiten fungeren als ontmoetingsplek en ondersteunen brede maatschappelijke prioriteiten.',
+                ],
+              },
+              'sustainable-trail-drainage': {
+                title: 'Duurzame Trailafwatering: Erosie Voorkomen op Natuurlijke Ondergronden',
+                excerpt: 'Bewezen technieken in hellingomkeringen, afwateringsgeulen en bodemstabilisatie om mountainbike- en gravelpaden het hele jaar berijdbaar te houden.',
+                content: 'Water is de grootste vijand van onverharde trails. Door proactieve hydrologische controle zoals verkanting, hellingomkeringen om de 10 tot 15 meter en gerichte drainage blijven paden ook in natte Europese winters perfect in conditie.',
+                takeaways: [
+                  'Hellingomkeringen voeren water af voordat het stroomsnelheid en erosiekracht opbouwt.',
+                  'Afschot zorgt voor een gelijkmatige verspreiding van oppervlaktewater over de vegetatie.',
+                  'Minerale bodemstabilisatie vermindert spoorvorming zonder synthetische microplastics.',
+                ],
+              },
+              'european-safety-standards-din-en-14974': {
+                title: 'Veiligheidsnormen in Openbare Rij-infrastructuur: DIN EN 14974 & EN 1176 Uitgelegd',
+                excerpt: 'Een overzicht van Europese veiligheidsnormen voor gemeentelijke sportparken, valzones, obstakelvrije ruimtes en risicobeheer.',
+                content: 'Het waarborgen van openbare aansprakelijkheid en gemeentelijke conformiteit vereist strikte naleving van DIN EN 14974 en DIN EN 1176. Inzicht in valzones, zichtlijnen en veilige overgangen biedt projectleiders zekerheid van aanbesteding tot keuring.',
+                takeaways: [
+                  'Valzones moeten een minimale vrije ruimte van 2,0 meter houden ten opzichte van starre obstakels.',
+                  'Kombochten vereisen veilige overgangszones naar aangrenzend gras of valdempende ondergrond.',
+                  'Duidelijke bewegwijzering met moeilijkheidsgraden en rijrichting is essentieel voor openbare aansprakelijkheid.',
+                ],
+              },
+              'lifecycle-cost-maintenance-strategy': {
+                title: 'Levensduurkosten & Onderhoudsstrategie: Proactief Beheer Verhoogt Rendement',
+                excerpt: 'Vergelijking van levensduurkosten tussen asfalt, gravel en aarde. Best practices voor scheurherstel, groenbeheer en overdracht.',
+                content: 'Hoewel asfalt pumptracks een hogere initiële investering vergen, zorgen de levensduur van 15 tot 20 jaar en het minimale onderhoud voor een veel gunstiger gemeentelijk rendement. We schetsen het onderhoudsschema dat vroegtijdige slijtage voorkomt.',
+                takeaways: [
+                  'Bitumenemulsie-sealing in jaar 5 en 10 herstelt de flexibiliteit en voorkomt oxidatie.',
+                  'Regelmatig kanten steken voorkomt dat wortelgroei de randen van het asfalt beschadigt.',
+                  'Digitale onderhoudslogboeken vereenvoudigen de garantieopvolging voor gemeenten.',
+                ],
+              },
+              'community-driven-track-planning': {
+                title: 'Participatieve Baanplanning: Van Gebruikersbevraging tot Openingsdag',
+                excerpt: 'Hoe participatieworkshops met lokale jeugd, clubs en stedenbouwers zorgen voor maximale bezetting en respect voor het terrein.',
+                content: 'De meest succesvolle pumptracks en trailcenters ontstaan in co-creatie met de toekomstige gebruikers. Het betrekken van jeugdraden, scholen en wielerclubs tijdens de haalbaarheidsfase creëert trots, verkleint het risico op overlast en waarborgt toegankelijkheid voor elk niveau.',
+                takeaways: [
+                  'Ontwerpateliers stemmen behoeften van skateboarders, BMX’ers, steppers en inline-skaters op elkaar af.',
+                  'Transparante burgerbevragingen vereenvoudigen politieke besluitvorming en subsidies.',
+                  'Test-events vóór de officiële opening zorgen voor enthousiasme en sociale verbondenheid.',
+                ],
+              },
+            },
+          },
           contact: {
             title: 'Neem Contact Op',
             subtitle: 'Heeft u een idee, een vraag of wilt u gewoon meer weten?',
@@ -714,12 +1038,11 @@ i18n
                 ],
               },
               engineering: {
-                title: 'Technische Engineering',
+                title: 'Technisch Ontwerp',
                 desc: 'Precisie-engineering voor drainage, bodemstabiliteit en structurele technische kenmerken.',
                 features: [
-                  'Hydraulisch & drainage-ontwerp',
+                  'Drainage-ontwerp',
                   'Analyse van de bodemsamenstelling',
-                  'Structurele engineering',
                   'Technische specificaties',
                   'Strategie voor materiaalinkoop',
                   'Audit van veiligheidsnormen',
@@ -1007,6 +1330,7 @@ i18n
             allProducts: 'Tous les Produits de Construction',
             services: 'Services',
             projects: 'Projets',
+            insights: 'Insights',
             about: 'À propos',
             contact: 'Contact',
             consultancy: 'Recherche & Faisabilité',
@@ -1157,6 +1481,167 @@ i18n
               skillPark: 'Skill Park',
               trailCenter: 'Centre de Pistes',
               dirtJumps: 'Dirt Jumps',
+            },
+          },
+          insights: {
+            title: 'Perspectives & Connaissances Techniques',
+            subtitle: 'Réflexions, projets et inspiration du monde des infrastructures cyclables.',
+            directory: 'Centre de Connaissances',
+            browse: 'Découvrez des études de cas, des recherches et des analyses d\'ingénierie rédigées par nos concepteurs et architectes paysagistes.',
+            search: 'Rechercher des articles, thèmes ou tags...',
+            filter: 'Catégorie :',
+            all: 'Toutes les Catégories',
+            readTime: 'min de lecture',
+            readArticle: 'Lire l\'Article',
+            backToInsights: 'Retour aux Insights',
+            share: 'Partager',
+            keyTakeaways: 'Points Clés',
+            noResults: 'Aucun article trouvé correspondant à vos critères.',
+            clearFilters: 'Effacer les filtres',
+            categories: {
+              engineering: 'Conception & Ingénierie',
+              landscape: 'Architecture Paysagère',
+              construction: 'Construction & Environnement',
+              safety: 'Sécurité & Normes',
+              maintenance: 'Entretien & Cycle de Vie',
+              planning: 'Planification & Faisabilité',
+            },
+            cta: {
+              title: 'Vous avez un projet intégrant des infrastructures cyclables ?',
+              button: 'Échangeons Ensemble',
+            },
+            articles: {
+              'biking-infrastructure-partnerships': {
+                title: 'Construire de Meilleurs Projets Grâce aux Partenariats en Infrastructure Cyclable',
+                meta: 'Rédigé par A2Trails · Publié en septembre 2026 · Partenariat avec spécialistes de la construction',
+                excerpt: 'Les aménagements modernes sont de plus en plus complexes, combinant habitat, espaces publics et loisirs. Répondre à ces exigences nécessite souvent d\'intégrer une expertise spécialisée au sein de votre équipe projet.',
+                content: `Les projets d'aménagement modernes sont de plus en plus complexes, combinant habitat, espaces publics et loisirs. Répondre à ces exigences nécessite souvent d'intégrer une expertise spécialisée au sein de votre équipe projet.
+
+Les infrastructures cyclables — telles que les [pump tracks](/services/construction#pumptracks), les [skills parks](/services/construction#skill-tracks) et les sentiers — constituent un domaine où les compétences pointues font une différence mesurable. S'associer à un spécialiste complète les capacités clés de votre entreprise, facilitant l'intégration harmonieuse de ces équipements dans l'aménagement global.
+
+Trois bénéfices majeurs d'un partenariat avec un spécialiste des infrastructures cyclables :
+
+1. Améliore la qualité du projet
+• La réussite d'un aménagement cyclable repose sur la parfaite synergie entre tracé, fluidité, modelage, matériaux, drainage et sécurité.
+• Intégrer l'expertise spécialisée dès la phase amont aligne les infrastructures cyclables avec le plan masse, renforçant l'attractivité et la performance globale du projet.
+• L'externalisation vous permet de maintenir votre concentration sur la conduite générale de l'opération.
+
+2. Réduit les risques du projet
+• L'évaluation précoce de la topographie, du drainage, des matériaux et des exigences de sécurité offre à votre équipe une vision nette du périmètre et des coûts dès le départ.
+• Une coordination étroite entre concepteurs, équipe de chantier et spécialistes garantit la prévisibilité financière, élimine les mauvaises surprises et assure une exécution fluide.
+
+3. Renforce les capacités de construction
+• Proposez à vos clients des solutions cyclables complètes et spécialisées au sein d'une équipe projet unique, sans supporter les coûts de développement d'un pôle d'expertise en interne.
+• Remportez davantage d'appels d'offres pour des projets récréatifs tout en gardant une maîtrise totale de l'exécution globale.
+
+Les grands partenariats consistent à mobiliser la bonne expertise au moment opportun.
+
+Chez A2Trails, nous collaborons avec les entreprises de construction de la conception jusqu'à l'exécution. Vous avez un projet intégrant des infrastructures cyclables ? [Échangeons ensemble](/contact).`,
+                takeaways: [
+                  'Une expertise pointue optimise le tracé, la fluidité, le modelage et l\'attractivité globale du site.',
+                  'L\'évaluation précoce du terrain et du drainage réduit les risques et garantit la prévisibilité budgétaire.',
+                  'Permet aux entreprises générales de remporter et livrer des projets récréatifs clés en main sans frais de structure internes.',
+                ],
+              },
+              'biking-infrastructure-municipalities': {
+                title: '5 Façons Dont les Infrastructures Cyclables Bénéficient aux Communes',
+                meta: 'Rédigé par A2Trails · Publié en septembre 2026 · Infrastructure Cyclable Municipale',
+                excerpt: 'La Belgique entre dans une décennie décisive pour le vélo, avec pour objectif 22 % de parts modales et 10 % des kilomètres parcourus d\'ici 2040 dans le cadre de Be Cyclist 2.0.',
+                content: `La Belgique entre dans une décennie décisive pour le vélo.
+
+En mai 2026, le gouvernement fédéral a approuvé **Be Cyclist 2.0**, son plan d'action vélo pour 2026-2029. Cette stratégie vise à rendre la pratique du vélo plus attractive, accessible, sûre et saine. À plus long terme, la Belgique ambitionne d'atteindre **22 % de l'ensemble des déplacements à vélo et 10 % des kilomètres parcourus à vélo d'ici 2040**. [1][2]
+
+Pour les municipalités et communes, cela soulève une question plus large : **comment l'infrastructure cyclable peut-elle encourager davantage de personnes à pédaler tout en créant de la valeur pour l'ensemble de la collectivité ?**
+
+Les pistes cyclables et les rues sécurisées sont indispensables. Mais les usagers ont également besoin d'espaces où ils peuvent apprendre, s'entraîner et prendre plaisir à rouler. [Les pump tracks](/services/construction#pumptracks), les [skills parks](/services/construction#skill-tracks) et les autres aménagements cyclables peuvent compléter le réseau global tout en apportant une valeur ajoutée à la communauté.
+
+1. L'infrastructure cyclable contribue à des communautés en meilleure santé
+Le vélo associe activité physique, loisirs et déplacements quotidiens, ce qui en fait un moyen concret pour les communes d'encourager des modes de vie plus sains et davantage de mouvement au quotidien. Un trajet vers l'école, un déplacement de proximité ou un après-midi de glisse peuvent transformer l'activité physique en une habitude quotidienne. Les recherches démontrent de manière constante que la pratique du vélo améliore la condition physique, en particulier chez les jeunes, et contribue à une meilleure santé cardiovasculaire. [3] Des études portant sur plus d'un million de personnes ont également révélé que la pratique régulière du vélo est associée à une réduction du risque de maladies cardiovasculaires et de mortalité. [4]
+
+Pour les communes, cela signifie que les infrastructures cyclables participent autant aux **objectifs de santé publique qu'aux objectifs de mobilité**. Un pump track ou un skills park offre une opportunité supplémentaire d'activité physique : un espace dédié où enfants, familles et pratiquants de tous niveaux peuvent s'épanouir en plein air, à proximité immédiate de leur domicile.
+
+2. Les compétences cyclistes renforcent la confiance
+Se sentir en confiance sur un vélo est primordial. Freiner, maintenir son équilibre, maîtriser sa vitesse, négocier les virages et franchir des obstacles sont des compétences qui s'acquièrent avec la pratique. Un espace dédié offre un environnement sécurisé et stimulant pour développer ces aptitudes.
+
+Une étude menée auprès de 2 260 enfants a démontré que l'apprentissage des règles de sécurité et des compétences à vélo améliorait tant leurs connaissances que leur confiance en leurs capacités. [5] Des recherches longitudinales ont également établi que les jeunes ayant suivi une formation cycliste étaient plus enclins à se rendre à l'école à vélo et adoptaient des comportements plus prudents. [6]
+
+Offrir un lieu pour apprendre, s'exercer et progresser rend la pratique plus naturelle et agréable — et encourage à continuer de rouler.
+
+3. Les infrastructures créent de véritables destinations citoyennes
+Un pump track ou un skills park est bien plus qu'une simple piste. Grâce à une conception soignée, il rassemble enfants, adolescents, familles, cyclistes amateurs, clubs et écoles dans un même espace partagé. L'infrastructure cyclable devient ainsi un puissant levier de **placemaking — créant des lieux de vie où les citoyens aiment se retrouver, bouger et tisser des liens**.
+
+Une étude sur les nouvelles infrastructures cyclables à Sydney a mis en évidence des effets positifs sur le lien social entre résidents, parallèlement à une hausse de la pratique du vélo. [7] L'infrastructure contribue ainsi à créer des espaces conviviaux où les habitants partagent des moments de qualité.
+
+4. Les pump tracks s'intègrent dans un écosystème cyclable global
+Des rues sécurisées et des itinéraires continus rendent les trajets du quotidien possibles. Les programmes scolaires et associatifs permettent d'acquérir les bases et la confiance, tandis que les installations telles que les pump tracks et skills parks offrent des espaces idéaux pour pratiquer. La recherche confirme cette approche globale : les aménagements cyclables combinés à des programmes communautaires favorisent une hausse pérenne de la pratique. [8][9]
+
+Pour une commune, cela implique de relier la piste aux axes cyclables existants, de collaborer avec les écoles et clubs locaux, et d'associer l'aménagement à des événements éducatifs et sportifs. Un pump track ou un skills park devient alors une composante majeure d'un environnement cyclable dynamique.
+
+5. Un aménagement unique répond à plusieurs priorités communales
+Les investissements municipaux doivent souvent répondre à des enjeux multiples. Un équipement cyclable bien conçu soutient simultanément **la mobilité active, la santé, les loisirs, l'engagement de la jeunesse et le tourisme local**. Il offre aux familles un espace de détente, fournit aux écoles et associations un cadre d'apprentissage et enrichit le quartier d'une nouvelle attraction récréative capable d'attirer des visiteurs des localités voisines.
+
+Une infrastructure offrant des niveaux de difficulté progressifs accueille aussi bien les débutants que les pratiquants chevronnés. Elle sert au quotidien tout en accueillant des stages, des cours de perfectionnement ou des événements associatifs.
+
+Chez A2Trails, nous sommes convaincus que chaque projet commence par l'écoute de la communauté et de ses usagers. La solution idéale concilie plaisir de pilotage, rigueur technique, besoins locaux et durabilité — en concevant des équipements parfaitement intégrés à leur environnement. [Découvrez nos services d'Étude & Faisabilité et de Conception & Ingénierie](/services/consultancy)
+
+Vous planifiez un projet d'infrastructure cyclable ? [Échangeons ensemble](/contact)
+
+Références
+[1] Gouvernement Fédéral de Belgique. (2026, 22 mai). Be Cyclist 2.0 : Plan d'action fédéral pour le vélo 2026–2029. News.belgium. https://news.belgium.be/nl/be-cyclist-20-federaal-actieplan-voor-de-fiets-2026-2029
+[2] SPF Mobilité et Transports. (2026, 5 mars). Diagnostic fédéral des déplacements domicile-travail 2024–2025 : Deux fois plus de cyclistes en 20 ans. News.belgium. https://news.belgium.be/nl/be-cyclist-20-federaal-actieplan-voor-de-fiets-2026-2029
+[3] Oja, P., Titze, S., Bauman, A., de Geus, B., Krenn, P., Reger-Nash, B., & Kohlberger, T. (2011). Health benefits of cycling: A systematic review. Scandinavian Journal of Medicine & Science in Sports, 21(4), 496–509. https://doi.org/10.1111/j.1600-0838.2011.01299.x
+[4] Nordengen, S., Andersen, L. B., Solbraa, A. K., & Riiser, A. (2019). Cycling is associated with a lower incidence of cardiovascular diseases and death: Part 1 -Systematic review of cohort studies with meta-analysis. British Journal of Sports Medicine, 53(14), 870–878. https://doi.org/10.1136/bjsports-2018-099099
+[5] Howard, K. A., Griffin, S. F., Rolke, L. J., et al. (2025). Exploration of individual and context features of a bicycle skills program for riding injury prevention knowledge and self-efficacy among children. Journal of Transport & Health, 43, 102050. https://doi.org/10.1016/j.jth.2025.102050
+[6] Teyhan, A., Cornish, R., Boyd, A., Sissons Joshi, M., & Macleod, J. (2016). The impact of cycle proficiency training on cycle-related behaviours and accidents in adolescence: Findings from ALSPAC, a UK longitudinal cohort. BMC Public Health, 16, 469. https://doi.org/10.1186/s12889-016-3138-2
+[7] Mertens, L., Compernolle, S., Deforche, B., et al. (2017). Longitudinal evaluation of travel and health outcomes in relation to new bicycle infrastructure, Sydney, Australia. Journal of Transport & Health, 6, 386–395. https://doi.org/10.1016/j.jth.2017.07.002
+[8] Yang, L., Sahlqvist, S., McMinn, A., Griffin, S. J., & Ogilvie, D. (2010). Interventions to promote cycling: Systematic review. BMJ, 341, c5293. https://doi.org/10.1136/bmj.c5293
+[9] Roaf, E., Larrington-Spencer, H., & Lawlor, E. R. (2024). Interventions to increase active travel: A systematic review. Journal of Transport & Health, 38, 101860. https://doi.org/10.1016/j.jth.2024.101860`,
+                takeaways: [
+                  'L\'infrastructure cyclable conjugue objectifs de santé publique et politiques de mobilité communales.',
+                  'Les espaces dédiés comme les pump tracks et skills parks encouragent une activité physique quotidienne pour tous les âges.',
+                  'Ces aménagements créent de véritables lieux de vie et répondent à des priorités citoyennes transversales.',
+                ],
+              },
+              'sustainable-trail-drainage': {
+                title: 'Drainage Durable des Sentiers : Prévenir l\'Érosion sur Surfaces Naturelles',
+                excerpt: 'Techniques éprouvées d\'inversions de pente, de passages d\'eau et de stabilisation du sol pour des pistes praticables en toute saison.',
+                content: 'L\'eau est le principal facteur de dégradation des sentiers naturels. La mise en place de dispositifs hydrologiques proactifs tels que le dévers, les inversions de pente tous les 10 à 15 mètres et les drains français garantit la pérennité des pistes même lors des hivers pluvieux.',
+                takeaways: [
+                  'Les inversions de pente évacuent l\'eau avant qu\'elle ne prenne une vitesse érosive.',
+                  'Le profil en dévers répartit l\'écoulement laminaire sur la végétation aval.',
+                  'La stabilisation minérale réduit l\'orniérage sans introduire de microplastiques.',
+                ],
+              },
+              'european-safety-standards-din-en-14974': {
+                title: 'Normes de Sécurité dans les Pistes Publiques : DIN EN 14974 & EN 1176 Décryptées',
+                excerpt: 'Vue d\'ensemble des normes de sécurité européennes pour les parcs de glisse municipaux, zones de chute, dégagements et gestion des risques.',
+                content: 'La conformité municipale et la responsabilité civile exigent le respect rigoureux des normes DIN EN 14974 et DIN EN 1176. La maîtrise des zones d\'impact, des lignes de vue et des raccords offre une sérénité totale de l\'appel d\'offres à la réception.',
+                takeaways: [
+                  'Les zones d\'impact doivent respecter un dégagement minimal de 2,0 mètres de tout obstacle rigide.',
+                  'Les crêtes de virages exigent des raccords sécurisés vers le gazon ou les revêtements amortissants.',
+                  'Une signalétique claire indiquant les niveaux de difficulté et le sens de circulation est obligatoire.',
+                ],
+              },
+              'lifecycle-cost-maintenance-strategy': {
+                title: 'Coûts de Cycle de Vie & Stratégie d\'Entretien : Valoriser l\'Investissement',
+                excerpt: 'Comparaison des coûts globaux entre asphalte, gravier et terre. Bonnes pratiques de colmatage, fauchage et carnet d\'entretien.',
+                content: 'Si les pump tracks en asphalte requièrent un investissement initial plus élevé, leur longévité de 15 à 20 ans et leurs faibles coûts d\'exploitation garantissent un retour sur investissement imbattable pour les collectivités.',
+                takeaways: [
+                  'L\'application d\'une émulsion bitumineuse aux années 5 et 10 restaure l\'élasticité et prévient l\'oxydation.',
+                  'La coupe régulière des bordures empêche l\'enracinement dans l\'asphalte.',
+                  'Le carnet d\'entretien numérique facilite le suivi des garanties par les services communaux.',
+                ],
+              },
+              'community-driven-track-planning': {
+                title: 'Planification Participative : Du Diagnostic Citoyen à l\'Inauguration',
+                excerpt: 'Comment les ateliers avec les jeunes locaux, clubs et urbanistes garantissent une fréquentation maximale et le respect des lieux.',
+                content: 'Les infrastructures les plus vivantes sont co-conçues avec les pratiquants qui les feront vivre. Impliquer les conseils de jeunes et les associations cyclistes dès la phase de faisabilité crée un sentiment d\'appartenance et prévient les incivilités.',
+                takeaways: [
+                  'Les ateliers de conception harmonisent les attentes des skateurs, riders BMX, trottinettistes et rollers.',
+                  'Des concertations publiques transparentes facilitent les arbitrages municipaux et les demandes de subventions.',
+                  'Des sessions de test avant l\'ouverture officielle créent un engouement fort et durable.',
+                ],
+              },
             },
           },
           contact: {

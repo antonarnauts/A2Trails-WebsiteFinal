@@ -12,6 +12,7 @@ import Design from "./pages/Design";
 import Construction from "./pages/Construction";
 import Maintenance from "./pages/Maintenance";
 import Projects from "./pages/Projects";
+import Insights from "./pages/Insights";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -178,6 +179,7 @@ const Navbar = () => {
               </div>
 
               <Link to="/projects" className={`${location.pathname === '/projects' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.projects')}</Link>
+              <Link to="/insights" className={`${location.pathname === '/insights' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.insights')}</Link>
               <Link to="/about" className={`${location.pathname === '/about' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.about')}</Link>
               <Link to="/contact" className={`${location.pathname === '/contact' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.contact')}</Link>
             </div>
@@ -242,6 +244,7 @@ const Navbar = () => {
 
               <div className="pt-2 border-t border-white/5">
                 <Link to="/projects" onClick={() => setIsOpen(false)} className={`${location.pathname === '/projects' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.projects')}</Link>
+                <Link to="/insights" onClick={() => setIsOpen(false)} className={`${location.pathname === '/insights' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.insights')}</Link>
                 <Link to="/about" onClick={() => setIsOpen(false)} className={`${location.pathname === '/about' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.about')}</Link>
                 <Link to="/contact" onClick={() => setIsOpen(false)} className={`${location.pathname === '/contact' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.contact')}</Link>
               </div>
@@ -577,6 +580,7 @@ const Footer = () => {
             <ul className="space-y-4">
               <li><Link to="/#services" className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.services')}</Link></li>
               <li><Link to="/projects" className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.projects')}</Link></li>
+              <li><Link to="/insights" className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.insights')}</Link></li>
               <li><Link to="/about" className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.about')}</Link></li>
               <li><Link to="/contact" className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.contact')}</Link></li>
             </ul>
@@ -661,6 +665,7 @@ export default function App() {
             <Route path="/services/construction" element={<Construction />} />
             <Route path="/services/maintenance" element={<Maintenance />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/insights" element={<Insights />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
