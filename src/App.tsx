@@ -19,9 +19,14 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import { trackShieldedPageView } from "./lib/botProtection";
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    trackShieldedPageView(pathname + (hash || ''));
+  }, [pathname, hash]);
 
   useEffect(() => {
     if (!hash) {

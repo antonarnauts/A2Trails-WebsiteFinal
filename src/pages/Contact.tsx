@@ -1,3 +1,4 @@
+import { useState, type FormEvent } from "react";
 import { motion } from "motion/react";
 import { Mail, MapPin, Send, FileText } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -19,6 +20,29 @@ const ContactInfoItem = ({ icon: Icon, label, value }: { icon: any, label: strin
 export default function Contact() {
   const { t } = useTranslation();
   const [state, handleSubmit] = useForm('xbdqprro');
+  const [mountTime] = useState(() => Date.now());
+  const [botBlocked, setBotBlocked] = useState(false);
+
+  const handleProtectedSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const form = e.currentTarget;
+    const gotchaInput = form.elements.namedItem('_gotcha') as HTMLInputElement | null;
+
+    // Honeypot detection: bots automatically fill hidden inputs
+    if (gotchaInput && gotchaInput.value) {
+      e.preventDefault();
+      setBotBlocked(true);
+      return;
+    }
+
+    // Timing heuristic: humans take at least 1.5 - 2 seconds to complete a form
+    if (Date.now() - mountTime < 1500) {
+      e.preventDefault();
+      setBotBlocked(true);
+      return;
+    }
+
+    handleSubmit(e);
+  };
 
   return (
     <div className="pt-32 bg-brand-dark min-h-screen">
@@ -101,7 +125,7 @@ export default function Contact() {
               className="lg:col-span-8"
             >
               <div className="bg-brand-card p-8 md:p-10 rounded-3xl border border-white/5 shadow-2xl">
-                {state.succeeded ? (
+                {state.succeeded || botBlocked ? (
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -119,7 +143,19 @@ export default function Contact() {
                     </button>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleProtectedSubmit} className="space-y-6">
+                    {/* Bot Honeypot - hidden from real users */}
+                    <div className="hidden" aria-hidden="true" style={{ display: 'none' }}>
+                      <label htmlFor="_gotcha">Leave this field blank</label>
+                      <input 
+                        type="text" 
+                        id="_gotcha" 
+                        name="_gotcha" 
+                        tabIndex={-1} 
+                        autoComplete="off" 
+                      />
+                    </div>
+
                     {state.errors && (
                       <motion.div 
                         initial={{ opacity: 0, y: -10 }}
