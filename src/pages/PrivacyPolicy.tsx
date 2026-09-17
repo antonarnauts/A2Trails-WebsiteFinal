@@ -1,9 +1,61 @@
+import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
+import { Smartphone, Globe, Shield, RefreshCw, Trash2, CheckCircle } from "lucide-react";
 import SEO from "../components/SEO";
+import {
+  getStoredDeviceInfo,
+  getStoredRegionInfo,
+  getStoredManualPreference,
+  detectAndStoreDeviceInfo,
+  fetchAndStoreRegionInfo,
+  DeviceInfo,
+  RegionInfo,
+} from "../lib/geoLanguage";
 
 export default function PrivacyPolicy() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [device, setDevice] = useState<DeviceInfo | null>(null);
+  const [region, setRegion] = useState<RegionInfo | null>(null);
+  const [manual, setManual] = useState<string | null>(null);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [clearedNotice, setClearedNotice] = useState(false);
+
+  useEffect(() => {
+    loadLocalInfo();
+  }, []);
+
+  const loadLocalInfo = () => {
+    setDevice(getStoredDeviceInfo());
+    setRegion(getStoredRegionInfo());
+    setManual(getStoredManualPreference());
+  };
+
+  const handleRefresh = async () => {
+    setIsRefreshing(true);
+    detectAndStoreDeviceInfo();
+    await fetchAndStoreRegionInfo();
+    loadLocalInfo();
+    setIsRefreshing(false);
+  };
+
+  const handleClear = () => {
+    try {
+      localStorage.removeItem('device');
+      localStorage.removeItem('a2_device');
+      localStorage.removeItem('region');
+      localStorage.removeItem('a2_region');
+      localStorage.removeItem('a2_manual_lang');
+      localStorage.removeItem('a2_resolved_lang');
+      setDevice(null);
+      setRegion(null);
+      setManual(null);
+      setClearedNotice(true);
+      setTimeout(() => setClearedNotice(false), 3000);
+    } catch {
+      // Ignore
+    }
+  };
 
   return (
     <div className="pt-32 bg-brand-dark min-h-screen">
@@ -85,6 +137,99 @@ export default function PrivacyPolicy() {
                   <li><span className="text-white font-semibold">{t('privacy.rights.restriction')}</span></li>
                   <li><span className="text-white font-semibold">{t('privacy.rights.portability')}</span></li>
                 </ul>
+              </section>
+
+              <section className="bg-brand-dark/40 border border-white/10 p-6 md:p-8 rounded-2xl">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                  <div>
+                    <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                      <Shield className="w-5 h-5 text-brand-orange" />
+                      Client-Side Local Storage Preferences
+                    </h2>
+                    <p className="text-xs text-gray-400 mt-1">
+                      A2Trails stores your detected device language and approximate region directly on your device (in localStorage) to enable instant automatic language routing. No personal tracking cookies are used.
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={handleRefresh}
+                      disabled={isRefreshing}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-white/5 hover:bg-white/10 text-gray-200 border border-white/10 transition-colors cursor-pointer disabled:opacity-50"
+                      title="Re-detect Device and Region"
+                    >
+                      <RefreshCw className={`w-3.5 h-3.5 text-brand-orange ${isRefreshing ? 'animate-spin' : ''}`} />
+                      Re-detect
+                    </button>
+                    <button
+                      onClick={handleClear}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-300 border border-red-500/20 transition-colors cursor-pointer"
+                      title="Clear stored device and region info"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                      Clear Local Data
+                    </button>
+                  </div>
+                </div>
+
+                {clearedNotice && (
+                  <div className="mb-4 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 flex-shrink-0" />
+                    Locally stored device and region data has been cleared from your browser.
+                  </div>
+                )}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                  {/* Stored Device */}
+                  <div className="p-4 rounded-xl bg-brand-card border border-white/5 space-y-2">
+                    <div className="flex items-center justify-between text-white font-semibold">
+                      <span className="flex items-center gap-1.5">
+                        <Smartphone className="w-4 h-4 text-brand-orange" />
+                        Stored Device Data (<code className="text-brand-orange text-[11px]">device</code>)
+                      </span>
+                      <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-gray-400">
+                        {device ? 'Active' : 'Not Stored'}
+                      </span>
+                    </div>
+                    {device ? (
+                      <div className="space-y-1 text-gray-300 font-mono text-[11px]">
+                        <p><span className="text-gray-400 font-sans">Locale:</span> {device.locale}</p>
+                        <p><span className="text-gray-400 font-sans">Primary Language:</span> {device.primaryLang.toUpperCase()}</p>
+                        <p><span className="text-gray-400 font-sans">Device Type:</span> {device.isMobile ? 'Mobile / Tablet' : 'Desktop / Laptop'}</p>
+                      </div>
+                    ) : (
+                      <p className="text-gray-400 italic">No device data stored yet.</p>
+                    )}
+                  </div>
+
+                  {/* Stored Region */}
+                  <div className="p-4 rounded-xl bg-brand-card border border-white/5 space-y-2">
+                    <div className="flex items-center justify-between text-white font-semibold">
+                      <span className="flex items-center gap-1.5">
+                        <Globe className="w-4 h-4 text-brand-orange" />
+                        Stored Region Data (<code className="text-brand-orange text-[11px]">region</code>)
+                      </span>
+                      <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-gray-400">
+                        {region ? 'Active' : 'Pending / Not Stored'}
+                      </span>
+                    </div>
+                    {region ? (
+                      <div className="space-y-1 text-gray-300 font-mono text-[11px]">
+                        <p><span className="text-gray-400 font-sans">Country Code:</span> {region.countryCode}</p>
+                        {region.countryName && <p><span className="text-gray-400 font-sans">Country:</span> {region.countryName}</p>}
+                        {region.city && <p><span className="text-gray-400 font-sans">City:</span> {region.city}</p>}
+                      </div>
+                    ) : (
+                      <p className="text-gray-400 italic">IP Region lookup pending or not yet cached.</p>
+                    )}
+                  </div>
+                </div>
+
+                {manual && (
+                  <div className="mt-4 p-3 rounded-xl bg-white/5 border border-white/5 text-xs text-gray-300 flex items-center justify-between">
+                    <span>Manual Language Preference Override: <strong className="text-brand-orange">{manual.toUpperCase()}</strong></span>
+                    <span className="text-gray-400 text-[11px]">Selected via Dropdown</span>
+                  </div>
+                )}
               </section>
 
               <section>
