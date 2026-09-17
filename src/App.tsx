@@ -459,7 +459,7 @@ const Hero = () => {
   return (
     <section className="relative flex items-center justify-center overflow-hidden pt-24 pb-8 sm:pt-28 sm:pb-10 md:pt-30 md:pb-12 min-h-[440px] sm:min-h-[480px] md:min-h-[520px] lg:min-h-[540px]">
       {/* Hero Background Video */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      <div className="absolute inset-0 z-0 overflow-hidden bg-white">
         <video
           key="bannervideo-v2"
           ref={videoRef}
@@ -470,14 +470,14 @@ const Hero = () => {
             setIsEnded(true);
             setIsPlaying(false);
           }}
-          poster={getAssetPath('images/hero.webp')}
+          poster={getAssetPath('images/fallbackbanner.png')}
           className="w-full h-full object-cover object-[center_45%]"
         >
           <source src={`${getAssetPath('videos/bannervideo.mp4')}?v=2`} type="video/mp4" />
           {/* Fallback image */}
           <img
-            src={getAssetPath('images/hero.webp')}
-            alt="Professional mountain bike trail construction background"
+            src={getAssetPath('images/fallbackbanner.png')}
+            alt="A2 Trails mountain bike trail construction"
             className="w-full h-full object-cover object-[center_45%]"
             loading="eager"
           />
