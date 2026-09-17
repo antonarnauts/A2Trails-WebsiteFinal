@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { Mountain, Waves, Target, ArrowRight, Menu, X, ClipboardList, DraftingCompass, HardHat, ChevronDown, Linkedin, Instagram, Mail, Phone, FileText, Zap, Bike, ShieldCheck, Wrench, Settings, Landmark, Tent, Ruler, Globe, Check } from "lucide-react";
+import { Mountain, Waves, Target, ArrowRight, Menu, X, ClipboardList, DraftingCompass, HardHat, ChevronDown, Linkedin, Instagram, Mail, Phone, FileText, Zap, Bike, ShieldCheck, Wrench, Settings, Landmark, Tent, Ruler, Globe, Check, Play, Pause, RotateCcw } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { HashRouter, Routes, Route, Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
@@ -435,22 +435,55 @@ const Navbar = () => {
 
 const Hero = () => {
   const { t, i18n } = useTranslation();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isEnded, setIsEnded] = useState(false);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isEnded) {
+        videoRef.current.currentTime = 0;
+        videoRef.current.play();
+        setIsEnded(false);
+        setIsPlaying(true);
+      } else if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        videoRef.current.play();
+        setIsPlaying(true);
+      }
+    }
+  };
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden pt-28 pb-8 sm:pt-32 sm:pb-10 md:pt-36 md:pb-10">
-      {/* Hero Background */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={getAssetPath('images/hero.webp')}
-          alt="Professional mountain bike trail construction background"
-          className="w-full h-full object-cover"
-          loading="eager"
-          onError={(e) => {
-            const target = e.target as HTMLImageElement;
-            target.src = "https://picsum.photos/seed/a2trails/1920/1080";
+    <section className="relative flex items-center justify-center overflow-hidden pt-24 pb-8 sm:pt-28 sm:pb-10 md:pt-30 md:pb-12 min-h-[440px] sm:min-h-[480px] md:min-h-[520px] lg:min-h-[540px]">
+      {/* Hero Background Video */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <video
+          key="bannervideo-v2"
+          ref={videoRef}
+          autoPlay
+          muted
+          playsInline
+          onEnded={() => {
+            setIsEnded(true);
+            setIsPlaying(false);
           }}
-        />
-        <div className="absolute inset-0 bg-black/60"></div>
+          poster={getAssetPath('images/hero.webp')}
+          className="w-full h-full object-cover object-[center_45%]"
+        >
+          <source src={`${getAssetPath('videos/bannervideo.mp4')}?v=2`} type="video/mp4" />
+          {/* Fallback image */}
+          <img
+            src={getAssetPath('images/hero.webp')}
+            alt="Professional mountain bike trail construction background"
+            className="w-full h-full object-cover object-[center_45%]"
+            loading="eager"
+          />
+        </video>
+        {/* Dark overlay ensuring high contrast readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/50 to-black/70 backdrop-brightness-95"></div>
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
@@ -467,7 +500,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-sm sm:text-base md:text-lg text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed"
+          className="text-sm sm:text-base md:text-lg text-gray-300 mb-5 max-w-2xl mx-auto leading-relaxed"
         >
           {t('hero.subtitle')}
         </motion.p>
@@ -486,6 +519,25 @@ const Hero = () => {
             {t('hero.cta')}
           </Link>
         </motion.div>
+      </div>
+
+      {/* Discreet Video Ambient Control (always without sound, replayable) */}
+      <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20 flex items-center gap-2">
+        <button
+          type="button"
+          onClick={togglePlay}
+          className="p-2 sm:p-2.5 rounded-full bg-black/50 hover:bg-black/80 text-white/80 hover:text-white backdrop-blur-md border border-white/10 transition-all cursor-pointer"
+          aria-label={isEnded ? "Replay video" : isPlaying ? "Pause video" : "Play video"}
+          title={isEnded ? "Replay video" : isPlaying ? "Pause video" : "Play video"}
+        >
+          {isEnded ? (
+            <RotateCcw className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+          ) : isPlaying ? (
+            <Pause className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+          ) : (
+            <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+          )}
+        </button>
       </div>
     </section>
   );
