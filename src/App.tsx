@@ -470,16 +470,15 @@ const Hero = () => {
             setIsEnded(true);
             setIsPlaying(false);
           }}
-          poster={getAssetPath('images/fallbackbanner.png')}
-          className="w-full h-full object-cover object-[center_45%]"
+          poster={`${getAssetPath('images/hero.webp')}?v=white`}
+          className="w-full h-full object-cover object-[center_45%] bg-white"
         >
           <source src={`${getAssetPath('videos/bannervideo.mp4')}?v=2`} type="video/mp4" />
           {/* Fallback image */}
           <img
-            src={getAssetPath('images/fallbackbanner.png')}
-            alt="A2 Trails mountain bike trail construction"
-            className="w-full h-full object-cover object-[center_45%]"
-            loading="eager"
+            src={`${getAssetPath('images/hero.webp')}?v=white`}
+            alt=""
+            className="w-full h-full object-cover object-[center_45%] bg-white"
           />
         </video>
         {/* Dark overlay ensuring high contrast readability */}
