@@ -461,7 +461,7 @@ const Hero = () => {
       {/* Hero Background Video */}
       <div className="absolute inset-0 z-0 overflow-hidden bg-white">
         <video
-          key="bannervideo-v2"
+          key="bannervideo-v3"
           ref={videoRef}
           autoPlay
           muted
@@ -473,7 +473,7 @@ const Hero = () => {
           poster={`${getAssetPath('images/hero.webp')}?v=white`}
           className="w-full h-full object-cover object-[center_45%] bg-white"
         >
-          <source src={`${getAssetPath('videos/bannervideo.mp4')}?v=2`} type="video/mp4" />
+          <source src={`${getAssetPath('videos/bannervideo.mp4')}?v=3`} type="video/mp4" />
           {/* Fallback image */}
           <img
             src={`${getAssetPath('images/hero.webp')}?v=white`}
