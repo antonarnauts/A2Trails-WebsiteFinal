@@ -26,7 +26,7 @@ export const insightsData: InsightArticle[] = [
     ],
     readTime: "5",
     date: "September 2026",
-    image: "/images/meetingimage.png",
+    image: "/images/forestmeetingreal.jpeg",
     imagePosition: "object-center",
     tags: ["Municipalities", "Active Recreation", "Pumptracks", "Skills Parks", "MTB Trails"],
   },

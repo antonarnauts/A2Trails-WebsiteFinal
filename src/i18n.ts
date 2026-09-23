@@ -366,7 +366,7 @@ Partnering on an outdoor recreation or biking project? [Contact our team](/conta
               'choosing-bike-infrastructure-community': {
                 title: 'Choosing the Right Bike Infrastructure for Your Community',
                 meta: 'Written by A2Trails · Published September 2026 · Municipal Biking Infrastructure',
-                excerpt: 'Discover how pump tracks, skills parks, MTB trails, and jump tracks serve different community goals and generations.',
+                excerpt: 'A quick guide through all the mountain biking options and how to make an informed decision.',
                 content: `A new bike facility can become much more than a place to ride. It can give children a safe place to develop their skills, create a destination for active recreation, bring people together or encourage residents and visitors to explore the landscape around them.
 
 So rather than asking which facility to build, start with a more important question:
@@ -1158,7 +1158,7 @@ Samenwerken aan een outdoor- of fietsinfrastructuurproject? [Neem contact op met
               'choosing-bike-infrastructure-community': {
                 title: 'Kiezen voor de Juiste Fietsinfrastructuur voor uw Gemeente',
                 meta: 'Geschreven door A2Trails · Gepubliceerd september 2026 · Gemeentelijke Fietsinfrastructuur',
-                excerpt: 'Ontdek hoe pumptracks, skillsparks, MTB-paden en jumptracks verschillende maatschappelijke doelen verwezenlijken.',
+                excerpt: 'Een beknopte gids langs alle mountainbike-opties en hoe u een weloverwogen keuze maakt.',
                 content: `Een nieuwe fietsvoorziening kan veel meer worden dan zomaar een plek om te rijden. Het kan kinderen een veilige omgeving bieden om hun vaardigheden te ontwikkelen, een bestemming creëren voor actieve recreatie, mensen samenbrengen of inwoners en bezoekers aanmoedigen om het omliggende landschap te verkennen.
 
 Vraag dus niet in de eerste plaats wélke voorziening u moet bouwen, maar start met een belangrijkere vraag:
@@ -1947,7 +1947,7 @@ Un projet d'aménagement récréatif ou cyclable en vue ? [Contactez notre équi
               'choosing-bike-infrastructure-community': {
                 title: 'Choisir la Bonne Infrastructure Cyclable pour Votre Communauté',
                 meta: 'Rédigé par A2Trails · Publié en septembre 2026 · Municipal Biking Infrastructure',
-                excerpt: 'Découvrez comment pumptracks, skills parks, pistes de VTT et jump tracks répondent aux ambitions communales.',
+                excerpt: 'Un guide rapide à travers toutes les options de VTT et comment faire un choix éclairé.',
                 content: `Un nouvel équipement cyclable peut devenir bien plus qu'un simple endroit où rouler. Il peut offrir aux enfants un espace sécurisé pour développer leurs compétences, créer une destination de loisirs actifs, rassembler les gens ou encourager les habitants et les visiteurs à explorer le paysage environnant.
 
 Ainsi, plutôt que de vous demander quel équipement construire, commencez par une question plus essentielle :
