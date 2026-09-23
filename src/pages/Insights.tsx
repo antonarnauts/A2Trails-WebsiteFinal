@@ -213,7 +213,7 @@ export default function Insights() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-brand-card/50 border border-white/5 rounded-3xl p-6 sm:p-8 md:p-12">
             
-            {/* Articles Grid (2 Featured Articles) */}
+            {/* Articles Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {insightsData.map((article, idx) => {
                 const title = t(`insights.articles.${article.id}.title`);

@@ -215,7 +215,7 @@ i18n
                 excerpt: 'Modern developments are increasingly complex, blending housing, public spaces, and recreation. Meeting these demands often requires bringing specialized expertise into your project team.',
                 content: `Modern developments are increasingly complex, blending housing, public spaces, and recreation. Meeting these demands often requires bringing specialized expertise into your project team.
 
-Biking infrastructure—such as [pump tracks](/services/construction#pumptracks), [skills parks](/services/construction#skill-tracks), and trails—is one area where specialist knowledge makes a measurable difference. Partnering with a specialist complements your company's core capabilities, helping integrate these features smoothly into the wider project.
+Biking infrastructure - such as [pump tracks](/services/construction#pumptracks), [skills parks](/services/construction#skill-tracks), and trails - is one area where specialist knowledge makes a measurable difference. Partnering with a specialist complements your company's core capabilities, helping integrate these features smoothly into the wider project.
 
 Three key benefits of partnering with a biking infrastructure specialist:
 
@@ -280,7 +280,7 @@ Municipal investments often need to serve more than one purpose. A well-designed
 
 A facility that offers different levels of challenge can welcome beginners while still giving more experienced riders room to progress. It can be useful on an ordinary afternoon, but also become a place for coaching, community activities or events.
 
-At A2Trails, we believe that starts with understanding the community and the people who will use the space. The right solution should balance rider experience, technical excellence, community needs and long-term value - creating infrastructure that works not only as a facility, but as part of the place around it. [Learn more about our Research & Feasibility and Design & Engineering services](/services/consultancy)
+At A2Trails, we believe that starts with understanding the community and the people who will use the space. The right solution should balance rider experience, technical excellence, community needs and long-term value - creating infrastructure that works not only as a facility, but as part of the place around it. Learn more about our [Research & Feasibility](/services/consultancy) and [Design & Engineering](/services/design) services.
 
 Planning a biking infrastructure project? [Let's talk](/contact)
 
@@ -298,6 +298,132 @@ References
                   'Biking infrastructure connects public-health objectives with municipal mobility goals.',
                   'Dedicated riding spaces like pumptracks and skills parks encourage active daily movement for all generations.',
                   'Biking facilities serve as placemaking destinations and support broader multi-purpose community priorities.',
+                ],
+              },
+              'phases-of-an-outdoor-project': {
+                title: 'The Right Specialist at the Right Stage: The Phases of an Outdoor Project',
+                meta: 'Written by A2Trails · Published September 2026 · Construction specialist partnership',
+                excerpt: 'Discover how integrating a specialist partner across every phase of an outdoor project - from setup and design to shaping, surfacing, landscaping, and handover - ensures seamless coordination and lasting quality.',
+                content: `Outdoor facilities often involve several disciplines and contractors. Bringing a specialist partner into the process early can help align design, technical requirements, construction methods and site integration before work begins.
+
+For construction companies, that means clearer interfaces, better coordination and a smoother path from first concept to finished facility.
+
+[A2Trails](/about) works with construction partners from [design](/services/design) through [execution](/services/construction), specialising in [pump tracks](/services/construction#pumptracks), [skills parks](/services/construction#skill-tracks) and [trails](/services/construction#mtb-trails).
+
+1. Project Setup & Design
+Every successful outdoor project starts with a clear understanding of the site, the project objectives and the requirements that will shape the design.
+• Site assessment and constraints
+• Concept and detailed design
+• Planning and permitting
+• Technical specifications and project requirements
+
+2. Groundworks & Shaping
+Once the design is approved, the project moves into construction, where the site is prepared and the designed terrain begins to take shape.
+• Site preparation and excavation
+• Earthworks and grading
+• Formation of the track or terrain
+• Drainage preparation
+• Shaping of riding features and surrounding areas
+
+For shaped facilities such as [pump tracks](/services/construction#pumptracks) and [skills parks](/services/construction#skill-tracks), accuracy in the groundworks is critical to achieving the intended shape and riding experience.
+
+3. Structural Works & Surfacing
+With the terrain formed, the next stage is about building the technical foundation and installing the surface that will define the finished facility.
+• Drainage integration
+• Paving or asphalt works
+• Surface finishing
+• Quality control and corrections
+
+The different layers need to work together to deliver durability, ride quality and effective water management.
+
+4. Landscape Integration
+Once the core facility is complete, the surrounding landscape brings the project together and connects the riding area with the wider site.
+• Planting and landscaping
+• Green infrastructure
+• Connections to surrounding paths and public spaces
+• Seating, access and complementary elements
+• Final site finishing
+
+Good integration makes the facility feel like part of the wider development rather than a stand alone installation.
+
+5. Completion & Handover
+The final stage brings all construction and finishing works together, ensuring the site is complete, compliant and ready to be handed over for use.
+• Final inspections
+• Completion of outstanding works
+• Site clean-up and finishing
+• Handover
+• Opening and community use
+
+The result is a fully integrated outdoor facility ready for people to use and for the client to [operate and maintain](/services/maintenance).
+
+Partnering on an outdoor recreation or biking project? [Contact our team](/contact).`,
+                takeaways: [
+                  'Early specialist involvement aligns design, technical specifications, and site integration before earthworks start.',
+                  'Precision groundworks and shaping are crucial for great riding experience, sustainable drainage, and user safety.',
+                  'Thoughtful landscape integration turns specialized tracks into natural extensions of the wider development.',
+                ],
+              },
+              'choosing-bike-infrastructure-community': {
+                title: 'Choosing the Right Bike Infrastructure for Your Community',
+                meta: 'Written by A2Trails · Published September 2026 · Municipal Biking Infrastructure',
+                excerpt: 'Discover how pump tracks, skills parks, MTB trails, and jump tracks serve different community goals and generations.',
+                content: `A new bike facility can become much more than a place to ride. It can give children a safe place to develop their skills, create a destination for active recreation, bring people together or encourage residents and visitors to explore the landscape around them.
+
+So rather than asking which facility to build, start with a more important question:
+
+**“What do we want this space to do for our community?”**
+
+Different types of bike infrastructure serve different purposes. Understanding those differences can help municipalities choose a facility, or combination of facilities, that fits the people, place and ambitions behind the project.
+
+Here are some of the main options to consider.
+
+1. Want to create a place for active recreation and community life? Think pump track.
+[Pump tracks](/services/construction#pumptracks) can bring different generations and riding levels together in the same space. Children can learn through play, more experienced riders can work on their technique, and families and friends can enjoy an active outdoor space together.
+
+The design and construction of the track also matter. Durable asphalt surfacing, precise shaping, all-weather performance and low maintenance can help create a facility that remains enjoyable and accessible over time.
+
+They can also provide a setting for local sports events, community activities and cycling programmes, giving municipalities opportunities to bring people together around an active outdoor space. Research on community cycling programmes, such as pump tracks and mountain bike trails, has found benefits including physical health, skill development and stronger social connections. [1]
+
+A pump track can therefore serve more than the people actively riding it. With the right setting and design, it can become an important part of community life.
+
+2. Want to develop bike skills and confidence? Think skills park.
+A [skills park](/services/construction#skill-tracks) creates a dedicated environment where riders can practise techniques such as balance, braking, steering and cornering.
+
+For younger riders especially, developing basic bike control before dealing with more complex traffic situations is an important part of learning to cycle safely. The Flemish Foundation for Traffic Knowledge recommends that children under 10 first practise bicycle and steering skills in a protected environment, with traffic training introduced progressively afterwards. [2] Belgium's Be Cyclist 2.0 federal cycling action plan for 2026–2029 also includes making cycling accessible, safe and healthy among its three strategic pillars. [3]
+
+Skill tracks can be designed around technical obstacles, progression zones, balance features and skill-specific challenges, creating opportunities for riders to develop at their own level. This makes skills development an important consideration when planning cycling infrastructure for residents.
+
+3. Want to connect people with the landscape? Think MTB trails.
+[Mountain bike trails](/services/construction#mtb-trails) can make the natural environment around a town part of its recreational infrastructure.
+
+Unlike a facility built around a single defined footprint, a trail network can offer different routes, riding experiences and levels of difficulty, allowing the infrastructure to serve a broader range of users.
+
+Good trail design is about more than simply creating a path through the landscape. Natural terrain blending, flow, erosion control and sustainable drainage all play a role in creating trails that are enjoyable to ride while respecting their surroundings. Technical trail features can then be incorporated where they suit the intended users and character of the site.
+
+Mountain biking can also contribute to the recreational and tourism offer of a destination. Research into mountain-bike destinations highlights the importance of well-designed trail experiences and services in creating an appealing offer for riders. [4]
+
+4. Want to offer progression and more demanding riding? Think advanced facilities.
+For communities with an established riding culture, [jump tracks](/services/construction#jump-tracks) can provide dedicated space for riders who want to develop more advanced skills.
+
+Jump tracks can be designed with progression-based lines and technical jumps that serve more experienced riders, allowing riders to develop their skills gradually.
+
+The key is matching the design to the intended users. A jump track does not need to be designed exclusively for elite riders - different lines and levels of difficulty can create progression opportunities for riders as their skills develop.
+
+**Start with the need. Understand the place. Then choose the infrastructure.**
+
+There is no single formula for successful bike infrastructure. The right choice depends on the community, the users, the available space and what the municipality wants the facility to achieve. And in some communities, a combination of facilities may create the most useful offer. Learn more about our [Research & Feasibility](/services/consultancy) and [Design & Engineering](/services/design) services.
+
+Planning a biking infrastructure project for your municipality? [Let's talk](/contact).
+
+References
+[1] Clanton, T., Chancellor, C., Park, S., et al. (2025). Applying the Benefits-Based Programming Model to Advance Community Well-Being through Cycling. International Journal of Community Well-Being, 8, 713–733. https://doi.org/10.1007/s42413-025-00267-y
+[2] Vlaamse Stichting Verkeerskunde (VSV). (2026). Je kind veilig leren fietsen. Zo pak je het aan voor 10 jaar. https://www.veiligverkeer.be/weggebruikers/fietsers/kinderen/leren-fietsen-tot-10-jaar
+[3] Federal Government of Belgium. (2026). Be Cyclist 2.0: Federal Action Plan for Cycling 2026–2029. https://news.belgium.be/nl/be-cyclist-20-federaal-actieplan-voor-de-fiets-2026-2029
+[4] Munanura, I. E., et al. (2024). A cognitive appraisal approach to understanding mountain bikers' post-trip trails recommendation intent. Journal of Outdoor Recreation and Tourism, 47, 100791. https://doi.org/10.1016/j.jort.2024.100791`,
+                takeaways: [
+                  'Start by defining what the community needs: active recreation, safety confidence, nature connection, or sports progression.',
+                  'Pump tracks unite generations; skills parks build early bike-handling control before youth face complex traffic situations.',
+                  'Trail networks and jump tracks attract regional visitors while expanding local youth and sports infrastructure.',
                 ],
               },
               'sustainable-trail-drainage': {
@@ -685,7 +811,7 @@ References
             allProducts: 'Alle Bouwproducten',
             services: 'Diensten',
             projects: 'Projecten',
-            insights: 'Insights',
+            insights: 'Inzichten',
             about: 'Over ons',
             contact: 'Contact',
             consultancy: 'Research & Feasibility',
@@ -881,7 +1007,7 @@ References
                 excerpt: 'Moderne projectontwikkelingen worden steeds complexer en combineren wonen, openbare ruimte en recreatie. Om aan deze eisen te voldoen is vaak gespecialiseerde expertise binnen het projectteam nodig.',
                 content: `Moderne projectontwikkelingen worden steeds complexer en combineren wonen, openbare ruimte en recreatie. Om aan deze eisen te voldoen is vaak gespecialiseerde expertise binnen het projectteam nodig.
 
-Fietsinfrastructuur — zoals [pumptracks](/services/construction#pumptracks), [skillparks](/services/construction#skill-tracks) en trails — is een domein waar specialistische kennis een meetbaar verschil maakt. Samenwerken met een specialist vult de kerncompetenties van uw bedrijf aan en zorgt voor een soepele integratie van deze faciliteiten in het grotere geheel.
+Fietsinfrastructuur - zoals [pumptracks](/services/construction#pumptracks), [skillparks](/services/construction#skill-tracks) en trails - is een domein waar specialistische kennis een meetbaar verschil maakt. Samenwerken met een specialist vult de kerncompetenties van uw bedrijf aan en zorgt voor een soepele integratie van deze faciliteiten in het grotere geheel.
 
 Drie belangrijke voordelen van samenwerken met een specialist in fietsinfrastructuur:
 
@@ -929,10 +1055,10 @@ Zelfvertrouwen op de fiets is van groot belang. Remmen, balanceren, snelheid beh
 
 Onderzoek onder 2.260 kinderen toonde aan dat fietsveiligheids- en vaardigheidstrainingen zowel hun kennis als hun zelfvertrouwen in hun fietsvaardigheden verbeterden. [5] Langetermijnonderzoek wees daarnaast uit dat jongeren die fietstraining kregen vaker met de fiets naar school gingen en veiliger fietsgedrag vertoonden. [6]
 
-Door mensen een plek te bieden om te leren, te oefenen en vooruitgang te boeken, voelt fietsen natuurlijker en plezieriger aan — en blijven ze fietsen.
+Door mensen een plek te bieden om te leren, te oefenen en vooruitgang te boeken, voelt fietsen natuurlijker en plezieriger aan - en blijven ze fietsen.
 
 3. Fietsfaciliteiten creëren gemeenschappelijke ontmoetingsplekken
-Een pumptrack of skillpark is veel meer dan alleen een plek om te rijden. Met het juiste ontwerp brengt het kinderen, tieners, gezinnen, recreatieve fietsers, clubs en scholen samen in een ruimte waar mensen actief zijn en tijd doorbrengen. Zo wordt fietsinfrastructuur een essentieel onderdeel van **placemaking — het creëren van bestemmingen waar mensen graag vertoeven, bewegen en verbinden**.
+Een pumptrack of skillpark is veel meer dan alleen een plek om te rijden. Met het juiste ontwerp brengt het kinderen, tieners, gezinnen, recreatieve fietsers, clubs en scholen samen in een ruimte waar mensen actief zijn en tijd doorbrengen. Zo wordt fietsinfrastructuur een essentieel onderdeel van **placemaking - het creëren van bestemmingen waar mensen graag vertoeven, bewegen en verbinden**.
 
 Onderzoek naar nieuwe fietsinfrastructuur in Sydney toonde positieve effecten aan op de sociale cohesie tussen bewoners, naast een toename in fietsdeelname. [7] Dit toont aan dat fietsinfrastructuur niet alleen mensen in beweging brengt, maar ook plekken creëert waar mensen elkaar ontmoeten en genieten van hun leefomgeving.
 
@@ -946,7 +1072,7 @@ Gemeentelijke investeringen moeten vaak meerdere doelen tegelijk dienen. Een doo
 
 Een faciliteit met verschillende moeilijkheidsgraden verwelkomt beginners en biedt tegelijkertijd ervaren rijders ruimte om te groeien. Het is bruikbaar op een doordeweekse namiddag, maar kan evengoed fungeren als locatie voor clinics, evenementen of buurtactiviteiten.
 
-Bij A2Trails geloven we dat succes begint met inzicht in de gemeenschap en de eindgebruikers. De juiste oplossing brengt rijervaring, technische uitmuntendheid, maatschappelijke behoeften en langetermijnwaarde in balans — infrastructuur die niet alleen functioneert als baan, maar als verrijking van de omgeving. [Ontdek onze Onderzoek & Haalbaarheid en Ontwerp & Engineering diensten](/services/consultancy)
+Bij A2Trails geloven we dat succes begint met inzicht in de gemeenschap en de eindgebruikers. De juiste oplossing brengt rijervaring, technische uitmuntendheid, maatschappelijke behoeften en langetermijnwaarde in balans - infrastructuur die niet alleen functioneert als baan, maar als verrijking van de omgeving. Ontdek onze [Onderzoek & Haalbaarheid](/services/consultancy) en [Ontwerp & Engineering](/services/design) diensten.
 
 Een fietsinfrastructuurproject plannen? [Laten we praten](/contact)
 
@@ -964,6 +1090,132 @@ Referenties
                   'Fietsinfrastructuur verbindt volksgezondheidsdoelstellingen met gemeentelijke mobiliteitsdoelen.',
                   'Toegewijde faciliteiten zoals pumptracks en skillparks stimuleren dagelijkse beweging voor alle generaties.',
                   'Fietsfaciliteiten fungeren als ontmoetingsplek en ondersteunen brede maatschappelijke prioriteiten.',
+                ],
+              },
+              'phases-of-an-outdoor-project': {
+                title: 'De Juiste Specialist op het Juiste Moment: De Fasen van een Buitenproject',
+                meta: 'Geschreven door A2Trails · Gepubliceerd september 2026 · Partnerschap met Bouwspecialist',
+                excerpt: 'Ontdek hoe de inschakeling van een specialist in elke fase van een buitenproject - van voorbereiding en shaping tot verharding, groenaanleg en oplevering - zorgt voor naadloze coördinatie en duurzame kwaliteit.',
+                content: `Buiteninfrastructuur omvat vaak verschillende disciplines en aannemers. Door al vroeg een gespecialiseerde partner in te schakelen, kunnen ontwerp, technische vereisten, bouwmethoden en integratie op de werf al vóór de start van de werken op elkaar worden afgestemd.
+
+Voor bouwbedrijven betekent dit duidelijkere raakvlakken, betere coördinatie en een vlotter traject van het eerste idee tot de afgewerkte realisatie.
+
+[A2Trails](/about) werkt samen met bouwpartners van [ontwerp](/services/design) tot [uitvoering](/services/construction), met als specialisatie [pumptracks](/services/construction#pumptracks), [skillsparks](/services/construction#skill-tracks) en [trails](/services/construction#mtb-trails).
+
+1. Projectvoorbereiding & Ontwerp
+Elk succesvol buitenproject begint met een duidelijk inzicht in de site, de projectdoelstellingen en de randvoorwaarden die het ontwerp vormgeven.
+• Terreinanalyse en randvoorwaarden
+• Conceptueel en gedetailleerd ontwerp
+• Planning en vergunningen
+• Technische specificaties en projectvereisten
+
+2. Grondwerken & Vormgeving (Shaping)
+Zodra het ontwerp is goedgekeurd, start de uitvoering op de werf: het terrein wordt klaargemaakt en de geplande vormen worden zichtbaar.
+• Werfvoorbereiding en uitgraving
+• Grondverzet en nivellering
+• Vormgeven van het parcours of terrein
+• Voorbereiding van de afwatering
+• Modellering van de fietselementen en de omliggende zones
+
+Bij gemodelleerde infrastructuren zoals [pumptracks](/services/construction#pumptracks) en [skillsparks](/services/construction#skill-tracks) is precisie tijdens de grondwerken cruciaal om de gewenste vorm en rijervaring te realiseren.
+
+3. Structurele werken & Verharding
+Nadat het terrein is gevormd, volgt de technische opbouw en de aanleg van de toplaag die de uiteindelijke voorziening bepaalt.
+• Integratie van de afwatering
+• Bestratings- of asfaltwerken
+• Afwerking van het oppervlak
+• Kwaliteitscontrole en correcties
+
+De verschillende lagen moeten perfect op elkaar aansluiten om duurzaamheid, rijcomfort en een doeltreffend waterbeheer te garanderen.
+
+4. Landschappelijke integratie
+Wanneer de kernvoorziening klaar is, brengt de omgevingsaanleg het geheel samen en verbindt het de fietszone met de bredere site.
+• Beplanting en groenaanleg
+• Groene infrastructuur
+• Aansluiting op omliggende paden en openbare ruimtes
+• Zitbanken, toegangszones en aanvullende elementen
+• Uiteindelijke terreinafwerking
+
+Een goede integratie zorgt ervoor dat de voorziening aanvoelt als een natuurlijk onderdeel van de buurt of het totale project, eerder dan als een losstaande installatie.
+
+5. Voltooiing & Oplevering
+De laatste fase brengt alle bouw- en afwerkingswerken samen en zorgt ervoor dat de site klaar, conform en overdraagbaar is voor gebruik.
+• Eindinspecties
+• Afwerking van de laatste punten
+• Werfopruiming en eindafwerking
+• Oplevering
+• Opening en gebruik door het publiek
+
+Het resultaat is een volledig geïntegreerde buitenruimte, klaar voor de gebruikers en voor de klant om te [beheren en te onderhouden](/services/maintenance).
+
+Samenwerken aan een outdoor- of fietsinfrastructuurproject? [Neem contact op met ons team](/contact).`,
+                takeaways: [
+                  'Vroegtijdige inschakeling van een specialist stemt ontwerp, techniek en werfintegratie al vóór de bouw naadloos af.',
+                  'Nauwkeurig grondverzet en gespecialiseerde shaping zijn cruciaal voor een geweldige rijervaring, duurzame afwatering en veiligheid.',
+                  'Doordachte landschappelijke integratie verbindt de fietssite met de bredere omgeving voor maximale maatschappelijke meerwaarde.',
+                ],
+              },
+              'choosing-bike-infrastructure-community': {
+                title: 'Kiezen voor de Juiste Fietsinfrastructuur voor uw Gemeente',
+                meta: 'Geschreven door A2Trails · Gepubliceerd september 2026 · Gemeentelijke Fietsinfrastructuur',
+                excerpt: 'Ontdek hoe pumptracks, skillsparks, MTB-paden en jumptracks verschillende maatschappelijke doelen verwezenlijken.',
+                content: `Een nieuwe fietsvoorziening kan veel meer worden dan zomaar een plek om te rijden. Het kan kinderen een veilige omgeving bieden om hun vaardigheden te ontwikkelen, een bestemming creëren voor actieve recreatie, mensen samenbrengen of inwoners en bezoekers aanmoedigen om het omliggende landschap te verkennen.
+
+Vraag dus niet in de eerste plaats wélke voorziening u moet bouwen, maar start met een belangrijkere vraag:
+
+**“Wat willen we dat deze ruimte doet voor onze community?”**
+
+Verschillende types fietsinfrastructuur dienen verschillende doelen. Door die verschillen te begrijpen, kunnen gemeenten een voorziening - of een combinatie van voorzieningen - kiezen die past bij de mensen, de locatie en de ambities achter het project.
+
+Dit zijn enkele van de belangrijkste opties om te overwegen:
+
+1. Wilt u een plek creëren voor actieve recreatie en gemeenschapsleven? Denk aan een pumptrack.
+[Pumptracks](/services/construction#pumptracks) kunnen verschillende generaties en niveaus samenbrengen in dezelfde ruimte. Kinderen kunnen al spelend leren, ervaren rijders kunnen aan hun techniek werken en families en vrienden kunnen samen genieten van een actieve buitenruimte.
+
+Het ontwerp en de aanleg van de baan spelen hierbij een cruciale rol. Duurzame asfaltverharding, zorgvuldige shape, grip onder alle weersomstandigheden en weinig onderhoud dragen bij aan een voorziening die langdurig aantrekkelijk en toegankelijk blijft.
+
+Ze kunnen ook de ideale setting bieden voor lokale sportevenementen, gemeenschapsactiviteiten en fiets initiaties, wat gemeenten kansen biedt om mensen samen te brengen rond een actieve buitenruimte. Onderzoek naar fietsinfrastructuur in de samenleving, zoals pumptracks en mountainbikepaden, toont voordelen aan op het vlak van fysieke gezondheid, vaardigheidsontwikkeling en sterkere sociale banden. [1]
+
+Een pumptrack betekent daardoor meer dan enkel een plek voor wie er actief op rijdt. Met de juiste inplanting en het juiste ontwerp kan het een essentieel onderdeel worden van het gemeenschapsleven.
+
+2. Wilt u fietsvaardigheden en zelfvertrouwen ontwikkelen? Denk aan een skillspark.
+Een [skillspark](/services/construction#skill-tracks) creëert een toegewijde omgeving waar fietsers technieken kunnen oefenen zoals balans, remmen, sturen en bochten nemen.
+
+Vooral voor jongere fietsers is het aanleren van basisbeheersing van de fiets, voordat ze in complexere verkeerssituaties terechtkomen, een belangrijk onderdeel van veilig leren fietsen. De Vlaamse Stichting Verkeerskunde (VSV) raadt aan dat kinderen jonger dan 10 jaar eerst fiets- en stuurvaardigheden oefenen in een beschermde omgeving, waarna verkeerstraining stapsgewijs wordt geïntroduceerd. [2] Het Belgische federale actieplan Be Cyclist 2.0 (2026-2029) omvat het toegankelijk, veilig en gezond maken van fietsen eveneens als een van zijn drie strategische pijlers. [3]
+
+Skillsparks kunnen worden ontworpen rond technische obstakels, progressiezones, balanselementen en specifieke vaardigheidsuitdagingen, wat fietsers de kans geeft om op hun eigen niveau te groeien. Dit maakt vaardigheidsontwikkeling een belangrijke overweging bij het plannen van fietsinfrastructuur voor inwoners.
+
+3. Wilt u mensen verbinden met het landschap? Denk aan mountainbikepaden (MTB-trails).
+[Mountainbikepaden](/services/construction#mtb-trails) kunnen van de natuurlijke omgeving rond een stad of gemeente een onderdeel maken van haar recreatieve infrastructuur.
+
+In tegenstelling tot een voorziening op één specifieke locatie, kan een netwerk van paden verschillende routes, rijervaringen en moeilijkheidsgraden bieden, waardoor de infrastructuur een bredere groep gebruikers bedient.
+
+Een goed trailontwerp gaat over meer dan enkel een pad aanleggen door het landschap. Integratie in het natuurlijke terrein, flow, erosiebestrijding en duurzame afwatering spelen allemaal een rol bij het creëren van paden die fijn zijn om op te rijden en tegelijk hun omgeving respecteren. Technische features kunnen vervolgens worden geïntegreerd waar ze passen bij de beoogde gebruikers en het karakter van de site.
+
+Mountainbiken kan ook bijdragen aan het recreatieve en toeristische aanbod van een omgeving. Onderzoek naar mountainbikebestemmingen benadrukt het belang van goed ontworpen trailervaringen en voorzieningen voor het creëren van een aantrekkelijk aanbod. [4]
+
+4. Wilt u spectakel en een uitdagender rijaanbod bieden? Denk aan jumptracks of dirtjumps.
+Voor gemeenschappen met een gevestigde fietscultuur kunnen [jumptracks of dirtjumps](/services/construction#jump-tracks) een specifieke ruimte bieden voor rijders die meer geavanceerde vaardigheden willen ontwikkelen.
+
+Jumptracks kunnen worden ontworpen met progressieve lijnen en technische sprongen die voldoen aan de verwachtingen van ervaren rijders, waardoor gebruikers hun vaardigheden geleidelijk kunnen opbouwen.
+
+De sleutel is om het ontwerp af te stemmen op de beoogde gebruikers. Een jumptrack hoeft niet uitsluitend te worden ontworpen voor eliterijders; verschillende lijnen en moeilijkheidsgraden kunnen groeikansen creëren naarmate de vaardigheden van de rijders vorderen.
+
+**Start met de behoefte. Begrijp de locatie. Kies dan de infrastructuur.**
+
+Er is geen universele formule voor succesvolle fietsinfrastructuur. De juiste keuze hangt af van de locatie, de gebruikers, de beschikbare ruimte en wat de gemeente met de voorziening wil bereiken. Soms is een combinatie de sterkste oplossing. Ontdek onze [Onderzoek & Haalbaarheid](/services/consultancy) en [Ontwerp & Engineering](/services/design) diensten.
+
+Plannen voor fietsinfrastructuur in uw gemeente? [Laten we praten](/contact).
+
+Referenties
+[1] Clanton, T., Chancellor, C., Park, S., et al. (2025). Applying the Benefits-Based Programming Model to Advance Community Well-Being through Cycling. International Journal of Community Well-Being, 8, 713-733. https://doi.org/10.1007/s42413-025-00267-y
+[2] Vlaamse Stichting Verkeerskunde (VSV). (2026). Je kind veilig leren fietsen. Zo pak je het aan voor 10 jaar. https://www.veiligverkeer.be/weggebruikers/fietsers/kinderen/leren-fietsen-tot-10-jaar
+[3] Belgische Federale Overheid. (2026). Be Cyclist 2.0: Federaal Actieplan Fiets 2026-2029. https://news.belgium.be/nl/be-cyclist-20-federaal-actieplan-voor-de-fiets-2026-2029
+[4] Munanura, I. E., et al. (2024). A cognitive appraisal approach to understanding mountain bikers' post-trip trails recommendation intent. Journal of Outdoor Recreation and Tourism, 47, 100791. https://doi.org/10.1016/j.jort.2024.100791`,
+                takeaways: [
+                  'Vraag eerst wat de ruimte moet doen voor de gemeenschap: actieve ontmoeting, verkeersvaardigheid, natuurbeleving of sportprogressie.',
+                  'Pumptracks verenigen alle leeftijden; skillsparks bieden kinderen een veilige zone om fietscontrole te oefenen vóór het echte verkeer.',
+                  'MTB-paden en jumptracks versterken het toeristisch recreatieaanbod en bieden gevorderde fietsers veilige uitdagingen.',
                 ],
               },
               'sustainable-trail-drainage': {
@@ -1348,7 +1600,7 @@ Referenties
             allProducts: 'Tous les Produits de Construction',
             services: 'Services',
             projects: 'Projets',
-            insights: 'Insights',
+            insights: 'Perspectives',
             about: 'À propos',
             contact: 'Contact',
             consultancy: 'Recherche & Faisabilité',
@@ -1520,7 +1772,7 @@ Referenties
             all: 'Toutes les Catégories',
             readTime: 'min de lecture',
             readArticle: 'Lire l\'Article',
-            backToInsights: 'Retour aux Insights',
+            backToInsights: 'Retour aux Perspectives',
             share: 'Partager',
             keyTakeaways: 'Points Clés',
             noResults: 'Aucun article trouvé correspondant à vos critères.',
@@ -1544,7 +1796,7 @@ Referenties
                 excerpt: 'Les aménagements modernes sont de plus en plus complexes, combinant habitat, espaces publics et loisirs. Répondre à ces exigences nécessite souvent d\'intégrer une expertise spécialisée au sein de votre équipe projet.',
                 content: `Les projets d'aménagement modernes sont de plus en plus complexes, combinant habitat, espaces publics et loisirs. Répondre à ces exigences nécessite souvent d'intégrer une expertise spécialisée au sein de votre équipe projet.
 
-Les infrastructures cyclables — telles que les [pump tracks](/services/construction#pumptracks), les [skills parks](/services/construction#skill-tracks) et les sentiers — constituent un domaine où les compétences pointues font une différence mesurable. S'associer à un spécialiste complète les capacités clés de votre entreprise, facilitant l'intégration harmonieuse de ces équipements dans l'aménagement global.
+Les infrastructures cyclables - telles que les [pump tracks](/services/construction#pumptracks), les [skills parks](/services/construction#skill-tracks) et les sentiers - constituent un domaine où les compétences pointues font une différence mesurable. S'associer à un spécialiste complète les capacités clés de votre entreprise, facilitant l'intégration harmonieuse de ces équipements dans l'aménagement global.
 
 Trois bénéfices majeurs d'un partenariat avec un spécialiste des infrastructures cyclables :
 
@@ -1592,10 +1844,10 @@ Se sentir en confiance sur un vélo est primordial. Freiner, maintenir son équi
 
 Une étude menée auprès de 2 260 enfants a démontré que l'apprentissage des règles de sécurité et des compétences à vélo améliorait tant leurs connaissances que leur confiance en leurs capacités. [5] Des recherches longitudinales ont également établi que les jeunes ayant suivi une formation cycliste étaient plus enclins à se rendre à l'école à vélo et adoptaient des comportements plus prudents. [6]
 
-Offrir un lieu pour apprendre, s'exercer et progresser rend la pratique plus naturelle et agréable — et encourage à continuer de rouler.
+Offrir un lieu pour apprendre, s'exercer et progresser rend la pratique plus naturelle et agréable - et encourage à continuer de rouler.
 
 3. Les infrastructures créent de véritables destinations citoyennes
-Un pump track ou un skills park est bien plus qu'une simple piste. Grâce à une conception soignée, il rassemble enfants, adolescents, familles, cyclistes amateurs, clubs et écoles dans un même espace partagé. L'infrastructure cyclable devient ainsi un puissant levier de **placemaking — créant des lieux de vie où les citoyens aiment se retrouver, bouger et tisser des liens**.
+Un pump track ou un skills park est bien plus qu'une simple piste. Grâce à une conception soignée, il rassemble enfants, adolescents, familles, cyclistes amateurs, clubs et écoles dans un même espace partagé. L'infrastructure cyclable devient ainsi un puissant levier de **placemaking - créant des lieux de vie où les citoyens aiment se retrouver, bouger et tisser des liens**.
 
 Une étude sur les nouvelles infrastructures cyclables à Sydney a mis en évidence des effets positifs sur le lien social entre résidents, parallèlement à une hausse de la pratique du vélo. [7] L'infrastructure contribue ainsi à créer des espaces conviviaux où les habitants partagent des moments de qualité.
 
@@ -1609,7 +1861,7 @@ Les investissements municipaux doivent souvent répondre à des enjeux multiples
 
 Une infrastructure offrant des niveaux de difficulté progressifs accueille aussi bien les débutants que les pratiquants chevronnés. Elle sert au quotidien tout en accueillant des stages, des cours de perfectionnement ou des événements associatifs.
 
-Chez A2Trails, nous sommes convaincus que chaque projet commence par l'écoute de la communauté et de ses usagers. La solution idéale concilie plaisir de pilotage, rigueur technique, besoins locaux et durabilité — en concevant des équipements parfaitement intégrés à leur environnement. [Découvrez nos services d'Étude & Faisabilité et de Conception & Ingénierie](/services/consultancy)
+Chez A2Trails, nous sommes convaincus que chaque projet commence par l'écoute de la communauté et de ses usagers. La solution idéale concilie plaisir de pilotage, rigueur technique, besoins locaux et durabilité - en concevant des équipements parfaitement intégrés à leur environnement. Découvrez nos services de [Recherche & Faisabilité](/services/consultancy) et de [Conception & Ingénierie](/services/design).
 
 Vous planifiez un projet d'infrastructure cyclable ? [Échangeons ensemble](/contact)
 
@@ -1627,6 +1879,132 @@ Références
                   'L\'infrastructure cyclable conjugue objectifs de santé publique et politiques de mobilité communales.',
                   'Les espaces dédiés comme les pump tracks et skills parks encouragent une activité physique quotidienne pour tous les âges.',
                   'Ces aménagements créent de véritables lieux de vie et répondent à des priorités citoyennes transversales.',
+                ],
+              },
+              'phases-of-an-outdoor-project': {
+                title: 'Le Bon Spécialiste au Bon Moment : Les Phases d\'un Projet en Extérieur',
+                meta: 'Rédigé par A2Trails · Publié en septembre 2026 · Partenariat avec un Spécialiste de la Construction',
+                excerpt: 'Découvrez comment l\'intégration d\'un partenaire spécialiste à chaque phase d\'un projet extérieur - de la conception au modelage, aux revêtements, à l\'aménagement paysager et à la livraison - garantit une coordination fluide et un ouvrage durable.',
+                content: `Les aménagements extérieurs impliquent souvent plusieurs corps de métier et sous-traitants. Intégrer un partenaire spécialisé dès le début permet d'aligner le design, les contraintes techniques, les méthodes de construction et l'intégration sur le site avant le démarrage des travaux.
+
+Pour les entreprises de construction, cela garantit des interfaces plus claires, une meilleure coordination et une concrétisation plus fluide, du premier concept à l'ouvrage finalisé.
+
+[A2Trails](/about) accompagne les partenaires de la construction de la [conception](/services/design) à [l'exécution](/services/construction), en se spécialisant dans les [pumptracks](/services/construction#pumptracks), [skills parks](/services/construction#skill-tracks) et [pistes cyclables (trails)](/services/construction#mtb-trails).
+
+1. Préparation du projet & Conception
+Tout projet extérieur réussi commence par une compréhension claire du site, des objectifs du projet et des contraintes qui façonneront le design.
+• Évaluation du site et contraintes
+• Concept et conception détaillée
+• Planification et permis de construire
+• Spécifications techniques et exigences du projet
+
+2. Terrassement & Modelage (Shaping)
+Une fois le design approuvé, le projet passe en phase de construction : le site est préparé et le terrain commence à prendre forme.
+• Préparation du site et excavation
+• Travaux de terrassement et nivellement
+• Façonnage de la piste ou du terrain
+• Préparation du système de drainage
+• Modelage des éléments de pratique et des zones adjacentes
+
+Pour les infrastructures modelées telles que les [pumptracks](/services/construction#pumptracks) et les [skills parks](/services/construction#skill-tracks), la précision du terrassement est cruciale pour obtenir la forme et l'expérience de pilotage recherchées.
+
+3. Travaux structurants & Revêtement
+Une fois le terrain façonné, l'étape suivante consiste à construire les fondations techniques et à poser le revêtement final.
+• Intégration du drainage
+• Travaux de pavage ou d'enrobé
+• Finition de surface
+• Contrôle qualité et ajustements
+
+Les différentes couches doivent fonctionner en synergie pour garantir la durabilité, le confort de roulement et une gestion efficace des eaux de pluie.
+
+4. Intégration paysagère
+Une fois l'infrastructure principale terminée, l'aménagement paysager environnant harmonise le projet et relie la zone de pratique au reste du site.
+• Plantations et aménagements paysagers
+• Infrastructures vertes
+• Connexions aux chemins et espaces publics environnants
+• Mobilier urbain, accès et éléments complémentaires
+• Finitions paysagères finales
+
+Une bonne intégration permet à l'équipement d'apparaître comme une partie intégrante du développement global plutôt que comme une installation isolée.
+
+5. Finalisation & Livraison
+La dernière étape rassemble l'ensemble des travaux de construction et de finition, garantissant que le site est complet, conforme et prêt à être livré.
+• Inspections finales
+• Réalisation des derniers ajustements
+• Nettoyage du chantier et finitions
+• Livraison de l'ouvrage
+• Ouverture et mise à disposition des usagers
+
+Le résultat est une infrastructure extérieure pleinement intégrée, prête pour les usagers et facile à [gérer et entretenir](/services/maintenance) pour le client.
+
+Un projet d'aménagement récréatif ou cyclable en vue ? [Contactez notre équipe](/contact).`,
+                takeaways: [
+                  'L\'intégration d\'un spécialiste dès la phase amont harmonise conception technique, méthodes constructives et intégration au site.',
+                  'La précision du modelage et des terrassements est cruciale pour une excellente expérience de pilotage, un drainage durable et la sécurité des usagers.',
+                  'Une intégration paysagère soignée ancre harmonieusement les pistes dans l\'aménagement d\'ensemble de la collectivité.',
+                ],
+              },
+              'choosing-bike-infrastructure-community': {
+                title: 'Choisir la Bonne Infrastructure Cyclable pour Votre Communauté',
+                meta: 'Rédigé par A2Trails · Publié en septembre 2026 · Municipal Biking Infrastructure',
+                excerpt: 'Découvrez comment pumptracks, skills parks, pistes de VTT et jump tracks répondent aux ambitions communales.',
+                content: `Un nouvel équipement cyclable peut devenir bien plus qu'un simple endroit où rouler. Il peut offrir aux enfants un espace sécurisé pour développer leurs compétences, créer une destination de loisirs actifs, rassembler les gens ou encourager les habitants et les visiteurs à explorer le paysage environnant.
+
+Ainsi, plutôt que de vous demander quel équipement construire, commencez par une question plus essentielle :
+
+**« Que voulons-nous que cet espace apporte à notre communauté ? »**
+
+Différents types d'infrastructures cyclables répondent à différents objectifs. Comprendre ces différences aide les municipalités à choisir un équipement - ou une combinaison d'équipements - adapté aux personnes, au lieu et aux ambitions du projet.
+
+Voici quelques-unes des principales options à envisager.
+
+1. Vous souhaitez créer un lieu de loisirs actifs et de vie communautaire ? Pensez au pumptrack.
+Les [pumptracks](/services/construction#pumptracks) peuvent réunir différentes générations et différents niveaux de pratique dans un même espace. Les enfants apprennent en jouant, les pratiquants plus expérimentés travaillent leur technique, et les familles ou amis profitent ensemble d'un espace extérieur actif.
+
+La conception et la construction de la piste sont également déterminantes. Un revêtement en enrobé durable, un modelage précis, grip par tous les temps et un faible entretien permettent de créer une infrastructure qui reste agréable et accessible dans le temps.
+
+Ils peuvent également servir de cadre à des événements sportifs locaux, des activités communautaires et des programmes cyclistes, offrant aux municipalités l'occasion de rassembler les citoyens autour d'un espace extérieur actif. Des études sur les programmes cyclistes communautaires, tels que les pumptracks et les pistes de VTT, ont mis en évidence des bénéfices incluant la santé physique, le développement des compétences et des liens sociaux plus forts. [1]
+
+Un pumptrack apporte ainsi de la valeur bien au-delà des seuls pratiquants. Avec une implantation et un design adaptés, il devient un élément central de la vie communautaire.
+
+2. Vous souhaitez développer les compétences et la confiance à vélo ? Pensez au skills park.
+Un [skills park](/services/construction#skill-tracks) (espace d'apprentissage) crée un environnement dédié où les pratiquants peuvent s'entraîner aux techniques telles que l'équilibre, le freinage, la trajectoire et le franchissement de virages.
+
+Pour les plus jeunes en particulier, maîtriser le contrôle de base du vélo avant de faire face à des situations de trafic plus complexes est une étape essentielle pour apprendre à rouler en toute sécurité. La Fondation flamande pour la sécurité routière (VSV) recommande aux enfants de moins de 10 ans de s'entraîner d'abord au maniement du vélo dans un environnement protégé, avant d'introduire progressivement l'apprentissage de la circulation routière. [2] Le plan d'action fédéral belge pour le vélo Be Cyclist 2.0 (2026-2029) inscrit également la promotion d'un vélo accessible, sûr et sain parmi ses trois piliers stratégiques. [3]
+
+Les pistes d'apprentissage peuvent être conçues autour d'obstacles techniques, de zones de progression, d'éléments d'équilibre et de défis spécifiques, offrant aux pratiquants la possibilité d'évoluer à leur propre rythme. Cela fait du développement des compétences un élément clé lors de la planification d'infrastructures cyclables pour les résidents.
+
+3. Vous souhaitez connecter les usagers au paysage ? Pensez aux pistes de VTT (trails).
+Les [pistes de VTT](/services/construction#mtb-trails) permettent d'intégrer l'environnement naturel autour d'une ville dans son infrastructure récréative.
+
+Contrairement à un équipement limité à une emprise définie, un réseau de pistes peut offrir différents itinéraires, expériences de pilotage et niveaux de difficulté, permettant à l'infrastructure de servir un éventail d'utilisateurs plus large.
+
+Une bonne conception de piste ne se résume pas à tracer un chemin dans la nature. L'intégration dans le terrain naturel, le flow, le contrôle de l'érosion et la gestion durable du drainage jouent tous un rôle pour créer des pistes agréables à parcourir tout en respectant leur environnement. Des modules techniques peuvent ensuite être intégrés lorsqu'ils correspondent aux utilisateurs visés et au caractère du site.
+
+Le VTT peut également enrichir l'offre récréative et touristique d'une destination. Les recherches sur la compétitivité des destinations VTT soulignent l'importance d'expériences de pilotage et de services bien conçus pour créer une offre attractive. [4]
+
+4. Vous souhaitez offrir de la progression et une pratique plus exigeante ? Pensez aux équipements avancés.
+Pour les communautés bénéficiant d'une culture cycliste bien ancrée, les [pistes de saut (jump tracks)](/services/construction#jump-tracks) offrent un espace dédié aux pratiquants souhaitant développer des compétences plus avancées.
+
+Les jump tracks peuvent être conçues avec des lignes évolutives et des sauts techniques adaptés aux pratiquants expérimentés, leur permettant de développer leurs compétences progressivement.
+
+La clé réside dans l'adaptation du design aux utilisateurs visés. Une jump track n'a pas besoin d'être conçue exclusivement pour l'élite : différentes lignes et niveaux de difficulté peuvent créer des opportunités de progression au fur et à mesure que les compétences évoluent.
+
+**Commencez par le besoin. Comprenez le lieu. Choisissez ensuite l'infrastructure.**
+
+Il n'existe pas de formule unique pour réussir une infrastructure cyclable. Le bon choix dépend de la communauté, des utilisateurs, de l'espace disponible et des objectifs fixés par la municipalité. Et dans certaines communes, une combinaison d'équipements constituera l'offre la plus pertinente. Découvrez nos services de [Recherche & Faisabilité](/services/consultancy) et de [Conception & Ingénierie](/services/design).
+
+Un projet d'aménagement cyclable pour votre commune ? [Échangeons ensemble](/contact).
+
+Références
+[1] Clanton, T., Chancellor, C., Park, S., et al. (2025). Applying the Benefits-Based Programming Model to Advance Community Well-Being through Cycling. International Journal of Community Well-Being, 8, 713-733. https://doi.org/10.1007/s42413-025-00267-y
+[2] Vlaamse Stichting Verkeerskunde (VSV). (2026). Je kind veilig leren fietsen. Zo pak je het aan voor 10 jaar. https://www.veiligverkeer.be/weggebruikers/fietsers/kinderen/leren-fietsen-tot-10-jaar
+[3] Gouvernement Fédéral de Belgique. (2026). Be Cyclist 2.0 : Plan d'action fédéral Vélo 2026-2029. https://news.belgium.be/nl/be-cyclist-20-federaal-actieplan-voor-de-fiets-2026-2029
+[4] Munanura, I. E., et al. (2024). A cognitive appraisal approach to understanding mountain bikers' post-trip trails recommendation intent. Journal of Outdoor Recreation and Tourism, 47, 100791. https://doi.org/10.1016/j.jort.2024.100791`,
+                takeaways: [
+                  'Définir en amont la vocation de l\'espace : convivialité intergénérationnelle, apprentissage de la sécurité, lien à la nature ou progression sportive.',
+                  'Le pumptrack fédère tous les âges ; le skills park permet aux plus jeunes d\'acquérir les réflexes de contrôle avant la circulation routière.',
+                  'Les réseaux de pistes VTT et lignes de sauts diversifient l\'attractivité touristique et offrent une pratique évolutive sécurisée.',
                 ],
               },
               'sustainable-trail-drainage': {

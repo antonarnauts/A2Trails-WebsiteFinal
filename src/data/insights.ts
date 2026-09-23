@@ -11,6 +11,26 @@ export interface InsightArticle {
 
 export const insightsData: InsightArticle[] = [
   {
+    id: "choosing-bike-infrastructure-community",
+    slug: "choosing-bike-infrastructure-community",
+    aliases: [
+      "choosing-the-right-bike-infrastructure-for-your-community",
+      "bike-infrastructure-community",
+      "kiezen-voor-de-juiste-fietsinfrastructuur-voor-uw-gemeente",
+      "choisir-la-bonne-infrastructure-cyclable-pour-votre-communaute",
+      "steden-en-gemeenten",
+      "villes-et-communes",
+      "article-4",
+      "article4",
+      "towns"
+    ],
+    readTime: "5",
+    date: "September 2026",
+    image: "/images/meetingimage.png",
+    imagePosition: "object-center",
+    tags: ["Municipalities", "Active Recreation", "Pumptracks", "Skills Parks", "MTB Trails"],
+  },
+  {
     id: "biking-infrastructure-municipalities",
     slug: "biking-infrastructure-municipalities",
     aliases: [
@@ -43,6 +63,25 @@ export const insightsData: InsightArticle[] = [
     image: "/images/article1.webp",
     imagePosition: "object-center",
     tags: ["Partnerships", "Construction", "Project Quality", "Risk Reduction"],
+  },
+  {
+    id: "phases-of-an-outdoor-project",
+    slug: "phases-of-an-outdoor-project",
+    aliases: [
+      "the-right-specialist-at-the-right-stage",
+      "phases-of-an-outdoor-project",
+      "construction-companies",
+      "bouwbedrijven",
+      "de-juiste-specialist-op-het-juiste-moment",
+      "pour-les-entreprises-de-construction",
+      "article-3",
+      "article3"
+    ],
+    readTime: "4",
+    date: "September 2026",
+    image: "/images/constructionprocess5phases.png",
+    imagePosition: "object-center",
+    tags: ["Construction", "Partnerships", "Groundworks", "Project Phases"],
   },
 ];
 
