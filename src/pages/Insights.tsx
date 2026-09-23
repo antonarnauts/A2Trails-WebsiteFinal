@@ -187,21 +187,21 @@ export default function Insights() {
       />
 
       {/* Hero Header */}
-      <section className="py-20 md:py-24 text-center">
+      <section className="pt-10 pb-5 sm:pt-12 sm:pb-6 text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h1 
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-5xl md:text-6xl font-bold text-white mb-6"
+            transition={{ duration: 0.4 }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2"
           >
             {t('insights.title')}
           </motion.h1>
           <motion.p 
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed"
+            transition={{ duration: 0.4, delay: 0.08 }}
+            className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto leading-relaxed"
           >
             {t('insights.subtitle')}
           </motion.p>
@@ -209,12 +209,12 @@ export default function Insights() {
       </section>
 
       {/* Content Section */}
-      <section className="pb-32">
+      <section className="pb-16 sm:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-brand-card/50 border border-white/5 rounded-3xl p-6 sm:p-8 md:p-12">
+          <div className="bg-brand-card/40 border border-white/5 rounded-3xl p-4 sm:p-6 md:p-8">
             
-            {/* Articles Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Articles Grid - Compact 2x2 layout so all 4 fit on screen */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 max-w-5xl mx-auto">
               {insightsData.map((article, idx) => {
                 const title = t(`insights.articles.${article.id}.title`);
                 const excerpt = t(`insights.articles.${article.id}.excerpt`);
@@ -222,9 +222,9 @@ export default function Insights() {
                 return (
                   <motion.div
                     key={article.id}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: idx * 0.1 }}
+                    transition={{ duration: 0.35, delay: idx * 0.05 }}
                     onClick={() => openArticle(article)}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' || e.key === ' ') {
@@ -235,48 +235,51 @@ export default function Insights() {
                     role="button"
                     tabIndex={0}
                     aria-label={title}
-                    className="bg-brand-card rounded-2xl border border-white/5 overflow-hidden flex flex-col hover:border-brand-orange/40 hover:shadow-xl hover:shadow-brand-orange/5 transition-all duration-300 group cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-brand-orange/50"
+                    className="bg-brand-card rounded-2xl border border-white/10 overflow-hidden flex flex-col sm:flex-row items-stretch hover:border-brand-orange/40 hover:shadow-xl hover:shadow-brand-orange/5 transition-all duration-300 group cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-brand-orange/50 p-3.5 sm:p-4 gap-3.5 sm:gap-4"
                   >
-                    {/* Image Container */}
-                    <div className="relative h-60 overflow-hidden bg-brand-dark">
+                    {/* Thumbnail Image */}
+                    <div className="relative w-full sm:w-44 md:w-48 h-36 sm:h-auto min-h-[125px] rounded-xl overflow-hidden bg-brand-dark flex-shrink-0">
                       <img
                         src={getAssetPath(article.image)}
                         alt={title}
-                        className="w-full h-full object-cover object-[center_50%] group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                        className={`w-full h-full object-cover ${article.imagePosition || 'object-center'} group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100`}
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent opacity-80" />
+                      <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
                     </div>
 
                     {/* Content */}
-                    <div className="p-6 sm:p-8 flex flex-col flex-grow">
-                      {/* Meta info */}
-                      <div className="flex items-center gap-4 text-xs text-gray-400 mb-3">
-                        <span className="flex items-center gap-1.5">
-                          <Calendar className="h-3.5 w-3.5 text-brand-orange" />
-                          {article.date}
-                        </span>
-                        <span className="flex items-center gap-1.5">
-                          <Clock className="h-3.5 w-3.5 text-brand-orange" />
-                          {article.readTime} {t('insights.readTime')}
-                        </span>
+                    <div className="flex flex-col justify-between flex-1 min-w-0 py-0.5">
+                      <div>
+                        {/* Meta info */}
+                        <div className="flex items-center gap-3 text-[11px] text-gray-400 mb-1">
+                          <span className="flex items-center gap-1">
+                            <Calendar className="h-3 w-3 text-brand-orange" />
+                            {article.date}
+                          </span>
+                          <span>•</span>
+                          <span className="flex items-center gap-1">
+                            <Clock className="h-3 w-3 text-brand-orange" />
+                            {article.readTime} {t('insights.readTime')}
+                          </span>
+                        </div>
+
+                        <h3 className="text-sm sm:text-base font-bold text-white mb-1 group-hover:text-brand-orange transition-colors leading-snug line-clamp-2">
+                          {title}
+                        </h3>
+
+                        <p className="text-gray-400 text-xs leading-relaxed line-clamp-2">
+                          {excerpt}
+                        </p>
                       </div>
 
-                      <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-brand-orange transition-colors leading-snug">
-                        {title}
-                      </h3>
-
-                      <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-6 flex-grow">
-                        {excerpt}
-                      </p>
-
                       {/* Button */}
-                      <div
-                        className="w-full mt-auto bg-white/5 text-white py-3.5 px-4 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all group-hover:bg-brand-orange"
-                      >
-                        <BookOpen className="h-4 w-4" />
-                        {t('insights.readArticle')}
-                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      <div className="w-full mt-2.5 pt-2 border-t border-white/5 text-xs font-semibold text-brand-orange group-hover:text-brand-orange-hover flex items-center justify-between">
+                        <span className="flex items-center gap-1.5">
+                          <BookOpen className="h-3.5 w-3.5" />
+                          {t('insights.readArticle')}
+                        </span>
+                        <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </div>
                   </motion.div>

@@ -821,7 +821,7 @@ References
             designBuild: 'Design and Build',
           },
           hero: {
-            title: 'Ontwerpen & Bouwen van<br />Rij-infrastructuur met Blijvende Impact',
+            title: 'Ontwerpen & Bouwen van<br />Fietsinfrastructuur met Blijvende Impact',
             subtitle: 'Professionele aanleg van fietsinfrastructuur - wij helpen gemeenten, projectontwikkelaars en vakantieparken levendige, actieve buitenruimtes te creëren',
             cta: 'Bekijk Onze Projecten',
             cta2: 'Neem Contact Op',
