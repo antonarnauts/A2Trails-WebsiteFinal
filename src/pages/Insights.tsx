@@ -124,6 +124,13 @@ export default function Insights() {
   const [selectedArticle, setSelectedArticle] = useState<InsightArticle | null>(null);
   const [copied, setCopied] = useState(false);
 
+  // If Croatian, Magazin is temporarily disabled; redirect to /hr
+  useEffect(() => {
+    if (i18n.language === 'hr' || params.lang === 'hr') {
+      navigate('/hr', { replace: true });
+    }
+  }, [i18n.language, params.lang, navigate]);
+
   // Sync selected article with URL params (/insights/:articleId or ?article=...)
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -141,6 +148,10 @@ export default function Insights() {
       setSelectedArticle(null);
     }
   }, [params.articleId, location.search]);
+
+  if (i18n.language === 'hr' || params.lang === 'hr') {
+    return null;
+  }
 
   const openArticle = (article: InsightArticle) => {
     setSelectedArticle(article);

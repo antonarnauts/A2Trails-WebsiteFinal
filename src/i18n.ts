@@ -2383,6 +2383,627 @@ Références
           },
         },
       },
+      hr: {
+        translation: {
+          nav: {
+            home: "Početna",
+            products: "Proizvodi",
+            allProducts: "Svi građevinski proizvodi",
+            services: "Usluge",
+            projects: "Projekti",
+            insights: "Magazin",
+            about: "O nama",
+            contact: "Kontakt",
+            consultancy: "Istraživanje i izvedivost",
+            design: "Projektiranje",
+            construction: "Izgradnja",
+            maintenance: "Održavanje",
+            designBuild: "Projektiranje i izgradnja"
+          },
+          hero: {
+            title: "Stvaramo biciklističku infrastrukturu<br />za doživljaje koji se pamte",
+            subtitle: "Projektiramo i gradimo biciklističke sadržaje za općine, investitore i turistička naselja, stvarajući privlačne prostore za sport, rekreaciju i druženje.",
+            cta: "Pogledajte naše projekte",
+            cta2: "Kontaktirajte nas"
+          },
+          homeInsights: {
+            badge: "Stručni uvidi i istraživanja",
+            title: "Izdvojeno znanje i praktični vodiči",
+            subtitle: "Istražite naše najnovije članke o tome kako specijalizirana biciklistička infrastruktura stvara trajnu vrijednost za općine i građevinske projekte.",
+            viewAll: "Svi stručni uvidi",
+            readArticle: "Pročitajte cijeli članak",
+            articleBadge: "Stručni uvidi",
+            slideOf: "Članak {{current}} od {{total}}"
+          },
+          sectors: {
+            title: "Rješenja prilagođena vašem sektoru",
+            subtitle: "Od projektiranja do izgradnje – pružamo stručnu podršku i savjetovanje prilagođeno vašim potrebama.",
+            municipalities: {
+              title: "Gradovi i općine",
+              tagline: "Mjesta koja pokreću zajednicu",
+              desc: "Pretvorite javne površine u kvalitetne prostore za sport, rekreaciju i druženje, uz certificirane pumptrack staze, biciklističke poligone i staze za brdski biciklizam."
+            },
+            contractors: {
+              title: "Izvođači i investitori",
+              tagline: "Specijalizirani partner za projektiranje i izgradnju",
+              desc: "Uključite stručnjake za projektiranje i izgradnju biciklističkih sadržaja u svoje projekte i zajedno pronađite najbolje rješenje za svaki prostor."
+            },
+            holidayParks: {
+              title: "Kampovi i turistička naselja",
+              tagline: "Kompaktne obiteljske atrakcije i sportski sadržaji",
+              desc: "Dodajte svojoj ponudi kompaktne pumptrackove i biciklističke poligone za još više aktivnosti i zabave na otvorenom."
+            },
+            architects: {
+              title: "Arhitekti",
+              tagline: "Biciklistička infrastruktura kao dio urbanog prostora",
+              desc: "Integrirajte biciklističku infrastrukturu u svoje projekte uz našu stručnu tehničku podršku i rješenja prilagođena prostoru i potrebama korisnika."
+            }
+          },
+          expertise: {
+            title: "Od ideje do realizacije",
+            subtitle: "Izaberite usluge koje su vam potrebne ili prepustite nam cijeli projekt.",
+            learnMore: "Saznajte više",
+            consultancy: {
+              desc: "Analiza lokacije, studije izvedivosti i tehnička razrada za održivu biciklističku infrastrukturu."
+            },
+            design: {
+              desc: "Kreativno i funkcionalno projektiranje kompleksa biciklističkih staza, biciklističkih poligona i pumptrack staza, prilagođeno prostoru, korisnicima i vašim potrebama."
+            },
+            construction: {
+              desc: "Stručna izvedba uz specijaliziranu mehanizaciju i preciznu ručnu završnu obradu, za kvalitetnu i dugotrajnu infrastrukturu."
+            },
+            maintenance: {
+              desc: "Očuvanje kvalitete i sigurnosti vaše infrastrukture kroz redovite preglede i stručne popravke."
+            }
+          },
+          cta: {
+            title: "Spremni za realizaciju vaše vizije?",
+            subtitle: "Stvorimo nešto izvanredno zajedno. Kontaktirajte nas za besplatne konzultacije.",
+            button: "Započnimo vaš projekt"
+          },
+          footer: {
+            description: "Profesionalna izgradnja biciklističke infrastrukture prema vašim potrebama",
+            quickLinks: "Brzi linkovi",
+            services: "Usluge",
+            followUs: "Pratite nas",
+            contact: "Kontakt",
+            vat: "PDV / OIB",
+            rights: "Sva prava pridržana.",
+            privacy: "Politika privatnosti",
+            terms: "Uvjeti korištenja"
+          },
+          about: {
+            title: "Strast prema biciklizmu. Preciznost u izvedbi.",
+            p1: "Projektiramo i gradimo biciklističku infrastrukturu koja obogaćuje javne prostore i poboljšava kvalitetu života lokalne zajednice. Kao partner u svim fazama projekta, od početnog planiranja do izgradnje, nudimo rješenja prilagođena potrebama općina, građevinskih tvrtki i turističkih naselja – od pumptrack staza i biciklističkih poligona do kompleksa biciklističkih staza.",
+            p2: "Povezujući znanje iz područja krajobrazne arhitekture s razumijevanjem potreba biciklista, stvaramo sigurne i pristupačne prostore u kojima ljudi svih dobi mogu biti aktivni, razvijati svoje vještine i provoditi vrijeme zajedno.",
+            stats: {
+              experience: "Godina iskustva",
+              projects: "Završenih projekata"
+            },
+            approach: {
+              title: "Naš pristup",
+              community: {
+                title: "Fokus na zajednicu",
+                desc: "Blisko surađujemo s lokalnim zajednicama kako bismo stvorili prostore prilagođene njihovim potrebama, koji potiču aktivnost, druženje i povezivanje ljudi."
+              },
+              design: {
+                title: "Dizajn prilagođen prostoru i korisnicima",
+                desc: "Analiziramo teren, potrebe korisnika i značajke okoliša kako bismo osmislili rješenja koja pružaju zabavno i sigurno iskustvo, potiču razvoj biciklističkih vještina i osiguravaju dugoročnu održivost."
+              },
+              quality: {
+                title: "Kvalitetna izvedba",
+                desc: "Primjenom provjerenih tehnika gradnje i profesionalne opreme stvaramo kvalitetne i dugotrajne prostore koji podnose različite vremenske uvjete i intenzivno korištenje."
+              },
+              pricing: {
+                title: "Dugoročna vrijednost",
+                desc: "Kvalitetno projektirane i izvedene staze potiču razvoj biciklističkih vještina i sigurniju vožnju, a zahvaljujući trajnim rješenjima i provjerenim materijalima, dugo ostaju u funkciji."
+              }
+            },
+            team: {
+              title: "Upoznajte tim",
+              anton: {
+                role: "Osnivač i dizajner",
+                desc: "Krajobrazni arhitekt s 5 godina iskustva u izgradnji staza"
+              },
+              ward: {
+                role: "Dizajner - Dirt Jumps",
+                desc: "Predani graditelj staza s iznimnim osjećajem za detalje"
+              },
+              jelle: {
+                role: "Dizajner - Urbana rješenja",
+                desc: "Specijalist za urbane BMX instalacije"
+              },
+              rafael: {
+                role: "Dizajner - Oblikovanje staza",
+                desc: "Iskusni MX vozač koji nikada ne odlaže alat prije nego što je posao dovršen"
+              }
+            },
+            cta: {
+              title: "Zajedno do rješenja",
+              subtitle: "Svaki projekt počinje idejom. Podijelite svoju s nama i razgovarajmo o sljedećim koracima.",
+              button: "Započnite razgovor"
+            }
+          },
+          projects: {
+            title: "Naši projekti",
+            subtitle: "Od neiskorištenog prostora do mjesta za kretanje, druženje i nove doživljaje. Pogledajte naše projekte.",
+            directory: "Pregled projekata",
+            browse: "Pogledajte naše projekte i upoznajte biciklističku infrastrukturu koju smo projektirali, planirali i izgradili.",
+            search: "Pretražite po gradu ili projektu...",
+            filter: "Sortiraj:",
+            all: "Svi projekti",
+            table: {
+              project: "Projekt",
+              category: "Kategorija",
+              location: "Lokacija",
+              services: "Usluge",
+              year: "Godina"
+            },
+            noResults: "Nisu pronađeni projekti koji odgovaraju vašim kriterijima.",
+            clearFilters: "Očisti sve filtre",
+            cta: {
+              title: "Imate ideju za projekt?",
+              subtitle: "Zajedno je pretvorimo u stvarnost. Od prve procjene izvedivosti do završetka radova, pružamo vam stručnu podršku u svim fazama projekta.",
+              button: "Javite nam se"
+            },
+            categories: {
+              pumptrack: "Pumptrack staze",
+              skillPark: "Biciklistički poligoni",
+              skillpark: "Biciklistički poligoni",
+              trailCenter: "Biciklistički centri",
+              trailcenter: "Biciklistički centri",
+              dirtJumps: "Dirt jumps staze",
+              dirtjumps: "Dirt jumps staze"
+            }
+          },
+          insights: {
+            title: "Stručni uvidi i istraživanja",
+            subtitle: "Istražite naše najnovije članke o projektiranju staza, normama i razvoju zajednice.",
+            directory: "Katalog članaka",
+            browse: "Pregledajte našu bazu stručnog znanja o biciklističkoj infrastrukturi i sportskim parkovima.",
+            search: "Pretražite članke...",
+            filter: "Filtar:",
+            all: "Svi",
+            readTime: "min čitanja",
+            readArticle: "Pročitaj članak",
+            backToInsights: "Natrag na sve članke",
+            share: "Podijeli članak",
+            keyTakeaways: "Ključni zaključci",
+            noResults: "Nisu pronađeni članci koji odgovaraju vašim kriterijima.",
+            clearFilters: "Poništi sve filtre",
+            categories: {
+              engineering: "Projektiranje i inženjering",
+              landscape: "Krajobrazna arhitektura",
+              construction: "Izgradnja i okoliš",
+              safety: "Sigurnost i norme",
+              maintenance: "Održavanje i životni vijek",
+              planning: "Planiranje i izvedivost"
+            },
+            cta: {
+              title: "Planirate biciklistički projekt?",
+              subtitle: "Naš tim vam može pomoći od početne izvedivosti do konačne izgradnje.",
+              button: "Kontaktirajte nas"
+            },
+            articles: {
+              "biking-infrastructure-partnerships": {
+                title: "Bolji projekti kroz partnerstva za biciklističku infrastrukturu",
+                meta: "Napisao A2Trails · Objavljeno u rujnu 2026. · Partnerstvo građevinskih stručnjaka",
+                excerpt: "Suvremeni projekti postaju sve složeniji, spajajući stanovanje, javne prostore i rekreaciju. Zadovoljavanje ovih zahtjeva često iziskuje uključivanje specijaliziranog stručnog znanja u projektni tim.",
+                content: "Suvremeni projekti postaju sve složeniji, spajajući stanovanje, javne prostore i rekreaciju. Zadovoljavanje ovih zahtjeva često iziskuje uključivanje specijaliziranog stručnog znanja u projektni tim.\n\nBiciklistička infrastruktura – poput [pump track staza](/services/construction#pumptracks), [poligona vještina](/services/construction#skill-tracks) i staza – jedno je od područja u kojima specijalističko znanje donosi mjerljivu razliku. Partnerstvo sa stručnjakom nadopunjuje temeljne kompetencije vaše tvrtke, pomažući da se ti sadržaji glatko integriraju u širi projekt.\n\nTri ključne prednosti partnerstva sa stručnjakom za biciklističku infrastrukturu:\n\n1. Poboljšava kvalitetu projekta\n• Uspješan biciklistički sadržaj ovisi o tome koliko dobro tlocrt, protočnost, geometrija, materijali, odvodnja i sigurnost funkcioniraju zajedno.\n• Rano uvođenje specijalističkog znanja usklađuje biciklističku infrastrukturu sa širim dizajnom, povećavajući ukupnu privlačnost i izvedbu projekta.\n• Prepustite specijalizirani dio stručnjacima i zadržite fokus na cjelokupnom razvoju projekta.\n\n2. Smanjuje projektne rizike\n• Rano ispitivanje uvjeta na terenu, odvodnje, materijala i sigurnosnih zahtjeva daje vašem timu jasnu sliku opsega i troškova unaprijed.\n• Bliska koordinacija između projektanata, vašeg građevinskog tima i stručnjaka osigurava financijsku predvidljivost, manje nepredviđenih situacija i nesmetanu izvedbu.\n\n3. Proširuje građevinske mogućnosti\n• Ponudite klijentima cjelovita, specijalizirana biciklistička rješenja kroz jedan projektni tim, bez troškova razvijanja internog znanja.\n• Osvojite više natječaja za rekreacijske projekte, zadržavajući potpunu kontrolu nad cjelokupnom izvedbom.\n\nUspješna partnerstva temelje se na uvođenju pravog znanja u pravom trenutku.\n\nU A2Trails-u radimo rame uz rame s građevinskim tvrtkama od projektiranja do same izvedbe. Imate projekt koji uključuje biciklističku infrastrukturu? [Javite nam se](/contact).",
+                takeaways: [
+                  "Specijalističko znanje usklađuje geometriju, protočnost, oblik, odvodnju i sigurnost za vrhunsku privlačnost projekta.",
+                  "Rana tehnička procjena terena smanjuje projektni rizik i jamči predvidljivost troškova.",
+                  "Omogućuje građevinskim timovima ugovaranje i isporuku cjelovitih rekreacijskih rješenja bez internih režijskih troškova."
+                ]
+              },
+              "biking-infrastructure-municipalities": {
+                title: "5 načina na koje biciklistička infrastruktura koristi gradovima i općinama",
+                meta: "Napisao A2Trails · Objavljeno u rujnu 2026. · Komunalna biciklistička infrastruktura",
+                excerpt: "Belgija ulazi u važno desetljeće za biciklizam, s ciljem ostvarenja 22% svih putovanja i 10% prijeđenih kilometara biciklom do 2040. godine u sklopu akcijskog plana Be Cyclist 2.0.",
+                content: "Belgija ulazi u važno desetljeće za biciklizam.\n\nU svibnju 2026. savezna vlada usvojila je **Be Cyclist 2.0**, akcijski plan za biciklizam za razdoblje 2026.–2029. Strategija ima za cilj učiniti biciklizam privlačnijim, pristupačnijim, sigurnijim i zdravijim. Gledajući dugoročno, cilj je dostići **22% svih putovanja biciklom i 10% prijeđenih kilometara biciklom do 2040. godine**. [1][2]\n\nZa gradove i općine to postavlja šire pitanje: **kako biciklistička infrastruktura može potaknuti veći broj ljudi na vožnju biciklom, istovremeno stvarajući vrijednost za širu zajednicu?**\n\nBiciklističke staze i sigurne prometnice su nužne. No ljudima su potrebni i prostori gdje mogu učiti, vježbati i uživati u vožnji. [Pump track staze](/services/construction#pumptracks), [poligoni vještina](/services/construction#skill-tracks) i drugi biciklistički objekti mogu nadopuniti širu prometnu mrežu i stvoriti dodatnu vrijednost za lokalnu zajednicu.\n\n1. Biciklistička infrastruktura doprinosi zdravijim zajednicama\nBiciklizam objedinjuje tjelesnu aktivnost, rekreaciju i svakodnevni prijevoz, što ga čini praktičnim načinom na koji općine mogu potaknuti zdraviji način života i više kretanja u svakodnevici. Vožnja biciklom do škole, odlazak na lokalnu lokaciju ili poslijepodne provedeno na stazi mogu pretvoriti kretanje u redoviti dio svakodnevnog života. Istraživanja dosljedno pokazuju da biciklizam poboljšava fizičku kondiciju, osobito kod mladih, te doprinosi boljem kardiovaskularnom zdravlju. [3] Studije koje su obuhvatile više od milijun ljudi također su utvrdile da je redoviti biciklizam povezan s nižim rizikom od kardiovaskularnih bolesti i smrtnosti. [4]\n\nZa općine to znači da biciklistička infrastruktura doprinosi **ciljevima javnog zdravlja jednako kao i ciljevima mobilnosti**. Pump track staza ili poligon vještina pružaju novu priliku za tjelesnu aktivnost – namjenski prostor gdje djeca, obitelji i rekreativci mogu biti aktivni na otvorenom, blizu doma i na vlastitoj razini vještina.\n\n2. Biciklističke vještine grade samopouzdanje\nOsjećaj sigurnosti i samopouzdanja na biciklu je iznimno važan. Kočenje, održavanje ravnoteže, kontrola brzine, svladavanje zavoja i prolazak preko prepreka vještine su koje se razvijaju vježbom. Namjenski biciklistički poligon pruža sigurno okruženje za razvoj tih vještina.\n\nIstraživanje koje je uključilo 2.260 djece pokazalo je da obuka o sigurnosti na biciklu i razvoj vještina poboljšavaju i njihovo znanje i samopouzdanje u vlastite biciklističke sposobnosti. [5] Dugoročna istraživanja također su utvrdila da mladi koji su prošli obuku češće voze bicikl u školu te pokazuju sigurnije ponašanje u vožnji. [6]\n\nOmogućavanje prostora za učenje, vježbu i napredak pomaže da vožnja bicikla postane prirodnija i ugodnija – potičući ljude da nastave voziti.\n\n3. Biciklistički sadržaji stvaraju nova središta zajednice\nPump track ili poligon vještina mogu biti znatno više od samog mjesta za vožnju. Uz pravilan dizajn, oni okupljaju djecu, tinejdžere, obitelji, rekreativce, klubove i škole, stvarajući prostor u kojem su ljudi aktivni i provode vrijeme zajedno. To čini biciklističku infrastrukturu dijelom **stvaranja prostora zajednice (placemaking) – stvaranja odredišta gdje ljudi žele provoditi vrijeme, družiti se i povezivati**.\n\nIstraživanje nove biciklističke infrastrukture u Sydneyu zabilježilo je pozitivne učinke na socijalnu povezanost među stanovnicima, uz potencijalno povećanje sudjelovanja u biciklizmu. [7] To upućuje na to da biciklistička infrastruktura ne samo da pokreće ljude, već stvara prostore u kojima se ljudi susreću i uživaju u svojoj zajednici.\n\n4. Pump track staze dio su šireg biciklističkog sustava\nSigurne ulice i povezane biciklističke rute omogućuju svakodnevnu vožnju. Škole i programi zajednice pomažu u učenju i izgradnji samopouzdanja, dok sadržaji poput pump track staza i poligona vještina pružaju prostor za vježbanje i aktivan boravak. Istraživanja potvrđuju ovaj integrirani pristup: studije su pokazale da poboljšanja infrastrukture u kombinaciji s programima na razini zajednice značajno doprinose povećanju biciklizma. [8][9]\n\nZa općinu to može značiti povezivanje sportskog poligona s postojećim biciklističkim rutama, suradnju s lokalnim školama ili klubovima te spajanje infrastrukture s edukacijom i događanjima. Pump track staza tada postaje dio šireg biciklističkog ekosustava, a ne izolirani projekt.\n\n5. Jedan objekt podržava više prioriteta zajednice\nKomunalna ulaganja često moraju služiti više svrha. Kvalitetno projektiran biciklistički objekt može istovremeno podržati **aktivnu mobilnost, zdravlje, rekreaciju, angažman mladih i turizam**. Djeci i obiteljima nudi priliku za rekreaciju, školama i klubovima pruža prostor za sportske aktivnosti, a naselju daje novo atraktivno odredište. Kada je poligon dovoljno atraktivan da privuče posjetitelje iz susjednih gradova ili šire regije, pridonosi i turističkoj privlačnosti općine.\n\nObjekt koji nudi različite razine izazova otvoren je za početnike, a iskusnijim vozačima nudi prostor za daljnji napredak. Koristan je za obično poslijepodne, ali lako postaje mjesto za treninge, radionice i sportska događanja.\n\nU A2Trails-u vjerujemo da sve počinje razumijevanjem zajednice i ljudi koji će prostor koristiti. Pravo rješenje usklađuje iskustvo vozača, tehničku izvrsnost, potrebe zajednice i dugoročnu vrijednost – stvarajući infrastrukturu koja funkcionira u savršenom skladu sa svojim okolišem. Saznajte više o našim uslugama [Istraživanja i izvedivosti](/services/consultancy) te [Projektiranja i inženjeringa](/services/design).\n\nPlanirate projekt biciklističke infrastrukture? [Javite nam se](/contact)\n\nReferences\n[1] Savezna vlada Belgije. (22. svibnja 2026.). Be Cyclist 2.0: Savezni akcijski plan za biciklizam 2026.–2029. News.belgium. https://news.belgium.be/nl/be-cyclist-20-federaal-actieplan-voor-de-fiets-2026-2029\n[2] Savezna javna služba za mobilnost i promet. (22. svibnja 2026.). Savezna anketa o putovanju na posao 2024.–2025.: Dvostruko više biciklista u 20 godina. News.belgium. https://mobilit.belgium.be/nl/news/nieuw-actieplan-be-cyclist-20\n[3] Oja, P., Titze, S., Bauman, A., de Geus, B., Krenn, P., Reger-Nash, B., & Kohlberger, T. (2011). Health benefits of cycling: A systematic review. Scandinavian Journal of Medicine & Science in Sports, 21(4), 496–509. https://doi.org/10.1111/j.1600-0838.2011.01299.x\n[4] Nordengen, S., Andersen, L. B., Solbraa, A. K., & Riiser, A. (2019). Cycling is associated with a lower incidence of cardiovascular diseases and death: Part 1 -Systematic review of cohort studies with meta-analysis. British Journal of Sports Medicine, 53(14), 870–878. https://doi.org/10.1136/bjsports-2018-099099\n[5] Howard, K. A., Griffin, S. F., Rolke, L. J., et al. (2025). Exploration of individual and context features of a bicycle skills program for riding injury prevention knowledge and self-efficacy among children. Journal of Transport & Health, 43, 102050. https://doi.org/10.1016/j.jth.2025.102050\n[6] Teyhan, A., Cornish, R., Boyd, A., Sissons Joshi, M., & Macleod, J. (2016). The impact of cycle proficiency training on cycle-related behaviours and accidents in adolescence: Findings from ALSPAC, a UK longitudinal cohort. BMC Public Health, 16, 469. https://doi.org/10.1186/s12889-016-3138-2\n[7] Mertens, L., Compernolle, S., Deforche, B., et al. (2017). Longitudinal evaluation of travel and health outcomes in relation to new bicycle infrastructure, Sydney, Australia. Journal of Transport & Health, 6, 386–395. https://doi.org/10.1016/j.jth.2017.07.002\n[8] Yang, L., Sahlqvist, S., McMinn, A., Griffin, S. J., & Ogilvie, D. (2010). Interventions to promote cycling: Systematic review. BMJ, 341, c5293. https://doi.org/10.1136/bmj.c5293\n[9] Roaf, E., Larrington-Spencer, H., & Lawlor, E. R. (2024). Interventions to increase active travel: A systematic review. Journal of Transport & Health, 38, 101860. https://doi.org/10.1016/j.jth.2024.101860",
+                takeaways: [
+                  "Biciklistička infrastruktura povezuje javnozdravstvene ciljeve s komunalnim ciljevima mobilnosti.",
+                  "Namjenski prostori za vožnju poput pumptrack staza i poligona vještina potiču aktivno svakodnevno kretanje za sve generacije.",
+                  "Biciklistički sadržaji služe kao privlačna odredišta zajednice i podržavaju šire višenamjenske prioritete lokalne samouprave."
+                ]
+              },
+              "phases-of-an-outdoor-project": {
+                title: "Pravi stručnjak u pravoj fazi: Faze projekta na otvorenom",
+                meta: "Napisao A2Trails · Objavljeno u rujnu 2026. · Partnerstvo građevinskih stručnjaka",
+                excerpt: "Saznajte kako uključivanje specijaliziranog partnera u svakoj fazi projekta na otvorenom - od pripreme i projektiranja do oblikovanja, postavljanja podloge, uređenja okoliša i primopredaje - osigurava besprijekornu koordinaciju i trajnu kvalitetu.",
+                content: "Objekti na otvorenom često uključuju nekoliko struka i izvođača. Rano uključivanje specijaliziranog partnera u proces pomaže u usklađivanju dizajna, tehničkih zahtjeva, metoda gradnje i integracije lokacije prije početka radova.\n\nZa građevinske tvrtke to znači jasnije dodirne točke, bolju koordinaciju i nesmetan put od prvog koncepta do dovršenog objekta.\n\n[A2Trails](/about) surađuje s građevinskim partnerima od [projektiranja](/services/design) do same [izvedbe](/services/construction), specijalizirajući se za [pump track staze](/services/construction#pumptracks), [poligone vještina](/services/construction#skill-tracks) i [staze](/services/construction#mtb-trails).\n\n1. Priprema projekta i projektiranje\nSvaki uspješan projekt na otvorenom započinje jasnim razumijevanjem lokacije, ciljeva projekta i zahtjeva koji oblikuju dizajn.\n• Procjena lokacije i prostorna ograničenja\n• Idejni i izvedbeni projekt\n• Planiranje i ishođenje dozvola\n• Tehničke specifikacije i projektni zahtjevi\n\n2. Zemljani radovi i oblikovanje\nNakon odobrenja projekta, radovi prelaze u fazu gradnje gdje se lokacija priprema, a projektirani teren počinje dobivati svoj oblik.\n• Priprema gradilišta i iskop\n• Zemljani radovi i niveliranje\n• Formiranje staze ili reljefa\n• Priprema sustava odvodnje\n• Oblikovanje elemenata staze i okolnih površina\n\nKod oblikovanih sadržaja poput [pump track staza](/services/construction#pumptracks) i [poligona vještina](/services/construction#skill-tracks), preciznost zemljanih radova ključna je za postizanje željene geometrije i doživljaja vožnje.\n\n3. Konstrukcijski radovi i polaganje podloge\nNakon formiranja terena, sljedeća faza obuhvaća izgradnju tehničke podloge i ugradnju završnog sloja koji definira gotov objekt.\n• Integracija sustava odvodnje\n• Popločavanje ili asfaltiranje\n• Završna obrada habajućeg sloja\n• Kontrola kvalitete i korekcije\n\nRazličiti slojevi moraju funkcionirati zajedno kako bi pružili dugotrajnost, vrhunski doživljaj vožnje i učinkovito upravljanje vodom.\n\n4. Integracija u krajolik\nKada je sam sportski objekt dovršen, uređenje okolnog prostora povezuje stazu sa širom cjelinom.\n• Sadnja i krajobrazno uređenje\n• Zelena infrastruktura\n• Povezivanje s okolnim pješačkim i javnim površinama\n• Urbani mobilijar, klupe, pristupni putovi i prateći elementi\n• Završno uređenje okoliša\n\nKvalitetna integracija čini da objekt djeluje kao prirodni dio šireg okruženja, a ne kao izolirana instalacija.\n\n5. Završetak i primopredaja\nZavršna faza objedinjuje sve građevinske i završne radove, osiguravajući da je lokacija dovršena, sigurna i spremna za predaju na korištenje.\n• Završne inspekcije i pregledi\n• Otklanjanje preostalih detalja\n• Čišćenje i završno uređenje gradilišta\n• Primopredaja\n• Otvorenje i korištenje od strane zajednice\n\nRezultat je potpuno integriran objekt na otvorenom, spreman za korisnike i jednostavan za [upravljanje i održavanje](/services/maintenance) od strane naručitelja.\n\nPlanirate partnerstvo na rekreacijskom ili biciklističkom projektu? [Kontaktirajte naš tim](/contact).",
+                takeaways: [
+                  "Rano uključivanje stručnjaka usklađuje dizajn, tehničke specifikacije i integraciju lokacije prije početka zemljanih radova.",
+                  "Precizni zemljani radovi i oblikovanje ključni su za izvrstan doživljaj vožnje, održivu odvodnju i sigurnost korisnika.",
+                  "Promišljena krajobrazna integracija pretvara specijalizirane staze u prirodni nastavak cjelokupnog prostora."
+                ]
+              },
+              "choosing-bike-infrastructure-community": {
+                title: "Odabir prave biciklističke infrastrukture za vašu zajednicu",
+                meta: "Napisao A2Trails · Objavljeno u rujnu 2026. · Komunalna biciklistička infrastruktura",
+                excerpt: "Kratak vodič kroz sve opcije brdskog biciklizma i kako donijeti informiranu odluku.",
+                content: "Novi biciklistički sadržaj može postati znatno više od mjesta za vožnju. Može djeci pružiti sigurno okruženje za razvoj vještina, stvoriti odredište za aktivnu rekreaciju, zbližiti ljude ili potaknuti građane i posjetitelje na istraživanje okolne prirode.\n\nZato, umjesto pitanja koji točno objekt izgraditi, započnite s važnijim pitanjem:\n**„Što želimo da ovaj prostor pruži našoj zajednici?“**\n\nRazličite vrste biciklističke infrastrukture služe različitim svrhama. Razumijevanje tih razlika pomaže gradovima i općinama odabrati sadržaj – ili kombinaciju sadržaja – koji savršeno odgovara ljudima, lokaciji i ambicijama projekta.\n\nEvo glavnih opcija koje vrijedi razmotriti:\n\n1. Želite stvoriti mjesto za aktivnu rekreaciju i društveni život? Odaberite pump track.\n[Pumptrack staze](/services/construction#pumptracks) mogu spojiti različite generacije i razine vještina u istom prostoru. Djeca uče kroz igru, iskusniji vozači usavršavaju tehniku, a obitelji i prijatelji uživaju u zajedničkom aktivnom boravku na otvorenom.\n\nProjektiranje i izgradnja staze su presudni. Izdržljiva asfaltna površina, precizno oblikovanje, otpornost na sve vremenske uvjete i minimalno održavanje stvaraju objekt koji ostaje pristupačan i atraktivan dugi niz godina.\n\nTakođer pružaju prostor za lokalna sportska natjecanja, programe zajednice i biciklističke radionice, dajući općinama priliku za okupljanje građana oko aktivnog načina života. Istraživanja o programima biciklizma u zajednici potvrđuju višestruke koristi: tjelesno zdravlje, razvoj vještina i jače društvene veze. [1]\n\nPumptrack staza time služi široj javnosti, a ne samo onima koji aktivno voze. Uz pravilan smještaj i dizajn, postaje važno središte društvenog života.\n\n2. Želite razviti biciklističke vještine i samopouzdanje? Odaberite poligon vještina.\n[Poligon vještina (skills park)](/services/construction#skill-tracks) stvara namjensko okruženje gdje vozači mogu vježbati tehnike poput ravnoteže, kočenja, skretanja i prolaska kroz zavoje.\n\nOsobito za mlađe vozače, usvajanje osnovne kontrole nad biciklom prije ulaska u složene prometne situacije ključan je korak u učenju sigurne vožnje. Flamanska zaklada za prometnu sigurnost preporučuje da djeca mlađa od 10 godina najprije vježbaju upravljanje biciklom u zaštićenom okruženju, dok se obuka u prometu uvodi postupno. [2] Belgijski savezni akcijski plan Be Cyclist 2.0 za razdoblje 2026.–2029. također ističe pristupačan, siguran i zdrav biciklizam kao jedan od tri strateška stupa. [3]\n\nPoligoni vještina mogu se osmisliti s tehničkim preprekama, zonama napredovanja, elementima za ravnotežu i specifičnim izazovima, pružajući vozačima priliku za napredak vlastitim tempom. To čini razvoj vještina ključnim faktorom pri planiranju biciklističke infrastrukture.\n\n3. Želite povezati ljude s prirodom? Odaberite MTB staze.\n[Staze za brdski biciklizam (MTB trails)](/services/construction#mtb-trails) čine prirodni krajolik oko naselja dijelom njegove rekreacijske ponude.\n\nZa razliku od objekta s jednim definiranim tlocrtom, mreža staza nudi različite rute, doživljaje vožnje i razine težine, omogućujući infrastrukturi da posluži širokom spektru korisnika.\n\nKvalitetno projektiranje staze puno je više od pukog krčenja putanje kroz prirodu. Usklađivanje s prirodnim terenom, protočnost (flow), kontrola erozije i održiva odvodnja osiguravaju da staze pružaju užitak vožnje uz potpuno poštivanje prirode. Tehnički elementi mogu se ugraditi tamo gdje odgovaraju profilu korisnika i karakteru lokacije.\n\nBrdski biciklizam također značajno obogaćuje rekreacijsku i turističku ponudu destinacije. Istraživanja MTB destinacija naglašavaju važnost vrhunski projektiranih staza i pratećih usluga u privlačenju posjetitelja. [4]\n\n4. Želite ponuditi izazov i naprednije skokove? Odaberite napredne objekte.\nZa zajednice s razvijenom biciklističkom kulturom, [jump staze](/services/construction#jump-tracks) pružaju namjenski prostor za vozače koji žele razviti naprednije vještine.\n\nJump staze mogu se projektirati s linijama prilagođenim stupnjevanom napretku i tehničkim skokovima, omogućujući vozačima postupan i siguran razvoj.\n\nKljuč je u usklađivanju dizajna s ciljanim korisnicima. Jump staza ne mora biti namijenjena isključivo eliti – različite linije omogućuju napredovanje kroz vrijeme.\n\n**Započnite s potrebom. Upoznajte lokaciju. Zatim odaberite infrastrukturu.**\n\nNema univerzalnog recepta za uspješnu biciklističku infrastrukturu. Pravi izbor ovisi o zajednici, korisnicima, dostupnom prostoru i ciljevima koje općina želi postići. U mnogim slučajevima, kombinacija više sadržaja stvara najvrjedniju ponudu. Saznajte više o našim uslugama [Istraživanja i izvedivosti](/services/consultancy) te [Projektiranja i inženjeringa](/services/design).\n\nPlanirate projekt biciklističke infrastrukture za vašu općinu? [Javite nam se](/contact).\n\nReferences\n[1] Clanton, T., Chancellor, C., Park, S., et al. (2025). Applying the Benefits-Based Programming Model to Advance Community Well-Being through Cycling. International Journal of Community Well-Being, 8, 713–733. https://doi.org/10.1007/s42413-025-00267-y\n[2] Vlaamse Stichting Verkeerskunde (VSV). (2026). Je kind veilig leren fietsen. Zo pak je het aan voor 10 jaar. https://www.veiligverkeer.be/weggebruikers/fietsers/kinderen/leren-fietsen-tot-10-jaar\n[3] Federal Government of Belgium. (2026). Be Cyclist 2.0: Savezni akcijski plan za biciklizam 2026.–2029. https://news.belgium.be/nl/be-cyclist-20-federaal-actieplan-voor-de-fiets-2026-2029\n[4] Munanura, I. E., et al. (2024). A cognitive appraisal approach to understanding mountain bikers' post-trip trails recommendation intent. Journal of Outdoor Recreation and Tourism, 47, 100791. https://doi.org/10.1016/j.jort.2024.100791",
+                takeaways: [
+                  "Započnite definiranjem stvarnih potreba zajednice: aktivna rekreacija, samopouzdanje u prometu, povezivanje s prirodom ili sportski napredak.",
+                  "Pumptrack staze ujedinjuju generacije; poligoni vještina razvijaju rano ovladavanje biciklom prije ulaska u složeni promet.",
+                  "Mreže staza i jump poligoni privlače regionalne posjetitelje i proširuju lokalnu sportsku infrastrukturu za mlade."
+                ]
+              },
+              "sustainable-trail-drainage": {
+                title: "Održiva odvodnja staza: Sprječavanje erozije na prirodnim mrežama staza",
+                excerpt: "Provjerene tehnike promjene nagiba, odvodnih uvala i održive stabilizacije tla koje čine MTB i šljunčane staze otpornima na sve vremenske uvjete tijekom cijele godine.",
+                content: "Voda je glavni neprijatelj prirodnih sustava staza. Primjena proaktivnih hidroloških rješenja poput poprečnog nagiba, promjene uzdužnog nagiba svakih 10 do 15 metara te lokalnih drenažnih kanala osigurava prohodnost staza u vlažnim europskim klimatskim uvjetima uz zaštitu gornjeg sloja tla.",
+                takeaways: [
+                  "Promjene nagiba odvode vodu prije nego što postigne brzinu koja uzrokuje brazdanje i eroziju.",
+                  "Poprečni nagibi prirodno raspoređuju površinsko otjecanje vode preko nizvodne vegetacije.",
+                  "Stabilizacija mineralnog tla smanjuje stvaranje kolotraga bez unosa sintetičke mikroplastike."
+                ]
+              },
+              "european-safety-standards-din-en-14974": {
+                title: "Sigurnosni standardi javne biciklističke infrastrukture: DIN EN 14974 i EN 1176",
+                excerpt: "Sveobuhvatan pregled europskih sigurnosnih normi za komunalne sportske parkove, zone pada, sigurnosne udaljenosti i strategije smanjenja rizika.",
+                content: "Usklađivanje s javnom odgovornošću i komunalnim propisima zahtijeva strogo poštivanje normi DIN EN 14974 (Skateparkovi i pumptrack staze) i DIN EN 1176 (Oprema za dječja igrališta). Razumijevanje zona pada, preglednosti i sigurnih prijelaza podloga daje voditeljima projekata sigurnost od natječaja do certifikacije.",
+                takeaways: [
+                  "Područja pada moraju održavati minimalnu udaljenost od 2,0 metra od fiksnih prepreka.",
+                  "Vrhovi zavoja (bermova) zahtijevaju specificirane prijelaze zona pada na susjednu travnatu površinu ili sigurnosnu podlogu.",
+                  "Jasna signalizacija s oznakama razine vještina i smjera kretanja obavezna je za usklađenost s javnom odgovornošću."
+                ]
+              },
+              "lifecycle-cost-maintenance-strategy": {
+                title: "Ekonomija životnog vijeka i održavanje: Zašto proaktivna briga višestruko povećava povrat ulaganja",
+                excerpt: "Usporedba troškova životnog vijeka asfaltnih, šljunčanih i prirodnih staza. Najbolje prakse za brtvljenje pukotina, upravljanje vegetacijom i primopredaju općinama.",
+                content: "Iako asfaltne pumptrack staze imaju veća početna ulaganja u usporedbi sa zemljanim jump parkovima, njihova izdržljivost od 15 do 20 godina i minimalno održavanje donose znatno veći povrat ulaganja za općine. Donosimo godišnji raspored održavanja koji štiti imovinu od preranog propadanja.",
+                takeaways: [
+                  "Premazivanje bitumenom u 5. i 10. godini vraća fleksibilnost površine i sprječava oksidaciju.",
+                  "Redovito obrezivanje rubova sprječava urastanje korijenja koje bi moglo oštetiti obodni asfalt.",
+                  "Digitalni dnevnici održavanja pojednostavljuju ispunjavanje jamstvenih uvjeta za općine."
+                ]
+              },
+              "community-driven-track-planning": {
+                title: "Uključivanje zajednice u planiranje javnih staza: Od anketa korisnika do dana otvorenja",
+                excerpt: "Kako rane radionice s lokalnim mladima, biciklističkim klubovima i općinskim planerima osiguravaju maksimalnu posjećenost parka i osjećaj pripadnosti.",
+                content: "Najuspješnije pumptrack staze i trail centri nastaju u suradnji s vozačima koji će ih koristiti. Uključivanje savjeta mladih, lokalnih škola i biciklističkih udruga tijekom faze izvedivosti stvara lokalni ponos, smanjuje vandalizam i osigurava sadržaje za vozače svih razina znanja.",
+                takeaways: [
+                  "Radionice prije projektiranja usklađuju očekivanja skejtera, BMX vozača, rolaša i prilagođenih sportaša.",
+                  "Transparentne javne ankete olakšavaju političko odobrenje i prijave za bespovratna sredstva.",
+                  "Probne vožnje za zajednicu prije službenog otvorenja stvaraju uzbuđenje i pozitivnu povezanost s lokalnom upravom."
+                ]
+              }
+            }
+          },
+          contact: {
+            title: "Stupite u kontakt",
+            subtitle: "Imate ideju, pitanje ili jednostavno želite saznati više? Porazgovarajmo.",
+            info: "Kontakt informacije",
+            phone: "Telefon",
+            email: "E-pošta",
+            office: "Ured",
+            vat: "OIB / PDV",
+            hours: {
+              title: "Radno vrijeme",
+              monFri: "Ponedjeljak - Petak",
+              weekend: "Vikend",
+              hoursRange: "08:00 - 18:00",
+              closed: "Zatvoreno"
+            },
+            form: {
+              name: "Ime i prezime *",
+              namePlaceholder: "Vaše ime i prezime",
+              email: "E-pošta *",
+              emailPlaceholder: "Vaša e-pošta",
+              phone: "Telefon",
+              phonePlaceholder: "Vaš telefonski broj",
+              projectType: "Vrsta projekta *",
+              projectTypePlaceholder: "Odaberite vrstu projekta",
+              projectTypeInfo: "Opće informacije",
+              details: "Pojedinosti o projektu *",
+              detailsPlaceholder: "Opišite svoj projekt, lokaciju, vremenski okvir i sve specifične zahtjeve...",
+              submit: "Pošaljite poruku",
+              success: "Hvala vam na poruci! Zaprimili smo vaš upit i uskoro ćemo vam se javiti.",
+              error: "Došlo je do pogreške. Provjerite jeste li potvrdili e-poštu putem Formspree servisa ili nam se obratite izravno na antonarnauts@a2trails.com."
+            }
+          },
+          services: {
+            consultancy: {
+              title: "Analiza lokacije i izvedivosti projekta",
+              subtitle: "Strateško planiranje i stručna tehnička podrška u razvoju održive biciklističke infrastrukture",
+              feasibility: {
+                title: "Studije izvedivosti i utjecaja",
+                desc: "Detaljna analiza potencijala lokacije, utjecaja na okoliš i potreba lokalne zajednice kao temelj za kvalitetno planiranje i uspješnu realizaciju projekta.",
+                features: [
+                  "Procjena potencijala lokacije",
+                  "Analiza utjecaja na okoliš",
+                  "Analiza potreba lokalne zajednice",
+                  "Procjena rizika",
+                  "Provjera usklađenosti s lokalnim propisima"
+                ]
+              },
+              engineering: {
+                title: "Tehnička razrada i projektiranje",
+                desc: "Stručno projektiranje sustava odvodnje, stabilizacije tla i ključnih konstrukcijskih elemenata.",
+                features: [
+                  "Projektiranje sustava odvodnje",
+                  "Analiza tla",
+                  "Proračun i projektiranje konstrukcije",
+                  "Tehničke specifikacije",
+                  "Planiranje nabave materijala",
+                  "Provjera sigurnosnih standarda"
+                ]
+              },
+              strategic: {
+                title: "Strateško planiranje",
+                desc: "Dugoročno planiranje razvoja mreža biciklističkih staza i uključivanje urbanih biciklističkih parkova u šire prostorne cjeline.",
+                features: [
+                  "Izrada glavnog razvojnog plana",
+                  "Strategija fazne implementacije",
+                  "Podrška pri prijavi za bespovratna sredstva",
+                  "Planiranje održavanja",
+                  "Dugoročno održiva rješenja"
+                ]
+              },
+              cta: {
+                title: "Stručni savjeti",
+                subtitle: "Želite pokrenuti projekt izgradnje biciklističke infrastrukture, ali ne znate odakle početi? Naš tim pružit će vam stručnu podršku u svim fazama projekta.",
+                button: "Zatražite konzultacije"
+              }
+            },
+            design: {
+              title: "Projektiranje",
+              subtitle: "Kreativna i funkcionalna rješenja koja pružaju više zabave i odgovaraju potrebama vašeg projekta",
+              micro: {
+                title: "Projektiranje pojedinačnih staza i elemenata",
+                desc: "Detaljno projektiranje pojedinih staza, prepreka i tehničkih elemenata, prilagođeno lokaciji i potrebama korisnika.",
+                features: [
+                  "Analiza lokalnih potreba",
+                  "Nacrti staza prilagođeni lokaciji",
+                  "Rješenja prilagođena korisnicima",
+                  "Nacrti pojedinačnih elemenata",
+                  "Projektiranje tehničkih prepreka",
+                  "Elementi za postupno usavršavanje biciklističkih vještina"
+                ]
+              },
+              meso: {
+                title: "Projektiranje biciklističkih i rekreativnih zona",
+                desc: "Besprijekorna integracija biciklističke infrastrukture u okolne parkove, rekreacijska područja i sportske komplekse.",
+                features: [
+                  "Uklapanje u parkove i sportske zone",
+                  "Krajobrazno uređenje",
+                  "Povezivanje različitih namjena prostora",
+                  "Pristupačnost i protočnost kretanja",
+                  "Usklađenost s izgledom prostora",
+                  "Uklapanje u prirodni okoliš"
+                ]
+              },
+              macro: {
+                title: "Strateško planiranje biciklističke infrastrukture",
+                desc: "Dugoročno planiranje razvoja biciklističke infrastrukture, povezivanje mreža staza i određivanje prioriteta za razvoj na širem području.",
+                features: [
+                  "Planiranje regionalne mreže biciklističkih staza",
+                  "Izrada razvojnih planova biciklističkih centara",
+                  "Planiranje razvoja biciklističkog turizma",
+                  "Procjena gospodarskih učinaka projekta",
+                  "Dugoročna održivost"
+                ]
+              },
+              cta: {
+                title: "Vaša ideja, naše rješenje",
+                subtitle: "Želite vidjeti kako bi vaš projekt mogao izgledati? Naši projektanti pretvorit će vaše ideje u promišljeno rješenje prilagođeno prostoru i potrebama zajednice.",
+                button: "Započnite s projektiranjem"
+              }
+            },
+            construction: {
+              title: "Izgradnja",
+              subtitle: "Stvaranje infrastrukture s naglaskom na izdržljivost, sigurnost i protočnost",
+              pumptracks: {
+                title: "Pumptrack staze",
+                desc: "Profesionalno projektirane i izgrađene asfaltne pumptrack staze, osmišljene za dugotrajnu uporabu i vrhunsko iskustvo vožnje.",
+                features: [
+                  "Kvalitetna asfaltna površina",
+                  "Pažljivo određena geometrija",
+                  "Otpornost na različite vremenske uvjete",
+                  "Jednostavno i ekonomično održavanje",
+                  "Prikladno za korisnike različite dobi i razina iskustva",
+                  "Precizno oblikovani valovi i zavoji"
+                ]
+              },
+              mtbTrails: {
+                title: "Brdsko-biciklističke (MTB) staze",
+                desc: "Održiva izgradnja staza koje se prirodno uklapaju u teren, uz odgovoran pristup prema okolišu i odlično iskustvo vožnje.",
+                features: [
+                  "Prilagođavanje prirodnom terenu",
+                  "Održiva odvodnja",
+                  "Kontrola erozije",
+                  "Tehnički elementi uklopljeni u stazu",
+                  "Očuvanje prirodnog okoliša"
+                ]
+              },
+              jumpTracks: {
+                title: "Dirt jumps staze",
+                desc: "Tehnički projektirane dirt jumps staze koje omogućuju postupno napredovanje i razvoj biciklističkih vještina.",
+                features: [
+                  "Precizno oblikovanje terena",
+                  "Skokovi različite razine težine",
+                  "Projektirano s naglaskom na sigurnost",
+                  "Pažljivo oblikovani skokovi i prijelazi",
+                  "Stručna izvedba i zbijanje tla",
+                  "Podešavanje i testiranje na terenu"
+                ]
+              },
+              skillTracks: {
+                title: "Biciklistički poligoni",
+                desc: "Staze i prepreke za razvoj biciklističkih vještina i sigurnije upravljanje biciklom.",
+                features: [
+                  "Tehničke prepreke",
+                  "Elementi za vježbanje ravnoteže",
+                  "Elementi različitih razina zahtijvnosti",
+                  "Sigurno okruženje za razvoj vještina",
+                  "Drveni elementi i konstrukcije",
+                  "Prepreke prilagođene početnicima i iskusnijim biciklistima"
+                ]
+              },
+              bmxTracks: {
+                title: "BMX staze",
+                desc: "Profesionalne natjecateljske staze i freestyle parkovi dizajnirani za BMX sportaše.",
+                features: [
+                  "Geometrija prema UCI standardima",
+                  "Integracija startne platforme",
+                  "Linije za profesionalce (Pro-section)",
+                  "Tehničke ritam sekcije",
+                  "Asfaltni ili zemljani zavoji",
+                  "Natjecateljska podloga"
+                ]
+              },
+              eMotoTracks: {
+                title: "E-Moto staze",
+                desc: "Specijalizirane staze za električni motokros, s naglaskom na kontrolu snage, dobro prianjanje i dugotrajnost staze.",
+                features: [
+                  "Održiva stabilizacija tla",
+                  "Tehnički zahtjevni usponi",
+                  "Čvrsta i izdržljiva podloga"
+                ]
+              },
+              cta: {
+                title: "Kvaliteta koja traje",
+                subtitle: "Spremni za početak? Iskustvo, preciznost i kvalitetna izvedba temelj su svakog našeg projekta.",
+                button: "Gradite s nama"
+              }
+            },
+            maintenance: {
+              title: "Održavanje",
+              subtitle: "Očuvanje kvalitete i sigurnosti vaše biciklističke infrastrukture",
+              asphalt: {
+                title: "Asfaltne pumptrack staze",
+                desc: "Održavanje i obnova asfaltnih pumptrack staza radi očuvanja kvalitete površine, dugotrajnosti i sigurnosti korisnika.",
+                features: [
+                  "Sanacija pukotina",
+                  "Sanacija oštećenja uzrokovanih erozijom",
+                  "Obnova i održavanje sigurnosnih oznaka",
+                  "Redoviti pregledi sigurnosti staze",
+                  "Popravak završnog asfaltnog sloja"
+                ]
+              },
+              gravelDirt: {
+                title: "Prirodne staze",
+                desc: "Održavanje zemljanih i šljunčanih staza uz redovitu obnovu, oblikovanje terena i sprječavanje erozije.",
+                features: [
+                  "Obnova i preoblikovanje zavoja i drugih elemenata staze",
+                  "Sanacija erozije",
+                  "Pregled i popravak tehničkih elemenata",
+                  "Održavanje signalizacije i informativnih ploča",
+                  "Održavanje okolnog terena i vegetacije"
+                ]
+              },
+              green: {
+                title: "Održavanje vegetacije i okoliša",
+                desc: "Briga o okolnom prostoru radi očuvanja preglednosti, prohodnosti i prirodnog izgleda staza.",
+                features: [
+                  "Kontrola rasta vegetacije",
+                  "Uklanjanje invazivnih biljnih vrsta",
+                  "Održavanje prohodnosti staza"
+                ]
+              },
+              cta: {
+                title: "Zaštitite svoje ulaganje",
+                subtitle: "Redovito održavanje produžuje vijek trajanja vaše infrastrukture i jamči maksimalnu sigurnost za korisnike.",
+                button: "Dogovorite održavanje"
+              }
+            }
+          },
+          privacy: {
+            title: "Politika privatnosti: A2Trails",
+            lastUpdated: "Zadnje ažurirano: 12. ožujka 2026.",
+            controller: {
+              title: "1. Voditelj obrade podataka",
+              text: "Pravna osoba odgovorna za obradu vaših osobnih podataka je:",
+              company: "Naziv tvrtke",
+              office: "Sjedište",
+              cbe: "CBE/KBO broj",
+              email: "Kontakt e-pošta"
+            },
+            legalBasis: {
+              title: "2. Pravna osnova za obradu",
+              text: "Osobne podatke obrađujemo isključivo kada postoji valjana pravna osnova prema članku 6. stavku 1. GDPR-a:",
+              contractual: "Ugovorna nužnost: Za izradu ponuda za projektiranje, izgradnju ili održavanje MTB staza.",
+              legal: "Zakonska obveza: Za obvezne prijave socijalnog osiguranja (npr. Check-in-at-work / deklaracija 30bis) ili porezno izvještavanje.",
+              consent: "Privola: Kada se pretplatite na naš bilten ili prihvatite neobavezne kolačiće.",
+              legitimate: "Legitimni interes: Za osiguranje sigurnosti naše web stranice i komunikaciju s B2B partnerima."
+            },
+            categories: {
+              title: "3. Kategorije prikupljenih podataka",
+              text: "Prikupljamo i obrađujemo sljedeće kategorije podataka:",
+              identification: "Identifikacijski podaci: Ime, adresa, telefonski broj i e-pošta.",
+              professional: "Poslovni podaci: Naziv tvrtke, PDV/OIB broj i lokacija projekta (GPS koordinate za lokacije staza).",
+              technical: "Tehnički podaci: IP adresa, vrsta preglednika i trajanje posjeta (putem kolačića)."
+            },
+            retention: {
+              title: "4. Razdoblja čuvanja podataka",
+              text: "Podaci se čuvaju ne duže nego što je nužno za svrhe u koje su prikupljeni:",
+              accounting: "Računovodstveni/porezni podaci: Strogo 7 godina (zakonski zahtjev).",
+              contractual: "Ugovorna dokumentacija: 10 godina nakon završetka ugovora (radi pokrivanja 10-godišnje odgovornosti za građevinske radove prema Građanskom zakoniku).",
+              requests: "Upiti putem obrasca: 1 godina ako ugovor nije sklopljen."
+            },
+            sharing: {
+              title: "5. Dijeljenje i prijenos podataka",
+              text: "Podaci se mogu dijeliti sa sljedećim subjektima:",
+              subcontractors: "Podizvođači: Specijalizirani izvođači zemljanih radova ili ekolozi, strogo na temelju potpisanog Ugovora o obradi podataka (DPA).",
+              authorities: "Javna tijela: Nadležne institucije za obveznu registraciju prisutnosti na gradilištima.",
+              it: "IT pružatelji usluga: Pružatelji hostinga i usluga u oblaku sa sjedištem unutar EGP-a."
+            },
+            rights: {
+              title: "6. Prava ispitanika",
+              text: "Prema zakonodavstvu EU-a i primjenjivom nacionalnom pravu, imate sljedeća prava na koja ćemo odgovoriti u roku od 30 dana od zaprimanja zahtjeva:",
+              access: "Pravo na pristup: Saznati koje podatke posjedujemo.",
+              rectification: "Pravo na ispravak: Ispraviti netočne podatke.",
+              erasure: "Pravo na brisanje (\"Pravo na zaborav\"): Podložno zakonskim obvezama čuvanja.",
+              restriction: "Pravo na ograničenje obrade: Privremeno zaustaviti obradu.",
+              portability: "Pravo na prenosivost podataka: Zaprimiti svoje podatke u strukturiranom, strojno čitljivom formatu."
+            },
+            security: {
+              title: "7. Sigurnosne mjere",
+              text: "Primjenjujemo tehničke i organizacijske mjere (enkripcija, vatrozidi, kontrola pristupa) radi zaštite podataka od neovlaštenog pristupa, gubitka ili uništenja. Pristup podacima o projektima na terenu ograničen je isključivo na ovlašteno osoblje."
+            },
+            complaints: {
+              title: "8. Pritužbe",
+              text: "Ako smatrate da se s vašim podacima ne postupa u skladu s propisima, imate pravo podnijeti pritužbu nadležnom tijelu za zaštitu osobnih podataka:",
+              authority: "Agencija za zaštitu osobnih podataka"
+            }
+          },
+          terms: {
+            title: "Uvjeti korištenja: A2Trails",
+            partnership: {
+              title: "1. Naše partnerstvo",
+              text: "Ovi Uvjeti korištenja (u daljnjem tekstu „Uvjeti“) definiraju profesionalni odnos između tvrtke A2Trails (u daljnjem tekstu „Tvrtka“) i Klijenta. Gradimo sa strašću i preciznošću; ovi uvjeti osiguravaju dugoročno očuvanje kvalitete i integriteta našeg rada."
+            },
+            intellectualProperty: {
+              title: "2. Intelektualno vlasništvo i integritet dizajna",
+              text: "Naši dizajni staza rezultat su specijaliziranog inženjeringa i kreativne vizije. Prema zakonodavstvu o autorskom pravu, ovi su dizajni zaštićena autorska djela.",
+              authorizedUse: "Ovlašteno korištenje: Klijentu se dodjeljuje isključiva licenca za korištenje i uživanje u stazi na ugovorenoj lokaciji.",
+              protection: "Zaštita rada: Kako bi se očuvala sigurnost i autentični „DNK“ naših objekata, Klijent se obvezuje da neće replicirati, kopirati niti dopustiti trećim stranama oponašanje naših tehničkih elemenata ili tlocrta na drugim lokacijama bez našeg pisanog pristanka.",
+              modifications: "Izmjene: Budući da je naš ugled vezan uz projekt, sve značajne konstrukcijske promjene na stazi moraju se prethodno raspraviti s nama kako bi se osiguralo poštivanje moralnih prava autora i sigurnosnih standarda izvornog dizajna."
+            },
+            warranty: {
+              title: "3. Jamstvo i održavanje",
+              text: "Stojimo iza kvalitete naših građevina. Naša jamstvena struktura je sljedeća:",
+              limited: "Trogodišnje ograničeno jamstvo: Tvrtka daje trogodišnje jamstvo na nedostatke u izradi i nekonstrukcijske elemente (npr. specifična oštećenja podloge ili manja podešavanja odvodnje), pod uvjetom da se staza održava u skladu s našim Priručnikom za održavanje.",
+              structural: "Konstrukcijska cjelovitost: U skladu sa zakonom, odgovornost za temeljnu stabilnost većih zemljanih radova i konstrukcija traje 10 godina.",
+              exclusions: "Isključenja: Ovo jamstvo ne pokriva štetu uzrokovanu prirodnim nepogodama (viša sila), nedostatkom redovitog održavanja ili neovlaštenim preinakama koje je izvršio Klijent."
+            },
+            ownership: {
+              title: "4. Vlasništvo i plaćanje",
+              retention: "Pridržaj prava vlasništva: Svi materijali i dovršeno djelo ostaju u pravnom vlasništvu Tvrtke do potpunog podmirivanja konačnog računa.",
+              payment: "Uvjeti plaćanja: Cijenimo pravovremena plaćanja. Na zakašnjela plaćanja obračunavaju se zakonske zatezne kamate za trgovačke ugovore, uvećane za standardne troškove naplate u skladu sa zakonom."
+            },
+            confidentiality: {
+              title: "5. Povjerljivost",
+              text: "Tijekom izgradnje možemo podijeliti vlasničke stručne tajne gradnje staza ili specijalizirane tehnike odvodnje. Klijent se obvezuje ove tehničke informacije tretirati kao povjerljive i neće dijeliti nacrte ili metodologiju gradnje s konkurentskim tvrtkama."
+            },
+            dispute: {
+              title: "6. Rješavanje sporova",
+              text: "Dajemo prednost dogovoru i stisku ruke umjesto sudnici. U slučaju spora, obje strane pristaju pokušati formalnu medijaciju. Ako se rješenje ne može postići, nadležan je isključivo sud prema registriranom sjedištu Tvrtke."
+            }
+          }
+        }
+      },
     },
   });
 

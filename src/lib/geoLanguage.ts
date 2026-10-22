@@ -162,7 +162,7 @@ export async function fetchAndStoreRegionInfo(): Promise<RegionInfo | null> {
     return null;
   }
 
-  // Try Primary: api.country.is (instant < 50ms, returns { ip, country })
+  // 1. Primary: api.country.is (instant < 50ms, returns { ip, country })
   try {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 2000);
@@ -185,15 +185,44 @@ export async function fetchAndStoreRegionInfo(): Promise<RegionInfo | null> {
       }
     }
   } catch {
-    // Fallback to secondary endpoint if primary fails
+    // Fallback to secondary endpoint
   }
 
-  // Fallback: freeipapi.com
+  // 2. Secondary fallback: ipwho.is (fast, reliable, CORS-enabled)
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 2500);
+    const timeoutId = setTimeout(() => controller.abort(), 2000);
 
-    const res = await fetch('https://freeipapi.com/api/json', {
+    const res = await fetch('https://ipwho.is/', {
+      signal: controller.signal,
+    });
+    clearTimeout(timeoutId);
+
+    if (res.ok) {
+      const data = await res.json();
+      const code = data?.country_code || data?.countryCode;
+      if (data && code) {
+        const region: RegionInfo = {
+          countryCode: String(code).toUpperCase(),
+          countryName: data.country,
+          city: data.city,
+          ip: data.ip,
+          detectedAt: Date.now(),
+        };
+        saveStoredRegionInfo(region);
+        return region;
+      }
+    }
+  } catch {
+    // Fallback to tertiary endpoint
+  }
+
+  // 3. Tertiary fallback: api.db-ip.com
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 2000);
+
+    const res = await fetch('https://api.db-ip.com/v2/free/self', {
       signal: controller.signal,
     });
     clearTimeout(timeoutId);
@@ -204,7 +233,7 @@ export async function fetchAndStoreRegionInfo(): Promise<RegionInfo | null> {
         const region: RegionInfo = {
           countryCode: String(data.countryCode).toUpperCase(),
           countryName: data.countryName,
-          city: data.cityName,
+          city: data.city,
           ip: data.ipAddress,
           detectedAt: Date.now(),
         };
@@ -224,7 +253,7 @@ export async function fetchAndStoreRegionInfo(): Promise<RegionInfo | null> {
  * Combines:
  * 1. User manual override (highest priority)
  * 2. Device language (0ms latency)
- * 3. Region from IP (Belgium hybrid handling, Netherlands, France, International)
+ * 3. Region from IP (Belgium hybrid handling, Netherlands, France, Croatia, International)
  */
 export function resolveSmartHybridLanguage(
   device: DeviceInfo,
@@ -240,21 +269,27 @@ export function resolveSmartHybridLanguage(
   const isDeviceDutch = deviceCode === 'nl' || device.languages.some((l) => l.toLowerCase().startsWith('nl'));
   const isDeviceFrench = deviceCode === 'fr' || device.languages.some((l) => l.toLowerCase().startsWith('fr'));
   const isDeviceEnglish = deviceCode === 'en' || device.languages.some((l) => l.toLowerCase().startsWith('en'));
+  const isDeviceCroatian = deviceCode === 'hr' || device.languages.some((l) => l.toLowerCase().startsWith('hr'));
 
   const country = region?.countryCode?.toUpperCase();
 
   // 2. Region-specific logic
-  if (country === 'NL') {
+  if (country === 'NL' || country === 'NLD') {
     // Visitor in Netherlands -> Dutch
     return { language: 'nl', reason: 'region' };
   }
 
-  if (country === 'FR') {
+  if (country === 'FR' || country === 'FRA') {
     // Visitor in France -> French
     return { language: 'fr', reason: 'region' };
   }
 
-  if (country === 'BE') {
+  if (country === 'HR' || country === 'HRV') {
+    // Visitor in Croatia -> Croatian
+    return { language: 'hr', reason: 'region' };
+  }
+
+  if (country === 'BE' || country === 'BEL') {
     // Belgium is trilingual (Flanders Dutch, Wallonia French, Brussels bilingual).
     // The device language is the decisive tie-breaker:
     if (isDeviceFrench) {
@@ -271,14 +306,22 @@ export function resolveSmartHybridLanguage(
   }
 
   // 3. For any other international country (UK, US, DE, ES, etc.):
-  // Check if their device specifically prefers Dutch or French
+  // Check if their device specifically prefers Dutch, French, or Croatian
   if (isDeviceDutch) {
     return { language: 'nl', reason: 'device' };
   }
   if (isDeviceFrench) {
     return { language: 'fr', reason: 'device' };
   }
+  if (isDeviceCroatian) {
+    return { language: 'hr', reason: 'device' };
+  }
 
   // Otherwise international default is English
   return { language: DEFAULT_LANGUAGE, reason: 'fallback' };
+}
+
+// Eagerly trigger region detection if in browser to minimize latency
+if (typeof window !== 'undefined' && !getStoredRegionInfo() && !getStoredManualPreference() && !isLikelyBot()) {
+  fetchAndStoreRegionInfo().catch(() => {});
 }

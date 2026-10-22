@@ -63,27 +63,56 @@ const ScrollToTop = () => {
 };
 
 const LanguageRouteSync = () => {
-  const { pathname, search } = useLocation();
+  const { pathname, search, hash } = useLocation();
   const navigate = useNavigate();
   const { i18n } = useTranslation();
 
+  // Helper to extract only valid in-page anchor identifiers (e.g. #services),
+  // completely filtering out any accidental hash routes or language tags like #/hr or #hr
+  const safeAnchor = hash && !hash.startsWith('#/') && !isSupportedLanguage(hash.replace(/^#/, '')) && !hash.includes('/')
+    ? hash
+    : '';
+
   useEffect(() => {
+    // 0. Auto-heal any corrupted double-hash URLs (e.g. /#/hr#/hr or /#/hr#hr)
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const rawHash = window.location.hash;
+      const slashMatches = rawHash.match(/#\//g);
+      if (slashMatches && slashMatches.length > 1) {
+        const parts = rawHash.split('#/').filter(Boolean);
+        const primaryRoute = '/' + parts[0];
+        const lastPart = parts[parts.length - 1];
+        const cleanAnchor = lastPart.includes('#') ? '#' + lastPart.split('#').pop() : '';
+        const validAnchor = cleanAnchor && !isSupportedLanguage(cleanAnchor.replace(/^#/, '')) && !cleanAnchor.includes('/') ? cleanAnchor : '';
+        navigate(primaryRoute + validAnchor, { replace: true });
+        return;
+      }
+    }
+
+    // Clean up redundant anchor if hash is accidentally a language code or route fragment like #hr or #/hr
+    if (hash && (isSupportedLanguage(hash.replace(/^#/, '')) || hash.startsWith('#/') || hash.includes('/'))) {
+      navigate(pathname + (search || ''), { replace: true });
+      return;
+    }
+
     // 1. Detect and store device info locally (-device)
     const deviceInfo = detectAndStoreDeviceInfo();
 
     // 2. Fetch and store region info from IP locally (-region)
     fetchAndStoreRegionInfo().then((regionInfo) => {
-      // If user is currently on an un-prefixed route and has no manual preference,
-      // verify if the freshly retrieved region updates the hybrid language resolution
-      const currentLangPrefix = getLanguageFromPath(pathname);
+      // If user has NO manual preference and region is detected,
+      // apply region language (e.g. Croatian for HR, Dutch for NL, French for FR)
       const manualPref = getStoredManualPreference();
-      if (!currentLangPrefix && !manualPref && !isLikelyBot()) {
+      if (!manualPref && regionInfo && !isLikelyBot()) {
         const hybrid = resolveSmartHybridLanguage(deviceInfo, regionInfo);
-        const currentClean = stripLanguagePrefix(pathname);
-        const targetPath = getLocalizedPath(currentClean, hybrid.language) + (search || '') + (window.location.hash || '');
-        navigate(targetPath, { replace: true });
-        if (i18n.language !== hybrid.language) {
-          i18n.changeLanguage(hybrid.language);
+        const currentLangPrefix = getLanguageFromPath(pathname);
+        if (!currentLangPrefix || currentLangPrefix !== hybrid.language) {
+          const currentClean = stripLanguagePrefix(pathname);
+          const targetPath = getLocalizedPath(currentClean, hybrid.language) + (search || '') + safeAnchor;
+          navigate(targetPath, { replace: true });
+          if (i18n.language !== hybrid.language) {
+            i18n.changeLanguage(hybrid.language);
+          }
         }
       }
     });
@@ -93,7 +122,7 @@ const LanguageRouteSync = () => {
     const langFromQuery = searchParams.get('lang');
 
     if (langFromPath) {
-      // Path already has a language code (e.g. /nl/projects, /fr, /en)
+      // Path already has a language code (e.g. /nl/projects, /fr, /hr, /en)
       if (i18n.language !== langFromPath) {
         i18n.changeLanguage(langFromPath);
       }
@@ -101,7 +130,7 @@ const LanguageRouteSync = () => {
       // Explicit query parameter ?lang=...
       const currentClean = stripLanguagePrefix(pathname);
       setManualLanguagePreference(langFromQuery);
-      const targetPath = getLocalizedPath(currentClean, langFromQuery) + (window.location.hash || '');
+      const targetPath = getLocalizedPath(currentClean, langFromQuery) + (search || '') + safeAnchor;
       navigate(targetPath, { replace: true });
       if (i18n.language !== langFromQuery) {
         i18n.changeLanguage(langFromQuery);
@@ -113,16 +142,158 @@ const LanguageRouteSync = () => {
         const cachedRegion = getStoredRegionInfo();
         const hybrid = resolveSmartHybridLanguage(deviceInfo, cachedRegion);
         const currentClean = stripLanguagePrefix(pathname);
-        const targetPath = getLocalizedPath(currentClean, hybrid.language) + (search || '') + (window.location.hash || '');
+        const targetPath = getLocalizedPath(currentClean, hybrid.language) + (search || '') + safeAnchor;
         navigate(targetPath, { replace: true });
         if (i18n.language !== hybrid.language) {
           i18n.changeLanguage(hybrid.language);
         }
       }
     }
-  }, [pathname, search, i18n, navigate]);
+  }, [pathname, search, hash, safeAnchor, i18n, navigate]);
 
   return null;
+};
+
+interface LanguageDropdownProps {
+  className?: string;
+  direction?: 'up' | 'down';
+}
+
+const LanguageDropdown = ({ className = '', direction = 'down' }: LanguageDropdownProps) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { i18n } = useTranslation();
+
+  const currentCleanPath = stripLanguagePrefix(location.pathname);
+
+  const isCroatian = i18n.language?.startsWith('hr');
+
+  const languages = isCroatian
+    ? [
+        { code: 'hr', short: 'HR' },
+        { code: 'en', short: 'EN' },
+        { code: 'nl', short: 'NL' },
+        { code: 'fr', short: 'FR' },
+      ]
+    : [
+        { code: 'en', short: 'EN' },
+        { code: 'nl', short: 'NL' },
+        { code: 'fr', short: 'FR' },
+      ];
+
+  const currentLang =
+    languages.find((l) => l.code === i18n.language) ||
+    (i18n.language === 'hr' ? { code: 'hr', short: 'HR' } : languages[0]);
+
+  const changeLanguage = (lng: string) => {
+    if (isSupportedLanguage(lng)) {
+      setManualLanguagePreference(lng);
+    }
+    i18n.changeLanguage(lng);
+    const safeAnchor = location.hash && !location.hash.startsWith('#/') && !isSupportedLanguage(location.hash.replace(/^#/, '')) && !location.hash.includes('/')
+      ? location.hash
+      : '';
+    const newPath = getLocalizedPath(currentCleanPath, lng) + location.search + safeAnchor;
+    navigate(newPath);
+  };
+
+  const selectLanguage = (code: string) => {
+    changeLanguage(code);
+    setIsDropdownOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+      document.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isDropdownOpen]);
+
+  return (
+    <div ref={dropdownRef} className={`relative inline-block text-left ${className}`}>
+      <button
+        type="button"
+        onClick={() => setIsDropdownOpen((prev) => !prev)}
+        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white border border-white/10 hover:border-brand-orange/40 transition-all cursor-pointer focus:outline-none focus:ring-1 focus:ring-brand-orange"
+        aria-expanded={isDropdownOpen}
+        aria-haspopup="listbox"
+        aria-label="Select language"
+      >
+        <Globe className="w-3.5 h-3.5 text-brand-orange flex-shrink-0" />
+        <span className="tracking-wide">{currentLang.short}</span>
+        <ChevronDown
+          className={`w-3 h-3 text-gray-400 transition-transform duration-200 ${
+            isDropdownOpen
+              ? direction === 'up'
+                ? ''
+                : 'rotate-180 text-brand-orange'
+              : direction === 'up'
+              ? 'rotate-180'
+              : ''
+          }`}
+        />
+      </button>
+
+      <AnimatePresence>
+        {isDropdownOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: direction === 'up' ? 6 : -6, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: direction === 'up' ? 6 : -6, scale: 0.95 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
+            className={`absolute right-0 ${
+              direction === 'up' ? 'bottom-full mb-2' : 'top-full mt-2'
+            } w-24 rounded-xl bg-brand-card/95 backdrop-blur-md border border-white/10 shadow-2xl p-1 z-50 overflow-hidden`}
+            role="listbox"
+            aria-label="Languages"
+          >
+            {languages.map((lang) => {
+              const isSelected = i18n.language === lang.code;
+              return (
+                <button
+                  key={lang.code}
+                  type="button"
+                  onClick={() => selectLanguage(lang.code)}
+                  className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-bold transition-colors text-left cursor-pointer ${
+                    isSelected
+                      ? 'bg-brand-orange text-white'
+                      : 'text-gray-300 hover:text-white hover:bg-white/5'
+                  }`}
+                  role="option"
+                  aria-selected={isSelected}
+                >
+                  <span>{lang.short}</span>
+                  {isSelected && (
+                    <Check className="w-3.5 h-3.5 flex-shrink-0 text-white" />
+                  )}
+                </button>
+              );
+            })}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
 };
 
 const Navbar = () => {
@@ -130,9 +301,9 @@ const Navbar = () => {
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
 
+  const isCroatian = i18n.language?.startsWith('hr');
   const currentCleanPath = stripLanguagePrefix(location.pathname);
 
   const constructionProducts = [
@@ -150,116 +321,6 @@ const Navbar = () => {
     { title: t('nav.construction'), href: "/services/construction" },
     { title: t('nav.maintenance'), href: "/services/maintenance" },
   ];
-
-  const changeLanguage = (lng: string) => {
-    if (isSupportedLanguage(lng)) {
-      setManualLanguagePreference(lng);
-    }
-    i18n.changeLanguage(lng);
-    const newPath = getLocalizedPath(currentCleanPath, lng) + location.search + location.hash;
-    navigate(newPath);
-  };
-
-  const LanguageDropdown = ({ className = "" }: { className?: string }) => {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const dropdownRef = useRef<HTMLDivElement>(null);
-
-    const languages = [
-      { code: 'en', short: 'EN' },
-      { code: 'nl', short: 'NL' },
-      { code: 'fr', short: 'FR' },
-    ];
-
-    const currentLang = languages.find((l) => l.code === i18n.language) || languages[0];
-
-    useEffect(() => {
-      const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-          setIsDropdownOpen(false);
-        }
-      };
-
-      const handleKeyDown = (event: KeyboardEvent) => {
-        if (event.key === 'Escape') {
-          setIsDropdownOpen(false);
-        }
-      };
-
-      if (isDropdownOpen) {
-        document.addEventListener('mousedown', handleClickOutside);
-        document.addEventListener('touchstart', handleClickOutside);
-        document.addEventListener('keydown', handleKeyDown);
-      }
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-        document.removeEventListener('touchstart', handleClickOutside);
-        document.removeEventListener('keydown', handleKeyDown);
-      };
-    }, [isDropdownOpen]);
-
-    const selectLanguage = (code: string) => {
-      changeLanguage(code);
-      setIsDropdownOpen(false);
-    };
-
-    return (
-      <div ref={dropdownRef} className={`relative inline-block text-left ${className}`}>
-        <button
-          type="button"
-          onClick={() => setIsDropdownOpen((prev) => !prev)}
-          className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold bg-white/5 hover:bg-white/10 text-gray-200 border border-white/10 hover:border-brand-orange/40 transition-all cursor-pointer focus:outline-none focus:ring-1 focus:ring-brand-orange"
-          aria-expanded={isDropdownOpen}
-          aria-haspopup="listbox"
-          aria-label="Select language"
-        >
-          <Globe className="w-3.5 h-3.5 text-brand-orange flex-shrink-0" />
-          <span className="tracking-wide">{currentLang.short}</span>
-          <ChevronDown
-            className={`w-3 h-3 text-gray-400 transition-transform duration-200 ${
-              isDropdownOpen ? 'rotate-180 text-brand-orange' : ''
-            }`}
-          />
-        </button>
-
-        <AnimatePresence>
-          {isDropdownOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -6, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -6, scale: 0.95 }}
-              transition={{ duration: 0.15, ease: "easeOut" }}
-              className="absolute right-0 mt-2 w-24 rounded-xl bg-brand-card/95 backdrop-blur-md border border-white/10 shadow-2xl p-1 z-50 overflow-hidden"
-              role="listbox"
-              aria-label="Languages"
-            >
-              {languages.map((lang) => {
-                const isSelected = i18n.language === lang.code;
-                return (
-                  <button
-                    key={lang.code}
-                    type="button"
-                    onClick={() => selectLanguage(lang.code)}
-                    className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-bold transition-colors text-left cursor-pointer ${
-                      isSelected
-                        ? 'bg-brand-orange text-white'
-                        : 'text-gray-300 hover:text-white hover:bg-white/5'
-                    }`}
-                    role="option"
-                    aria-selected={isSelected}
-                  >
-                    <span>{lang.short}</span>
-                    {isSelected && (
-                      <Check className="w-3.5 h-3.5 flex-shrink-0 text-white" />
-                    )}
-                  </button>
-                );
-              })}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    );
-  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-brand-dark/90 backdrop-blur-sm border-b border-white/5">
@@ -348,19 +409,24 @@ const Navbar = () => {
               </div>
 
               <Link to={getLocalizedPath('/projects', i18n.language)} className={`${currentCleanPath === '/projects' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.projects')}</Link>
-              <Link to={getLocalizedPath('/insights', i18n.language)} className={`${currentCleanPath === '/insights' || currentCleanPath.startsWith('/insights/') ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.insights')}</Link>
+              {!isCroatian && (
+                <Link to={getLocalizedPath('/insights', i18n.language)} className={`${currentCleanPath === '/insights' || currentCleanPath.startsWith('/insights/') ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.insights')}</Link>
+              )}
               <Link to={getLocalizedPath('/about', i18n.language)} className={`${currentCleanPath === '/about' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.about')}</Link>
               <Link to={getLocalizedPath('/contact', i18n.language)} className={`${currentCleanPath === '/contact' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} px-3 py-2 text-sm font-medium transition-colors`}>{t('nav.contact')}</Link>
+              <div className="ml-4 pl-4 border-l border-white/10 flex items-center">
+                <LanguageDropdown direction="down" />
+              </div>
             </div>
-            <LanguageDropdown className="ml-4" />
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center gap-3">
-            <LanguageDropdown />
+          {/* Mobile menu button and top-bar language selector */}
+          <div className="md:hidden flex items-center gap-2.5">
+            <LanguageDropdown direction="down" />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
+              aria-label="Toggle navigation menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -413,7 +479,9 @@ const Navbar = () => {
 
               <div className="pt-2 border-t border-white/5">
                 <Link to={getLocalizedPath('/projects', i18n.language)} onClick={() => setIsOpen(false)} className={`${currentCleanPath === '/projects' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.projects')}</Link>
-                <Link to={getLocalizedPath('/insights', i18n.language)} onClick={() => setIsOpen(false)} className={`${currentCleanPath === '/insights' || currentCleanPath.startsWith('/insights/') ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.insights')}</Link>
+                {!isCroatian && (
+                  <Link to={getLocalizedPath('/insights', i18n.language)} onClick={() => setIsOpen(false)} className={`${currentCleanPath === '/insights' || currentCleanPath.startsWith('/insights/') ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.insights')}</Link>
+                )}
                 <Link to={getLocalizedPath('/about', i18n.language)} onClick={() => setIsOpen(false)} className={`${currentCleanPath === '/about' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.about')}</Link>
                 <Link to={getLocalizedPath('/contact', i18n.language)} onClick={() => setIsOpen(false)} className={`${currentCleanPath === '/contact' ? 'text-brand-orange' : 'text-gray-300 hover:text-white'} block px-3 py-2 text-base font-medium`}>{t('nav.contact')}</Link>
               </div>
@@ -423,7 +491,7 @@ const Navbar = () => {
                   <Globe className="w-3.5 h-3.5 text-brand-orange" />
                   Language
                 </span>
-                <LanguageDropdown />
+                <LanguageDropdown direction="up" />
               </div>
             </div>
           </motion.div>
@@ -785,6 +853,8 @@ const CTA = () => {
 
 const Footer = () => {
   const { t, i18n } = useTranslation();
+  const isCroatian = i18n.language?.startsWith('hr');
+
   return (
     <footer className="bg-brand-dark py-20 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -808,7 +878,9 @@ const Footer = () => {
             <ul className="space-y-4">
               <li><Link to={getLocalizedPath('/#services', i18n.language)} className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.services')}</Link></li>
               <li><Link to={getLocalizedPath('/projects', i18n.language)} className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.projects')}</Link></li>
-              <li><Link to={getLocalizedPath('/insights', i18n.language)} className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.insights')}</Link></li>
+              {!isCroatian && (
+                <li><Link to={getLocalizedPath('/insights', i18n.language)} className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.insights')}</Link></li>
+              )}
               <li><Link to={getLocalizedPath('/about', i18n.language)} className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.about')}</Link></li>
               <li><Link to={getLocalizedPath('/contact', i18n.language)} className="text-gray-400 hover:text-brand-orange text-sm transition-colors">{t('nav.contact')}</Link></li>
             </ul>
@@ -855,7 +927,7 @@ const Footer = () => {
           <div className="text-gray-500 text-sm">
             © {new Date().getFullYear()} A2Trails. {t('footer.rights')}
           </div>
-          <div className="flex gap-8 text-gray-500 text-sm">
+          <div className="flex flex-wrap items-center gap-6 sm:gap-8 text-gray-500 text-sm">
             <Link to={getLocalizedPath('/privacy', i18n.language)} className="hover:text-white transition-colors">{t('footer.privacy')}</Link>
             <Link to={getLocalizedPath('/terms', i18n.language)} className="hover:text-white transition-colors">{t('footer.terms')}</Link>
           </div>
@@ -865,20 +937,25 @@ const Footer = () => {
   );
 };
 
-const HomePage = () => (
-  <>
-    <SEO 
-      title="Home" 
-      description="Professional construction of riding infrastructure - helping municipalities, developers, and holiday parks create vibrant, active outdoor spaces."
-    />
-    <Hero />
-    <ConstructionProducts />
-    <InsightsCarousel />
-    <AudienceGateway />
-    <Expertise />
-    <CTA />
-  </>
-);
+const HomePage = () => {
+  const { i18n } = useTranslation();
+  const isCroatian = i18n.language?.startsWith('hr');
+
+  return (
+    <>
+      <SEO 
+        title="Home" 
+        description="Professional construction of riding infrastructure - helping municipalities, developers, and holiday parks create vibrant, active outdoor spaces."
+      />
+      <Hero />
+      <ConstructionProducts />
+      {!isCroatian && <InsightsCarousel />}
+      <AudienceGateway />
+      <Expertise />
+      <CTA />
+    </>
+  );
+};
 
 export default function App() {
   return (
