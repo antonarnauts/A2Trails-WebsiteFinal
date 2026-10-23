@@ -727,28 +727,9 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const STORAGE_KEY_OVERRIDE = 'a2gardens_user_lang_override';
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const detectedBrowserLanguage = detectBrowserLanguage();
-  const urlLang = getUrlLanguage();
-
-  const [currentLanguage, setCurrentLanguageState] = useState<LanguageCode>(() => {
-    if (urlLang) return urlLang;
-    if (typeof window !== 'undefined') {
-      const savedOverride = localStorage.getItem(STORAGE_KEY_OVERRIDE) as LanguageCode | null;
-      if (savedOverride === 'en' || savedOverride === 'nl' || savedOverride === 'fr') {
-        return savedOverride;
-      }
-    }
-    return detectedBrowserLanguage;
-  });
-
-  const [isAutoDetected, setIsAutoDetected] = useState<boolean>(() => {
-    if (urlLang) return false;
-    if (typeof window !== 'undefined') {
-      const savedOverride = localStorage.getItem(STORAGE_KEY_OVERRIDE);
-      if (savedOverride) return false;
-    }
-    return true;
-  });
+  const detectedBrowserLanguage: LanguageCode = 'en';
+  const [currentLanguage, setCurrentLanguageState] = useState<LanguageCode>('en');
+  const [isAutoDetected, setIsAutoDetected] = useState<boolean>(false);
 
   useEffect(() => {
     if (typeof document !== 'undefined') {
@@ -756,39 +737,14 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     }
   }, [currentLanguage]);
 
-  useEffect(() => {
-    const handleLanguageChange = () => {
-      const savedOverride = localStorage.getItem(STORAGE_KEY_OVERRIDE);
-      if (!savedOverride) {
-        const newlyDetected = detectBrowserLanguage();
-        setCurrentLanguageState(newlyDetected);
-        setIsAutoDetected(true);
-      }
-    };
-
-    window.addEventListener('languagechange', handleLanguageChange);
-    return () => window.removeEventListener('languagechange', handleLanguageChange);
-  }, []);
-
   const setLanguage = (lang: LanguageCode) => {
     setCurrentLanguageState(lang);
     setIsAutoDetected(false);
-    try {
-      localStorage.setItem(STORAGE_KEY_OVERRIDE, lang);
-    } catch {
-      // Ignore storage write errors
-    }
   };
 
   const resetToBrowserLanguage = () => {
-    try {
-      localStorage.removeItem(STORAGE_KEY_OVERRIDE);
-    } catch {
-      // Ignore
-    }
-    const detected = detectBrowserLanguage();
-    setCurrentLanguageState(detected);
-    setIsAutoDetected(true);
+    setCurrentLanguageState('en');
+    setIsAutoDetected(false);
   };
 
   const t = TRANSLATIONS[currentLanguage] || TRANSLATIONS.en;

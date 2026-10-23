@@ -123,35 +123,6 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ className = 
               </button>
             );
           })}
-
-          {/* Hybrid Auto indicator / reset if overridden */}
-          <div className="pt-1 mt-1 border-t border-white/10 px-1">
-            {isAutoDetected ? (
-              <div className="px-1.5 py-1 text-[10px] text-[#3ea637] font-mono flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#3ea637] animate-pulse" />
-                <span>Auto: {detectedBrowserLanguage.toUpperCase()}</span>
-              </div>
-            ) : (
-              <button
-                type="button"
-                onClick={() => {
-                  resetToBrowserLanguage();
-                  setIsOpen(false);
-                }}
-                className="w-full text-[10px] text-gray-400 hover:text-[#3ea637] font-mono py-1 px-1.5 rounded hover:bg-white/5 flex items-center justify-between transition-colors cursor-pointer"
-                title={
-                  currentLanguage === 'nl'
-                    ? `Standaardtaal herstellen (${detectedBrowserLanguage.toUpperCase()})`
-                    : currentLanguage === 'fr'
-                    ? `Réinitialiser la langue (${detectedBrowserLanguage.toUpperCase()})`
-                    : `Reset to browser language (${detectedBrowserLanguage.toUpperCase()})`
-                }
-              >
-                <span>Auto ({detectedBrowserLanguage.toUpperCase()})</span>
-                <Sparkles className="w-2.5 h-2.5" />
-              </button>
-            )}
-          </div>
         </div>
       )}
     </div>
