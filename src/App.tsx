@@ -964,14 +964,21 @@ const HomePage = () => {
 
 const GardensPage = () => {
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4">
+    <div className="min-h-screen bg-black flex flex-col items-center justify-center p-6 text-center">
       <SEO 
-        title="A2Gardens - Testing Page" 
-        description="Testing page for A2Gardens"
+        title="A2Gardens - Under Construction" 
+        description="A2Gardens website is currently under construction."
       />
-      <h1 className="text-3xl md:text-5xl font-medium text-white tracking-wide text-center">
-        testing page
-      </h1>
+      <div className="flex flex-col items-center justify-center gap-6 max-w-md w-full">
+        <img 
+          src={getAssetPath('a2gardens/images/logo.jpg')} 
+          alt="A2Gardens" 
+          className="max-w-[260px] sm:max-w-[320px] w-auto h-auto object-contain"
+        />
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-light text-gray-300 tracking-wider">
+          under construction
+        </h1>
+      </div>
     </div>
   );
 };
