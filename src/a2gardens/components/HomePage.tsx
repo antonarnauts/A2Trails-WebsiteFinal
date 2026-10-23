@@ -657,18 +657,26 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                         onChange={handleFormChange}
                         className="w-full bg-[#111913] border border-[#1d3525] focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] rounded-lg px-3.5 py-2.5 text-sm text-white outline-none transition-colors cursor-pointer"
                       >
-                        <option value="Ixelles">Ixelles / Elsene</option>
-                        <option value="Uccle">Uccle / Ukkel</option>
-                        <option value="Saint-Gilles">Saint-Gilles / Sint-Gillis</option>
-                        <option value="Brussels City">Brussels 1000 / Sablon</option>
-                        <option value="Woluwe-Saint-Pierre">Woluwe-Saint-Pierre</option>
-                        <option value="Woluwe-Saint-Lambert">Woluwe-Saint-Lambert</option>
-                        <option value="Etterbeek">Etterbeek</option>
-                        <option value="Forest">Forest / Vorst</option>
-                        <option value="Schaerbeek">Schaerbeek / Schaarbeek</option>
-                        <option value="Watermael-Boitsfort">Watermael-Boitsfort</option>
+                        <option value="Anderlecht">Anderlecht</option>
                         <option value="Auderghem">Auderghem / Oudergem</option>
-                        <option value="Other Brussels Commune">Other Brussels Commune</option>
+                        <option value="Berchem-Sainte-Agathe">Berchem-Sainte-Agathe / Sint-Agatha-Berchem</option>
+                        <option value="Brussels City">Brussels City / Stad Brussel</option>
+                        <option value="Etterbeek">Etterbeek</option>
+                        <option value="Evere">Evere</option>
+                        <option value="Forest">Forest / Vorst</option>
+                        <option value="Ganshoren">Ganshoren</option>
+                        <option value="Ixelles">Ixelles / Elsene</option>
+                        <option value="Jette">Jette</option>
+                        <option value="Koekelberg">Koekelberg</option>
+                        <option value="Molenbeek-Saint-Jean">Molenbeek-Saint-Jean / Sint-Jans-Molenbeek</option>
+                        <option value="Saint-Gilles">Saint-Gilles / Sint-Gillis</option>
+                        <option value="Saint-Josse-ten-Noode">Saint-Josse-ten-Noode / Sint-Joost-ten-Node</option>
+                        <option value="Schaerbeek">Schaerbeek / Schaarbeek</option>
+                        <option value="Uccle">Uccle / Ukkel</option>
+                        <option value="Watermael-Boitsfort">Watermael-Boitsfort / Watermaal-Bosvoorde</option>
+                        <option value="Woluwe-Saint-Lambert">Woluwe-Saint-Lambert / Sint-Lambrechts-Woluwe</option>
+                        <option value="Woluwe-Saint-Pierre">Woluwe-Saint-Pierre / Sint-Pieters-Woluwe</option>
+                        <option value="Other">Other</option>
                       </select>
                     </div>
 
