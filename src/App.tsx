@@ -28,6 +28,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import A2GardensApp from "./a2gardens/A2GardensApp";
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -118,7 +119,8 @@ const LanguageRouteSync = () => {
     });
 
     const currentClean = stripLanguagePrefix(pathname);
-    if (currentClean === '/a2gardens' || currentClean === '/gardens') {
+    const isGardensSubdomain = typeof window !== 'undefined' && window.location.hostname.includes('a2gardens');
+    if (currentClean === '/a2gardens' || currentClean === '/gardens' || (isGardensSubdomain && currentClean === '/')) {
       return;
     }
 
@@ -962,70 +964,23 @@ const HomePage = () => {
   );
 };
 
-const GardensPage = () => {
-  const logoUrl = getAssetPath('a2gardens/images/logo.jpg');
-
-  useEffect(() => {
-    let link: HTMLLinkElement | null = document.querySelector("link[rel*='icon']");
-    const defaultIcon = getAssetPath('images/logo.webp');
-    const previousIcon = link ? link.href : defaultIcon;
-
-    if (link) {
-      link.type = 'image/jpeg';
-      link.href = logoUrl;
-    } else {
-      link = document.createElement('link');
-      link.rel = 'icon';
-      link.type = 'image/jpeg';
-      link.href = logoUrl;
-      document.head.appendChild(link);
-    }
-
-    return () => {
-      if (link) {
-        link.type = 'image/webp';
-        link.href = previousIcon;
-      }
-    };
-  }, [logoUrl]);
-
-  return (
-    <div className="min-h-screen bg-black flex flex-col items-center justify-center p-6 text-center">
-      <SEO 
-        title="Under Construction" 
-        siteName="A2Gardens"
-        description="A2Gardens website is currently under construction."
-        favicon={logoUrl}
-      />
-      <div className="flex flex-col items-center justify-center gap-6 max-w-md w-full">
-        <img 
-          src={logoUrl} 
-          alt="A2Gardens" 
-          className="max-w-[260px] sm:max-w-[320px] w-auto h-auto object-contain"
-        />
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-light text-gray-300 tracking-wider">
-          under construction
-        </h1>
-      </div>
-    </div>
-  );
-};
-
 const AppContent = () => {
   const location = useLocation();
   const cleanPath = stripLanguagePrefix(location.pathname);
-  const isGardens = cleanPath === '/a2gardens' || cleanPath === '/gardens';
+  const isGardensSubdomain = typeof window !== 'undefined' && window.location.hostname.includes('a2gardens');
+  const isGardens = cleanPath === '/a2gardens' || cleanPath === '/gardens' || (isGardensSubdomain && cleanPath === '/');
 
   return (
-    <div className={`min-h-screen ${isGardens ? 'bg-black' : 'bg-brand-dark'}`}>
+    <div className={`min-h-screen ${isGardens ? 'bg-[#090d0a]' : 'bg-brand-dark'}`}>
       {!isGardens && <Navbar />}
       <main>
         <Routes>
           {/* Dedicated A2Gardens route */}
-          <Route path="/a2gardens" element={<GardensPage />} />
-          <Route path="/:lang/a2gardens" element={<GardensPage />} />
-          <Route path="/gardens" element={<GardensPage />} />
-          <Route path="/:lang/gardens" element={<GardensPage />} />
+          <Route path="/a2gardens" element={<A2GardensApp />} />
+          <Route path="/:lang/a2gardens" element={<A2GardensApp />} />
+          <Route path="/gardens" element={<A2GardensApp />} />
+          <Route path="/:lang/gardens" element={<A2GardensApp />} />
+          {isGardensSubdomain && <Route path="/" element={<A2GardensApp />} />}
 
           {/* Language-prefixed routes (e.g. /nl/..., /fr/..., /en/...) */}
           <Route path="/:lang" element={<HomePage />} />
