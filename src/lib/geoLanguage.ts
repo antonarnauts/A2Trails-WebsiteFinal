@@ -97,13 +97,64 @@ export function saveStoredRegionInfo(info: RegionInfo): void {
 }
 
 /**
+ * Checks if the browser's language setting is Croatian.
+ * Strictly verifies whether navigator.language or any navigator.languages entry starts with 'hr'.
+ */
+export function isCroatianBrowser(): boolean {
+  if (typeof navigator === 'undefined') return false;
+  const nav = navigator;
+  const locale = (nav.language || (nav as any).userLanguage || (nav as any).browserLanguage || '').toLowerCase();
+  if (locale.startsWith('hr')) return true;
+  if (Array.isArray(nav.languages)) {
+    return nav.languages.some((lang) => typeof lang === 'string' && lang.toLowerCase().startsWith('hr'));
+  }
+  return false;
+}
+
+/**
+ * Checks if the detected region or IP corresponds to Belgium ('BE' or 'BEL').
+ */
+export function isBelgianRegion(region: RegionInfo | null): boolean {
+  if (!region) return false;
+  const code = (region.countryCode || '').toUpperCase();
+  if (code === 'BE' || code === 'BEL') return true;
+  const name = (region.countryName || '').toLowerCase();
+  if (name.includes('belgi')) return true;
+  return false;
+}
+
+/**
+ * Validates whether the Croatian version is allowed to open or be displayed.
+ * Strict conditions:
+ * 1. Must be opened in a Croatian browser (isCroatianBrowser).
+ * 2. Must NEVER be from a Belgian IP address (BE).
+ * 3. In no other situation.
+ */
+export function isCroatianAllowed(region: RegionInfo | null = getStoredRegionInfo()): boolean {
+  if (!isCroatianBrowser()) {
+    return false;
+  }
+  if (isBelgianRegion(region)) {
+    return false;
+  }
+  return true;
+}
+
+/**
  * Gets explicit manual user preference if saved
  */
 export function getStoredManualPreference(): SupportedLanguage | null {
   if (typeof window === 'undefined') return null;
   try {
     const manual = localStorage.getItem(STORAGE_KEYS.MANUAL_PREF);
-    return isSupportedLanguage(manual) ? manual : null;
+    if (!isSupportedLanguage(manual)) return null;
+    if (manual === 'hr' && !isCroatianAllowed()) {
+      localStorage.removeItem(STORAGE_KEYS.MANUAL_PREF);
+      localStorage.removeItem(STORAGE_KEYS.RESOLVED_LANG);
+      localStorage.removeItem('i18nextLng');
+      return null;
+    }
+    return manual;
   } catch {
     return null;
   }
@@ -115,6 +166,9 @@ export function getStoredManualPreference(): SupportedLanguage | null {
 export function setManualLanguagePreference(lang: SupportedLanguage): void {
   if (typeof window === 'undefined') return;
   try {
+    if (lang === 'hr' && !isCroatianAllowed()) {
+      return;
+    }
     localStorage.setItem(STORAGE_KEYS.MANUAL_PREF, lang);
     localStorage.setItem(STORAGE_KEYS.RESOLVED_LANG, lang);
     localStorage.setItem('i18nextLng', lang);
@@ -259,39 +313,33 @@ export function resolveSmartHybridLanguage(
   device: DeviceInfo,
   region: RegionInfo | null
 ): { language: SupportedLanguage; reason: StoredPreferences['resolutionReason'] } {
-  // 1. Manual user override is strictly prioritized
+  const country = region?.countryCode?.toUpperCase();
+  const isBE = country === 'BE' || country === 'BEL' || isBelgianRegion(region);
+
+  // 1. Manual user override is strictly prioritized, UNLESS it is Croatian and forbidden
   const manual = getStoredManualPreference();
   if (manual) {
-    return { language: manual, reason: 'manual' };
+    if (manual === 'hr' && (!isCroatianBrowser() || isBE)) {
+      if (typeof window !== 'undefined') {
+        try {
+          localStorage.removeItem(STORAGE_KEYS.MANUAL_PREF);
+          localStorage.removeItem(STORAGE_KEYS.RESOLVED_LANG);
+          localStorage.removeItem('i18nextLng');
+        } catch {}
+      }
+    } else {
+      return { language: manual, reason: 'manual' };
+    }
   }
 
   const deviceCode = device.primaryLang;
   const isDeviceDutch = deviceCode === 'nl' || device.languages.some((l) => l.toLowerCase().startsWith('nl'));
   const isDeviceFrench = deviceCode === 'fr' || device.languages.some((l) => l.toLowerCase().startsWith('fr'));
   const isDeviceEnglish = deviceCode === 'en' || device.languages.some((l) => l.toLowerCase().startsWith('en'));
-  const isDeviceCroatian = deviceCode === 'hr' || device.languages.some((l) => l.toLowerCase().startsWith('hr'));
+  const isCroBrowser = isCroatianBrowser();
 
-  const country = region?.countryCode?.toUpperCase();
-
-  // 2. Region-specific logic
-  if (country === 'NL' || country === 'NLD') {
-    // Visitor in Netherlands -> Dutch
-    return { language: 'nl', reason: 'region' };
-  }
-
-  if (country === 'FR' || country === 'FRA') {
-    // Visitor in France -> French
-    return { language: 'fr', reason: 'region' };
-  }
-
-  if (country === 'HR' || country === 'HRV') {
-    // Visitor in Croatia -> Croatian
-    return { language: 'hr', reason: 'region' };
-  }
-
-  if (country === 'BE' || country === 'BEL') {
-    // Belgium is trilingual (Flanders Dutch, Wallonia French, Brussels bilingual).
-    // The device language is the decisive tie-breaker:
+  // 2. Belgium IP: strictly NEVER Croatian under any circumstance
+  if (isBE) {
     if (isDeviceFrench) {
       return { language: 'fr', reason: 'hybrid' };
     }
@@ -301,20 +349,47 @@ export function resolveSmartHybridLanguage(
     if (isDeviceEnglish) {
       return { language: 'en', reason: 'hybrid' };
     }
-    // Default for Belgium if device is another language: Dutch
+    // Default for Belgium
     return { language: 'nl', reason: 'hybrid' };
   }
 
-  // 3. For any other international country (UK, US, DE, ES, etc.):
-  // Check if their device specifically prefers Dutch, French, or Croatian
+  // 3. Netherlands
+  if (country === 'NL' || country === 'NLD') {
+    return { language: 'nl', reason: 'region' };
+  }
+
+  // 4. France
+  if (country === 'FR' || country === 'FRA') {
+    return { language: 'fr', reason: 'region' };
+  }
+
+  // 5. Croatia:
+  // Croatian page only opens when page is opened in a Croatian browser. In no other situation and never from BE IP.
+  if (country === 'HR' || country === 'HRV') {
+    if (isCroBrowser) {
+      return { language: 'hr', reason: 'region' };
+    }
+    // If not a Croatian browser, never open Croatian even if physically located in Croatia
+    if (isDeviceDutch) return { language: 'nl', reason: 'device' };
+    if (isDeviceFrench) return { language: 'fr', reason: 'device' };
+    return { language: DEFAULT_LANGUAGE, reason: 'fallback' };
+  }
+
+  // 6. Other countries / international:
+  // Croatian page ONLY opens if opened in Croatian browser AND NOT BE IP:
+  if (isCroBrowser && !isBE) {
+    if (region) {
+      return { language: 'hr', reason: 'device' };
+    }
+    // If region not yet verified, hold off temporarily to avoid any BE leak until IP check returns
+    return { language: DEFAULT_LANGUAGE, reason: 'fallback' };
+  }
+
   if (isDeviceDutch) {
     return { language: 'nl', reason: 'device' };
   }
   if (isDeviceFrench) {
     return { language: 'fr', reason: 'device' };
-  }
-  if (isDeviceCroatian) {
-    return { language: 'hr', reason: 'device' };
   }
 
   // Otherwise international default is English

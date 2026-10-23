@@ -2,6 +2,24 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
+// Ensure Croatian is never initialized for non-Croatian browsers or Belgian IPs
+if (typeof window !== 'undefined') {
+  try {
+    const rawLng = localStorage.getItem('i18nextLng');
+    if (rawLng && rawLng.toLowerCase().startsWith('hr')) {
+      const nav = navigator;
+      const locale = (nav.language || (nav as any).userLanguage || (nav as any).browserLanguage || '').toLowerCase();
+      const isCroBrowser = locale.startsWith('hr') || (Array.isArray(nav.languages) && nav.languages.some(l => l.toLowerCase().startsWith('hr')));
+      const rawRegion = localStorage.getItem('region') || localStorage.getItem('a2_region');
+      const isBE = rawRegion && (rawRegion.includes('"BE"') || rawRegion.includes('"BEL"') || rawRegion.toLowerCase().includes('belgi'));
+      if (!isCroBrowser || isBE) {
+        localStorage.removeItem('i18nextLng');
+        localStorage.removeItem('a2_manual_lang');
+      }
+    }
+  } catch {}
+}
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)

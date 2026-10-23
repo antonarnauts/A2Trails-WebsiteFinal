@@ -117,6 +117,11 @@ const LanguageRouteSync = () => {
       }
     });
 
+    const currentClean = stripLanguagePrefix(pathname);
+    if (currentClean === '/a2gardens' || currentClean === '/gardens') {
+      return;
+    }
+
     const langFromPath = getLanguageFromPath(pathname);
     const searchParams = new URLSearchParams(search);
     const langFromQuery = searchParams.get('lang');
@@ -957,46 +962,76 @@ const HomePage = () => {
   );
 };
 
+const GardensPage = () => {
+  return (
+    <div className="min-h-screen bg-black flex items-center justify-center p-4">
+      <SEO 
+        title="A2Gardens - Testing Page" 
+        description="Testing page for A2Gardens"
+      />
+      <h1 className="text-3xl md:text-5xl font-medium text-white tracking-wide text-center">
+        testing page
+      </h1>
+    </div>
+  );
+};
+
+const AppContent = () => {
+  const location = useLocation();
+  const cleanPath = stripLanguagePrefix(location.pathname);
+  const isGardens = cleanPath === '/a2gardens' || cleanPath === '/gardens';
+
+  return (
+    <div className={`min-h-screen ${isGardens ? 'bg-black' : 'bg-brand-dark'}`}>
+      {!isGardens && <Navbar />}
+      <main>
+        <Routes>
+          {/* Dedicated A2Gardens route */}
+          <Route path="/a2gardens" element={<GardensPage />} />
+          <Route path="/:lang/a2gardens" element={<GardensPage />} />
+          <Route path="/gardens" element={<GardensPage />} />
+          <Route path="/:lang/gardens" element={<GardensPage />} />
+
+          {/* Language-prefixed routes (e.g. /nl/..., /fr/..., /en/...) */}
+          <Route path="/:lang" element={<HomePage />} />
+          <Route path="/:lang/services/consultancy" element={<Consultancy />} />
+          <Route path="/:lang/services/design" element={<Design />} />
+          <Route path="/:lang/services/construction" element={<Construction />} />
+          <Route path="/:lang/services/maintenance" element={<Maintenance />} />
+          <Route path="/:lang/projects" element={<Projects />} />
+          <Route path="/:lang/insights" element={<Insights />} />
+          <Route path="/:lang/insights/:articleId" element={<Insights />} />
+          <Route path="/:lang/about" element={<About />} />
+          <Route path="/:lang/contact" element={<Contact />} />
+          <Route path="/:lang/privacy" element={<PrivacyPolicy />} />
+          <Route path="/:lang/terms" element={<TermsOfService />} />
+
+          {/* Standard fallback routes without prefix */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/services/consultancy" element={<Consultancy />} />
+          <Route path="/services/design" element={<Design />} />
+          <Route path="/services/construction" element={<Construction />} />
+          <Route path="/services/maintenance" element={<Maintenance />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/insights" element={<Insights />} />
+          <Route path="/insights/:articleId" element={<Insights />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
+        </Routes>
+      </main>
+      {!isGardens && <Footer />}
+    </div>
+  );
+};
+
 export default function App() {
   return (
     <HashRouter>
       <ScrollToTop />
       <LanguageRouteSync />
-      <div className="min-h-screen bg-brand-dark">
-        <Navbar />
-        <main>
-          <Routes>
-            {/* Language-prefixed routes (e.g. /nl/..., /fr/..., /en/...) */}
-            <Route path="/:lang" element={<HomePage />} />
-            <Route path="/:lang/services/consultancy" element={<Consultancy />} />
-            <Route path="/:lang/services/design" element={<Design />} />
-            <Route path="/:lang/services/construction" element={<Construction />} />
-            <Route path="/:lang/services/maintenance" element={<Maintenance />} />
-            <Route path="/:lang/projects" element={<Projects />} />
-            <Route path="/:lang/insights" element={<Insights />} />
-            <Route path="/:lang/insights/:articleId" element={<Insights />} />
-            <Route path="/:lang/about" element={<About />} />
-            <Route path="/:lang/contact" element={<Contact />} />
-            <Route path="/:lang/privacy" element={<PrivacyPolicy />} />
-            <Route path="/:lang/terms" element={<TermsOfService />} />
-
-            {/* Standard fallback routes without prefix */}
-            <Route path="/" element={<HomePage />} />
-            <Route path="/services/consultancy" element={<Consultancy />} />
-            <Route path="/services/design" element={<Design />} />
-            <Route path="/services/construction" element={<Construction />} />
-            <Route path="/services/maintenance" element={<Maintenance />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/insights" element={<Insights />} />
-            <Route path="/insights/:articleId" element={<Insights />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/terms" element={<TermsOfService />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <AppContent />
     </HashRouter>
   );
 }
