@@ -8,8 +8,27 @@
     <meta name="description" content="Professional construction of riding infrastructure - helping municipalities, developers, and holiday parks create vibrant, active outdoor spaces" />
     <meta property="og:title" content="A2Trails | Professional Mountain Bike Infrastructure" />
     <meta property="og:description" content="Professional construction of riding infrastructure - helping municipalities, developers, and holiday parks create vibrant, active outdoor spaces" />
-    <link rel="icon" type="image/webp" href="/images/logo.webp" />
+    <link id="favicon-icon" rel="icon" type="image/webp" href="./images/logo.webp" />
+    <link id="favicon-shortcut" rel="shortcut icon" type="image/webp" href="./images/logo.webp" />
+    <link id="favicon-apple" rel="apple-touch-icon" href="./images/logo.webp" />
     <title>A2Trails | Professional Mountain Bike Infrastructure</title>
+    <script>
+      (function() {
+        var h = window.location.hash.toLowerCase();
+        var host = window.location.hostname.toLowerCase();
+        var path = window.location.pathname.toLowerCase();
+        if (h.indexOf('a2gardens') !== -1 || host.indexOf('a2gardens') !== -1 || path.indexOf('a2gardens') !== -1) {
+          var a2gLogo = './a2gardens/images/logoa2gardernspng.png';
+          var iconEl = document.getElementById('favicon-icon');
+          var shortcutEl = document.getElementById('favicon-shortcut');
+          var appleEl = document.getElementById('favicon-apple');
+          if (iconEl) { iconEl.type = 'image/png'; iconEl.href = a2gLogo; }
+          if (shortcutEl) { shortcutEl.type = 'image/png'; shortcutEl.href = a2gLogo; }
+          if (appleEl) { appleEl.href = a2gLogo; }
+          document.title = 'A2Gardens | Brussels Garden Architecture & Terraces';
+        }
+      })();
+    </script>
   </head>
   <body>
     <script>

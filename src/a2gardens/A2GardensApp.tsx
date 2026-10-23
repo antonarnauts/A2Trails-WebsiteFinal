@@ -116,28 +116,32 @@ function A2GardensContent() {
 export default function A2GardensApp() {
   const logoUrl = getAssetPath('a2gardens/images/logoa2gardernspng.png');
 
-  // Dynamic favicon update for A2Gardens
+  // Dynamic favicon & mobile tab icon update for A2Gardens (including iOS apple-touch-icon & Android shortcut icon)
   useEffect(() => {
-    let link: HTMLLinkElement | null = document.querySelector("link[rel*='icon']");
     const defaultIcon = getAssetPath('images/logo.webp');
-    const previousIcon = link ? link.href : defaultIcon;
 
-    if (link) {
-      link.type = 'image/png';
-      link.href = logoUrl;
-    } else {
-      link = document.createElement('link');
-      link.rel = 'icon';
-      link.type = 'image/png';
-      link.href = logoUrl;
-      document.head.appendChild(link);
-    }
+    const applyIcons = (href: string, mimeType: string) => {
+      const existingIcons = document.querySelectorAll(
+        "link[rel='icon'], link[rel='shortcut icon'], link[rel='apple-touch-icon'], link[rel='apple-touch-icon-precomposed']"
+      );
+      existingIcons.forEach((el) => el.parentNode?.removeChild(el));
+
+      const rels = ['icon', 'shortcut icon', 'apple-touch-icon'];
+      rels.forEach((rel) => {
+        const link = document.createElement('link');
+        link.rel = rel;
+        if (rel !== 'apple-touch-icon') {
+          link.type = mimeType;
+        }
+        link.href = href;
+        document.head.appendChild(link);
+      });
+    };
+
+    applyIcons(logoUrl, 'image/png');
 
     return () => {
-      if (link) {
-        link.type = 'image/webp';
-        link.href = previousIcon;
-      }
+      applyIcons(defaultIcon, 'image/webp');
     };
   }, [logoUrl]);
 

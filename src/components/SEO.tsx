@@ -44,17 +44,17 @@ export default function SEO({
     return `${origin}${base}${path}`;
   };
 
-  const logoUrl = getAbsoluteImageUrl('images/logo.webp');
-  const heroUrl = getAbsoluteImageUrl('images/hero.webp');
+  const logoUrl = favicon ? getAbsoluteImageUrl(favicon.replace(/^\//, '')) : getAbsoluteImageUrl('images/logo.webp');
+  const heroUrl = favicon ? getAbsoluteImageUrl(favicon.replace(/^\//, '')) : getAbsoluteImageUrl('images/hero.webp');
 
   // Local Business Schema
   const businessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "A2Trails",
+    "name": activeSiteName,
     "image": logoUrl,
-    "@id": "https://a2trails.com",
-    "url": "https://a2trails.com",
+    "@id": canonical,
+    "url": canonical,
     "telephone": "+3200000000",
     "address": {
       "@type": "PostalAddress",
@@ -95,7 +95,9 @@ export default function SEO({
       <meta name="googlebot" content="index, follow" />
       <link rel="canonical" href={canonical} />
       <html lang={currentLang} />
-      {favicon && <link rel="icon" type="image/png" href={favicon} />}
+      {favicon && <link rel="icon" type="image/png" sizes="any" href={favicon} />}
+      {favicon && <link rel="shortcut icon" type="image/png" href={favicon} />}
+      {favicon && <link rel="apple-touch-icon" href={favicon} />}
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
