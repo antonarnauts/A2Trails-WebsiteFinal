@@ -95,7 +95,7 @@ export default function SEO({
       <meta name="googlebot" content="index, follow" />
       <link rel="canonical" href={canonical} />
       <html lang={currentLang} />
-      {favicon && <link rel="icon" type="image/jpeg" href={favicon} />}
+      {favicon && <link rel="icon" type="image/png" href={favicon} />}
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />

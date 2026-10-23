@@ -44,7 +44,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               aria-label="A2"
             >
               <img
-                src={getAssetPath('a2gardens/images/logo.jpg')}
+                src={getAssetPath('a2gardens/images/logoa2gardernspng.png')}
                 alt="A2"
                 className="h-[180px] w-auto rounded-2xl object-contain bg-black border border-[#10b981]/30 p-2 shadow-2xl transition-all group-hover:scale-105"
               />

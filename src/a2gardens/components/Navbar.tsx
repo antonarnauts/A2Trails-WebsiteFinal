@@ -56,7 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
           aria-label="A2"
         >
           <img
-            src={getAssetPath('a2gardens/images/logo.jpg')}
+            src={getAssetPath('a2gardens/images/logoa2gardernspng.png')}
             alt="A2"
             className="h-11 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
           />

@@ -66,7 +66,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
         <div className="lg:col-span-5 bg-[#0b100d] border border-[#1c3324] rounded-2xl p-6 sm:p-8 space-y-6 shadow-2xl relative">
           <div className="flex items-center gap-4 border-b border-[#182a1f] pb-6">
             <img
-              src={getAssetPath('a2gardens/images/logo.jpg')}
+              src={getAssetPath('a2gardens/images/logoa2gardernspng.png')}
               alt="A2Gardens"
               className="w-16 h-16 rounded-2xl object-contain bg-black border border-[#3ea637]/40 p-1 shadow-lg"
             />

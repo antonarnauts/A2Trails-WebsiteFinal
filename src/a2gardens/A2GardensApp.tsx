@@ -17,7 +17,7 @@ import SEO from '../components/SEO';
 
 export default function A2GardensApp() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
-  const logoUrl = getAssetPath('a2gardens/images/logo.jpg');
+  const logoUrl = getAssetPath('a2gardens/images/logoa2gardernspng.png');
 
   // Dynamic favicon update for A2Gardens
   useEffect(() => {
@@ -26,12 +26,12 @@ export default function A2GardensApp() {
     const previousIcon = link ? link.href : defaultIcon;
 
     if (link) {
-      link.type = 'image/jpeg';
+      link.type = 'image/png';
       link.href = logoUrl;
     } else {
       link = document.createElement('link');
       link.rel = 'icon';
-      link.type = 'image/jpeg';
+      link.type = 'image/png';
       link.href = logoUrl;
       document.head.appendChild(link);
     }

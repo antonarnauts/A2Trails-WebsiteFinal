@@ -196,21 +196,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </button>
           </div>
         </div>
-
-        {/* Ambient bottom-right badge */}
-        <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20 flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setAmbientActive(!ambientActive)}
-            className="p-2 sm:p-2.5 rounded-full bg-black/60 hover:bg-black/80 text-white/80 hover:text-white backdrop-blur-md border border-white/10 transition-all cursor-pointer text-xs flex items-center gap-1.5"
-            aria-label="Toggle Brussels Status"
-          >
-            <MapPin className="w-3.5 h-3.5 text-[#10b981]" />
-            <span className="hidden sm:inline font-mono text-[11px] text-gray-300">
-              Brussels Region
-            </span>
-          </button>
-        </div>
       </section>
 
       {/* =========================================================================
@@ -374,7 +359,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               {/* Founder Avatar & Details */}
               <div className="md:col-span-4 flex flex-col items-center md:items-start text-center md:text-left space-y-4">
                 <img
-                  src={getAssetPath('a2gardens/images/logo.jpg')}
+                  src={getAssetPath('a2gardens/images/logoa2gardernspng.png')}
                   alt="Anton Arnauts - A2Gardens"
                   className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-contain bg-black border border-[#10b981]/40 p-1.5 shadow-xl"
                 />
@@ -794,7 +779,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   </div>
                 </div>
                 <div className="pt-4 border-t border-white/5 text-xs text-gray-400 leading-relaxed">
-                  On-site audits conducted across all 19 Brussels communes: Ixelles, Uccle, Saint-Gilles, Sablon, Etterbeek, Woluwe, Forest, and Brussels City.
+                  On-site audits conducted across all 19 Brussels communes and further.
                 </div>
               </div>
             </div>
