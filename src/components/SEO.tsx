@@ -7,6 +7,8 @@ interface SEOProps {
   canonical?: string;
   type?: 'website' | 'article';
   schema?: any;
+  favicon?: string;
+  siteName?: string;
 }
 
 export default function SEO({ 
@@ -14,13 +16,17 @@ export default function SEO({
   description, 
   canonical = 'https://a2trails.com', 
   type = 'website',
-  schema 
+  schema,
+  favicon,
+  siteName
 }: SEOProps) {
   const { i18n } = useTranslation();
   const currentLang = i18n.language;
   
-  const siteName = 'A2Trails';
-  const fullTitle = title ? `${title} | ${siteName}` : `${siteName} | Professional Mountain Bike Infrastructure`;
+  const activeSiteName = siteName || 'A2Trails';
+  const fullTitle = title 
+    ? (title.includes(activeSiteName) ? title : `${title} | ${activeSiteName}`)
+    : `${activeSiteName} | Professional Mountain Bike Infrastructure`;
   const defaultDescription = 'A2Trails specializes in the consultancy, design, and construction of sustainable mountain bike trails, pump tracks, and skill parks across Europe.';
   const metaDescription = description || defaultDescription;
 
@@ -89,13 +95,14 @@ export default function SEO({
       <meta name="googlebot" content="index, follow" />
       <link rel="canonical" href={canonical} />
       <html lang={currentLang} />
+      {favicon && <link rel="icon" type="image/jpeg" href={favicon} />}
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:url" content={canonical} />
-      <meta property="og:site_name" content={siteName} />
+      <meta property="og:site_name" content={activeSiteName} />
       <meta property="og:image" content={heroUrl} />
 
       {/* Twitter */}

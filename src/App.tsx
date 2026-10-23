@@ -963,15 +963,43 @@ const HomePage = () => {
 };
 
 const GardensPage = () => {
+  const logoUrl = getAssetPath('a2gardens/images/logo.jpg');
+
+  useEffect(() => {
+    let link: HTMLLinkElement | null = document.querySelector("link[rel*='icon']");
+    const defaultIcon = getAssetPath('images/logo.webp');
+    const previousIcon = link ? link.href : defaultIcon;
+
+    if (link) {
+      link.type = 'image/jpeg';
+      link.href = logoUrl;
+    } else {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      link.type = 'image/jpeg';
+      link.href = logoUrl;
+      document.head.appendChild(link);
+    }
+
+    return () => {
+      if (link) {
+        link.type = 'image/webp';
+        link.href = previousIcon;
+      }
+    };
+  }, [logoUrl]);
+
   return (
     <div className="min-h-screen bg-black flex flex-col items-center justify-center p-6 text-center">
       <SEO 
-        title="A2Gardens - Under Construction" 
+        title="Under Construction" 
+        siteName="A2Gardens"
         description="A2Gardens website is currently under construction."
+        favicon={logoUrl}
       />
       <div className="flex flex-col items-center justify-center gap-6 max-w-md w-full">
         <img 
-          src={getAssetPath('a2gardens/images/logo.jpg')} 
+          src={logoUrl} 
           alt="A2Gardens" 
           className="max-w-[260px] sm:max-w-[320px] w-auto h-auto object-contain"
         />
