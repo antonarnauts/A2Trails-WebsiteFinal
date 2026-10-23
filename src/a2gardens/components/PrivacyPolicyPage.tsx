@@ -148,7 +148,7 @@ const PRIVACY_CONTENT = {
       authority: 'Gegevensbeschermingsautoriteit (GBA)',
       link: 'https://www.gegevensbeschermingsautoriteit.be',
     },
-    back: 'Terug naar Home',
+    back: 'Terug naar Startpagina',
   },
   fr: {
     title: 'Politique de Confidentialité : A2Trails',
@@ -231,6 +231,18 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
   }, []);
 
   const content = PRIVACY_CONTENT[currentLanguage] || PRIVACY_CONTENT['en'];
+  const badgeText =
+    currentLanguage === 'nl'
+      ? 'Juridisch & Naleving'
+      : currentLanguage === 'fr'
+      ? 'Mentions Légales & Conformité'
+      : 'Legal & Compliance';
+  const officeAddress =
+    currentLanguage === 'nl'
+      ? 'Mariemontkaai 15, 1080 Brussel, België'
+      : currentLanguage === 'fr'
+      ? 'Quai de Mariemont 15, 1080 Bruxelles, Belgique'
+      : 'Mariemontkaai 15, 1080 Brussel, Belgium';
 
   return (
     <div className="pt-28 pb-24 bg-[#070b08] min-h-screen text-gray-300">
@@ -256,7 +268,7 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
               <Shield className="w-5 h-5" />
             </div>
             <span className="text-xs font-mono text-[#10b981] uppercase tracking-wider">
-              Legal & Compliance
+              {badgeText}
             </span>
           </div>
 
@@ -287,7 +299,7 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
                   <MapPin className="w-4 h-4 text-[#10b981] shrink-0 mt-0.5" />
                   <div>
                     <span className="text-white font-semibold">{content.controller.office}: </span>
-                    <span className="text-gray-300">Mariemontkaai 15, 1080 Brussel, Belgium</span>
+                    <span className="text-gray-300">{officeAddress}</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">

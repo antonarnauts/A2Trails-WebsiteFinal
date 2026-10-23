@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PageType, ContactFormData, NotificationResponse } from '../types';
+import { PageType, ContactFormData } from '../types';
 import { 
   ArrowRight, 
   ArrowUpRight, 
@@ -13,7 +13,6 @@ import {
   AlertCircle,
   Send,
   Mail,
-  ShieldCheck, 
   Calendar,
   Sparkles,
   Clock,
@@ -21,18 +20,40 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { BeforeAfterSlider } from './BeforeAfterSlider';
-import { BRUSSELS_PROJECTS } from '../data/projects';
+import { getLocalizedProjects } from '../data/projects';
 import { getAssetPath } from '../../lib/utils';
-import { useForm, ValidationError } from '@formspree/react';
+import { useForm } from '@formspree/react';
 
 interface HomePageProps {
   onNavigate?: (page: PageType) => void;
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
-  const [ambientActive, setAmbientActive] = useState<boolean>(true);
-  const { t } = useLanguage();
+const BRUSSELS_COMMUNES = [
+  { value: 'Anderlecht', en: 'Anderlecht', nl: 'Anderlecht', fr: 'Anderlecht' },
+  { value: 'Auderghem', en: 'Auderghem / Oudergem', nl: 'Oudergem', fr: 'Auderghem' },
+  { value: 'Berchem-Sainte-Agathe', en: 'Berchem-Sainte-Agathe / Sint-Agatha-Berchem', nl: 'Sint-Agatha-Berchem', fr: 'Berchem-Sainte-Agathe' },
+  { value: 'Brussels City', en: 'Brussels City / Stad Brussel', nl: 'Stad Brussel', fr: 'Ville de Bruxelles' },
+  { value: 'Etterbeek', en: 'Etterbeek', nl: 'Etterbeek', fr: 'Etterbeek' },
+  { value: 'Evere', en: 'Evere', nl: 'Evere', fr: 'Evere' },
+  { value: 'Forest', en: 'Forest / Vorst', nl: 'Vorst', fr: 'Forest' },
+  { value: 'Ganshoren', en: 'Ganshoren', nl: 'Ganshoren', fr: 'Ganshoren' },
+  { value: 'Ixelles', en: 'Ixelles / Elsene', nl: 'Elsene', fr: 'Ixelles' },
+  { value: 'Jette', en: 'Jette', nl: 'Jette', fr: 'Jette' },
+  { value: 'Koekelberg', en: 'Koekelberg', nl: 'Koekelberg', fr: 'Koekelberg' },
+  { value: 'Molenbeek-Saint-Jean', en: 'Molenbeek-Saint-Jean / Sint-Jans-Molenbeek', nl: 'Sint-Jans-Molenbeek', fr: 'Molenbeek-Saint-Jean' },
+  { value: 'Saint-Gilles', en: 'Saint-Gilles / Sint-Gillis', nl: 'Sint-Gillis', fr: 'Saint-Gilles' },
+  { value: 'Saint-Josse-ten-Noode', en: 'Saint-Josse-ten-Noode / Sint-Joost-ten-Node', nl: 'Sint-Joost-ten-Node', fr: 'Saint-Josse-ten-Noode' },
+  { value: 'Schaerbeek', en: 'Schaerbeek / Schaarbeek', nl: 'Schaarbeek', fr: 'Schaerbeek' },
+  { value: 'Uccle', en: 'Uccle / Ukkel', nl: 'Ukkel', fr: 'Uccle' },
+  { value: 'Watermael-Boitsfort', en: 'Watermael-Boitsfort / Watermaal-Bosvoorde', nl: 'Watermaal-Bosvoorde', fr: 'Watermael-Boitsfort' },
+  { value: 'Woluwe-Saint-Lambert', en: 'Woluwe-Saint-Lambert / Sint-Lambrechts-Woluwe', nl: 'Sint-Lambrechts-Woluwe', fr: 'Woluwe-Saint-Lambert' },
+  { value: 'Woluwe-Saint-Pierre', en: 'Woluwe-Saint-Pierre / Sint-Pieters-Woluwe', nl: 'Sint-Pieters-Woluwe', fr: 'Woluwe-Saint-Pierre' },
+];
+
+export const HomePage: React.FC<HomePageProps> = () => {
+  const { currentLanguage, t } = useLanguage();
   const [formspreeState, handleFormspreeSubmit] = useForm('meaaqwrg');
+  const localizedProjects = getLocalizedProjects(currentLanguage);
 
   // Contact form state
   const [formData, setFormData] = useState<ContactFormData>({
@@ -69,15 +90,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     setFormError(null);
 
     if (!formData.name.trim()) {
-      setFormError('Please enter your full name.');
+      setFormError(t.contactSection.errorName);
       return;
     }
     if (!formData.email.trim() || !formData.email.includes('@')) {
-      setFormError('Please provide a valid email address.');
+      setFormError(t.contactSection.errorEmail);
       return;
     }
     if (!formData.message.trim()) {
-      setFormError('Please enter a brief message describing your garden, terrace, or balcony.');
+      setFormError(t.contactSection.errorMessage);
       return;
     }
 
@@ -85,13 +106,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   };
 
   const directMailtoUrl = `mailto:antonarnauts@a2trails.com?subject=${encodeURIComponent(
-    `[A2Gardens Consultation] ${formData.name} - ${formData.projectType.toUpperCase()} in ${formData.location}`
+    `[A2Gardens] ${formData.name} - ${formData.projectType.toUpperCase()} (${formData.location})`
   )}&body=${encodeURIComponent(
-    `Hi Anton,\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nSpace Type: ${formData.projectType}\nLocation: ${formData.location}\nArea: ${formData.area}\nBudget: ${formData.budget}\nTimeline: ${formData.timeline}\n\nProject Details:\n${formData.message}\n`
+    `Anton,\n\nNaam / Name: ${formData.name}\nE-mail: ${formData.email}\nTel: ${formData.phone}\nType: ${formData.projectType}\nGemeente / Commune: ${formData.location}\nOppervlakte / Area: ${formData.area}\n\nBericht / Details:\n${formData.message}\n`
   )}`;
 
-
-  // 4 Solutions Tailored to You (Matching a2trails 4-column grid)
+  // 4 Solutions Tailored to You
   const outdoorSolutions = [
     {
       id: 'city-gardens',
@@ -123,7 +143,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     },
   ];
 
-  // 4 Methodology Steps (Matching a2trails 4-column expertise grid)
+  // 4 Methodology Steps
   const methodologySteps = [
     {
       title: t.methodology.m1Title,
@@ -157,7 +177,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         <div className="absolute inset-0 z-0 overflow-hidden bg-[#070b08]">
           <img
             src={getAssetPath('a2gardens/images/hero-architectural-garden.jpg')}
-            alt="Architectural garden at dusk"
+            alt={t.hero.badge}
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover object-center scale-105 transition-transform duration-1000 brightness-95"
           />
@@ -294,7 +314,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
           {/* 4 Projects Grid with Interactive Sliders */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
-            {BRUSSELS_PROJECTS.map((project) => (
+            {localizedProjects.map((project) => (
               <div
                 key={project.id}
                 className="bg-[#0c140f] rounded-2xl border border-white/5 overflow-hidden flex flex-col justify-between hover:border-[#10b981]/30 transition-all shadow-xl"
@@ -304,8 +324,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <BeforeAfterSlider
                     beforeImage={project.beforeImage}
                     afterImage={project.afterImage}
-                    beforeLabel="Before"
-                    afterLabel="After"
+                    beforeLabel={t.spotlight.beforeLabel}
+                    afterLabel={t.spotlight.afterLabel}
                     aspectRatio="aspect-[4/3] sm:aspect-[16/10]"
                     beforeObjectPosition={project.beforeObjectPosition}
                     afterObjectPosition={project.afterObjectPosition}
@@ -368,7 +388,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     Anton Arnauts
                   </h3>
                   <p className="text-sm text-[#10b981] font-medium mt-1">
-                    Landscape Architect & Founder
+                    {t.aboutSection.role}
                   </p>
                   <div className="flex items-center gap-2 text-xs font-mono mt-1">
                     <span className="text-[#789182]">A2Gardens</span>
@@ -388,35 +408,35 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               {/* Bio Content */}
               <div className="md:col-span-8 space-y-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#102418] border border-[#1d402b] text-[#34d399] text-xs font-mono uppercase">
-                  <span>About</span>
+                  <span>{t.aboutSection.tag}</span>
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-white tracking-tight leading-snug">
-                  Transforming Urban Spaces, One Garden at a Time
+                  {t.aboutSection.title}
                 </h2>
 
                 <p className="text-sm sm:text-base text-[#a2b8aa] leading-relaxed">
-                  For the past decade, I’ve worked as a landscape architect designing high-impact public spaces and free-to-use sport infrastructure. Creating active, durable environments for the community taught me how to maximize space, balance function with aesthetics, and design landscapes built to last.
+                  {t.aboutSection.intro}
                 </p>
 
                 <div className="space-y-2 pt-2">
                   <h3 className="text-lg sm:text-xl font-bold font-display text-white tracking-tight">
-                    A New Mission: Urban Biodiversity
+                    {t.aboutSection.missionTitle}
                   </h3>
                   <p className="text-sm sm:text-base text-[#a2b8aa] leading-relaxed">
-                    Now, I’m taking that decade of urban experience and directing it toward a new goal: bringing nature back to the concrete grid through micro-greenspots.
+                    {t.aboutSection.missionP1}
                   </p>
                   <p className="text-sm sm:text-base text-[#a2b8aa] leading-relaxed">
-                    Cities urgently need biodiverse habitats to support local ecosystems, cool neighborhoods, and enrich our daily lives. Every courtyard, rooftop, and backyard holds the potential to become a vital pocket of green.
+                    {t.aboutSection.missionP2}
                   </p>
                 </div>
 
                 <div className="space-y-2 pt-2">
                   <h3 className="text-lg sm:text-xl font-bold font-display text-white tracking-tight">
-                    Your Dream Garden: A Living Sanctuary
+                    {t.aboutSection.dreamTitle}
                   </h3>
                   <p className="text-sm sm:text-base text-[#a2b8aa] leading-relaxed">
-                    What better way to boost urban biodiversity than by creating your own private haven? I combine urban landscape architecture with eco-centric design to transform personal outdoor spaces into vibrant, tailored ecological hubs.
+                    {t.aboutSection.dreamP1}
                   </p>
                 </div>
 
@@ -425,7 +445,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     onClick={() => scrollTo('contact')}
                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#10b981] text-black font-semibold text-sm hover:bg-[#059669] transition-all cursor-pointer group shadow-lg hover:shadow-[#10b981]/20 active:scale-95"
                   >
-                    <span>Let's Design Your Garden</span>
+                    <span>{t.aboutSection.cta}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
@@ -444,14 +464,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left relative z-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#061e12] font-display tracking-tight">
-            Ready to transform your Brussels outdoor space?
+            {t.ctaBanner.title}
           </h2>
 
           <button
             onClick={() => scrollTo('contact')}
             className="bg-[#061e12] hover:bg-black text-white px-8 py-3.5 rounded-xl font-bold text-base flex items-center justify-center gap-2.5 transition-all group shrink-0 shadow-xl shadow-black/20 active:scale-95 cursor-pointer"
           >
-            <span>Get in touch</span>
+            <span>{t.ctaBanner.button}</span>
             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform text-[#10b981]" />
           </button>
         </div>
@@ -466,13 +486,16 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#102418] border border-[#1d402b] text-[#34d399] text-xs font-mono uppercase">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Get in Touch</span>
+              <span>{t.contactSection.tag}</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-bold font-display text-white tracking-tight">
-              Get in Touch
+              {t.contactSection.title}
             </h2>
             <p className="text-base text-[#9cb2a3] leading-relaxed">
-              Tell us about your outdoor space in Brussels. Submissions are processed through our automated notification dispatch directly to architect <strong className="text-[#10b981] font-medium">Anton Arnauts</strong> at <strong className="text-white">antonarnauts@a2trails.com</strong>.
+              {t.contactSection.subtitlePrefix}
+              <strong className="text-[#10b981] font-medium">Anton Arnauts</strong>
+              {t.contactSection.subtitleMid}
+              <strong className="text-white">antonarnauts@a2trails.com</strong>.
             </p>
           </div>
 
@@ -486,38 +509,40 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                       <CheckCircle className="w-8 h-8 shrink-0" />
                       <div>
                         <h3 className="text-lg font-bold text-white font-display">
-                          Project Inquiry Transmitted!
+                          {t.contactSection.successTitle}
                         </h3>
                         <p className="text-xs text-[#95cbab]">
-                          Thank you, {formData.name || 'valued client'}. Your inquiry has been delivered directly to Anton Arnauts via Formspree.
+                          {t.contactSection.successSubPrefix}
+                          {formData.name || t.contactSection.successSubDefaultClient}
+                          {t.contactSection.successSubSuffix}
                         </p>
                       </div>
                     </div>
 
                     <div className="divide-y divide-[#183925] border-t border-[#183925] pt-3 mt-3 text-xs space-y-2">
                       <div className="flex justify-between items-center text-[#a1c4af] pt-2">
-                        <span className="text-[#6d967e]">Notification Recipient:</span>
+                        <span className="text-[#6d967e]">{t.contactSection.recipientLabel}</span>
                         <span className="font-mono text-[#10b981] font-semibold">antonarnauts@a2trails.com</span>
                       </div>
                       <div className="flex justify-between items-center text-[#a1c4af] pt-2">
-                        <span className="text-[#6d967e]">Delivery Channel:</span>
+                        <span className="text-[#6d967e]">{t.contactSection.channelLabel}</span>
                         <span className="font-mono text-white">Formspree (meaaqwrg)</span>
                       </div>
                       <div className="flex justify-between items-center text-[#a1c4af] pt-2">
-                        <span className="text-[#6d967e]">Expected Review:</span>
-                        <span className="text-white font-medium">Within 24 Hours</span>
+                        <span className="text-[#6d967e]">{t.contactSection.reviewLabel}</span>
+                        <span className="text-white font-medium">{t.contactSection.reviewTime}</span>
                       </div>
                     </div>
                   </div>
 
                   <div className="bg-[#0e1611] p-5 rounded-xl border border-[#1a2d21] space-y-3">
                     <h4 className="text-xs font-mono uppercase tracking-wider text-[#82998a]">
-                      Next Steps in Your Brussels Project
+                      {t.contactSection.nextStepsTitle}
                     </h4>
                     <ol className="text-xs text-[#9eb4a6] space-y-2 list-decimal list-inside leading-relaxed">
-                      <li>Anton Arnauts will review your space dimensions, orientation, and Brussels commune requirements.</li>
-                      <li>We will contact you via email or phone to arrange a 45-minute on-site survey.</li>
-                      <li>Following the visit, you will receive our preliminary conceptual layout.</li>
+                      <li>{t.contactSection.step1}</li>
+                      <li>{t.contactSection.step2}</li>
+                      <li>{t.contactSection.step3}</li>
                     </ol>
                   </div>
 
@@ -526,7 +551,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                       href={directMailtoUrl}
                       className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-[#122419] border border-[#1f4a30] text-[#10b981] hover:text-white hover:bg-[#1a3826] transition-all text-xs font-semibold"
                     >
-                      <span>Open in Your Email App</span>
+                      <span>{t.contactSection.openEmailApp}</span>
                       <ArrowUpRight className="w-4 h-4" />
                     </a>
 
@@ -547,7 +572,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                       }}
                       className="py-3 px-5 rounded-lg bg-[#1b2b21] hover:bg-[#253d2f] text-white transition-colors text-xs font-semibold cursor-pointer"
                     >
-                      Send Another Inquiry
+                      {t.contactSection.sendAnother}
                     </button>
                   </div>
                 </div>
@@ -563,7 +588,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="contact-name" className="block text-xs font-medium text-[#c4d7cc] mb-1.5">
-                        Your Full Name *
+                        {t.contactSection.nameLabel}
                       </label>
                       <input
                         id="contact-name"
@@ -572,14 +597,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                         required
                         value={formData.name}
                         onChange={handleFormChange}
-                        placeholder="e.g. Marie Laurent"
+                        placeholder={t.contactSection.namePlaceholder}
                         className="w-full bg-[#111913] border border-[#1d3525] focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-gray-500 outline-none transition-colors"
                       />
                     </div>
 
                     <div>
                       <label htmlFor="contact-email" className="block text-xs font-medium text-[#c4d7cc] mb-1.5">
-                        Email Address *
+                        {t.contactSection.emailLabel}
                       </label>
                       <input
                         id="contact-email"
@@ -588,7 +613,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                         required
                         value={formData.email}
                         onChange={handleFormChange}
-                        placeholder="marie@example.be"
+                        placeholder={t.contactSection.emailPlaceholder}
                         className="w-full bg-[#111913] border border-[#1d3525] focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-gray-500 outline-none transition-colors"
                       />
                     </div>
@@ -597,7 +622,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="contact-phone" className="block text-xs font-medium text-[#c4d7cc] mb-1.5">
-                        Phone Number (Optional)
+                        {t.contactSection.phoneLabel}
                       </label>
                       <input
                         id="contact-phone"
@@ -605,14 +630,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleFormChange}
-                        placeholder="+32 4..."
+                        placeholder={t.contactSection.phonePlaceholder}
                         className="w-full bg-[#111913] border border-[#1d3525] focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-gray-500 outline-none transition-colors"
                       />
                     </div>
 
                     <div>
                       <label htmlFor="contact-space" className="block text-xs font-medium text-[#c4d7cc] mb-1.5">
-                        Space Type *
+                        {t.contactSection.spaceTypeLabel}
                       </label>
                       <select
                         id="contact-space"
@@ -621,11 +646,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                         onChange={handleFormChange}
                         className="w-full bg-[#111913] border border-[#1d3525] focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] rounded-lg px-3.5 py-2.5 text-sm text-white outline-none transition-colors cursor-pointer"
                       >
-                        <option value="city_garden">City Gardens & Patios</option>
-                        <option value="balcony">Balconies</option>
-                        <option value="rooftop">Rooftop Gardens</option>
-                        <option value="terrace">Stone Terraces And Driveways</option>
-                        <option value="villa_garden">Villa Gardens</option>
+                        <option value="city_garden">{t.contactSection.spaceTypes.city_garden}</option>
+                        <option value="balcony">{t.contactSection.spaceTypes.balcony}</option>
+                        <option value="rooftop">{t.contactSection.spaceTypes.rooftop}</option>
+                        <option value="terrace">{t.contactSection.spaceTypes.terrace}</option>
+                        <option value="villa_garden">{t.contactSection.spaceTypes.villa_garden}</option>
                       </select>
                     </div>
                   </div>
@@ -633,7 +658,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="contact-location" className="block text-xs font-medium text-[#c4d7cc] mb-1.5">
-                        Brussels Commune *
+                        {t.contactSection.communeLabel}
                       </label>
                       <select
                         id="contact-location"
@@ -642,32 +667,18 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                         onChange={handleFormChange}
                         className="w-full bg-[#111913] border border-[#1d3525] focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] rounded-lg px-3.5 py-2.5 text-sm text-white outline-none transition-colors cursor-pointer"
                       >
-                        <option value="Anderlecht">Anderlecht</option>
-                        <option value="Auderghem">Auderghem / Oudergem</option>
-                        <option value="Berchem-Sainte-Agathe">Berchem-Sainte-Agathe / Sint-Agatha-Berchem</option>
-                        <option value="Brussels City">Brussels City / Stad Brussel</option>
-                        <option value="Etterbeek">Etterbeek</option>
-                        <option value="Evere">Evere</option>
-                        <option value="Forest">Forest / Vorst</option>
-                        <option value="Ganshoren">Ganshoren</option>
-                        <option value="Ixelles">Ixelles / Elsene</option>
-                        <option value="Jette">Jette</option>
-                        <option value="Koekelberg">Koekelberg</option>
-                        <option value="Molenbeek-Saint-Jean">Molenbeek-Saint-Jean / Sint-Jans-Molenbeek</option>
-                        <option value="Saint-Gilles">Saint-Gilles / Sint-Gillis</option>
-                        <option value="Saint-Josse-ten-Noode">Saint-Josse-ten-Noode / Sint-Joost-ten-Node</option>
-                        <option value="Schaerbeek">Schaerbeek / Schaarbeek</option>
-                        <option value="Uccle">Uccle / Ukkel</option>
-                        <option value="Watermael-Boitsfort">Watermael-Boitsfort / Watermaal-Bosvoorde</option>
-                        <option value="Woluwe-Saint-Lambert">Woluwe-Saint-Lambert / Sint-Lambrechts-Woluwe</option>
-                        <option value="Woluwe-Saint-Pierre">Woluwe-Saint-Pierre / Sint-Pieters-Woluwe</option>
-                        <option value="Other">Other</option>
+                        {BRUSSELS_COMMUNES.map((commune) => (
+                          <option key={commune.value} value={commune.value}>
+                            {commune[currentLanguage] || commune.en}
+                          </option>
+                        ))}
+                        <option value="Other">{t.contactSection.otherCommune}</option>
                       </select>
                     </div>
 
                     <div>
                       <label htmlFor="contact-area" className="block text-xs font-medium text-[#c4d7cc] mb-1.5">
-                        Approx. Area (m²)
+                        {t.contactSection.areaLabel}
                       </label>
                       <input
                         id="contact-area"
@@ -675,7 +686,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                         name="area"
                         value={formData.area}
                         onChange={handleFormChange}
-                        placeholder="e.g. 35 m²"
+                        placeholder={t.contactSection.areaPlaceholder}
                         className="w-full bg-[#111913] border border-[#1d3525] focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-gray-500 outline-none transition-colors"
                       />
                     </div>
@@ -683,7 +694,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
                   <div>
                     <label htmlFor="contact-message" className="block text-xs font-medium text-[#c4d7cc] mb-1.5">
-                      Your Vision or Requirements *
+                      {t.contactSection.messageLabel}
                     </label>
                     <textarea
                       id="contact-message"
@@ -692,7 +703,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                       required
                       value={formData.message}
                       onChange={handleFormChange}
-                      placeholder="Describe your current outdoor space and wish list (paving, greenery, privacy, acoustic calm)..."
+                      placeholder={t.contactSection.messagePlaceholder}
                       className="w-full bg-[#111913] border border-[#1d3525] focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] rounded-lg p-3 text-sm text-white placeholder-gray-500 outline-none transition-colors resize-none"
                     />
                   </div>
@@ -706,35 +717,35 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                       {formspreeState.submitting ? (
                         <>
                           <span className="w-4 h-4 border-2 border-[#061e12] border-t-transparent rounded-full animate-spin" />
-                          <span>Transmitting to Formspree & Anton Arnauts...</span>
+                          <span>{t.contactSection.submitting}</span>
                         </>
                       ) : (
                         <>
                           <Send className="w-4 h-4" />
-                          <span>Get in Touch</span>
+                          <span>{t.contactSection.submitButton}</span>
                         </>
                       )}
                     </button>
                     <p className="text-center text-[11px] text-[#789382] mt-2 font-mono">
-                      Direct notification dispatched to antonarnauts@a2trails.com
+                      {t.contactSection.directNote}
                     </p>
                   </div>
                 </form>
               )}
             </div>
 
-            {/* RIGHT COLUMN: Direct Studio Info (same as A2trails.com) */}
+            {/* RIGHT COLUMN: Direct Studio Info */}
             <div className="lg:col-span-5 space-y-6">
               <div className="bg-[#0f1712] rounded-2xl border border-white/5 p-8 space-y-6">
                 <h3 className="text-xl font-bold text-white font-display">
-                  Contact Details
+                  {t.contactSection.detailsTitle}
                 </h3>
 
                 <div className="space-y-5 text-sm">
                   <div className="flex items-start gap-3">
                     <Mail className="w-5 h-5 text-[#10b981] shrink-0 mt-0.5" />
                     <div>
-                      <span className="text-xs text-gray-400 block mb-0.5">Email</span>
+                      <span className="text-xs text-gray-400 block mb-0.5">{t.contactSection.emailTitle}</span>
                       <a
                         href="mailto:antonarnauts@a2trails.com"
                         className="text-white hover:text-[#10b981] font-mono text-sm transition-colors"
@@ -747,9 +758,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <div className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 text-[#10b981] shrink-0 mt-0.5" />
                     <div>
-                      <span className="text-xs text-gray-400 block mb-0.5">Registered Office</span>
+                      <span className="text-xs text-gray-400 block mb-0.5">{t.contactSection.officeTitle}</span>
                       <span className="text-white leading-relaxed">
-                        Mariemontkaai 15, 1080 Brussel, Belgium
+                        {t.contactSection.officeAddress}
                       </span>
                     </div>
                   </div>
@@ -757,7 +768,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <div className="flex items-start gap-3">
                     <Hash className="w-5 h-5 text-[#10b981] shrink-0 mt-0.5" />
                     <div>
-                      <span className="text-xs text-gray-400 block mb-0.5">VAT Number</span>
+                      <span className="text-xs text-gray-400 block mb-0.5">{t.contactSection.vatTitle}</span>
                       <span className="text-white font-mono">
                         BE1024.359.194
                       </span>
@@ -770,16 +781,16 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               <div className="bg-[#0f1712] rounded-2xl border border-white/5 p-8 space-y-4">
                 <div className="flex items-center gap-2 text-white font-bold text-base">
                   <Clock className="w-4 h-4 text-[#10b981]" />
-                  <span>Consultation Hours</span>
+                  <span>{t.contactSection.hoursTitle}</span>
                 </div>
                 <div className="space-y-3 text-sm">
                   <div className="flex justify-between items-center text-gray-300">
-                    <span className="text-gray-400">Hours</span>
+                    <span className="text-gray-400">{t.contactSection.hoursLabel}</span>
                     <span className="font-mono text-white font-semibold">08:00 – 20:00</span>
                   </div>
                 </div>
                 <div className="pt-4 border-t border-white/5 text-xs text-gray-400 leading-relaxed">
-                  On-site audits conducted across all 19 Brussels communes and further.
+                  {t.contactSection.auditsNote}
                 </div>
               </div>
             </div>

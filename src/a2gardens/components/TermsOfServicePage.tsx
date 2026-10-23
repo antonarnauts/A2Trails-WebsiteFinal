@@ -98,7 +98,7 @@ const TERMS_CONTENT = {
       title: '6. Geschillenbeslechting',
       text: 'Wij geven de voorkeur aan een handdruk boven een rechtszaal. Mocht er een probleem ontstaan, dan komen beide partijen overeen om eerst formele bemiddeling te proberen. Indien geen oplossing wordt bereikt, zijn de rechtbanken van de maatschappelijke zetel van het Bedrijf in België exclusief bevoegd.',
     },
-    back: 'Terug naar Home',
+    back: 'Terug naar Startpagina',
   },
   fr: {
     title: 'Conditions Générales de Service : A2Trails',
@@ -156,6 +156,12 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({ onNaviga
   }, []);
 
   const content = TERMS_CONTENT[currentLanguage] || TERMS_CONTENT['en'];
+  const badgeText =
+    currentLanguage === 'nl'
+      ? 'Juridische Voorwaarden'
+      : currentLanguage === 'fr'
+      ? 'Conditions Juridiques'
+      : 'Legal Terms';
 
   return (
     <div className="pt-28 pb-24 bg-[#070b08] min-h-screen text-gray-300">
@@ -181,7 +187,7 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({ onNaviga
               <Scale className="w-5 h-5" />
             </div>
             <span className="text-xs font-mono text-[#10b981] uppercase tracking-wider">
-              Legal Terms
+              {badgeText}
             </span>
           </div>
 

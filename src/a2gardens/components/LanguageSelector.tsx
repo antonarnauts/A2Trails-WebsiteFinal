@@ -72,11 +72,19 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ className = 
         className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold bg-white/5 hover:bg-white/10 text-gray-200 border border-white/10 hover:border-[#3ea637]/40 transition-all cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#3ea637]"
         aria-expanded={isOpen}
         aria-haspopup="listbox"
-        aria-label="Select language"
+        aria-label={
+          currentLanguage === 'nl'
+            ? 'Taal selecteren'
+            : currentLanguage === 'fr'
+            ? 'Choisir la langue'
+            : 'Select language'
+        }
         title={
-          isAutoDetected
-            ? `Language: ${activeOption.name} (Auto-detected from browser)`
-            : `Language: ${activeOption.name} (User selected)`
+          currentLanguage === 'nl'
+            ? `Taal: ${activeOption.name}`
+            : currentLanguage === 'fr'
+            ? `Langue : ${activeOption.name}`
+            : `Language: ${activeOption.name}`
         }
       >
         <Globe className="w-3.5 h-3.5 text-[#3ea637] flex-shrink-0" />
@@ -121,7 +129,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ className = 
             {isAutoDetected ? (
               <div className="px-1.5 py-1 text-[10px] text-[#3ea637] font-mono flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#3ea637] animate-pulse" />
-                <span>Browser: {detectedBrowserLanguage.toUpperCase()}</span>
+                <span>Auto: {detectedBrowserLanguage.toUpperCase()}</span>
               </div>
             ) : (
               <button
@@ -131,7 +139,13 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ className = 
                   setIsOpen(false);
                 }}
                 className="w-full text-[10px] text-gray-400 hover:text-[#3ea637] font-mono py-1 px-1.5 rounded hover:bg-white/5 flex items-center justify-between transition-colors cursor-pointer"
-                title={`Reset to browser language (${detectedBrowserLanguage.toUpperCase()})`}
+                title={
+                  currentLanguage === 'nl'
+                    ? `Standaardtaal herstellen (${detectedBrowserLanguage.toUpperCase()})`
+                    : currentLanguage === 'fr'
+                    ? `Réinitialiser la langue (${detectedBrowserLanguage.toUpperCase()})`
+                    : `Reset to browser language (${detectedBrowserLanguage.toUpperCase()})`
+                }
               >
                 <span>Auto ({detectedBrowserLanguage.toUpperCase()})</span>
                 <Sparkles className="w-2.5 h-2.5" />

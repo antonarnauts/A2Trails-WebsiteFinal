@@ -11,38 +11,28 @@ import { HomePage } from './components/HomePage';
 import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
 import { TermsOfServicePage } from './components/TermsOfServicePage';
 import { Layers, Calendar, Mail } from 'lucide-react';
-import { LanguageProvider } from './context/LanguageContext';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { getAssetPath } from '../lib/utils';
 import SEO from '../components/SEO';
 
-export default function A2GardensApp() {
+function A2GardensContent() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
+  const { currentLanguage, t } = useLanguage();
   const logoUrl = getAssetPath('a2gardens/images/logoa2gardernspng.png');
 
-  // Dynamic favicon update for A2Gardens
-  useEffect(() => {
-    let link: HTMLLinkElement | null = document.querySelector("link[rel*='icon']");
-    const defaultIcon = getAssetPath('images/logo.webp');
-    const previousIcon = link ? link.href : defaultIcon;
+  const seoTitle =
+    currentLanguage === 'nl'
+      ? 'Brusselse Tuinarchitectuur & Terrassen'
+      : currentLanguage === 'fr'
+      ? 'Architecture de Jardin & Terrasses à Bruxelles'
+      : 'Brussels Garden Architecture & Terraces';
 
-    if (link) {
-      link.type = 'image/png';
-      link.href = logoUrl;
-    } else {
-      link = document.createElement('link');
-      link.rel = 'icon';
-      link.type = 'image/png';
-      link.href = logoUrl;
-      document.head.appendChild(link);
-    }
-
-    return () => {
-      if (link) {
-        link.type = 'image/webp';
-        link.href = previousIcon;
-      }
-    };
-  }, [logoUrl]);
+  const seoDescription =
+    currentLanguage === 'nl'
+      ? 'A2Gardens is gespecialiseerd in stedelijke tuinarchitectuur, terrassen op maat, stadstuinen en duurzame buitenruimtes in Brussel.'
+      : currentLanguage === 'fr'
+      ? 'A2Gardens est spécialisé dans l’architecture de jardins urbains, les terrasses sur mesure et les espaces extérieurs durables à Bruxelles.'
+      : 'A2Gardens specializes in urban garden architecture, bespoke terraces, and sustainable outdoor living spaces in Brussels.';
 
   const navigateTo = (page: PageType) => {
     setCurrentPage(page);
@@ -63,11 +53,11 @@ export default function A2GardensApp() {
   };
 
   return (
-    <LanguageProvider>
+    <>
       <SEO
-        title="Brussels Garden Architecture & Terraces"
+        title={seoTitle}
         siteName="A2Gardens"
-        description="A2Gardens specializes in urban garden architecture, bespoke terraces, and sustainable outdoor living spaces in Brussels."
+        description={seoDescription}
         favicon={logoUrl}
       />
       <div className="min-h-screen bg-[#090d0a] text-[#dce6df] flex flex-col font-sans selection:bg-[#10b981] selection:text-black">
@@ -96,7 +86,7 @@ export default function A2GardensApp() {
             className="flex-1 py-2 rounded-lg bg-[#111e15] border border-[#1b3424] text-xs font-semibold text-[#8ca394] active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer"
           >
             <Layers className="w-3.5 h-3.5 text-[#10b981]" />
-            <span>Services</span>
+            <span>{t.nav.services}</span>
           </button>
 
           <button
@@ -104,7 +94,7 @@ export default function A2GardensApp() {
             className="flex-1 py-2 rounded-lg bg-[#10b981] text-[#061e12] text-xs font-semibold uppercase tracking-wider active:scale-95 flex items-center justify-center gap-1.5 shadow-md shadow-[#10b981]/25 cursor-pointer"
           >
             <Calendar className="w-3.5 h-3.5" />
-            <span>Get in touch</span>
+            <span>{t.nav.consultation}</span>
           </button>
 
           <a
@@ -119,6 +109,41 @@ export default function A2GardensApp() {
         {/* Footer */}
         <Footer onNavigate={navigateTo} />
       </div>
+    </>
+  );
+}
+
+export default function A2GardensApp() {
+  const logoUrl = getAssetPath('a2gardens/images/logoa2gardernspng.png');
+
+  // Dynamic favicon update for A2Gardens
+  useEffect(() => {
+    let link: HTMLLinkElement | null = document.querySelector("link[rel*='icon']");
+    const defaultIcon = getAssetPath('images/logo.webp');
+    const previousIcon = link ? link.href : defaultIcon;
+
+    if (link) {
+      link.type = 'image/png';
+      link.href = logoUrl;
+    } else {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      link.type = 'image/png';
+      link.href = logoUrl;
+      document.head.appendChild(link);
+    }
+
+    return () => {
+      if (link) {
+        link.type = 'image/webp';
+        link.href = previousIcon;
+      }
+    };
+  }, [logoUrl]);
+
+  return (
+    <LanguageProvider>
+      <A2GardensContent />
     </LanguageProvider>
   );
 }
