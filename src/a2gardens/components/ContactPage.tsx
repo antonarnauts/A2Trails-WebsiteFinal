@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Project, ContactFormData, NotificationResponse } from '../types';
+import { Project, ContactFormData } from '../types';
 import { Mail, Phone, MapPin, CheckCircle, AlertCircle, Send, ArrowUpRight, Clock, ShieldCheck, Sparkles, Building2 } from 'lucide-react';
+import { useForm, ValidationError } from '@formspree/react';
 
 interface ContactPageProps {
   preselectedProject?: Project | null;
 }
 
 export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) => {
+  const [formspreeState, handleFormspreeSubmit] = useForm('meaaqwrg');
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -21,8 +23,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
       : '',
   });
 
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [submissionResult, setSubmissionResult] = useState<NotificationResponse | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
     if (formError) setFormError(null);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormError(null);
 
@@ -63,36 +63,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
       return;
     }
 
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      const data: NotificationResponse = await response.json();
-
-      if (!response.ok || !data.success) {
-        throw new Error(data.error || 'Server could not process submission.');
-      }
-
-      setSubmissionResult(data);
-    } catch (err: any) {
-      console.warn('API submission notice:', err);
-      // Even if offline/fetch error, provide clear direct fallback to antonarnauts@a2trails.com
-      setSubmissionResult({
-        success: true,
-        message: 'Your inquiry has been recorded and an automated notification queued for antonarnauts@a2trails.com.',
-        notificationId: `A2G-${Date.now().toString(36).toUpperCase()}`,
-        dispatchedTo: 'antonarnauts@a2trails.com',
-        timestamp: new Date().toISOString(),
-        recipientName: 'Anton Arnauts',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    await handleFormspreeSubmit(e);
   };
 
   const directMailtoUrl = `mailto:antonarnauts@a2trails.com?subject=${encodeURIComponent(
@@ -120,7 +91,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
       <div className="grid lg:grid-cols-12 gap-10">
         {/* LEFT COLUMN: The Interactive Form */}
         <div className="lg:col-span-7 bg-[#0b100d] border border-[#1b3022] rounded-2xl p-6 sm:p-8 shadow-2xl">
-          {submissionResult ? (
+          {formspreeState.succeeded ? (
             /* SUCCESS STATE WITH AUDIT RECEIPT */
             <div className="space-y-6 animate-in fade-in zoom-in-95 duration-200">
               <div className="p-6 rounded-xl bg-[#0d2116] border border-[#1b4b2e] space-y-3">
@@ -128,10 +99,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
                   <CheckCircle className="w-8 h-8 shrink-0" />
                   <div>
                     <h3 className="text-lg font-bold text-white font-display">
-                      Automated Notification Dispatched!
+                      Project Inquiry Transmitted!
                     </h3>
                     <p className="text-xs text-[#95cbab]">
-                      Your inquiry has been successfully delivered to the principal architect.
+                      Thank you, {formData.name || 'valued client'}. Your inquiry has been delivered directly to Anton Arnauts via Formspree.
                     </p>
                   </div>
                 </div>
@@ -139,17 +110,11 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
                 <div className="divide-y divide-[#183925] border-t border-[#183925] pt-3 mt-3 text-xs space-y-2">
                   <div className="flex justify-between items-center text-[#a1c4af] pt-2">
                     <span className="text-[#6d967e]">Notification Recipient:</span>
-                    <span className="font-mono text-[#3ea637] font-semibold">{submissionResult.dispatchedTo || 'antonarnauts@a2trails.com'}</span>
+                    <span className="font-mono text-[#3ea637] font-semibold">antonarnauts@a2trails.com</span>
                   </div>
                   <div className="flex justify-between items-center text-[#a1c4af] pt-2">
-                    <span className="text-[#6d967e]">Reference ID:</span>
-                    <span className="font-mono text-white">{submissionResult.notificationId}</span>
-                  </div>
-                  <div className="flex justify-between items-center text-[#a1c4af] pt-2">
-                    <span className="text-[#6d967e]">Dispatch Timestamp:</span>
-                    <span className="font-mono text-[#cbdcd1]">
-                      {submissionResult.timestamp ? new Date(submissionResult.timestamp).toLocaleString() : new Date().toLocaleString()}
-                    </span>
+                    <span className="text-[#6d967e]">Delivery Channel:</span>
+                    <span className="font-mono text-white">Formspree (meaaqwrg)</span>
                   </div>
                   <div className="flex justify-between items-center text-[#a1c4af] pt-2">
                     <span className="text-[#6d967e]">Expected Review:</span>
@@ -165,7 +130,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
                 <ol className="text-xs text-[#9eb4a6] space-y-2 list-decimal list-inside leading-relaxed">
                   <li>Anton Arnauts will review your space dimensions, orientation, and Brussels commune requirements.</li>
                   <li>We will contact you via email or phone to arrange a 45-minute on-site micro-climate and solar survey.</li>
-                  <li>Following the visit, you will receive our preliminary conceptual layout and material moodboard.</li>
+                  <li>Following the visit, you will receive our preliminary conceptual layout.</li>
                 </ol>
               </div>
 
@@ -180,7 +145,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
 
                 <button
                   onClick={() => {
-                    setSubmissionResult(null);
                     setFormData({
                       name: '',
                       email: '',
@@ -192,8 +156,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
                       timeline: 'Spring 2025',
                       message: '',
                     });
+                    window.location.reload();
                   }}
-                  className="py-3 px-5 rounded-lg bg-[#1b2b21] hover:bg-[#253d2f] text-white transition-colors text-xs font-semibold"
+                  className="py-3 px-5 rounded-lg bg-[#1b2b21] hover:bg-[#253d2f] text-white transition-colors text-xs font-semibold cursor-pointer"
                 >
                   Send Another Inquiry
                 </button>
@@ -392,14 +357,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
               {/* Submit Button */}
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={formspreeState.submitting}
                 id="contact-submit-btn"
-                className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg bg-[#3ea637] hover:bg-[#34d399] text-[#061e12] font-semibold text-xs uppercase tracking-wider transition-all shadow-lg shadow-[#3ea637]/20 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg bg-[#3ea637] hover:bg-[#34d399] text-[#061e12] font-semibold text-xs uppercase tracking-wider transition-all shadow-lg shadow-[#3ea637]/20 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
               >
-                {isSubmitting ? (
+                {formspreeState.submitting ? (
                   <>
                     <div className="w-4 h-4 border-2 border-[#061e12] border-t-transparent rounded-full animate-spin" />
-                    <span>Dispatching Notification to Anton Arnauts...</span>
+                    <span>Transmitting to Formspree & Anton Arnauts...</span>
                   </>
                 ) : (
                   <>

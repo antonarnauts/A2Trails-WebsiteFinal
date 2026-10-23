@@ -23,6 +23,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { BeforeAfterSlider } from './BeforeAfterSlider';
 import { BRUSSELS_PROJECTS } from '../data/projects';
 import { getAssetPath } from '../../lib/utils';
+import { useForm, ValidationError } from '@formspree/react';
 
 interface HomePageProps {
   onNavigate?: (page: PageType) => void;
@@ -31,6 +32,7 @@ interface HomePageProps {
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   const [ambientActive, setAmbientActive] = useState<boolean>(true);
   const { t } = useLanguage();
+  const [formspreeState, handleFormspreeSubmit] = useForm('meaaqwrg');
 
   // Contact form state
   const [formData, setFormData] = useState<ContactFormData>({
@@ -45,8 +47,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     message: '',
   });
 
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [submissionResult, setSubmissionResult] = useState<NotificationResponse | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
 
   const scrollTo = (id: string) => {
@@ -64,7 +64,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     if (formError) setFormError(null);
   };
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormError(null);
 
@@ -81,35 +81,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       return;
     }
 
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      const data: NotificationResponse = await response.json();
-
-      if (!response.ok || !data.success) {
-        throw new Error(data.error || 'Server could not process submission.');
-      }
-
-      setSubmissionResult(data);
-    } catch (err: any) {
-      console.warn('API submission fallback:', err);
-      setSubmissionResult({
-        success: true,
-        message: 'Your inquiry has been recorded and an automated notification queued for antonarnauts@a2trails.com.',
-        notificationId: `A2G-${Date.now().toString(36).toUpperCase()}`,
-        dispatchedTo: 'antonarnauts@a2trails.com',
-        timestamp: new Date().toISOString(),
-        recipientName: 'Anton Arnauts',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    await handleFormspreeSubmit(e);
   };
 
   const directMailtoUrl = `mailto:antonarnauts@a2trails.com?subject=${encodeURIComponent(
@@ -522,17 +494,17 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <div className="grid lg:grid-cols-12 gap-10">
             {/* LEFT COLUMN: Interactive Contact Form */}
             <div className="lg:col-span-7 bg-[#0b100d] border border-[#1b3022] rounded-2xl p-6 sm:p-8 shadow-2xl">
-              {submissionResult ? (
+              {formspreeState.succeeded ? (
                 <div className="space-y-6 animate-in fade-in zoom-in-95 duration-200">
                   <div className="p-6 rounded-xl bg-[#0d2116] border border-[#1b4b2e] space-y-3">
                     <div className="flex items-center gap-3 text-[#10b981]">
                       <CheckCircle className="w-8 h-8 shrink-0" />
                       <div>
                         <h3 className="text-lg font-bold text-white font-display">
-                          Automated Notification Dispatched!
+                          Project Inquiry Transmitted!
                         </h3>
                         <p className="text-xs text-[#95cbab]">
-                          Your inquiry has been successfully delivered to the principal architect.
+                          Thank you, {formData.name || 'valued client'}. Your inquiry has been delivered directly to Anton Arnauts via Formspree.
                         </p>
                       </div>
                     </div>
@@ -540,17 +512,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     <div className="divide-y divide-[#183925] border-t border-[#183925] pt-3 mt-3 text-xs space-y-2">
                       <div className="flex justify-between items-center text-[#a1c4af] pt-2">
                         <span className="text-[#6d967e]">Notification Recipient:</span>
-                        <span className="font-mono text-[#10b981] font-semibold">{submissionResult.dispatchedTo || 'antonarnauts@a2trails.com'}</span>
+                        <span className="font-mono text-[#10b981] font-semibold">antonarnauts@a2trails.com</span>
                       </div>
                       <div className="flex justify-between items-center text-[#a1c4af] pt-2">
-                        <span className="text-[#6d967e]">Reference ID:</span>
-                        <span className="font-mono text-white">{submissionResult.notificationId}</span>
-                      </div>
-                      <div className="flex justify-between items-center text-[#a1c4af] pt-2">
-                        <span className="text-[#6d967e]">Dispatch Timestamp:</span>
-                        <span className="font-mono text-[#cbdcd1]">
-                          {submissionResult.timestamp ? new Date(submissionResult.timestamp).toLocaleString() : new Date().toLocaleString()}
-                        </span>
+                        <span className="text-[#6d967e]">Delivery Channel:</span>
+                        <span className="font-mono text-white">Formspree (meaaqwrg)</span>
                       </div>
                       <div className="flex justify-between items-center text-[#a1c4af] pt-2">
                         <span className="text-[#6d967e]">Expected Review:</span>
@@ -566,7 +532,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     <ol className="text-xs text-[#9eb4a6] space-y-2 list-decimal list-inside leading-relaxed">
                       <li>Anton Arnauts will review your space dimensions, orientation, and Brussels commune requirements.</li>
                       <li>We will contact you via email or phone to arrange a 45-minute on-site survey.</li>
-                      <li>Following the visit, you will receive our preliminary conceptual layout and material moodboard.</li>
+                      <li>Following the visit, you will receive our preliminary conceptual layout.</li>
                     </ol>
                   </div>
 
@@ -581,7 +547,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
                     <button
                       onClick={() => {
-                        setSubmissionResult(null);
                         setFormData({
                           name: '',
                           email: '',
@@ -593,6 +558,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                           timeline: 'Flexible',
                           message: '',
                         });
+                        window.location.reload();
                       }}
                       className="py-3 px-5 rounded-lg bg-[#1b2b21] hover:bg-[#253d2f] text-white transition-colors text-xs font-semibold cursor-pointer"
                     >
@@ -741,13 +707,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      disabled={isSubmitting}
+                      disabled={formspreeState.submitting}
                       className="w-full py-4 px-6 rounded-xl bg-[#10b981] hover:bg-[#10b981]/90 text-[#061e12] font-bold text-sm tracking-wide uppercase transition-all shadow-lg shadow-[#10b981]/25 flex items-center justify-center gap-2 active:scale-95 disabled:opacity-60 cursor-pointer"
                     >
-                      {isSubmitting ? (
+                      {formspreeState.submitting ? (
                         <>
                           <span className="w-4 h-4 border-2 border-[#061e12] border-t-transparent rounded-full animate-spin" />
-                          <span>Dispatching to Anton Arnauts...</span>
+                          <span>Transmitting to Formspree & Anton Arnauts...</span>
                         </>
                       ) : (
                         <>
