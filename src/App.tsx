@@ -96,6 +96,12 @@ const LanguageRouteSync = () => {
       return;
     }
 
+    const currentClean = stripLanguagePrefix(pathname);
+    const isGardensSubdomain = typeof window !== 'undefined' && window.location.hostname.includes('a2gardens');
+    if (currentClean === '/a2gardens' || currentClean === '/gardens' || (isGardensSubdomain && currentClean === '/')) {
+      return;
+    }
+
     // 1. Detect and store device info locally (-device)
     const deviceInfo = detectAndStoreDeviceInfo();
 
@@ -117,12 +123,6 @@ const LanguageRouteSync = () => {
         }
       }
     });
-
-    const currentClean = stripLanguagePrefix(pathname);
-    const isGardensSubdomain = typeof window !== 'undefined' && window.location.hostname.includes('a2gardens');
-    if (currentClean === '/a2gardens' || currentClean === '/gardens' || (isGardensSubdomain && currentClean === '/')) {
-      return;
-    }
 
     const langFromPath = getLanguageFromPath(pathname);
     const searchParams = new URLSearchParams(search);
@@ -333,12 +333,23 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-brand-dark/90 backdrop-blur-sm border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <div className="flex-shrink-0 flex items-center">
+          <div className="flex-shrink-0 flex items-center gap-3 sm:gap-4">
             <Link to={getLocalizedPath('/', i18n.language)} className="flex items-center">
               <img 
                 src={getAssetPath('images/logo.webp')} 
                 alt="A2Trails - Sustainable Mountain Bike Trail Building Logo" 
                 className="h-[60px] w-auto" 
+              />
+            </Link>
+            <Link
+              to="/a2gardens"
+              className="flex items-center opacity-90 hover:opacity-100 transition-opacity"
+              aria-label="A2Gardens - Architectural Landscape & Garden Engineering Brussels"
+            >
+              <img
+                src={getAssetPath('a2gardens/images/logoa2gardernspng.png')}
+                alt="A2Gardens - Architectural Landscape & Garden Engineering Brussels"
+                className="h-[40px] w-auto object-contain"
               />
             </Link>
           </div>

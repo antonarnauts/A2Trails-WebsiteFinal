@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { PageType } from '../types';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { LanguageSelector } from './LanguageSelector';
@@ -13,6 +14,7 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
+  const isGardensSubdomain = typeof window !== 'undefined' && window.location.hostname.includes('a2gardens');
 
   const navItems = [
     { id: 'services', label: t.nav.services },
@@ -48,19 +50,46 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0e0b]/90 backdrop-blur-sm border-b border-white/5">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Brand Logo in top-left corner */}
-        <button
-          id="nav-logo-btn"
-          onClick={() => scrollToSection('home')}
-          className="flex items-center focus:outline-none cursor-pointer group py-1"
-          aria-label="A2"
-        >
-          <img
-            src={getAssetPath('a2gardens/images/logoa2gardernspng.png')}
-            alt="A2"
-            className="h-11 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
-          />
-        </button>
+        {/* Brand Logos in top-left corner */}
+        <div className="flex-shrink-0 flex items-center gap-3 sm:gap-4">
+          <button
+            id="nav-logo-btn"
+            onClick={() => scrollToSection('home')}
+            className="flex items-center focus:outline-none cursor-pointer group py-1"
+            aria-label="A2Gardens"
+          >
+            <img
+              src={getAssetPath('a2gardens/images/logoa2gardernspng.png')}
+              alt="A2Gardens - Architectural Landscape & Garden Engineering Brussels"
+              className="h-11 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+            />
+          </button>
+          {isGardensSubdomain ? (
+            <a
+              href="https://a2trails.com"
+              className="flex items-center opacity-90 hover:opacity-100 transition-opacity"
+              aria-label="A2Trails - Sustainable Mountain Bike Trail Building"
+            >
+              <img
+                src={getAssetPath('images/logo.webp')}
+                alt="A2Trails - Sustainable Mountain Bike Trail Building Logo"
+                className="h-[29px] sm:h-[32px] w-auto object-contain"
+              />
+            </a>
+          ) : (
+            <Link
+              to="/"
+              className="flex items-center opacity-90 hover:opacity-100 transition-opacity"
+              aria-label="A2Trails - Sustainable Mountain Bike Trail Building"
+            >
+              <img
+                src={getAssetPath('images/logo.webp')}
+                alt="A2Trails - Sustainable Mountain Bike Trail Building Logo"
+                className="h-[29px] sm:h-[32px] w-auto object-contain"
+              />
+            </Link>
+          )}
+        </div>
 
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center space-x-12 lg:space-x-16">
