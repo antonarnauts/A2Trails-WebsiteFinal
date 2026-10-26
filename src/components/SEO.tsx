@@ -110,9 +110,6 @@ export default function SEO({
       <meta name="ICBM" content="50.8503, 4.3517" />
       <link rel="canonical" href={canonical} />
       <html lang={currentLang} />
-      {favicon && <link rel="icon" type="image/png" sizes="any" href={favicon} />}
-      {favicon && <link rel="shortcut icon" type="image/png" href={favicon} />}
-      {favicon && <link rel="apple-touch-icon" href={favicon} />}
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />

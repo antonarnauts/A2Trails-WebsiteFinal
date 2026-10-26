@@ -222,25 +222,33 @@ function A2GardensContent() {
 export default function A2GardensApp() {
   const logoUrl = getAssetPath('a2gardens/images/logoa2gardernspng.png');
 
-  // Dynamic favicon & mobile tab icon update for A2Gardens (including iOS apple-touch-icon & Android shortcut icon)
+  // Dynamic favicon & mobile tab icon update for A2Gardens (in-place update without removing DOM nodes)
   useEffect(() => {
     const defaultIcon = getAssetPath('images/logo.webp');
 
     const applyIcons = (href: string, mimeType: string) => {
-      const existingIcons = document.querySelectorAll(
-        "link[rel='icon'], link[rel='shortcut icon'], link[rel='apple-touch-icon'], link[rel='apple-touch-icon-precomposed']"
-      );
-      existingIcons.forEach((el) => el.parentNode?.removeChild(el));
+      const iconConfigs = [
+        { id: 'favicon-icon', rel: 'icon', setType: true },
+        { id: 'favicon-shortcut', rel: 'shortcut icon', setType: true },
+        { id: 'favicon-apple', rel: 'apple-touch-icon', setType: false },
+      ];
 
-      const rels = ['icon', 'shortcut icon', 'apple-touch-icon'];
-      rels.forEach((rel) => {
-        const link = document.createElement('link');
-        link.rel = rel;
-        if (rel !== 'apple-touch-icon') {
+      iconConfigs.forEach(({ id, rel, setType }) => {
+        let link =
+          (document.getElementById(id) as HTMLLinkElement | null) ||
+          (document.querySelector(`link[rel='${rel}']`) as HTMLLinkElement | null);
+
+        if (!link) {
+          link = document.createElement('link');
+          link.id = id;
+          link.rel = rel;
+          document.head.appendChild(link);
+        }
+
+        if (setType) {
           link.type = mimeType;
         }
         link.href = href;
-        document.head.appendChild(link);
       });
     };
 
