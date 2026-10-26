@@ -19,20 +19,121 @@ function A2GardensContent() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
   const { currentLanguage, t } = useLanguage();
   const logoUrl = getAssetPath('a2gardens/images/logoa2gardernspng.png');
+  const heroImageUrl = getAssetPath('a2gardens/images/hero-architectural-garden.jpg');
 
   const seoTitle =
     currentLanguage === 'nl'
-      ? 'Brusselse Tuinarchitectuur & Terrassen'
+      ? 'Tuinarchitect Brussel | Stadstuinen, Terrassen & Daktuinen – A2Gardens'
       : currentLanguage === 'fr'
-      ? 'Architecture de Jardin & Terrasses à Bruxelles'
-      : 'Brussels Garden Architecture & Terraces';
+      ? 'Architecte Paysagiste Bruxelles | Jardins de Ville & Terrasses – A2Gardens'
+      : 'Garden Architect Brussels | City Gardens, Terraces & Rooftops – A2Gardens';
 
   const seoDescription =
     currentLanguage === 'nl'
-      ? 'A2Gardens is gespecialiseerd in stedelijke tuinarchitectuur, terrassen op maat, stadstuinen en duurzame buitenruimtes in Brussel.'
+      ? 'Tuinarchitect Anton Arnauts (A2Gardens) ontwerpt en realiseert stadstuinen, natuurstenen terrassen, daktuinen en balkons in alle 19 Brusselse gemeenten.'
       : currentLanguage === 'fr'
-      ? 'A2Gardens est spécialisé dans l’architecture de jardins urbains, les terrasses sur mesure et les espaces extérieurs durables à Bruxelles.'
-      : 'A2Gardens specializes in urban garden architecture, bespoke terraces, and sustainable outdoor living spaces in Brussels.';
+      ? 'L’architecte paysagiste Anton Arnauts (A2Gardens) conçoit et réalise des jardins de ville, terrasses en pierre, toitures végétalisées et balcons à Bruxelles.'
+      : 'Landscape architect Anton Arnauts (A2Gardens) designs and builds bespoke city gardens, natural stone terraces, rooftop gardens, and balconies across all 19 Brussels communes.';
+
+  const seoKeywords =
+    'garden architect Brussels, landscape architect Brussels, tuinarchitect Brussel, tuinaanleg Brussel, architecte paysagiste Bruxelles, aménagement jardin Bruxelles, city garden Brussels, stadstuin Brussel, jardin de ville Bruxelles, terrace construction Brussels, terras aanleggen Brussel, rooftop garden Brussels, daktuin Brussel, Ixelles, Uccle, Saint-Gilles, Etterbeek, Schaerbeek, Anton Arnauts, A2Gardens';
+
+  const a2GardensSchema = {
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'HomeAndConstructionBusiness', 'LandscapeService'],
+    name: 'A2Gardens',
+    alternateName: 'A2Gardens Brussels Garden Architecture & Terraces',
+    description: seoDescription,
+    url: 'https://a2gardens.a2trails.com',
+     '@id': 'https://a2gardens.a2trails.com/#business',
+    email: 'antonarnauts@a2trails.com',
+    vatID: 'BE1024.359.194',
+    priceRange: '€€-€€€',
+    founder: {
+      '@type': 'Person',
+      name: 'Anton Arnauts',
+      jobTitle: 'Landscape Architect',
+    },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Mariemontkaai 15',
+      addressLocality: 'Brussel',
+      addressRegion: 'Brussels-Capital Region',
+      postalCode: '1080',
+      addressCountry: 'BE',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 50.8503,
+      longitude: 4.3517,
+    },
+    areaServed: [
+      'Brussels-Capital Region',
+      'Ixelles / Elsene',
+      'Uccle / Ukkel',
+      'Saint-Gilles / Sint-Gillis',
+      'Brussels City / Stad Brussel',
+      'Etterbeek',
+      'Schaerbeek / Schaarbeek',
+      'Woluwe-Saint-Lambert / Sint-Lambrechts-Woluwe',
+      'Woluwe-Saint-Pierre / Sint-Pieters-Woluwe',
+      'Watermael-Boitsfort / Watermaal-Bosvoorde',
+      'Auderghem / Oudergem',
+      'Forest / Vorst',
+      'Molenbeek-Saint-Jean / Sint-Jans-Molenbeek',
+      'Anderlecht',
+      'Jette',
+      'Ganshoren',
+      'Koekelberg',
+      'Berchem-Sainte-Agathe / Sint-Agatha-Berchem',
+      'Evere',
+      'Saint-Josse-ten-Noode / Sint-Joost-ten-Node',
+    ].map((name) => ({ '@type': 'AdministrativeArea', name })),
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '08:00',
+      closes: '20:00',
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Brussels Garden Architecture & Landscaping Services',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'City Gardens & Patios (Stadstuinen / Jardins de Ville)',
+            description: 'Bespoke urban courtyard gardens, privacy planting, timber pergolas, and natural stone dining spaces in Brussels.',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Balcony Design (Balkons / Balcons)',
+            description: 'Custom wooden decking, tailored planters, and evergreen balcony transformations in Brussels.',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Rooftop Gardens (Daktuinen / Jardins sur Toit)',
+            description: 'Intensive and extensive biodiverse rooftop biotopes across Brussels.',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Stone Terraces & Permeable Driveways (Terrassen & Opritten / Terrasses & Allées)',
+            description: 'Durable natural stone paving, smart permeable drainage, and architectural outdoor lighting.',
+          },
+        },
+      ],
+    },
+  };
 
   const navigateTo = (page: PageType) => {
     setCurrentPage(page);
@@ -58,7 +159,12 @@ function A2GardensContent() {
         title={seoTitle}
         siteName="A2Gardens"
         description={seoDescription}
+        canonical="https://a2gardens.a2trails.com"
         favicon={logoUrl}
+        ogImage={heroImageUrl}
+        keywords={seoKeywords}
+        langOverride={currentLanguage}
+        schema={a2GardensSchema}
       />
       <div className="min-h-screen bg-[#090d0a] text-[#dce6df] flex flex-col font-sans selection:bg-[#10b981] selection:text-black">
         {/* Top Navigation */}

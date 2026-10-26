@@ -326,6 +326,8 @@ export const HomePage: React.FC<HomePageProps> = () => {
                     afterImage={project.afterImage}
                     beforeLabel={t.spotlight.beforeLabel}
                     afterLabel={t.spotlight.afterLabel}
+                    beforeAlt={`${t.spotlight.beforeLabel}: ${project.title} – ${project.location} (A2Gardens)`}
+                    afterAlt={`${t.spotlight.afterLabel}: ${project.title} – ${project.location} (A2Gardens)`}
                     aspectRatio="aspect-[4/3] sm:aspect-[16/10]"
                     beforeObjectPosition={project.beforeObjectPosition}
                     afterObjectPosition={project.afterObjectPosition}

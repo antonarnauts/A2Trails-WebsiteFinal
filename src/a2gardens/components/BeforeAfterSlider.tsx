@@ -6,6 +6,8 @@ interface BeforeAfterSliderProps {
   afterImage: string;
   beforeLabel?: string;
   afterLabel?: string;
+  beforeAlt?: string;
+  afterAlt?: string;
   aspectRatio?: string;
   className?: string;
   beforeObjectPosition?: string;
@@ -17,6 +19,8 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
   afterImage,
   beforeLabel = 'Before Transformation',
   afterLabel = 'Architectural Outcome',
+  beforeAlt = 'Before garden transformation in Brussels - A2Gardens',
+  afterAlt = 'After garden architecture transformation in Brussels - A2Gardens',
   aspectRatio = 'aspect-[16/10]',
   className = '',
   beforeObjectPosition = 'center center',
@@ -81,7 +85,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
         {/* Layer 1: AFTER image (Full background on the right) */}
         <img
           src={afterImage}
-          alt="Transformed outdoor architectural garden"
+          alt={afterAlt}
           referrerPolicy="no-referrer"
           className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
           style={{ objectPosition: afterObjectPosition }}
@@ -100,7 +104,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
         >
           <img
             src={beforeImage}
-            alt="Before garden transformation state"
+            alt={beforeAlt}
             referrerPolicy="no-referrer"
             className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
             style={{ objectPosition: beforeObjectPosition }}

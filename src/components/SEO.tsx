@@ -8,7 +8,10 @@ interface SEOProps {
   type?: 'website' | 'article';
   schema?: any;
   favicon?: string;
+  ogImage?: string;
   siteName?: string;
+  keywords?: string;
+  langOverride?: string;
 }
 
 export default function SEO({ 
@@ -18,10 +21,13 @@ export default function SEO({
   type = 'website',
   schema,
   favicon,
-  siteName
+  ogImage,
+  siteName,
+  keywords,
+  langOverride
 }: SEOProps) {
   const { i18n } = useTranslation();
-  const currentLang = i18n.language;
+  const currentLang = langOverride || i18n.language;
   
   const activeSiteName = siteName || 'A2Trails';
   const fullTitle = title 
@@ -45,7 +51,11 @@ export default function SEO({
   };
 
   const logoUrl = favicon ? getAbsoluteImageUrl(favicon.replace(/^\//, '')) : getAbsoluteImageUrl('images/logo.webp');
-  const heroUrl = favicon ? getAbsoluteImageUrl(favicon.replace(/^\//, '')) : getAbsoluteImageUrl('images/hero.webp');
+  const heroUrl = ogImage
+    ? getAbsoluteImageUrl(ogImage.replace(/^\//, ''))
+    : favicon
+    ? getAbsoluteImageUrl(favicon.replace(/^\//, ''))
+    : getAbsoluteImageUrl('images/hero.webp');
 
   // Local Business Schema
   const businessSchema = {
@@ -91,8 +101,13 @@ export default function SEO({
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={metaDescription} />
+      {keywords && <meta name="keywords" content={keywords} />}
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       <meta name="googlebot" content="index, follow" />
+      <meta name="geo.region" content="BE-BRU" />
+      <meta name="geo.placename" content="Brussels" />
+      <meta name="geo.position" content="50.8503;4.3517" />
+      <meta name="ICBM" content="50.8503, 4.3517" />
       <link rel="canonical" href={canonical} />
       <html lang={currentLang} />
       {favicon && <link rel="icon" type="image/png" sizes="any" href={favicon} />}
@@ -114,9 +129,11 @@ export default function SEO({
       <meta name="twitter:image" content={heroUrl} />
 
       {/* Structured Data */}
-      <script type="application/ld+json">
-        {JSON.stringify(businessSchema)}
-      </script>
+      {!schema && (
+        <script type="application/ld+json">
+          {JSON.stringify(businessSchema)}
+        </script>
+      )}
       {schema && (
         <script type="application/ld+json">
           {JSON.stringify(schema)}
