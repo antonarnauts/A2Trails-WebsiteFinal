@@ -55,13 +55,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
           <button
             id="nav-logo-btn"
             onClick={() => scrollToSection('home')}
-            className="flex items-center focus:outline-none cursor-pointer group py-1"
+            className="flex items-center focus:outline-none cursor-pointer group"
             aria-label="A2Gardens"
           >
             <img
               src={getAssetPath('a2gardens/images/logoa2gardernspng.png')}
               alt="A2Gardens - Architectural Landscape & Garden Engineering Brussels"
-              className="h-11 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-[60px] w-auto object-contain transition-transform group-hover:scale-105"
             />
           </button>
           {isGardensSubdomain ? (
@@ -73,7 +73,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
               <img
                 src={getAssetPath('images/logo.webp')}
                 alt="A2Trails - Sustainable Mountain Bike Trail Building Logo"
-                className="h-[29px] sm:h-[32px] w-auto object-contain"
+                className="h-[40px] w-auto object-contain"
               />
             </a>
           ) : (
@@ -85,7 +85,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
               <img
                 src={getAssetPath('images/logo.webp')}
                 alt="A2Trails - Sustainable Mountain Bike Trail Building Logo"
-                className="h-[29px] sm:h-[32px] w-auto object-contain"
+                className="h-[40px] w-auto object-contain"
               />
             </Link>
           )}
