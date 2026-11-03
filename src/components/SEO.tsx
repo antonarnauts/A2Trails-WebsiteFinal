@@ -38,24 +38,31 @@ export default function SEO({
 
   // Helper to get absolute URL for meta tags
   const getAbsoluteImageUrl = (path: string) => {
+    if (/^https?:\/\//i.test(path)) return path;
+    const cleanRelPath = path.replace(/^\.?\//, '');
     const origin = typeof window !== 'undefined' ? window.location.origin : 'https://a2trails.com';
     let base = '/';
     
     if (typeof window !== 'undefined' && window.location.hostname.includes('github.io')) {
       const pathname = window.location.pathname;
-      // Get the base path (e.g., /repo-name/) preserving case
-      base = pathname.endsWith('/') ? pathname : pathname.substring(0, pathname.lastIndexOf('/') + 1);
+      const segments = pathname.split('/').filter(Boolean);
+      base = segments.length > 0 ? `/${segments[0]}/` : '/';
     }
     
-    return `${origin}${base}${path}`;
+    return `${origin}${base}${cleanRelPath}`;
   };
 
-  const logoUrl = favicon ? getAbsoluteImageUrl(favicon.replace(/^\//, '')) : getAbsoluteImageUrl('images/logo.webp');
+  const logoUrl = favicon ? getAbsoluteImageUrl(favicon) : getAbsoluteImageUrl('images/logo.webp');
   const heroUrl = ogImage
-    ? getAbsoluteImageUrl(ogImage.replace(/^\//, ''))
+    ? getAbsoluteImageUrl(ogImage)
     : favicon
-    ? getAbsoluteImageUrl(favicon.replace(/^\//, ''))
+    ? getAbsoluteImageUrl(favicon)
     : getAbsoluteImageUrl('images/hero.webp');
+  const imageMimeType = heroUrl.toLowerCase().endsWith('.png')
+    ? 'image/png'
+    : heroUrl.toLowerCase().endsWith('.jpg') || heroUrl.toLowerCase().endsWith('.jpeg')
+    ? 'image/jpeg'
+    : 'image/webp';
 
   // Local Business Schema
   const businessSchema = {
@@ -111,13 +118,17 @@ export default function SEO({
       <link rel="canonical" href={canonical} />
       <html lang={currentLang} />
 
-      {/* Open Graph / Facebook */}
+      {/* Open Graph / Facebook / WhatsApp / Messenger */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:url" content={canonical} />
       <meta property="og:site_name" content={activeSiteName} />
       <meta property="og:image" content={heroUrl} />
+      <meta property="og:image:secure_url" content={heroUrl} />
+      <meta property="og:image:type" content={imageMimeType} />
+      <meta property="og:image:alt" content={fullTitle} />
+      <meta itemProp="image" content={heroUrl} />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />

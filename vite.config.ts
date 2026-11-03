@@ -1,12 +1,99 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
+import fs from 'fs';
 import path from 'path';
-import {defineConfig, loadEnv} from 'vite';
+import {defineConfig, loadEnv, Plugin} from 'vite';
+
+function a2gardensStaticSeoPlugin(): Plugin {
+  return {
+    name: 'a2gardens-static-seo',
+    closeBundle() {
+      const distDir = path.resolve(__dirname, 'dist');
+      const indexHtmlPath = path.join(distDir, 'index.html');
+      if (!fs.existsSync(indexHtmlPath)) return;
+
+      const rawHtml = fs.readFileSync(indexHtmlPath, 'utf-8');
+      const a2gTitle = 'A2Gardens | Garden Architect Brussels – City Gardens & Terraces';
+      const a2gDesc =
+        'Landscape architect Anton Arnauts (A2Gardens) designs and builds bespoke city gardens, natural stone terraces, rooftop gardens, and balconies across all 19 Brussels communes.';
+      const a2gLogoAbs = 'https://a2trails.com/a2gardens/images/logoa2gardernspng.png';
+      const a2gLogoRel = '/a2gardens/images/logoa2gardernspng.png';
+
+      const gardensHtml = rawHtml
+        .replace('<meta charset="UTF-8" />', '<meta charset="UTF-8" />\n    <base href="/" />')
+        .replace(
+          /<meta id="meta-description"[^>]*>/,
+          `<meta id="meta-description" name="description" content="${a2gDesc}" />`
+        )
+        .replace(
+          /<meta id="og-site-name"[^>]*>/,
+          `<meta id="og-site-name" property="og:site_name" content="A2Gardens" />`
+        )
+        .replace(
+          /<meta id="og-title"[^>]*>/,
+          `<meta id="og-title" property="og:title" content="${a2gTitle}" />`
+        )
+        .replace(
+          /<meta id="og-description"[^>]*>/,
+          `<meta id="og-description" property="og:description" content="${a2gDesc}" />`
+        )
+        .replace(
+          /<meta id="og-image"[^>]*>/,
+          `<meta id="og-image" property="og:image" content="${a2gLogoAbs}" />`
+        )
+        .replace(
+          /<meta id="og-image-secure"[^>]*>/,
+          `<meta id="og-image-secure" property="og:image:secure_url" content="${a2gLogoAbs}" />`
+        )
+        .replace(
+          /<meta id="og-image-type"[^>]*>/,
+          `<meta id="og-image-type" property="og:image:type" content="image/png" />`
+        )
+        .replace(
+          /<meta id="twitter-title"[^>]*>/,
+          `<meta id="twitter-title" name="twitter:title" content="${a2gTitle}" />`
+        )
+        .replace(
+          /<meta id="twitter-description"[^>]*>/,
+          `<meta id="twitter-description" name="twitter:description" content="${a2gDesc}" />`
+        )
+        .replace(
+          /<meta id="twitter-image"[^>]*>/,
+          `<meta id="twitter-image" name="twitter:image" content="${a2gLogoAbs}" />`
+        )
+        .replace(
+          /<link id="favicon-icon"[^>]*>/,
+          `<link id="favicon-icon" rel="icon" type="image/png" href="${a2gLogoRel}" />`
+        )
+        .replace(
+          /<link id="favicon-shortcut"[^>]*>/,
+          `<link id="favicon-shortcut" rel="shortcut icon" type="image/png" href="${a2gLogoRel}" />`
+        )
+        .replace(
+          /<link id="favicon-apple"[^>]*>/,
+          `<link id="favicon-apple" rel="apple-touch-icon" href="${a2gLogoRel}" />`
+        )
+        .replace(/<title>.*?<\/title>/, `<title>${a2gTitle}</title>`);
+
+      const targets = [
+        path.join(distDir, 'a2gardens', 'index.html'),
+        path.join(distDir, 'a2gardens.html'),
+        path.join(distDir, 'gardens', 'index.html'),
+        path.join(distDir, 'gardens.html'),
+      ];
+
+      for (const target of targets) {
+        fs.mkdirSync(path.dirname(target), { recursive: true });
+        fs.writeFileSync(target, gardensHtml, 'utf-8');
+      }
+    },
+  };
+}
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [react(), tailwindcss(), a2gardensStaticSeoPlugin()],
     base: './',
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),

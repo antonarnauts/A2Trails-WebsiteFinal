@@ -19,7 +19,6 @@ function A2GardensContent() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
   const { currentLanguage, t } = useLanguage();
   const logoUrl = getAssetPath('a2gardens/images/logoa2gardernspng.png');
-  const heroImageUrl = getAssetPath('a2gardens/images/hero-architectural-garden.jpg');
 
   const seoTitle =
     currentLanguage === 'nl'
@@ -45,7 +44,9 @@ function A2GardensContent() {
     alternateName: 'A2Gardens Brussels Garden Architecture & Terraces',
     description: seoDescription,
     url: 'https://a2gardens.a2trails.com',
-     '@id': 'https://a2gardens.a2trails.com/#business',
+    '@id': 'https://a2gardens.a2trails.com/#business',
+    image: 'https://a2trails.com/a2gardens/images/logoa2gardernspng.png',
+    logo: 'https://a2trails.com/a2gardens/images/logoa2gardernspng.png',
     email: 'antonarnauts@a2trails.com',
     vatID: 'BE1024.359.194',
     priceRange: '€€-€€€',
@@ -161,7 +162,7 @@ function A2GardensContent() {
         description={seoDescription}
         canonical="https://a2gardens.a2trails.com"
         favicon={logoUrl}
-        ogImage={heroImageUrl}
+        ogImage={logoUrl}
         keywords={seoKeywords}
         langOverride={currentLanguage}
         schema={a2GardensSchema}
@@ -222,9 +223,12 @@ function A2GardensContent() {
 export default function A2GardensApp() {
   const logoUrl = getAssetPath('a2gardens/images/logoa2gardernspng.png');
 
-  // Dynamic favicon & mobile tab icon update for A2Gardens (in-place update without removing DOM nodes)
+  // Dynamic favicon, mobile tab icon & OpenGraph social card update for A2Gardens (in-place update without removing DOM nodes)
   useEffect(() => {
     const defaultIcon = getAssetPath('images/logo.webp');
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://a2trails.com';
+    const absGardensLogo = `${origin}/${logoUrl.replace(/^\.?\//, '')}`;
+    const absDefaultLogo = `${origin}/${defaultIcon.replace(/^\.?\//, '')}`;
 
     const applyIcons = (href: string, mimeType: string) => {
       const iconConfigs = [
@@ -252,10 +256,29 @@ export default function A2GardensApp() {
       });
     };
 
+    const setMetaContent = (id: string, selector: string, value: string) => {
+      const el =
+        (document.getElementById(id) as HTMLMetaElement | null) ||
+        (document.querySelector(selector) as HTMLMetaElement | null);
+      if (el) {
+        el.content = value;
+      }
+    };
+
     applyIcons(logoUrl, 'image/png');
+    setMetaContent('og-image', "meta[property='og:image']", absGardensLogo);
+    setMetaContent('og-image-secure', "meta[property='og:image:secure_url']", absGardensLogo);
+    setMetaContent('og-image-type', "meta[property='og:image:type']", 'image/png');
+    setMetaContent('og-site-name', "meta[property='og:site_name']", 'A2Gardens');
+    setMetaContent('twitter-image', "meta[name='twitter:image']", absGardensLogo);
 
     return () => {
       applyIcons(defaultIcon, 'image/webp');
+      setMetaContent('og-image', "meta[property='og:image']", absDefaultLogo);
+      setMetaContent('og-image-secure', "meta[property='og:image:secure_url']", absDefaultLogo);
+      setMetaContent('og-image-type', "meta[property='og:image:type']", 'image/webp');
+      setMetaContent('og-site-name', "meta[property='og:site_name']", 'A2Trails');
+      setMetaContent('twitter-image', "meta[name='twitter:image']", absDefaultLogo);
     };
   }, [logoUrl]);
 

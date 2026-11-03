@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="description" content="Professional construction of riding infrastructure - helping municipalities, developers, and holiday parks create vibrant, active outdoor spaces" />
-    <meta property="og:title" content="A2Trails | Professional Mountain Bike Infrastructure" />
-    <meta property="og:description" content="Professional construction of riding infrastructure - helping municipalities, developers, and holiday parks create vibrant, active outdoor spaces" />
+    <meta id="meta-description" name="description" content="Professional construction of riding infrastructure - helping municipalities, developers, and holiday parks create vibrant, active outdoor spaces" />
+    <meta property="og:type" content="website" />
+    <meta id="og-site-name" property="og:site_name" content="A2Trails" />
+    <meta id="og-title" property="og:title" content="A2Trails | Professional Mountain Bike Infrastructure" />
+    <meta id="og-description" property="og:description" content="Professional construction of riding infrastructure - helping municipalities, developers, and holiday parks create vibrant, active outdoor spaces" />
+    <meta id="og-image" property="og:image" content="https://a2trails.com/images/logo.webp" />
+    <meta id="og-image-secure" property="og:image:secure_url" content="https://a2trails.com/images/logo.webp" />
+    <meta id="og-image-type" property="og:image:type" content="image/webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta id="twitter-title" name="twitter:title" content="A2Trails | Professional Mountain Bike Infrastructure" />
+    <meta id="twitter-description" name="twitter:description" content="Professional construction of riding infrastructure - helping municipalities, developers, and holiday parks create vibrant, active outdoor spaces" />
+    <meta id="twitter-image" name="twitter:image" content="https://a2trails.com/images/logo.webp" />
     <link id="favicon-icon" rel="icon" type="image/webp" href="./images/logo.webp" />
     <link id="favicon-shortcut" rel="shortcut icon" type="image/webp" href="./images/logo.webp" />
     <link id="favicon-apple" rel="apple-touch-icon" href="./images/logo.webp" />
@@ -17,15 +26,32 @@
         var h = window.location.hash.toLowerCase();
         var host = window.location.hostname.toLowerCase();
         var path = window.location.pathname.toLowerCase();
-        if (h.indexOf('a2gardens') !== -1 || host.indexOf('a2gardens') !== -1 || path.indexOf('a2gardens') !== -1) {
+        if (h.indexOf('a2gardens') !== -1 || h.indexOf('/gardens') !== -1 || host.indexOf('a2gardens') !== -1 || path.indexOf('a2gardens') !== -1 || path.indexOf('/gardens') !== -1) {
           var a2gLogo = './a2gardens/images/logoa2gardernspng.png';
+          var absLogo = window.location.origin + '/a2gardens/images/logoa2gardernspng.png';
+          var a2gTitle = 'A2Gardens | Garden Architect Brussels – City Gardens & Terraces';
+          var a2gDesc = 'Landscape architect Anton Arnauts (A2Gardens) designs and builds bespoke city gardens, natural stone terraces, rooftop gardens, and balconies across all 19 Brussels communes.';
           var iconEl = document.getElementById('favicon-icon');
           var shortcutEl = document.getElementById('favicon-shortcut');
           var appleEl = document.getElementById('favicon-apple');
           if (iconEl) { iconEl.type = 'image/png'; iconEl.href = a2gLogo; }
           if (shortcutEl) { shortcutEl.type = 'image/png'; shortcutEl.href = a2gLogo; }
           if (appleEl) { appleEl.href = a2gLogo; }
-          document.title = 'A2Gardens | Brussels Garden Architecture & Terraces';
+          var setMeta = function(id, val) {
+            var el = document.getElementById(id);
+            if (el) el.setAttribute('content', val);
+          };
+          setMeta('meta-description', a2gDesc);
+          setMeta('og-site-name', 'A2Gardens');
+          setMeta('og-title', a2gTitle);
+          setMeta('og-description', a2gDesc);
+          setMeta('og-image', absLogo);
+          setMeta('og-image-secure', absLogo);
+          setMeta('og-image-type', 'image/png');
+          setMeta('twitter-title', a2gTitle);
+          setMeta('twitter-description', a2gDesc);
+          setMeta('twitter-image', absLogo);
+          document.title = a2gTitle;
         }
       })();
     </script>

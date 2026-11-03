@@ -97,7 +97,11 @@ const LanguageRouteSync = () => {
     }
 
     const currentClean = stripLanguagePrefix(pathname);
-    const isGardensSubdomain = typeof window !== 'undefined' && window.location.hostname.includes('a2gardens');
+    const isGardensSubdomain =
+      typeof window !== 'undefined' &&
+      (window.location.hostname.toLowerCase().includes('a2gardens') ||
+        window.location.pathname.toLowerCase().includes('a2gardens') ||
+        window.location.pathname.toLowerCase().includes('/gardens'));
     if (currentClean === '/a2gardens' || currentClean === '/gardens' || (isGardensSubdomain && currentClean === '/')) {
       return;
     }
@@ -978,7 +982,11 @@ const HomePage = () => {
 const AppContent = () => {
   const location = useLocation();
   const cleanPath = stripLanguagePrefix(location.pathname);
-  const isGardensSubdomain = typeof window !== 'undefined' && window.location.hostname.includes('a2gardens');
+  const isGardensSubdomain =
+    typeof window !== 'undefined' &&
+    (window.location.hostname.toLowerCase().includes('a2gardens') ||
+      window.location.pathname.toLowerCase().includes('a2gardens') ||
+      window.location.pathname.toLowerCase().includes('/gardens'));
   const isGardens = cleanPath === '/a2gardens' || cleanPath === '/gardens' || (isGardensSubdomain && cleanPath === '/');
 
   return (
