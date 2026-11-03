@@ -7,10 +7,18 @@ export function getAssetPath(path: string) {
     const pathSegments = pathname.split('/').filter(Boolean);
     
     // If we have at least one segment (the repo name), use it as the base
-    if (pathSegments.length > 0) {
+    if (pathSegments.length > 0 && pathSegments[0] !== 'a2gardens' && pathSegments[0] !== 'gardens') {
       const repoName = pathSegments[0];
       return `/${repoName}/${cleanPath}`;
     }
+  }
+
+  if (
+    typeof window !== 'undefined' &&
+    (window.location.pathname.toLowerCase().includes('/a2gardens') ||
+      window.location.pathname.toLowerCase().includes('/gardens'))
+  ) {
+    return `/${cleanPath}`;
   }
   
   return `./${cleanPath}`;

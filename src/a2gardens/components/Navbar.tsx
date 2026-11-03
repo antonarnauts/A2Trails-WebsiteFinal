@@ -14,7 +14,11 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
-  const isGardensSubdomain = typeof window !== 'undefined' && window.location.hostname.includes('a2gardens');
+  const isGardensSubdomain = typeof window !== 'undefined' && window.location.hostname.toLowerCase().includes('a2gardens');
+  const isGardensPath =
+    typeof window !== 'undefined' &&
+    (window.location.pathname.toLowerCase().includes('a2gardens') ||
+      window.location.pathname.toLowerCase().includes('/gardens'));
 
   const navItems = [
     { id: 'services', label: t.nav.services },
@@ -64,9 +68,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
               className="h-[60px] w-auto object-contain transition-transform group-hover:scale-105"
             />
           </button>
-          {isGardensSubdomain ? (
+          {isGardensSubdomain || isGardensPath ? (
             <a
-              href="https://a2trails.com"
+              href={isGardensSubdomain ? 'https://a2trails.com' : '/'}
               className="flex items-center opacity-90 hover:opacity-100 transition-opacity"
               aria-label="A2Trails - Sustainable Mountain Bike Trail Building"
             >

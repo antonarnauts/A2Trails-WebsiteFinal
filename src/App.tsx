@@ -345,8 +345,8 @@ const Navbar = () => {
                 className="h-[60px] w-auto" 
               />
             </Link>
-            <Link
-              to="/a2gardens"
+            <a
+              href="/a2gardens"
               className="flex items-center opacity-90 hover:opacity-100 transition-opacity"
               aria-label="A2Gardens - Architectural Landscape & Garden Engineering Brussels"
             >
@@ -355,7 +355,7 @@ const Navbar = () => {
                 alt="A2Gardens - Architectural Landscape & Garden Engineering Brussels"
                 className="h-[40px] w-auto object-contain"
               />
-            </Link>
+            </a>
           </div>
           
           {/* Desktop Nav */}

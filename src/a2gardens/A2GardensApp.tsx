@@ -44,7 +44,7 @@ function A2GardensContent() {
     alternateName: 'A2Gardens Brussels Garden Architecture & Terraces',
     description: seoDescription,
     url: 'https://a2gardens.a2trails.com',
-    '@id': 'https://a2gardens.a2trails.com/#business',
+    '@id': 'https://a2gardens.a2trails.com',
     image: 'https://a2trails.com/a2gardens/images/logoa2gardernspng.png',
     logo: 'https://a2trails.com/a2gardens/images/logoa2gardernspng.png',
     email: 'antonarnauts@a2trails.com',
@@ -225,6 +225,16 @@ export default function A2GardensApp() {
 
   // Dynamic favicon, mobile tab icon & OpenGraph social card update for A2Gardens (in-place update without removing DOM nodes)
   useEffect(() => {
+    if (
+      typeof window !== 'undefined' &&
+      window.location.hash &&
+      (window.location.hostname.toLowerCase().includes('a2gardens') ||
+        window.location.pathname.toLowerCase().includes('a2gardens') ||
+        window.location.pathname.toLowerCase().includes('/gardens'))
+    ) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+
     const defaultIcon = getAssetPath('images/logo.webp');
     const origin = typeof window !== 'undefined' ? window.location.origin : 'https://a2trails.com';
     const absGardensLogo = `${origin}/${logoUrl.replace(/^\.?\//, '')}`;
