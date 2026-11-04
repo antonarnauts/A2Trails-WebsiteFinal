@@ -43,8 +43,9 @@ function A2GardensContent() {
     name: 'A2Gardens',
     alternateName: 'A2Gardens Brussels Garden Architecture & Terraces',
     description: seoDescription,
-    url: 'https://a2gardens.a2trails.com',
-    '@id': 'https://a2gardens.a2trails.com',
+    url: 'https://a2trails.com/a2gardens/',
+    '@id': 'https://a2trails.com/a2gardens/',
+    sameAs: ['https://a2gardens.a2trails.com'],
     image: 'https://a2trails.com/a2gardens/images/logoa2gardernspng.png',
     logo: 'https://a2trails.com/a2gardens/images/logoa2gardernspng.png',
     email: 'antonarnauts@a2trails.com',
@@ -160,7 +161,7 @@ function A2GardensContent() {
         title={seoTitle}
         siteName="A2Gardens"
         description={seoDescription}
-        canonical="https://a2gardens.a2trails.com"
+        canonical="https://a2trails.com/a2gardens/"
         favicon={logoUrl}
         ogImage={logoUrl}
         keywords={seoKeywords}

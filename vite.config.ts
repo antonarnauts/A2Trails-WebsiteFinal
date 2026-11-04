@@ -73,7 +73,10 @@ function a2gardensStaticSeoPlugin(): Plugin {
           /<link id="favicon-apple"[^>]*>/,
           `<link id="favicon-apple" rel="apple-touch-icon" href="${a2gLogoRel}" />`
         )
-        .replace(/<title>.*?<\/title>/, `<title>${a2gTitle}</title>`);
+        .replace(
+          /<title>.*?<\/title>/,
+          `<link rel="canonical" href="https://a2trails.com/a2gardens/" />\n    <meta property="og:url" content="https://a2trails.com/a2gardens/" />\n    <title>${a2gTitle}</title>`
+        );
 
       const targets = [
         path.join(distDir, 'a2gardens', 'index.html'),
