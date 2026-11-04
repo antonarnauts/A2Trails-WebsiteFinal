@@ -103,6 +103,12 @@ const LanguageRouteSync = () => {
         window.location.pathname.toLowerCase().includes('a2gardens') ||
         window.location.pathname.toLowerCase().includes('/gardens'));
     if (currentClean === '/a2gardens' || currentClean === '/gardens' || (isGardensSubdomain && currentClean === '/')) {
+      if (typeof window !== 'undefined' && window.location.hash) {
+        const cleanTarget = window.location.hostname.toLowerCase().includes('a2gardens')
+          ? '/'
+          : '/a2gardens';
+        window.history.replaceState(null, '', cleanTarget + window.location.search);
+      }
       return;
     }
 

@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="439lIBCUYpX-nhr_yG2Gb_eD6gHW_Qvg3K7_T56PmyA" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta id="meta-description" name="description" content="Professional construction of riding infrastructure - helping municipalities, developers, and holiday parks create vibrant, active outdoor spaces" />
@@ -27,6 +28,10 @@
         var host = window.location.hostname.toLowerCase();
         var path = window.location.pathname.toLowerCase();
         if (h.indexOf('a2gardens') !== -1 || h.indexOf('/gardens') !== -1 || host.indexOf('a2gardens') !== -1 || path.indexOf('a2gardens') !== -1 || path.indexOf('/gardens') !== -1) {
+          if (window.location.hash) {
+            var cleanTarget = host.indexOf('a2gardens') !== -1 ? '/' : '/a2gardens';
+            window.history.replaceState(null, '', cleanTarget + window.location.search);
+          }
           var a2gLogo = './a2gardens/images/logoa2gardernspng.png';
           var absLogo = window.location.origin + '/a2gardens/images/logoa2gardernspng.png';
           var a2gTitle = 'A2Gardens | Garden Architect Brussels – City Gardens & Terraces';
