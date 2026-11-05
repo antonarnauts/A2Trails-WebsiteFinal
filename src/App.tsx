@@ -363,17 +363,19 @@ const Navbar = () => {
                 className="h-[60px] w-auto" 
               />
             </Link>
-            <a
-              href="/a2gardens"
-              className="flex items-center opacity-90 hover:opacity-100 transition-opacity"
-              aria-label="A2Gardens - Architectural Landscape & Garden Engineering Brussels"
-            >
-              <img
-                src={getAssetPath('a2gardens/images/logoa2gardernspng.png')}
-                alt="A2Gardens - Architectural Landscape & Garden Engineering Brussels"
-                className="h-[40px] w-auto object-contain"
-              />
-            </a>
+            {!isCroatian && (
+              <a
+                href="/a2gardens"
+                className="flex items-center opacity-90 hover:opacity-100 transition-opacity"
+                aria-label="A2Gardens - Architectural Landscape & Garden Engineering Brussels"
+              >
+                <img
+                  src={getAssetPath('a2gardens/images/logoa2gardernspng.png')}
+                  alt="A2Gardens - Architectural Landscape & Garden Engineering Brussels"
+                  className="h-[40px] w-auto object-contain"
+                />
+              </a>
+            )}
           </div>
           
           {/* Desktop Nav */}

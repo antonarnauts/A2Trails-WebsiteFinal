@@ -2,11 +2,12 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-// Ensure Croatian is never initialized for non-Croatian browsers or Belgian IPs
+// Ensure Croatian is never initialized for non-Croatian browsers or Belgian IPs (unless unlocked)
 if (typeof window !== 'undefined') {
   try {
+    const isUnlocked = localStorage.getItem('a2_hr_unlocked') === 'true' || window.location.search.includes('unlock=hr');
     const rawLng = localStorage.getItem('i18nextLng');
-    if (rawLng && rawLng.toLowerCase().startsWith('hr')) {
+    if (rawLng && rawLng.toLowerCase().startsWith('hr') && !isUnlocked) {
       const nav = navigator;
       const locale = (nav.language || (nav as any).userLanguage || (nav as any).browserLanguage || '').toLowerCase();
       const isCroBrowser = locale.startsWith('hr') || (Array.isArray(nav.languages) && nav.languages.some(l => l.toLowerCase().startsWith('hr')));
@@ -2761,7 +2762,7 @@ Références
               },
               cta: {
                 title: "Stručni savjeti",
-                subtitle: "Želite pokrenuti projekt izgradnje biciklističke infrastrukture, ali ne znate odakle početi? Naš tim pružit će vam stručnu podršku u svim fazama projekta.",
+                subtitle: "Želite pokrenuti projekt izgradnje biciklističke infrastrukture, ali ne znate odakle početi? Naš tim će vam pružiti stručnu podršku u svim fazama projekta.",
                 button: "Zatražite konzultacije"
               }
             },
@@ -2853,7 +2854,7 @@ Références
                 features: [
                   "Tehničke prepreke",
                   "Elementi za vježbanje ravnoteže",
-                  "Elementi različitih razina zahtijvnosti",
+                  "Elementi različitih razina zahtjevnosti",
                   "Sigurno okruženje za razvoj vještina",
                   "Drveni elementi i konstrukcije",
                   "Prepreke prilagođene početnicima i iskusnijim biciklistima"
@@ -3002,7 +3003,7 @@ Références
             warranty: {
               title: "3. Jamstvo i održavanje",
               text: "Stojimo iza kvalitete naših građevina. Naša jamstvena struktura je sljedeća:",
-              limited: "Trogodišnje ograničeno jamstvo: Tvrtka daje trogodišnje jamstvo na nedostatke u izradi i nekonstrukcijske elemente (npr. specifična oštećenja podloge ili manja podešavanja odvodnje), pod uvjetom da se staza održava u skladu s našim Priručnikom za održavanje.",
+              limited: "Trogodišnje ograničeno jamstvo: Tvrtka daje trogodišnje jamstvo na nedostatke u izradi i nekonstrukcijske elemente (npr. specifična oštećenja podloge ili manja prilagođavanja odvodnje), pod uvjetom da se staza održava u skladu s našim Priručnikom za održavanje.",
               structural: "Konstrukcijska cjelovitost: U skladu sa zakonom, odgovornost za temeljnu stabilnost većih zemljanih radova i konstrukcija traje 10 godina.",
               exclusions: "Isključenja: Ovo jamstvo ne pokriva štetu uzrokovanu prirodnim nepogodama (viša sila), nedostatkom redovitog održavanja ili neovlaštenim preinakama koje je izvršio Klijent."
             },

@@ -40,9 +40,13 @@ const STORAGE_KEYS = {
 export function isCroatianUnlocked(): boolean {
   if (typeof window === 'undefined') return false;
   try {
-    // Check URL query param ?unlock=hr or ?unlock=0
-    const urlParams = new URLSearchParams(window.location.search);
-    const unlockParam = urlParams.get('unlock');
+    // Check URL query param ?unlock=hr in search or inside hash
+    const searchParams = new URLSearchParams(window.location.search);
+    let unlockParam = searchParams.get('unlock');
+    if (!unlockParam && window.location.hash.includes('?')) {
+      const hashQuery = window.location.hash.split('?')[1];
+      unlockParam = new URLSearchParams(hashQuery).get('unlock');
+    }
     if (unlockParam === 'hr') {
       localStorage.setItem(STORAGE_KEYS.UNLOCKED_HR, 'true');
       return true;
