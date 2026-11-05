@@ -6,7 +6,7 @@ import { useTranslation, Trans } from "react-i18next";
 import SEO from "./components/SEO";
 import InsightsCarousel from "./components/InsightsCarousel";
 import { getAssetPath } from './lib/utils';
-import { getLanguageFromPath, getLocalizedPath, stripLanguagePrefix, isSupportedLanguage, SupportedLanguage } from './lib/i18nRouting';
+import { getLanguageFromPath, getLocalizedPath, stripLanguagePrefix, isSupportedLanguage, SupportedLanguage, DEFAULT_LANGUAGE } from './lib/i18nRouting';
 import {
   detectAndStoreDeviceInfo,
   fetchAndStoreRegionInfo,
@@ -14,6 +14,7 @@ import {
   getStoredManualPreference,
   setManualLanguagePreference,
   resolveSmartHybridLanguage,
+  isCroatianAllowed,
 } from './lib/geoLanguage';
 import { trackShieldedPageView, isLikelyBot } from "./lib/botProtection";
 
@@ -140,6 +141,16 @@ const LanguageRouteSync = () => {
 
     if (langFromPath) {
       // Path already has a language code (e.g. /nl/projects, /fr, /hr, /en)
+      if (langFromPath === 'hr' && !isCroatianAllowed()) {
+        const fallbackLang = DEFAULT_LANGUAGE;
+        const currentClean = stripLanguagePrefix(pathname);
+        const targetPath = getLocalizedPath(currentClean, fallbackLang) + (search || '') + safeAnchor;
+        navigate(targetPath, { replace: true });
+        if (i18n.language !== fallbackLang) {
+          i18n.changeLanguage(fallbackLang);
+        }
+        return;
+      }
       if (i18n.language !== langFromPath) {
         i18n.changeLanguage(langFromPath);
       }
@@ -186,13 +197,14 @@ const LanguageDropdown = ({ className = '', direction = 'down' }: LanguageDropdo
   const currentCleanPath = stripLanguagePrefix(location.pathname);
 
   const isCroatian = i18n.language?.startsWith('hr');
+  const canShowCroatian = isCroatian || isCroatianAllowed();
 
-  const languages = isCroatian
+  const languages = canShowCroatian
     ? [
-        { code: 'hr', short: 'HR' },
         { code: 'en', short: 'EN' },
         { code: 'nl', short: 'NL' },
         { code: 'fr', short: 'FR' },
+        { code: 'hr', short: 'HR' },
       ]
     : [
         { code: 'en', short: 'EN' },

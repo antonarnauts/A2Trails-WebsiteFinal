@@ -31,7 +31,31 @@ const STORAGE_KEYS = {
   REGION: 'a2_region',
   MANUAL_PREF: 'a2_manual_lang',
   RESOLVED_LANG: 'a2_resolved_lang',
+  UNLOCKED_HR: 'a2_hr_unlocked',
 };
+
+/**
+ * Checks if Croatian has been unlocked via query parameter or stored secret override
+ */
+export function isCroatianUnlocked(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    // Check URL query param ?unlock=hr or ?unlock=0
+    const urlParams = new URLSearchParams(window.location.search);
+    const unlockParam = urlParams.get('unlock');
+    if (unlockParam === 'hr') {
+      localStorage.setItem(STORAGE_KEYS.UNLOCKED_HR, 'true');
+      return true;
+    }
+    if (unlockParam === '0' || unlockParam === 'false' || unlockParam === 'lock') {
+      localStorage.removeItem(STORAGE_KEYS.UNLOCKED_HR);
+      return false;
+    }
+    return localStorage.getItem(STORAGE_KEYS.UNLOCKED_HR) === 'true';
+  } catch {
+    return false;
+  }
+}
 
 // 7 days cache for IP region to avoid excessive requests
 const REGION_CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
@@ -126,11 +150,14 @@ export function isBelgianRegion(region: RegionInfo | null): boolean {
 /**
  * Validates whether the Croatian version is allowed to open or be displayed.
  * Strict conditions:
- * 1. Must be opened in a Croatian browser (isCroatianBrowser).
- * 2. Must NEVER be from a Belgian IP address (BE).
- * 3. In no other situation.
+ * 1. Must be unlocked via secret query parameter or stored token (isCroatianUnlocked).
+ * OR:
+ * 2. Must be opened in a Croatian browser (isCroatianBrowser) AND NEVER be from a Belgian IP address (BE).
  */
 export function isCroatianAllowed(region: RegionInfo | null = getStoredRegionInfo()): boolean {
+  if (isCroatianUnlocked()) {
+    return true;
+  }
   if (!isCroatianBrowser()) {
     return false;
   }
@@ -319,7 +346,7 @@ export function resolveSmartHybridLanguage(
   // 1. Manual user override is strictly prioritized, UNLESS it is Croatian and forbidden
   const manual = getStoredManualPreference();
   if (manual) {
-    if (manual === 'hr' && (!isCroatianBrowser() || isBE)) {
+    if (manual === 'hr' && !isCroatianAllowed(region)) {
       if (typeof window !== 'undefined') {
         try {
           localStorage.removeItem(STORAGE_KEYS.MANUAL_PREF);
