@@ -14,11 +14,22 @@ import { Layers, Calendar, Mail } from 'lucide-react';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { getAssetPath } from '../lib/utils';
 import SEO from '../components/SEO';
+import { initA2GardensPixel, trackA2GardensPixel } from './lib/metaPixel';
 
 function A2GardensContent() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
   const { currentLanguage, t } = useLanguage();
   const logoUrl = getAssetPath('a2gardens/images/logoa2gardernspng.png');
+
+  // Initialize Meta Pixel for A2Gardens
+  useEffect(() => {
+    initA2GardensPixel();
+  }, []);
+
+  // Track PageView on internal A2Gardens page switches
+  useEffect(() => {
+    trackA2GardensPixel('PageView');
+  }, [currentPage]);
 
   const seoTitle =
     currentLanguage === 'nl'

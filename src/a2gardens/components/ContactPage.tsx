@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Project, ContactFormData } from '../types';
 import { Mail, Phone, MapPin, CheckCircle, AlertCircle, Send, ArrowUpRight, Clock, ShieldCheck, Sparkles, Building2 } from 'lucide-react';
 import { useForm, ValidationError } from '@formspree/react';
+import { trackA2GardensPixel } from '../lib/metaPixel';
 
 interface ContactPageProps {
   preselectedProject?: Project | null;
@@ -36,6 +37,15 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
       }));
     }
   }, [preselectedProject]);
+
+  useEffect(() => {
+    if (formspreeState.succeeded) {
+      trackA2GardensPixel('Lead', {
+        content_name: 'A2Gardens Consultation Request',
+        status: 'submitted',
+      });
+    }
+  }, [formspreeState.succeeded]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
