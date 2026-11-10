@@ -21,13 +21,19 @@ function A2GardensContent() {
   const { currentLanguage, t } = useLanguage();
   const logoUrl = getAssetPath('a2gardens/images/logoa2gardernspng.png');
 
-  // Initialize Meta Pixel for A2Gardens
+  const isFirstRender = React.useRef(true);
+
+  // Initialize Meta Pixel for A2Gardens (if navigating client-side from A2Trails)
   useEffect(() => {
     initA2GardensPixel();
   }, []);
 
-  // Track PageView on internal A2Gardens page switches
+  // Track PageView only on subsequent internal A2Gardens page switches
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
     trackA2GardensPixel('PageView');
   }, [currentPage]);
 

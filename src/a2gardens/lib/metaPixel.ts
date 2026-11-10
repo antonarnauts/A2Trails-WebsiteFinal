@@ -12,11 +12,14 @@ declare global {
 
 export const A2GARDENS_PIXEL_ID = '29655244417392847';
 
+let isInitialized = false;
+
 /**
- * Initializes Meta Pixel for A2Gardens if not already loaded.
+ * Initializes Meta Pixel for A2Gardens if not already loaded in static HTML.
  */
 export function initA2GardensPixel(): void {
   if (typeof window === 'undefined') return;
+  if (isInitialized) return;
 
   if (!window.fbq) {
     const f: any = window;
@@ -47,18 +50,19 @@ export function initA2GardensPixel(): void {
     }
 
     f.fbq = n;
+    try {
+      window.fbq('init', A2GARDENS_PIXEL_ID);
+      window.fbq('track', 'PageView');
+    } catch (err) {
+      console.warn('Meta Pixel init error:', err);
+    }
   }
 
-  try {
-    window.fbq('init', A2GARDENS_PIXEL_ID);
-    window.fbq('track', 'PageView');
-  } catch (err) {
-    console.warn('Meta Pixel init error:', err);
-  }
+  isInitialized = true;
 }
 
 /**
- * Tracks a custom event or standard PageView for A2Gardens
+ * Tracks a custom event or PageView for A2Gardens
  */
 export function trackA2GardensPixel(eventName: string, params?: Record<string, any>): void {
   if (typeof window === 'undefined') return;
