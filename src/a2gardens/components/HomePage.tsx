@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PageType, ContactFormData } from '../types';
 import { 
   ArrowRight, 
@@ -23,6 +23,7 @@ import { BeforeAfterSlider } from './BeforeAfterSlider';
 import { getLocalizedProjects } from '../data/projects';
 import { getAssetPath } from '../../lib/utils';
 import { useForm } from '@formspree/react';
+import { trackA2GardensPixel } from '../lib/metaPixel';
 
 interface HomePageProps {
   onNavigate?: (page: PageType) => void;
@@ -69,6 +70,16 @@ export const HomePage: React.FC<HomePageProps> = () => {
   });
 
   const [formError, setFormError] = useState<string | null>(null);
+
+  // Track Lead event in Meta Pixel when contact inquiry succeeds
+  useEffect(() => {
+    if (formspreeState.succeeded) {
+      trackA2GardensPixel('Lead', {
+        content_name: 'A2Gardens Consultation Request',
+        status: 'submitted',
+      });
+    }
+  }, [formspreeState.succeeded]);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
