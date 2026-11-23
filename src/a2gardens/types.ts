@@ -44,6 +44,7 @@ export interface ContactFormData {
   name: string;
   email: string;
   phone: string;
+  contactMethod: string;
   projectType: string;
   location: string;
   area: string;

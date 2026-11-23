@@ -61,6 +61,7 @@ export const HomePage: React.FC<HomePageProps> = () => {
     name: '',
     email: '',
     phone: '',
+    contactMethod: '',
     projectType: 'city_garden',
     location: 'Ixelles',
     area: '',
@@ -108,8 +109,8 @@ export const HomePage: React.FC<HomePageProps> = () => {
       setFormError(t.contactSection.errorEmail);
       return;
     }
-    if (!formData.message.trim()) {
-      setFormError(t.contactSection.errorMessage);
+    if (!formData.contactMethod.trim()) {
+      setFormError(t.contactSection.errorContactMethod);
       return;
     }
 
@@ -119,7 +120,7 @@ export const HomePage: React.FC<HomePageProps> = () => {
   const directMailtoUrl = `mailto:antonarnauts@a2trails.com?subject=${encodeURIComponent(
     `[A2Gardens] ${formData.name} - ${formData.projectType.toUpperCase()} (${formData.location})`
   )}&body=${encodeURIComponent(
-    `Anton,\n\nNaam / Name: ${formData.name}\nE-mail: ${formData.email}\nTel: ${formData.phone}\nType: ${formData.projectType}\nGemeente / Commune: ${formData.location}\nOppervlakte / Area: ${formData.area}\n\nBericht / Details:\n${formData.message}\n`
+    `Anton,\n\nNaam / Name: ${formData.name}\nE-mail: ${formData.email}\nTel: ${formData.phone}\nPreferred Contact: ${formData.contactMethod}\nType: ${formData.projectType}\nGemeente / Commune: ${formData.location}\nOppervlakte / Area: ${formData.area}\n\nBericht / Details:\n${formData.message}\n`
   )}`;
 
   // 4 Solutions Tailored to You
@@ -260,54 +261,9 @@ export const HomePage: React.FC<HomePageProps> = () => {
       </section>
 
       {/* =========================================================================
-          SECTION 3: OUR ARCHITECTURAL JOURNEY (ID="METHODOLOGY")
+          SECTION 3: BEFORE & AFTER PROJECTS (ID="PROJECTS")
          ========================================================================= */}
-      <section id="methodology" className="py-20 sm:py-24 bg-[#080c09] border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white font-display">
-              {t.methodology.title}
-            </h2>
-            <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
-              {t.methodology.subtitle}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {methodologySteps.map((step, idx) => (
-              <div
-                key={idx}
-                className="bg-[#0f1712] rounded-2xl border border-white/5 hover:border-[#10b981]/30 transition-all group overflow-hidden flex flex-col justify-between p-8 sm:p-10 h-full"
-              >
-                <div>
-                  <div className="mb-6 group-hover:scale-105 transition-transform">
-                    {step.icon}
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-4 text-white font-display">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-400 mb-8 leading-relaxed text-xs sm:text-sm">
-                    {step.description}
-                  </p>
-                </div>
-
-                <button
-                  onClick={() => scrollTo('contact')}
-                  className="inline-flex items-center text-[#10b981] font-bold group-hover:underline gap-2 mt-auto text-xs uppercase tracking-wider cursor-pointer"
-                >
-                  <span>{t.methodology.learnMore}</span>
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 4: BEFORE & AFTER PROJECTS (ID="PROJECTS")
-         ========================================================================= */}
-      <section id="projects" className="py-20 sm:py-28 bg-[#0a0e0b] relative border-b border-white/5">
+      <section id="projects" className="py-20 sm:py-28 bg-[#080c09] relative border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto space-y-4">
@@ -374,6 +330,51 @@ export const HomePage: React.FC<HomePageProps> = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 4: OUR ARCHITECTURAL JOURNEY (ID="METHODOLOGY")
+         ========================================================================= */}
+      <section id="methodology" className="py-20 sm:py-24 bg-[#0a0e0b] border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white font-display">
+              {t.methodology.title}
+            </h2>
+            <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
+              {t.methodology.subtitle}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {methodologySteps.map((step, idx) => (
+              <div
+                key={idx}
+                className="bg-[#0f1712] rounded-2xl border border-white/5 hover:border-[#10b981]/30 transition-all group overflow-hidden flex flex-col justify-between p-8 sm:p-10 h-full"
+              >
+                <div>
+                  <div className="mb-6 group-hover:scale-105 transition-transform">
+                    {step.icon}
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-4 text-white font-display">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-400 mb-8 leading-relaxed text-xs sm:text-sm">
+                    {step.description}
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => scrollTo('contact')}
+                  className="inline-flex items-center text-[#10b981] font-bold group-hover:underline gap-2 mt-auto text-xs uppercase tracking-wider cursor-pointer"
+                >
+                  <span>{t.methodology.learnMore}</span>
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </button>
               </div>
             ))}
           </div>
@@ -574,6 +575,7 @@ export const HomePage: React.FC<HomePageProps> = () => {
                           name: '',
                           email: '',
                           phone: '',
+                          contactMethod: '',
                           projectType: 'terrace',
                           location: 'Ixelles',
                           area: '',
@@ -706,6 +708,25 @@ export const HomePage: React.FC<HomePageProps> = () => {
                   </div>
 
                   <div>
+                    <label htmlFor="contact-method" className="block text-xs font-medium text-[#c4d7cc] mb-1.5">
+                      {t.contactSection.contactMethodLabel}
+                    </label>
+                    <select
+                      id="contact-method"
+                      name="contactMethod"
+                      required
+                      value={formData.contactMethod}
+                      onChange={handleFormChange}
+                      className="w-full bg-[#111913] border border-[#1d3525] focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] rounded-lg px-3.5 py-2.5 text-sm text-white outline-none transition-colors cursor-pointer"
+                    >
+                      <option value="" disabled>{t.contactSection.contactMethodPlaceholder}</option>
+                      <option value="Email">{t.contactSection.contactMethods.email}</option>
+                      <option value="Call">{t.contactSection.contactMethods.call}</option>
+                      <option value="WhatsApp">{t.contactSection.contactMethods.whatsapp}</option>
+                    </select>
+                  </div>
+
+                  <div>
                     <label htmlFor="contact-message" className="block text-xs font-medium text-[#c4d7cc] mb-1.5">
                       {t.contactSection.messageLabel}
                     </label>
@@ -713,7 +734,6 @@ export const HomePage: React.FC<HomePageProps> = () => {
                       id="contact-message"
                       name="message"
                       rows={4}
-                      required
                       value={formData.message}
                       onChange={handleFormChange}
                       placeholder={t.contactSection.messagePlaceholder}

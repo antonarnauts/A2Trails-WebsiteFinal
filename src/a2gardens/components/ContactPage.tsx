@@ -14,6 +14,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
     name: '',
     email: '',
     phone: '',
+    contactMethod: '',
     projectType: preselectedProject?.category || 'terrace',
     location: preselectedProject?.commune || 'Ixelles',
     area: preselectedProject?.surfaceArea || '',
@@ -68,8 +69,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
       setFormError('Please provide a valid email address.');
       return;
     }
-    if (!formData.message.trim()) {
-      setFormError('Please enter a brief message describing your garden, terrace, or balcony.');
+    if (!formData.contactMethod.trim()) {
+      setFormError('Please select how you want to be contacted.');
       return;
     }
 
@@ -79,7 +80,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
   const directMailtoUrl = `mailto:antonarnauts@a2trails.com?subject=${encodeURIComponent(
     `[A2Gardens Inquiry] ${formData.name} - ${formData.projectType.toUpperCase()} in ${formData.location}`
   )}&body=${encodeURIComponent(
-    `Hi Anton,\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nProject: ${formData.projectType}\nLocation: ${formData.location}\nArea: ${formData.area}\nBudget: ${formData.budget}\nTimeline: ${formData.timeline}\n\nProject Details:\n${formData.message}\n`
+    `Hi Anton,\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nHow to Contact: ${formData.contactMethod}\nProject: ${formData.projectType}\nLocation: ${formData.location}\nArea: ${formData.area}\nBudget: ${formData.budget}\nTimeline: ${formData.timeline}\n\nProject Details:\n${formData.message}\n`
   )}`;
 
   return (
@@ -159,6 +160,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
                       name: '',
                       email: '',
                       phone: '',
+                      contactMethod: '',
                       projectType: 'terrace',
                       location: 'Ixelles',
                       area: '',
@@ -247,7 +249,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
 
                 <div className="space-y-1.5">
                   <label htmlFor="projectType" className="block text-xs font-medium text-[#c0d4c6]">
-                    Project Category <span className="text-[#3ea637]">*</span>
+                    Project Category
                   </label>
                   <select
                     id="projectType"
@@ -270,7 +272,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <label htmlFor="location" className="block text-xs font-medium text-[#c0d4c6]">
-                    Brussels Commune <span className="text-[#3ea637]">*</span>
+                    Brussels Commune
                   </label>
                   <select
                     id="location"
@@ -357,15 +359,34 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
                 </div>
               </div>
 
+              {/* Preferred Contact Method */}
+              <div className="space-y-1.5">
+                <label htmlFor="contactMethod" className="block text-xs font-medium text-[#c0d4c6]">
+                  How do you want to be contacted? <span className="text-[#3ea637]">*</span>
+                </label>
+                <select
+                  id="contactMethod"
+                  name="contactMethod"
+                  required
+                  value={formData.contactMethod}
+                  onChange={handleChange}
+                  className="w-full bg-[#101913] border border-[#1b2d21] rounded-lg px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-[#3ea637] focus:ring-1 focus:ring-[#3ea637] cursor-pointer"
+                >
+                  <option value="" disabled>Select a contact method...</option>
+                  <option value="Email">Email</option>
+                  <option value="Call">Call</option>
+                  <option value="WhatsApp">WhatsApp</option>
+                </select>
+              </div>
+
               {/* Message */}
               <div className="space-y-1.5">
                 <label htmlFor="message" className="block text-xs font-medium text-[#c0d4c6]">
-                  Your Vision or Requirements <span className="text-[#3ea637]">*</span>
+                  Your Vision or Requirements
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  required
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}

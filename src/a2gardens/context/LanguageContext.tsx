@@ -94,6 +94,13 @@ export interface Translations {
     emailPlaceholder: string;
     phoneLabel: string;
     phonePlaceholder: string;
+    contactMethodLabel: string;
+    contactMethodPlaceholder: string;
+    contactMethods: {
+      email: string;
+      call: string;
+      whatsapp: string;
+    };
     spaceTypeLabel: string;
     spaceTypes: {
       city_garden: string;
@@ -113,6 +120,7 @@ export interface Translations {
     directNote: string;
     errorName: string;
     errorEmail: string;
+    errorContactMethod: string;
     errorMessage: string;
     successTitle: string;
     successSubPrefix: string;
@@ -265,7 +273,14 @@ export const TRANSLATIONS: Record<LanguageCode, Translations> = {
       emailPlaceholder: 'marie@example.be',
       phoneLabel: 'Phone Number (Optional)',
       phonePlaceholder: '+32 4...',
-      spaceTypeLabel: 'Space Type *',
+      contactMethodLabel: 'How do you want to be contacted? *',
+      contactMethodPlaceholder: 'Select a contact method...',
+      contactMethods: {
+        email: 'Email',
+        call: 'Call',
+        whatsapp: 'WhatsApp',
+      },
+      spaceTypeLabel: 'Space Type',
       spaceTypes: {
         city_garden: 'City Gardens & Patios',
         balcony: 'Balconies',
@@ -273,11 +288,11 @@ export const TRANSLATIONS: Record<LanguageCode, Translations> = {
         terrace: 'Stone Terraces And Driveways',
         villa_garden: 'Villa Gardens',
       },
-      communeLabel: 'Brussels Commune *',
+      communeLabel: 'Brussels Commune',
       otherCommune: 'Other',
       areaLabel: 'Approx. Area (m²)',
       areaPlaceholder: 'e.g. 35 m²',
-      messageLabel: 'Your Vision or Requirements *',
+      messageLabel: 'Your Vision or Requirements',
       messagePlaceholder:
         'Describe your current outdoor space and wish list (paving, greenery, privacy, acoustic calm)...',
       submitting: 'Transmitting to Formspree & Anton Arnauts...',
@@ -285,6 +300,7 @@ export const TRANSLATIONS: Record<LanguageCode, Translations> = {
       directNote: 'Direct notification dispatched to antonarnauts@a2trails.com',
       errorName: 'Please enter your full name.',
       errorEmail: 'Please provide a valid email address.',
+      errorContactMethod: 'Please select how you want to be contacted.',
       errorMessage: 'Please enter a brief message describing your garden, terrace, or balcony.',
       successTitle: 'Project Inquiry Transmitted!',
       successSubPrefix: 'Thank you, ',
@@ -436,7 +452,14 @@ export const TRANSLATIONS: Record<LanguageCode, Translations> = {
       emailPlaceholder: 'marie@voorbeeld.be',
       phoneLabel: 'Telefoonnummer (Optioneel)',
       phonePlaceholder: '+32 4...',
-      spaceTypeLabel: 'Type Buitenruimte *',
+      contactMethodLabel: 'Hoe wilt u gecontacteerd worden? *',
+      contactMethodPlaceholder: 'Kies een contactmethode...',
+      contactMethods: {
+        email: 'E-mail',
+        call: 'Bellen',
+        whatsapp: 'WhatsApp',
+      },
+      spaceTypeLabel: 'Type Buitenruimte',
       spaceTypes: {
         city_garden: 'Stadstuinen & Patio’s',
         balcony: 'Balkons',
@@ -444,11 +467,11 @@ export const TRANSLATIONS: Record<LanguageCode, Translations> = {
         terrace: 'Natuurstenen Terrassen & Opritten',
         villa_garden: 'Villatuinen',
       },
-      communeLabel: 'Brusselse Gemeente *',
+      communeLabel: 'Brusselse Gemeente',
       otherCommune: 'Andere gemeente',
       areaLabel: 'Geschatte Oppervlakte (m²)',
       areaPlaceholder: 'bijv. 35 m²',
-      messageLabel: 'Uw Visie of Wensen *',
+      messageLabel: 'Uw Visie of Wensen',
       messagePlaceholder:
         'Beschrijf uw huidige buitenruimte en uw wensen (terras, beplanting, pergola, privacy, verlichting, drainage)...',
       submitting: 'Aanvraag verzenden naar Anton Arnauts...',
@@ -456,6 +479,7 @@ export const TRANSLATIONS: Record<LanguageCode, Translations> = {
       directNote: 'Rechtstreekse melding naar antonarnauts@a2trails.com',
       errorName: 'Vul alstublieft uw volledige naam in.',
       errorEmail: 'Vul alstublieft een geldig e-mailadres in.',
+      errorContactMethod: 'Kies alstublieft hoe u gecontacteerd wilt worden.',
       errorMessage: 'Geef alstublieft een korte beschrijving van uw tuin, terras of balkon.',
       successTitle: 'Projectaanvraag Goed Ontvangen!',
       successSubPrefix: 'Hartelijk dank, ',
@@ -607,7 +631,14 @@ export const TRANSLATIONS: Record<LanguageCode, Translations> = {
       emailPlaceholder: 'marie@exemple.be',
       phoneLabel: 'Téléphone (Optionnel)',
       phonePlaceholder: '+32 4...',
-      spaceTypeLabel: 'Type d’Espace *',
+      contactMethodLabel: 'Comment souhaitez-vous être contacté ? *',
+      contactMethodPlaceholder: 'Choisissez un mode de contact...',
+      contactMethods: {
+        email: 'E-mail',
+        call: 'Appel',
+        whatsapp: 'WhatsApp',
+      },
+      spaceTypeLabel: 'Type d’Espace',
       spaceTypes: {
         city_garden: 'Jardins de Ville & Patios',
         balcony: 'Balcons',
@@ -615,11 +646,11 @@ export const TRANSLATIONS: Record<LanguageCode, Translations> = {
         terrace: 'Terrasses en Pierre & Allées',
         villa_garden: 'Jardins de Villa',
       },
-      communeLabel: 'Commune Bruxelloise *',
+      communeLabel: 'Commune Bruxelloise',
       otherCommune: 'Autre commune',
       areaLabel: 'Surface Approx. (m²)',
       areaPlaceholder: 'ex. 35 m²',
-      messageLabel: 'Votre Vision ou Vos Besoins *',
+      messageLabel: 'Votre Vision ou Vos Besoins',
       messagePlaceholder:
         'Décrivez votre espace extérieur actuel et vos souhaits (pavage, végétation, intimité, calme acoustique)...',
       submitting: 'Envoi en cours à Anton Arnauts...',
@@ -627,6 +658,7 @@ export const TRANSLATIONS: Record<LanguageCode, Translations> = {
       directNote: 'Notification directe envoyée à antonarnauts@a2trails.com',
       errorName: 'Veuillez entrer votre nom complet.',
       errorEmail: 'Veuillez fournir une adresse e-mail valide.',
+      errorContactMethod: 'Veuillez sélectionner comment vous souhaitez être contacté.',
       errorMessage: 'Veuillez décrire brièvement votre jardin, terrasse ou balcon.',
       successTitle: 'Demande de Projet Envoyée !',
       successSubPrefix: 'Merci, ',
