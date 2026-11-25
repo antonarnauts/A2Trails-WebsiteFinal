@@ -137,6 +137,7 @@ export interface Translations {
     openEmailApp: string;
     sendAnother: string;
     detailsTitle: string;
+    phoneTitle: string;
     emailTitle: string;
     officeTitle: string;
     officeAddress: string;
@@ -317,6 +318,7 @@ export const TRANSLATIONS: Record<LanguageCode, Translations> = {
       openEmailApp: 'Open in Your Email App',
       sendAnother: 'Send Another Inquiry',
       detailsTitle: 'Contact Details',
+      phoneTitle: 'Office phone',
       emailTitle: 'Email',
       officeTitle: 'Registered Office',
       officeAddress: 'Mariemontkaai 15, 1080 Brussel, Belgium',
@@ -496,6 +498,7 @@ export const TRANSLATIONS: Record<LanguageCode, Translations> = {
       openEmailApp: 'Open in Uw E-mailprogramma',
       sendAnother: 'Nieuwe Aanvraag Indienen',
       detailsTitle: 'Contactgegevens',
+      phoneTitle: 'Kantoortelefoon',
       emailTitle: 'E-mailadres',
       officeTitle: 'Maatschappelijke Zetel',
       officeAddress: 'Mariemontkaai 15, 1080 Brussel, België',
@@ -675,6 +678,7 @@ export const TRANSLATIONS: Record<LanguageCode, Translations> = {
       openEmailApp: 'Ouvrir dans Votre Messagerie',
       sendAnother: 'Envoyer une Autre Demande',
       detailsTitle: 'Coordonnées',
+      phoneTitle: 'Téléphone du bureau',
       emailTitle: 'E-mail',
       officeTitle: 'Siège Social',
       officeAddress: 'Quai de Mariemont 15, 1080 Bruxelles, Belgique',

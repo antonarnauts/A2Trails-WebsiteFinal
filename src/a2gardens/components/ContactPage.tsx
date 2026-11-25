@@ -445,6 +445,19 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProject }) 
 
             <div className="space-y-4 text-xs">
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#0f1712] border border-[#182a1f]">
+                <Phone className="w-4 h-4 text-[#3ea637] shrink-0 mt-0.5" />
+                <div>
+                  <span className="text-[#7d9686] block text-[11px]">Office phone</span>
+                  <a
+                    href="tel:+32499975706"
+                    className="text-white hover:text-[#3ea637] font-mono font-medium transition-colors"
+                  >
+                    +32 499 97 57 06
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#0f1712] border border-[#182a1f]">
                 <Mail className="w-4 h-4 text-[#3ea637] shrink-0 mt-0.5" />
                 <div>
                   <span className="text-[#7d9686] block text-[11px]">Email</span>

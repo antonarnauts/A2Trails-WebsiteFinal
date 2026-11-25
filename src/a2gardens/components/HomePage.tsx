@@ -13,6 +13,7 @@ import {
   AlertCircle,
   Send,
   Mail,
+  Phone,
   Calendar,
   Sparkles,
   Clock,
@@ -775,6 +776,19 @@ export const HomePage: React.FC<HomePageProps> = () => {
                 </h3>
 
                 <div className="space-y-5 text-sm">
+                  <div className="flex items-start gap-3">
+                    <Phone className="w-5 h-5 text-[#10b981] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-xs text-gray-400 block mb-0.5">{t.contactSection.phoneTitle}</span>
+                      <a
+                        href="tel:+32499975706"
+                        className="text-white hover:text-[#10b981] font-mono text-sm transition-colors"
+                      >
+                        +32 499 97 57 06
+                      </a>
+                    </div>
+                  </div>
+
                   <div className="flex items-start gap-3">
                     <Mail className="w-5 h-5 text-[#10b981] shrink-0 mt-0.5" />
                     <div>
